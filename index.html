@@ -1804,44 +1804,52 @@ plied scientific research with innovation and entrepreneurship..</li>
 
             </div>
 
+
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-              <form action="https://formspree.io/f/mgejvnww" method="POST" role="form"
-                class="php-email-form">
+              <form name="gform" id="gform" class="form" action="https://docs.google.com/forms/d/e/1FAIpQLSftHTXBY8-bmgmpnIbUCBXDTbv9GDPDAJUbVk9TBzj62_8TzQ/formResponse" target="hidden_iframe" onsubmit="return submitForm();">
                 <div class="row">
-                  <div class="form-group col-md-6">
+                  <div class="form-outline mb-4">
                     <label for="name">Your Name</label>
-                    <input type="text" name="name" class="form-control"
-                      id="name" required>
+                    <input type="text" name="entry.1312125580" class="form-control"
+                      id="entry.1312125580" required>
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-outline mb-4">
                     <label for="name">Your Email</label>
-                    <input type="email" class="form-control" name="email"
-                      id="email" required>
+                    <input type="email" class="form-control" name="entry.906047473"
+                      id="entry.906047473" required>
                   </div>
                 </div>
-                <div class="form-group">
+                <div  class="form-outline mb-4">
                   <label for="name">Subject</label>
-                  <input type="text" class="form-control" name="subject"
-                    id="subject" required>
+                  <input type="text" class="form-control" name="entry.1661175821"
+                    id="entry.1661175821" required>
                 </div>
-                <div class="form-group">
+                <div  class="form-outline mb-4">
                   <label for="name">Message</label>
-                  <textarea class="form-control" name="message" rows="10"
+                  <textarea class="form-control" name="entry.845402219" rows="10" id="entry.845402219"
                     required></textarea>
                 </div>
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank
-                    you!</div>
-                </div>
-                <div class="text-center"><button type="submit">Send Message</button></div>
+                <div class="text-center"> <button type="submit" class="btn btn-primary btn-block mb-4">Send Message</button></div>
+                
+
               </form>
+
+              <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="onHiddenIframeLoad();"></iframe>
+
+              <!-- Message container to show the success message -->
+              <div id="messageContainer"></div>
+
+              <script src="assets/js/jquery.min.js"></script>
+              <script type="text/javascript">
+                function submitForm() {
+                  // Example: Show a success message as a pop-up
+                  var message = 'Thank you for your email!';
+                  alert(message);
+                  
+                  return true; // Allow the form submission to proceed
+                }
+              </script>
             </div>
-
-          </div>
-
-        </div>
       </section><!-- End Contact Section -->
 
     </main><!-- End #main -->

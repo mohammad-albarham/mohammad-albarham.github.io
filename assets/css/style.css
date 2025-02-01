@@ -527,6 +527,25 @@ section {
   border: 2px solid #1f5297;
 }
 
+.resume .resume-item.current::before {
+
+  background: #21971f;
+
+}
+
+/* Custome css for resume */
+
+.icon-header {
+  display: flex;
+  align-items: center; /* Align the icon and text vertically */
+  gap: 10px; /* Space between icon and text */
+}
+
+.header-icon {
+  width: 50px; /* Adjust icon size */
+  height: auto;
+}
+
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
@@ -691,6 +710,17 @@ section {
 
 .portfolio-details .portfolio-description p {
   padding: 0;
+}
+
+.custom-portfolio-slider {
+  max-width: 300px; /* Set the desired maximum width */
+  margin: 0 auto;   /* Center the container */
+}
+
+.custom-portfolio-slider img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /*--------------------------------------------------------------

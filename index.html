@@ -2151,6 +2151,7 @@ organization={IEEE}
         <!-- ======= Footer ======= -->
         <footer id="footer">
           <div class="container">
+
             <div class="copyright">
               &copy; Copyright <strong><span>iPortfolio</span></strong>
             </div>
@@ -2162,7 +2163,24 @@ organization={IEEE}
               Designed by <a
                 href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
+            <div class="copyright">
+              <p>Latest update: <span id="current-date"></span></p>
+            </div>
+
+            <script>
+                // Get the current date
+                const today = new Date();
+                
+                // Format the date (e.g., YYYY-MM-DD)
+                const formattedDate = today.getFullYear() + '-' + 
+                                      String(today.getMonth() + 1).padStart(2, '0') + '-' +
+                                      String(today.getDate()).padStart(2, '0');
+
+                // Insert into the HTML
+                document.getElementById('current-date').textContent = formattedDate;
+            </script>
           </div>
+
         </footer><!-- End  Footer -->
 
         <a href="#"

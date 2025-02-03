@@ -1,0 +1,21 @@
+name: Generate Sitemap
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the main branch
+  schedule:
+    - cron: '0 0 * * 0'  # Scheduled to run weekly
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Generate Sitemap
+        uses: cicirello/generate-sitemap@v3
+        with:
+          base-url: 'https://mohammad-albarham.github.io'
+          include-robots-txt: true

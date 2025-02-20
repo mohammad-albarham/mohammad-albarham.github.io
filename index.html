@@ -74,33 +74,28 @@
     <!-- ======= Mobile nav toggle button ======= -->
     <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
-    <!-- ======= Header ======= -->
     <header id="header">
-      <div class="d-flex flex-column">
+      <div class="pheader">
+        <div id="particles-js"></div>
+        <!-- Particle Background, adapted from https://www.mit.edu/~amini-->
+      </div>
 
+      <div class="d-flex flex-column">
         <div class="profile">
           <img src="assets/img/profile-img.jpg" alt
             class="img-fluid rounded-circle">
-          <h1 class="text-light"><a href="index.html">MOHAMMAD
-              ALBARHAM</a></h1>
+          <h1 class="text-light"><a href="index.html">MOHAMMAD ALBARHAM</a></h1>
           <div class="social-links mt-3 text-center">
-            <!-- <a href="https://twitter.com/" class="twitter"><i class="bx bxl-twitter"></i></a> -->
-            <!-- <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a> -->
-            <!-- <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a> -->
-            <!-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
             <a href="https://www.linkedin.com/in/muhammad-al-barham/"
               class="linkedin"><i class="bx bxl-linkedin"></i></a>
             <a href="https://github.com/mohammad-albarham" class="github"><i
                 class="bx bxl-github"></i></a>
-            <!-- <a href="https://github.com/mohammad-albarham" class="m-1"><i
-                class="bi-globe"></i></a> -->
             <a
-              href="https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en">
-              <i
+              href="https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en"><i
                 class="ai ai-google-scholar-square ai-1x"></i></a>
             <a href="https://huggingface.co/pain"> <object
-                data="assets/img/hf-logo.svg" width="17" height="17">
-              </object></a>
+                data="assets/img/hf-logo.svg" width="17"
+                height="17"></object></a>
           </div>
         </div>
 
@@ -109,32 +104,26 @@
             <li><a href="#hero" class="nav-link scrollto active"><i
                   class="bx bx-home"></i> <span>Home</span></a></li>
             <li><a href="#about" class="nav-link scrollto"><i
-                  class="bx bx-user"></i>
-                <span>About</span></a></li>
-            <!-- <li><a href="#skills" class="nav-link scrollto"><i
-                  class="bx bx-user"></i>
-                <span>Skills</span></a></li> -->
+                  class="bx bx-user"></i><span>About</span></a></li>
             <li><a href="#resume" class="nav-link scrollto"><i
                   class="bx bx-file-blank"></i> <span>Resume</span></a></li>
             <li><a href="#certifications" class="nav-link scrollto"><i
-                  class="bx bx-file-blank"></i>
-                <span>Certifications</span></a></li>
+                  class="bx bx-file-blank"></i><span>Certifications</span></a></li>
             <li><a href="#projects" class="nav-link scrollto"><i
                   class="bx bx-file-blank"></i> <span>Projects</span></a></li>
             <li><a href="#publications" class="nav-link scrollto"><i
-                  class="bx bx-book-content"></i>
-                <span>Publications</span></a></li>
+                  class="bx bx-book-content"></i><span>Publications</span></a></li>
             <li><a href="#volunteering" class="nav-link scrollto"><i
-                  class="bx bx-book-content"></i>
-                <span>Volunteering</span></a></li>
-            <!-- <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li> -->
+                  class="bx bx-book-content"></i><span>Volunteering</span></a></li>
             <li><a href="#contact" class="nav-link scrollto"><i
                   class="bx bx-envelope"></i> <span>Contact-Hire
                   Me</span></a></li>
           </ul>
-        </nav><!-- .nav-menu -->
+        </nav>
       </div>
-    </header><!-- End Header -->
+    </header>
+
+    <!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
     <!-- <section id="hero"
@@ -2206,5 +2195,72 @@ organization={IEEE}
           <script src="assets/js/main.js"></script>
 
         </body>
-
+        <script src="https://www.mit.edu/~amini/particles.js"></script>
+        <script>
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 100,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 100,
+                        "color": "#ffffff",
+                        "opacity": 0.3,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 3,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                }
+            });
+        </script>
       </html>

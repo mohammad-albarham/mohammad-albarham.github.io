@@ -173,6 +173,12 @@ h6 {
   z-index: -1;
 }
 
+/* Fix huggingface logo issue */
+
+object {
+  pointer-events: none; /* Prevents object from blocking clicks */
+}
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -1134,7 +1140,7 @@ section {
   bottom: 0;
   width: 300px;
   z-index: 9999;
-  background: #040b14;
+  background: #202020;
 }
 
 #footer .copyright {

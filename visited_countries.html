@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang>
+
+<head>
+  <meta charset="UTF-8">
+
+
+  <link rel="stylesheet" href="/css/stackoverflow-light.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="assets/js/highlight.min.js"></script>
+ 
+
+</head>
+
+<body>
+
+  <main>
+
+    <article>
+
+
+      <h2>travel</h2>
+      <p>Here is a visualization for the countries I have visited so far.</p>
+
+      <p>I've visited <span id="num-countries">X</span>
+        countries on <span id="num-continents">X</span>
+        continents:</p>
+        
+      <div id="map" style="height: 400px;"></div>
+      <table id="country-flags" style="font-family: 'PT Sans', sans-serif;"></table>
+      <link rel="stylesheet" type="text/css" href="assets/css/jquery-jvectormap-1.2.2.css">
+      <!-- <script src="/js/jquery.js"></script> -->
+      <script src="assets/js/jquery-jvectormap-1.2.2.min.js"></script>
+      <script src="assets/js/countries.js"></script>
+      <script src="assets/js/worldmap.js"></script>
+      <script>
+        const flagsElem = document.getElementById("country-flags");
+        let regions = [];
+        let numCountries = 0;
+        let numContinents = 0;
+        for (const [continent, countries] of Object.entries(countriesVisited)) {
+          ++numContinents;
+          // Highlight all countries of this continent on the map.
+          var countryColors = {};
+          for (const c of countries) countryColors[c] = 1;
+          regions.push({
+            values: countryColors,
+            scale: ["#ff00ff", continentColors[continent]],
+            normalizeFunction: 'polynomial',
+          });
+          // Show the flag emoji for each country.
+          const tr = document.createElement('tr');
+          const continentTd = document.createElement('td');
+          continentTd.innerText = continent;
+          continentTd.style.whiteSpace = 'nowrap';
+          tr.appendChild(continentTd);
+          const td = document.createElement('td');
+          countries.sort();
+          for (const countryCode of countries) {
+            ++numCountries;
+            var base = 0xDDE6;
+            let flagEmoji = countryCode.replace(/./g, function (c) {
+              // https://www.fileformat.info/info/unicode/char/1f1e6/index.htm
+              return "\uD83C" + String.fromCharCode(0xDDE6 + c.charCodeAt(0) - 'A'.charCodeAt(0));
+            });
+            const span = document.createElement('span');
+            span.innerText = flagEmoji;
+            span.style.marginLeft = '0.2em';
+            span.style.fontFamily = 'apple color emoji,segoe ui emoji,noto color emoji,android emoji,emojisymbols,emojione mozilla,twemoji mozilla,segoe ui symbol';
+            span.title = countryCode;
+            td.appendChild(span);
+            td.appendChild(document.createTextNode(' '));
+          }
+          tr.appendChild(td);
+          flagsElem.appendChild(tr);
+        }
+        document.getElementById("num-countries").innerHTML = numCountries;
+        document.getElementById("num-continents").innerHTML = numContinents;
+        $('#map').vectorMap({
+          map: 'world_mill_en',
+          backgroundColor: 'white',
+          zoomMax: 6,
+          regionStyle: {
+            initial: {
+              fill: '#aaa',
+              "fill-opacity": 0.9,
+              stroke: 'none',
+              "stroke-width": 0,
+              "stroke-opacity": 1
+            },
+            hover: {
+              "fill-opacity": 1.0,
+            },
+          },
+          series: {
+            regions: regions,
+          },
+        });
+      </script>
+      <p>Made with <a href="https://github.com/bjornd/jvectormap">jVectorMap</a>.</p>
+
+      </div>
+
+
+    </article>
+
+  </main>
+
+  <script>hljs.highlightAll();</script>
+</body>
+
+</html>

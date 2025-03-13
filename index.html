@@ -60,6 +60,12 @@
     <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
 
+    <!-- Map related files-->
+    <link rel="stylesheet" href="/css/stackoverflow-light.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="assets/js/highlight.min.js"></script>
+
     <!-- =======================================================
   * Template Name: iPortfolio
   * Updated: May 30 2023 with Bootstrap v5.3.0
@@ -2311,91 +2317,186 @@ organization={IEEE}
 
                   </section><!-- End Publications Section -->
 
-                  <!-- ======= Contact Section ======= -->
-                  <section id="contact" class="contact">
-                    <div class="container">
+                  <section id="countries-visited" class="portfolio section-bg">
+                    <!-- Adapt the code from: https://www.furidamu.org/about/ -->
+                    <article>
 
-                      <div class="section-title">
-                        <h2>Get in Touch or Hire Me</h2>
-                        <p>You can contanct me via email.</p>
-                      </div>
+                      <h2>travel</h2>
+                      <p>Here is a visualization for the countries I have
+                        visited so far.</p>
 
-                      <div class="row" data-aos="fade-in">
+                      <p>I've visited <span id="num-countries">X</span>
+                        countries on <span id="num-continents">X</span>
+                        continents:</p>
 
-                        <div class="col-lg-5 d-flex align-items-stretch">
-                          <div class="info">
-                            <div class="address">
-                              <i class="bi bi-geo-alt"></i>
-                              <h4>Location:</h4>
-                              <p>Gothenburg, Sweden</p>
-                            </div>
+                      <div id="map" style="height: 400px;"></div>
+                      <table id="country-flags"
+                        style="font-family: 'PT Sans', sans-serif;"></table>
+                      <link rel="stylesheet" type="text/css"
+                        href="assets/css/jquery-jvectormap-1.2.2.css">
+                      <!-- <script src="/js/jquery.js"></script> -->
+                      <script
+                        src="assets/js/jquery-jvectormap-1.2.2.min.js"></script>
+                      <script src="assets/js/countries.js"></script>
+                      <script src="assets/js/worldmap.js"></script>
+                      <script>
+                        const flagsElem = document.getElementById("country-flags");
+                        let regions = [];
+                        let numCountries = 0;
+                        let numContinents = 0;
+                        for (const [continent, countries] of Object.entries(countriesVisited)) {
+                          ++numContinents;
+                          // Highlight all countries of this continent on the map.
+                          var countryColors = {};
+                          for (const c of countries) countryColors[c] = 1;
+                          regions.push({
+                            values: countryColors,
+                            scale: ["#ff00ff", continentColors[continent]],
+                            normalizeFunction: 'polynomial',
+                          });
+                          // Show the flag emoji for each country.
+                          const tr = document.createElement('tr');
+                          const continentTd = document.createElement('td');
+                          continentTd.innerText = continent;
+                          continentTd.style.whiteSpace = 'nowrap';
+                          tr.appendChild(continentTd);
+                          const td = document.createElement('td');
+                          countries.sort();
+                          for (const countryCode of countries) {
+                            ++numCountries;
+                            var base = 0xDDE6;
+                            let flagEmoji = countryCode.replace(/./g, function (c) {
+                              // https://www.fileformat.info/info/unicode/char/1f1e6/index.htm
+                              return "\uD83C" + String.fromCharCode(0xDDE6 + c.charCodeAt(0) - 'A'.charCodeAt(0));
+                            });
+                            const span = document.createElement('span');
+                            span.innerText = flagEmoji;
+                            span.style.marginLeft = '0.2em';
+                            span.style.fontFamily = 'apple color emoji,segoe ui emoji,noto color emoji,android emoji,emojisymbols,emojione mozilla,twemoji mozilla,segoe ui symbol';
+                            span.title = countryCode;
+                            td.appendChild(span);
+                            td.appendChild(document.createTextNode(' '));
+                          }
+                          tr.appendChild(td);
+                          flagsElem.appendChild(tr);
+                        }
+                        document.getElementById("num-countries").innerHTML = numCountries;
+                        document.getElementById("num-continents").innerHTML = numContinents;
+                        $('#map').vectorMap({
+                          map: 'world_mill_en',
+                          backgroundColor: 'white',
+                          zoomMax: 6,
+                          regionStyle: {
+                            initial: {
+                              fill: '#aaa',
+                              "fill-opacity": 0.9,
+                              stroke: 'none',
+                              "stroke-width": 0,
+                              "stroke-opacity": 1
+                            },
+                            hover: {
+                              "fill-opacity": 1.0,
+                            },
+                          },
+                          series: {
+                            regions: regions,
+                          },
+                        });
+                      </script>
+                      <p>Made with <a
+                          href="https://github.com/bjornd/jvectormap">jVectorMap</a>.</p>
 
-                            <div class="email">
-                              <i class="bi bi-envelope"></i>
-                              <h4>Email:</h4>
-                              <p>mohammad.albarham.work@gmail.com </p>
-                            </div>
+                    </div>
 
-                            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe> -->
+                  </article>
 
-                            <iframe
-                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2754.568435536346!2d11.97158677755629!3d57.68980037386219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff36b628efec3%3A0xc148ed83d6f0a03!2sChalmers%20University%20of%20Technology!5e1!3m2!1sen!2sse!4v1738448346101!5m2!1sen!2sse"
-                              width="400" height="300" style="border:0;"
-                              allowfullscreen
-                              loading="lazy"
-                              referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </section>
 
+                <!-- ======= Contact Section ======= -->
+                <section id="contact" class="contact">
+                  <div class="container">
+
+                    <div class="section-title">
+                      <h2>Get in Touch or Hire Me</h2>
+                      <p>You can contanct me via email.</p>
+                    </div>
+
+                    <div class="row" data-aos="fade-in">
+
+                      <div class="col-lg-5 d-flex align-items-stretch">
+                        <div class="info">
+                          <div class="address">
+                            <i class="bi bi-geo-alt"></i>
+                            <h4>Location:</h4>
+                            <p>Gothenburg, Sweden</p>
                           </div>
+
+                          <div class="email">
+                            <i class="bi bi-envelope"></i>
+                            <h4>Email:</h4>
+                            <p>mohammad.albarham.work@gmail.com </p>
+                          </div>
+
+                          <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe> -->
+
+                          <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2754.568435536346!2d11.97158677755629!3d57.68980037386219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff36b628efec3%3A0xc148ed83d6f0a03!2sChalmers%20University%20of%20Technology!5e1!3m2!1sen!2sse!4v1738448346101!5m2!1sen!2sse"
+                            width="400" height="300" style="border:0;"
+                            allowfullscreen
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                         </div>
 
-                        <div
-                          class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                          <form name="gform" id="gform" class="form"
-                            action="https://docs.google.com/forms/d/e/1FAIpQLSftHTXBY8-bmgmpnIbUCBXDTbv9GDPDAJUbVk9TBzj62_8TzQ/formResponse"
-                            target="hidden_iframe"
-                            onsubmit="return submitForm();">
-                            <div class="row">
-                              <div class="form-outline mb-4">
-                                <label for="name">Your Name</label>
-                                <input type="text" name="entry.1312125580"
-                                  class="form-control"
-                                  id="entry.1312125580" required>
-                              </div>
-                              <div class="form-outline mb-4">
-                                <label for="name">Your Email</label>
-                                <input type="email" class="form-control"
-                                  name="entry.906047473"
-                                  id="entry.906047473" required>
-                              </div>
+                      </div>
+
+                      <div
+                        class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                        <form name="gform" id="gform" class="form"
+                          action="https://docs.google.com/forms/d/e/1FAIpQLSftHTXBY8-bmgmpnIbUCBXDTbv9GDPDAJUbVk9TBzj62_8TzQ/formResponse"
+                          target="hidden_iframe"
+                          onsubmit="return submitForm();">
+                          <div class="row">
+                            <div class="form-outline mb-4">
+                              <label for="name">Your Name</label>
+                              <input type="text" name="entry.1312125580"
+                                class="form-control"
+                                id="entry.1312125580" required>
                             </div>
                             <div class="form-outline mb-4">
-                              <label for="name">Subject</label>
-                              <input type="text" class="form-control"
-                                name="entry.1661175821"
-                                id="entry.1661175821" required>
+                              <label for="name">Your Email</label>
+                              <input type="email" class="form-control"
+                                name="entry.906047473"
+                                id="entry.906047473" required>
                             </div>
-                            <div class="form-outline mb-4">
-                              <label for="name">Message</label>
-                              <textarea class="form-control"
-                                name="entry.845402219"
-                                rows="10" id="entry.845402219"
-                                required></textarea>
-                            </div>
-                            <div class="text-center"> <button type="submit"
-                                class="btn btn-primary btn-block mb-4">Send
-                                Message</button></div>
+                          </div>
+                          <div class="form-outline mb-4">
+                            <label for="name">Subject</label>
+                            <input type="text" class="form-control"
+                              name="entry.1661175821"
+                              id="entry.1661175821" required>
+                          </div>
+                          <div class="form-outline mb-4">
+                            <label for="name">Message</label>
+                            <textarea class="form-control"
+                              name="entry.845402219"
+                              rows="10" id="entry.845402219"
+                              required></textarea>
+                          </div>
+                          <div class="text-center"> <button type="submit"
+                              class="btn btn-primary btn-block mb-4">Send
+                              Message</button></div>
 
-                          </form>
+                        </form>
 
-                          <iframe name="hidden_iframe" id="hidden_iframe"
-                            style="display:none;"
-                            onload="onHiddenIframeLoad();"></iframe>
+                        <iframe name="hidden_iframe" id="hidden_iframe"
+                          style="display:none;"
+                          onload="onHiddenIframeLoad();"></iframe>
 
-                          <!-- Message container to show the success message -->
-                          <div id="messageContainer"></div>
+                        <!-- Message container to show the success message -->
+                        <div id="messageContainer"></div>
 
-                          <script type="text/javascript">
+                        <script type="text/javascript">
                       function submitForm() {
                         // Example: Show a success message as a pop-up
                         var message = 'Thank you for your email!';
@@ -2404,33 +2505,33 @@ organization={IEEE}
                         return true; // Allow the form submission to proceed
                       }
                     </script>
-                        </div>
-                      </section><!-- End Contact Section -->
+                      </div>
+                    </section><!-- End Contact Section -->
 
-                    </main><!-- End #main -->
+                  </main><!-- End #main -->
 
-                    <!-- ======= Footer ======= -->
-                    <footer id="footer">
-                      <div class="container">
+                  <!-- ======= Footer ======= -->
+                  <footer id="footer">
+                    <div class="container">
 
-                        <div class="copyright">
-                          &copy; Copyright
-                          <strong><span>iPortfolio</span></strong>
-                        </div>
-                        <div class="credits">
-                          <!-- All the links in the footer should remain intact. -->
-                          <!-- You can delete the links only if you purchased the pro version. -->
-                          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-                          Designed by <a
-                            href="https://bootstrapmade.com/">BootstrapMade</a>
-                        </div>
-                        <div class="copyright">
-                          <p>Latest update: <span
-                              id="current-date"></span></p>
-                        </div>
+                      <div class="copyright">
+                        &copy; Copyright
+                        <strong><span>iPortfolio</span></strong>
+                      </div>
+                      <div class="credits">
+                        <!-- All the links in the footer should remain intact. -->
+                        <!-- You can delete the links only if you purchased the pro version. -->
+                        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+                        Designed by <a
+                          href="https://bootstrapmade.com/">BootstrapMade</a>
+                      </div>
+                      <div class="copyright">
+                        <p>Latest update: <span
+                            id="current-date"></span></p>
+                      </div>
 
-                        <script>
+                      <script>
                 // Get the current date
                 const today = new Date();
                 
@@ -2442,40 +2543,40 @@ organization={IEEE}
                 // Insert into the HTML
                 document.getElementById('current-date').textContent = formattedDate;
             </script>
-                      </div>
+                    </div>
 
-                    </footer><!-- End  Footer -->
+                  </footer><!-- End  Footer -->
 
-                    <a href="#"
-                      class="back-to-top d-flex align-items-center justify-content-center"><i
-                        class="bi bi-arrow-up-short"></i></a>
+                  <a href="#"
+                    class="back-to-top d-flex align-items-center justify-content-center"><i
+                      class="bi bi-arrow-up-short"></i></a>
 
-                    <!-- Vendor JS Files -->
-                    <script
-                      src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-                    <script src="assets/vendor/aos/aos.js"></script>
-                    <script
-                      src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-                    <script
-                      src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-                    <script
-                      src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-                    <script
-                      src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-                    <script
-                      src="assets/vendor/typed.js/typed.umd.js"></script>
-                    <script
-                      src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-                    <script
-                      src="assets/vendor/php-email-form/validate.js"></script>
-
-                    <!-- Template Main JS File -->
-                    <script src="assets/js/main.js"></script>
-
-                  </body>
+                  <!-- Vendor JS Files -->
                   <script
-                    src="https://www.mit.edu/~amini/particles.js"></script>
-                  <script>
+                    src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+                  <script src="assets/vendor/aos/aos.js"></script>
+                  <script
+                    src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                  <script
+                    src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+                  <script
+                    src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+                  <script
+                    src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+                  <script
+                    src="assets/vendor/typed.js/typed.umd.js"></script>
+                  <script
+                    src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+                  <script
+                    src="assets/vendor/php-email-form/validate.js"></script>
+
+                  <!-- Template Main JS File -->
+                  <script src="assets/js/main.js"></script>
+
+                </body>
+                <script
+                  src="https://www.mit.edu/~amini/particles.js"></script>
+                <script>
             particlesJS("particles-js", {
                 "particles": {
                     "number": {
@@ -2542,4 +2643,4 @@ organization={IEEE}
                 }
             });
         </script>
-                </html>
+              </html>

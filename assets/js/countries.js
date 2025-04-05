@@ -1,7 +1,7 @@
 var countriesVisited = {
   "Africa": ["TN"],
   "Asia": ["JO", "PS", "SA", "AE", "TR"],
-  "Europe": ["PL", "CH", "AT", "DE", "MK", "SE", "TR"],
+  "Europe": ["PL", "CH", "AT", "DE", "MK", "SE", "TR", "HU"],
   "North America": ["CA"],
   "South America": [],
 };

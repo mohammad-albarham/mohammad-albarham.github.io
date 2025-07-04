@@ -3,7 +3,6 @@ var countriesVisited = {
   "Asia": ["JO", "PS", "SA", "AE", "TR"],
   "Europe": ["PL", "CH", "AT", "DE", "MK", "SE", "TR", "HU"],
   "North America": ["CA"],
-  "South America": [],
 };
 // From https://en.wikipedia.org/wiki/Continent#Number
 var continentColors = {

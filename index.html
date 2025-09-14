@@ -2107,7 +2107,6 @@ organization={IEEE}
                         </div>
 
                       </div>
-
                       <div
                         class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
                         <form name="gform" id="gform" class="form"
@@ -2156,11 +2155,13 @@ organization={IEEE}
 
                         <script type="text/javascript">
               function submitForm() {
-                // Example: Show a success message as a pop-up
                 var message = 'Thank you for your email!';
                 alert(message);
-                document.getElementById('gform').reset();
                 return true; // Allow the form submission to proceed
+              }
+
+              function onHiddenIframeLoad() {
+                document.getElementById('gform').reset();
               }
             </script>
                       </div>

@@ -1,7 +1,7 @@
 var countriesVisited = {
   "Africa": ["TN"],
   "Asia": ["JO", "PS", "SA", "AE", "TR"],
-  "Europe": ["PL", "CH", "AT", "DE", "MK", "SE", "TR", "HU", "DK", "BA"],
+  "Europe": ["PL", "CH", "AT", "DE", "MK", "SE", "TR", "HU", "DK", "BA","LT"],
   "North America": ["CA"],
 };
 // From https://en.wikipedia.org/wiki/Continent#Number

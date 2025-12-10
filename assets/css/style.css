@@ -1187,3 +1187,14 @@ section {
 .div-space-between-devs-publications{
   margin-bottom: 40px;
 }
+
+/* Portfolio image sizing utilities */
+.portfolio-img-small {
+  width: 40% !important;
+  height: auto;
+}
+
+.portfolio-img-medium {
+  width: 80% !important;
+  height: auto;
+}

@@ -1198,3 +1198,36 @@ section {
   width: 80% !important;
   height: auto;
 }
+
+/* Projects Section Styling */
+.projects-featured {
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.section-subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #173b6c;
+  margin-bottom: 30px;
+  font-family: "Raleway", sans-serif;
+}
+
+.project-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #149ddd;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.portfolio-item.featured .portfolio-wrap {
+  box-shadow: 0 4px 15px rgba(20, 157, 221, 0.2);
+}

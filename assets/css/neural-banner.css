@@ -38,33 +38,82 @@
   padding: 0 20px;
   position: relative;
   z-index: 10;
-  gap: 30px;
+  gap: 25px;
 }
 
-/* ====== Hero Text ====== */
-#hero .hero-text {
-  max-width: 600px;
-  order: 1;
+/* ====== Digit Selector ====== */
+.nn-digit-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
-#hero .hero-text h1 {
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
+.nn-selector-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
 }
 
-#hero .hero-text p {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 0;
+.nn-digit-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-#hero .hero-text .typed {
-  color: #4fc3f7;
+.nn-digit-btn {
+  width: 42px;
+  height: 42px;
+  border: 2px solid rgba(79, 195, 247, 0.3);
+  background: rgba(79, 195, 247, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
   font-weight: 600;
+  font-family: 'Roboto Mono', monospace;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nn-digit-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(79, 195, 247, 0.2) 0%, rgba(76, 175, 80, 0.2) 100%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.nn-digit-btn:hover {
+  border-color: rgba(79, 195, 247, 0.6);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(79, 195, 247, 0.2);
+}
+
+.nn-digit-btn:hover::before {
+  opacity: 1;
+}
+
+.nn-digit-btn.active {
+  border-color: #4caf50;
+  background: rgba(76, 175, 80, 0.15);
+  color: #4caf50;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+}
+
+.nn-digit-btn.active::before {
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(76, 175, 80, 0.1) 100%);
+}
+
+.nn-digit-btn:active {
+  transform: translateY(0);
 }
 
 /* ====== Neural Network Container ====== */
@@ -193,51 +242,58 @@
 
 /* ====== Responsive Design ====== */
 @media (max-width: 992px) {
-  #hero .hero-text h1 {
-    font-size: 2.2rem;
-  }
-  
-  #hero .hero-text p {
-    font-size: 1.1rem;
-  }
-  
   .nn-visual {
     width: 500px;
     height: 240px;
+  }
+  
+  .nn-digit-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 768px) {
   #hero .hero-container {
-    gap: 25px;
-  }
-  
-  #hero .hero-text h1 {
-    font-size: 1.9rem;
-  }
-  
-  #hero .hero-text p {
-    font-size: 1rem;
+    gap: 20px;
   }
   
   .nn-visual {
     width: 420px;
     height: 200px;
   }
-}
-
-@media (max-width: 480px) {
-  #hero .hero-text h1 {
-    font-size: 1.6rem;
-  }
   
-  #hero .hero-text p {
+  .nn-digit-btn {
+    width: 36px;
+    height: 36px;
     font-size: 0.95rem;
   }
   
+  .nn-digit-buttons {
+    gap: 6px;
+  }
+  
+  .nn-selector-label {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
   .nn-visual {
     width: 320px;
     height: 160px;
+  }
+  
+  .nn-digit-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+  }
+  
+  .nn-digit-buttons {
+    gap: 5px;
   }
   
   .hero-scroll-indicator {

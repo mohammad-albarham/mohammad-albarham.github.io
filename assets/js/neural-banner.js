@@ -24,8 +24,8 @@
     nodeRadius: 6,
     nodeSpacing: 28,
     layerSpacing: 100,
-    inputCellSize: 8,
-    inputGap: 1,
+    inputCellSize: 12,
+    inputGap: 2,
     
     // Colors
     colors: {
@@ -43,8 +43,8 @@
         signal: '#ffc107'
       },
       input: {
-        empty: 'rgba(255, 255, 255, 0.03)',
-        filled: 'rgba(255, 255, 255, 0.9)'
+        empty: 'rgba(100, 120, 150, 0.15)',
+        filled: '#ffffff'
       },
       output: {
         prediction: '#4caf50',
@@ -100,10 +100,36 @@
     createConnections();
     createOutputLabels();
     
+    // Setup digit selector buttons
+    setupDigitSelector();
+    
     // Animate entrance
     requestAnimationFrame(() => {
       container.classList.add('nn-ready');
       animateEntrance();
+    });
+  }
+
+  // ============================================
+  // DIGIT SELECTOR
+  // ============================================
+  function setupDigitSelector() {
+    const buttons = document.querySelectorAll('.nn-digit-btn');
+    
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const digit = parseInt(btn.getAttribute('data-digit'), 10);
+        
+        // Update active state
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Update visualization
+        setPrediction(digit);
+        
+        // Trigger signal flow
+        runSignalFlow();
+      });
     });
   }
 
@@ -188,8 +214,10 @@
         rect.setAttribute('y', y);
         rect.setAttribute('width', inputCellSize);
         rect.setAttribute('height', inputCellSize);
-        rect.setAttribute('fill', intensity > 0 ? colors.input.filled : colors.input.empty);
-        rect.setAttribute('fill-opacity', intensity > 0 ? intensity : 0.03);
+        rect.setAttribute('rx', '2');  // Slight rounding
+        // Filled pixels = white, empty pixels = invisible
+        rect.setAttribute('fill', intensity === 1 ? '#ffffff' : '#000000');
+        rect.setAttribute('fill-opacity', intensity === 1 ? '1' : '0');
         rect.setAttribute('class', 'nn-input-cell');
         rect.setAttribute('data-row', row);
         rect.setAttribute('data-col', col);
@@ -202,96 +230,97 @@
 
   // Generate digit pattern for input visualization
   function generateDigitPattern(digit) {
+    // Using 1 for filled pixels, 0 for empty - crisp clear digits
     const patterns = {
       0: [
-        [0,0.5,0.9,0.9,0.9,0.5,0],
-        [0.5,0.9,0.3,0,0.3,0.9,0.5],
-        [0.9,0.5,0,0,0,0.5,0.9],
-        [0.9,0.3,0,0,0,0.3,0.9],
-        [0.9,0.5,0,0,0,0.5,0.9],
-        [0.5,0.9,0.3,0,0.3,0.9,0.5],
-        [0,0.5,0.9,0.9,0.9,0.5,0]
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
       ],
       1: [
-        [0,0,0.3,0.9,0.5,0,0],
-        [0,0.3,0.9,0.9,0.3,0,0],
-        [0,0,0,0.9,0.3,0,0],
-        [0,0,0,0.9,0.3,0,0],
-        [0,0,0,0.9,0.3,0,0],
-        [0,0,0,0.9,0.3,0,0],
-        [0,0.5,0.9,0.9,0.9,0.5,0]
+        [0,0,1,1,0,0,0],
+        [0,1,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [1,1,1,1,1,1,0]
       ],
       2: [
-        [0,0.5,0.9,0.9,0.9,0.5,0],
-        [0.5,0.9,0.3,0,0.3,0.9,0.5],
-        [0,0,0,0,0.3,0.9,0.5],
-        [0,0,0.5,0.9,0.9,0.5,0],
-        [0,0.5,0.9,0.5,0,0,0],
-        [0.5,0.9,0.3,0,0,0,0],
-        [0.9,0.9,0.9,0.9,0.9,0.9,0.9]
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,1,1,1,1,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,1,1,1,1,1]
       ],
       3: [
-        [0,0.5,0.9,0.9,0.9,0.5,0],
-        [0.5,0.9,0.3,0,0.3,0.9,0.5],
-        [0,0,0,0,0.3,0.9,0.5],
-        [0,0,0.5,0.9,0.9,0.5,0],
-        [0,0,0,0,0.3,0.9,0.5],
-        [0.5,0.9,0.3,0,0.3,0.9,0.5],
-        [0,0.5,0.9,0.9,0.9,0.5,0]
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,1,1,1,1,0],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
       ],
       4: [
-        [0,0,0,0,0.5,0.9,0.3],
-        [0,0,0,0.5,0.9,0.9,0.3],
-        [0,0,0.5,0.9,0.3,0.9,0.3],
-        [0,0.5,0.9,0.3,0,0.9,0.3],
-        [0.9,0.9,0.9,0.9,0.9,0.9,0.9],
-        [0,0,0,0,0,0.9,0.3],
-        [0,0,0,0,0,0.9,0.3]
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,0],
+        [0,0,1,1,1,1,0],
+        [0,1,1,0,1,1,0],
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0]
       ],
       5: [
-        [0.9,0.9,0.9,0.9,0.9,0.9,0.9],
-        [0.9,0.3,0,0,0,0,0],
-        [0.9,0.9,0.9,0.9,0.9,0.5,0],
-        [0,0,0,0,0.3,0.9,0.5],
-        [0,0,0,0,0.3,0.9,0.5],
-        [0.5,0.9,0.3,0,0.3,0.9,0.5],
-        [0,0.5,0.9,0.9,0.9,0.5,0]
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,0,0],
+        [1,1,1,1,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
       ],
       6: [
-        [0,0.5,0.9,0.9,0.9,0.5,0],
-        [0.5,0.9,0.3,0,0,0,0],
-        [0.9,0.5,0,0,0,0,0],
-        [0.9,0.9,0.9,0.9,0.9,0.5,0],
-        [0.9,0.5,0,0,0.3,0.9,0.5],
-        [0.5,0.9,0.3,0,0.3,0.9,0.5],
-        [0,0.5,0.9,0.9,0.9,0.5,0]
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
       ],
       7: [
-        [0.9,0.9,0.9,0.9,0.9,0.9,0.9],
-        [0.3,0,0,0,0.3,0.9,0.5],
-        [0,0,0,0,0.5,0.9,0.3],
-        [0,0,0,0.5,0.9,0.3,0],
-        [0,0,0.5,0.9,0.3,0,0],
-        [0,0,0.9,0.5,0,0,0],
-        [0,0,0.9,0.5,0,0,0]
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0]
       ],
       8: [
-        [0,0.5,0.9,0.9,0.9,0.5,0],
-        [0.5,0.9,0.3,0,0.3,0.9,0.5],
-        [0.5,0.9,0.3,0,0.3,0.9,0.5],
-        [0,0.5,0.9,0.9,0.9,0.5,0],
-        [0.5,0.9,0.3,0,0.3,0.9,0.5],
-        [0.5,0.9,0.3,0,0.3,0.9,0.5],
-        [0,0.5,0.9,0.9,0.9,0.5,0]
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
       ],
       9: [
-        [0,0.5,0.9,0.9,0.9,0.5,0],
-        [0.5,0.9,0.3,0,0.3,0.9,0.5],
-        [0.5,0.9,0.3,0,0.3,0.9,0.5],
-        [0,0.5,0.9,0.9,0.9,0.9,0.9],
-        [0,0,0,0,0,0.5,0.9],
-        [0,0,0,0,0.3,0.9,0.5],
-        [0,0.5,0.9,0.9,0.9,0.5,0]
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
       ]
     };
     return patterns[digit] || patterns[7];
@@ -703,13 +732,29 @@
 
   function updateInputPattern(digit) {
     const pattern = generateDigitPattern(digit);
-    const { inputGrid } = CONFIG;
+    
+    if (inputCells.length === 0) {
+      return;
+    }
     
     inputCells.forEach(cell => {
-      const intensity = pattern[cell.row][cell.col];
+      const row = cell.row;
+      const col = cell.col;
+      const intensity = pattern[row][col];
+      
       cell.intensity = intensity;
-      cell.element.style.transition = 'fill-opacity 0.3s ease';
-      cell.element.setAttribute('fill-opacity', intensity > 0 ? intensity : 0.03);
+      
+      if (intensity === 1) {
+        // FILLED PIXEL - bright white, full opacity
+        cell.element.setAttribute('fill', '#ffffff');
+        cell.element.setAttribute('fill-opacity', '1');
+        cell.element.style.opacity = '1';  // Override animation styles
+      } else {
+        // EMPTY PIXEL - completely invisible
+        cell.element.setAttribute('fill', '#000000');
+        cell.element.setAttribute('fill-opacity', '0');
+        cell.element.style.opacity = '0';  // Override animation styles
+      }
     });
   }
 

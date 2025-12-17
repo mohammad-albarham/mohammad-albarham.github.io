@@ -63,7 +63,7 @@
     "title": "RASA Chatbot with ChatGPT Integration",
     "category": "ai",
     "tags": ["NLP", "Chatbot", "RASA", "OpenAI"],
-    "featured": false,
+    "featured": true,
     "image": "assets/img/portfolio/p1.png",
     "shortDescription": "Integration of RASA framework with ChatGPT for enhanced conversational AI",
     "description": "This project integrates RASA with ChatGPT to create an enhanced conversational AI system. The chatbot was designed to act as a therapist and handles various conversations.",

@@ -480,8 +480,9 @@
   <script src="assets/js/utils.js" defer></script>
 
   <!-- Data-driven components -->
+  <script src="assets/js/data-loader.js"></script>
   <script src="assets/js/portfolio-renderer.js"></script>
-  <script src="assets/js/publications.js" defer></script>
+  <script src="assets/js/publications.js"></script>
   <script src="assets/js/theme.js"></script>
 
   <!-- Particles.js for header animation -->
@@ -505,7 +506,14 @@
         day: 'numeric'
       });
     }
-
+    // Initialize publications manager when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize publications
+      if (typeof PublicationsManager !== 'undefined') {
+        const pubsManager = new PublicationsManager();
+        pubsManager.init();
+      }
+    });
     // Initialize travel map when data is loaded
     window.addEventListener('portfolioRendered', async function () {
       try {

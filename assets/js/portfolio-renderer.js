@@ -200,7 +200,7 @@ class PortfolioRenderer {
           <div class="timeline-header">
             <img src="${vol.logo}" alt="${vol.organization}" class="timeline-logo" loading="lazy">
             <div class="timeline-title">
-              <h4>${vol.role}</h4>
+              <h4>${vol.position || vol.role}</h4>
               <p class="timeline-institution">${vol.organization}</p>
             </div>
           </div>

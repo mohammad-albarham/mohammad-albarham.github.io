@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Test Page</title>
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/modern-portfolio.css" rel="stylesheet">
+    <style>
+        body { padding: 20px; background: #f8f9fa; }
+        .test-section { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .status { padding: 5px 10px; border-radius: 4px; display: inline-block; margin: 5px; }
+        .status.success { background: #d4edda; color: #155724; }
+        .status.error { background: #f8d7da; color: #721c24; }
+        .status.pending { background: #fff3cd; color: #856404; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Portfolio Functionality Test</h1>
+        
+        <div class="test-section">
+            <h2>1. Script Loading Test</h2>
+            <div id="script-test"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>2. Data Loading Test</h2>
+            <div id="data-test"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>3. Publications Test</h2>
+            <div id="publications-container"></div>
+            <div id="publications-test"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>4. Volunteering Test</h2>
+            <div id="volunteering-container"></div>
+            <div id="volunteering-test"></div>
+        </div>
+    </div>
+
+    <!-- Load Portfolio Scripts -->
+    <script type="module">
+        const testResults = {
+            scripts: [],
+            data: [],
+            publications: [],
+            volunteering: []
+        };
+
+        // Test 1: Script Loading
+        async function testScriptLoading() {
+            const scripts = [
+                'assets/js/data-loader.js',
+                'assets/js/portfolio-renderer.js',
+                'assets/js/publications.js'
+            ];
+
+            for (const script of scripts) {
+                try {
+                    const response = await fetch(script);
+                    if (response.ok) {
+                        testResults.scripts.push({ name: script, status: 'success' });
+                    } else {
+                        testResults.scripts.push({ name: script, status: 'error', message: `HTTP ${response.status}` });
+                    }
+                } catch (error) {
+                    testResults.scripts.push({ name: script, status: 'error', message: error.message });
+                }
+            }
+            displayResults('script-test', testResults.scripts);
+        }
+
+        // Test 2: Data Loading
+        async function testDataLoading() {
+            const dataFiles = [
+                'data/publications.json',
+                'data/volunteering.json',
+                'data/projects.json'
+            ];
+
+            for (const file of dataFiles) {
+                try {
+                    const response = await fetch(file);
+                    if (response.ok) {
+                        const data = await response.json();
+                        testResults.data.push({ 
+                            name: file, 
+                            status: 'success', 
+                            message: `${data.length} items loaded` 
+                        });
+                    } else {
+                        testResults.data.push({ name: file, status: 'error', message: `HTTP ${response.status}` });
+                    }
+                } catch (error) {
+                    testResults.data.push({ name: file, status: 'error', message: error.message });
+                }
+            }
+            displayResults('data-test', testResults.data);
+        }
+
+        // Test 3: Publications Rendering
+        async function testPublications() {
+            try {
+                // Dynamically import the publications module
+                const { PublicationsManager } = await import('./assets/js/publications.js');
+                const manager = new PublicationsManager('publications-container');
+                await manager.init();
+                testResults.publications.push({ 
+                    name: 'Publications Manager', 
+                    status: 'success', 
+                    message: 'Initialized and rendered' 
+                });
+            } catch (error) {
+                testResults.publications.push({ 
+                    name: 'Publications Manager', 
+                    status: 'error', 
+                    message: error.message 
+                });
+            }
+            displayResults('publications-test', testResults.publications);
+        }
+
+        // Test 4: Volunteering Rendering
+        async function testVolunteering() {
+            try {
+                const { PortfolioRenderer } = await import('./assets/js/portfolio-renderer.js');
+                const renderer = new PortfolioRenderer();
+                await renderer.init();
+                
+                // Check if volunteering container has content
+                const container = document.getElementById('volunteering-container');
+                if (container && container.children.length > 0) {
+                    testResults.volunteering.push({ 
+                        name: 'Volunteering Renderer', 
+                        status: 'success', 
+                        message: `${container.children.length} items rendered` 
+                    });
+                } else {
+                    testResults.volunteering.push({ 
+                        name: 'Volunteering Renderer', 
+                        status: 'error', 
+                        message: 'No content rendered' 
+                    });
+                }
+            } catch (error) {
+                testResults.volunteering.push({ 
+                    name: 'Volunteering Renderer', 
+                    status: 'error', 
+                    message: error.message 
+                });
+            }
+            displayResults('volunteering-test', testResults.volunteering);
+        }
+
+        function displayResults(elementId, results) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = results.map(result => `
+                <div class="status ${result.status}">
+                    <strong>${result.name}</strong>: ${result.status}
+                    ${result.message ? `<br><small>${result.message}</small>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Run all tests
+        async function runAllTests() {
+            await testScriptLoading();
+            await testDataLoading();
+            await testPublications();
+            await testVolunteering();
+            
+            console.log('All tests completed:', testResults);
+        }
+
+        // Run tests when page loads
+        runAllTests();
+    </script>
+</body>
+</html>

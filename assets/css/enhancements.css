@@ -625,9 +625,11 @@ body.page-loaded .page-content {
   
   .theme-toggle {
     top: 15px;
-    right: 15px;
+    left: 15px;  /* Position on left side on mobile */
+    right: auto;
     width: 40px;
     height: 40px;
+    z-index: 9996;  /* Below mobile nav toggle to avoid conflicts */
   }
   
   .section-divider {

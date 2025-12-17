@@ -1,0 +1,38 @@
+{
+  "visited": {
+    "Africa": ["TN"],
+    "Asia": ["JO", "PS", "SA", "AE", "TR", "OM"],
+    "Europe": ["PL", "CH", "AT", "DE", "MK", "SE", "TR", "HU", "DK", "BA", "LT", "FI"],
+    "North America": ["CA"]
+  },
+  "continentColors": {
+    "Europe": "#c10000",
+    "North America": "#00cc00",
+    "South America": "#008000",
+    "Asia": "#f33e01",
+    "Africa": "#fed52e",
+    "Antarctica": "#0040ff",
+    "Oceania": "#c04080"
+  },
+  "countryNames": {
+    "TN": "Tunisia",
+    "JO": "Jordan",
+    "PS": "Palestine",
+    "SA": "Saudi Arabia",
+    "AE": "United Arab Emirates",
+    "TR": "Turkey",
+    "OM": "Oman",
+    "PL": "Poland",
+    "CH": "Switzerland",
+    "AT": "Austria",
+    "DE": "Germany",
+    "MK": "North Macedonia",
+    "SE": "Sweden",
+    "HU": "Hungary",
+    "DK": "Denmark",
+    "BA": "Bosnia and Herzegovina",
+    "LT": "Lithuania",
+    "FI": "Finland",
+    "CA": "Canada"
+  }
+}

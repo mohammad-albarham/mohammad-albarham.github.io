@@ -1,0 +1,47 @@
+{
+  "name": "Mohammad Albarham",
+  "title": "Computer Vision & AI Engineer",
+  "tagline": "Problem solver passionate about AI, computer vision, and autonomous systems",
+  "currentRole": "Vision Engineer at Aptiv | MSc Student at Chalmers",
+  "location": {
+    "city": "Gothenburg",
+    "country": "Sweden"
+  },
+  "email": "mohammad.albarham.work@gmail.com",
+  "photo": "assets/img/profile-img.jpg",
+  "summary": "I'm a problem solver with a passion for coding, solving problems and trying new things. Currently, I fell in love with computer vision and AI in general, where I am working as a part-time engineer at Aptiv while completing my master's degree at Chalmers University of Technology in Sweden.",
+  "socialLinks": {
+    "linkedin": {
+      "url": "https://www.linkedin.com/in/albarham/",
+      "icon": "bx bxl-linkedin"
+    },
+    "github": {
+      "url": "https://github.com/mohammad-albarham",
+      "icon": "bx bxl-github"
+    },
+    "googleScholar": {
+      "url": "https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en",
+      "icon": "ai ai-google-scholar-square"
+    },
+    "huggingface": {
+      "url": "https://huggingface.co/pain",
+      "icon": "custom-hf"
+    }
+  },
+  "highlights": [
+    "SI Scholarship for Global Professionals recipient",
+    "8+ peer-reviewed publications",
+    "IEEE Region 8 Active Volunteer",
+    "1st rank in BSc Mechatronics Engineering"
+  ],
+  "keywords": [
+    "computer vision",
+    "AI",
+    "machine learning",
+    "Arabic NLP",
+    "image retrieval",
+    "robotics",
+    "autonomous systems",
+    "deep learning"
+  ]
+}

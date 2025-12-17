@@ -1,0 +1,276 @@
+/**
+ * Timeline Component Styles
+ * For experience and education sections
+ */
+
+/* ====== Timeline Container ====== */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #149ddd 0%, #0d6efd 100%);
+}
+
+/* ====== Timeline Item ====== */
+.timeline-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+  padding-left: 1.5rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* Timeline Marker */
+.timeline-marker {
+  position: absolute;
+  left: -38px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #149ddd;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.timeline-item.current .timeline-marker {
+  background: #149ddd;
+  box-shadow: 0 0 0 4px rgba(20, 157, 221, 0.2);
+}
+
+.timeline-item:hover .timeline-marker {
+  transform: scale(1.2);
+}
+
+/* Timeline Content */
+.timeline-content {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateX(5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.timeline-item.current .timeline-content {
+  border-left: 3px solid #28a745;
+}
+
+/* Timeline Header */
+.timeline-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.timeline-title-group {
+  flex: 1;
+}
+
+.timeline-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #272829;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.3;
+}
+
+.timeline-subtitle {
+  font-size: 0.95rem;
+  color: #149ddd;
+  margin: 0;
+}
+
+.timeline-subtitle a {
+  color: #149ddd;
+  text-decoration: none;
+}
+
+.timeline-subtitle a:hover {
+  text-decoration: underline;
+}
+
+/* Timeline Meta */
+.timeline-date {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.timeline-location {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-location i {
+  margin-right: 0.25rem;
+}
+
+/* Timeline Description */
+.timeline-description {
+  color: #495057;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+/* Responsibilities List */
+.responsibilities {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.responsibilities li {
+  color: #495057;
+  margin-bottom: 0.35rem;
+  line-height: 1.5;
+}
+
+.responsibilities li::marker {
+  color: #149ddd;
+}
+
+/* Focus/GPA/Scholarship */
+.focus,
+.gpa,
+.scholarship {
+  color: #495057;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* ====== Alternative Layout for Resume Section ====== */
+.resume-item {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.resume-item:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.resume-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #272829;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.resume-item h5 {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.resume-item p em {
+  color: #149ddd;
+}
+
+/* Icon Header for Resume Items */
+.icon-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* ====== Responsive Design ====== */
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .timeline-marker {
+    left: -28px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .timeline-item {
+    padding-left: 1rem;
+  }
+
+  .timeline-content {
+    padding: 1rem;
+  }
+
+  .timeline-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .timeline-logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ====== Dark Mode Support ====== */
+[data-theme="dark"] .timeline-content {
+  background: var(--dark-bg-secondary, #242526);
+}
+
+[data-theme="dark"] .timeline-title {
+  color: var(--dark-text-primary, #e4e6eb);
+}
+
+[data-theme="dark"] .timeline-date,
+[data-theme="dark"] .timeline-location {
+  color: var(--dark-text-secondary, #b0b3b8);
+}
+
+[data-theme="dark"] .timeline-description,
+[data-theme="dark"] .responsibilities li,
+[data-theme="dark"] .focus,
+[data-theme="dark"] .gpa,
+[data-theme="dark"] .scholarship {
+  color: var(--dark-text-secondary, #b0b3b8);
+}
+
+[data-theme="dark"] .timeline-marker {
+  background: var(--dark-bg-primary, #18191a);
+}
+
+[data-theme="dark"] .resume-item {
+  border-bottom-color: #3a3b3c;
+}
+
+[data-theme="dark"] .resume-item h4 {
+  color: var(--dark-text-primary, #e4e6eb);
+}

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "ieee-sweden-sac",
+    "organization": "IEEE Sweden Section",
+    "position": "Student Activities Coordinator (SAC)",
+    "startDate": "2025-04",
+    "endDate": null,
+    "current": true,
+    "logo": "assets/img/IEEE-Region-8-Logo-1024x401.png",
+    "url": "https://r8.ieee.org/sweden/",
+    "description": "",
+    "category": "ieee",
+    "level": "section"
+  },
+  {
+    "id": "ieee-r8-chapters",
+    "organization": "IEEE R8 Chapters Coordination Committee",
+    "position": "Full Member",
+    "startDate": "2023-01",
+    "endDate": null,
+    "current": true,
+    "logo": "assets/img/IEEE-Region-8-Logo-1024x401.png",
+    "url": "https://ieeer8.org/category/technical-activities/chapter-coordination/",
+    "description": "Full member of the IEEE Region 8 Chapters Coordination Committee.",
+    "category": "ieee",
+    "level": "region"
+  },
+  {
+    "id": "ieee-uae-mdc",
+    "organization": "IEEE United Arab Emirates (UAE) Section",
+    "position": "Membership Development Coordinator",
+    "startDate": "2023-03",
+    "endDate": "2024-08",
+    "current": false,
+    "logo": "assets/img/ieee-logo.webp",
+    "url": "https://ieee.ae/en/",
+    "description": "Volunteered to show clearly the value of IEEE to the IEEE United Arab Emirates members. Encouraged students and professionals to engage in IEEE activities that offer a variety of opportunities to them in the UAE and around the world.",
+    "category": "ieee",
+    "level": "section"
+  },
+  {
+    "id": "ieee-r8-sbc",
+    "organization": "IEEE Region 8 – Student Activities",
+    "position": "Student Branch Chapters Coordinator",
+    "startDate": "2022-02",
+    "endDate": "2023-01",
+    "current": false,
+    "logo": "assets/img/IEEE-Region-8-Logo-1024x401.png",
+    "url": "https://r8.ieee.org/sac/",
+    "description": "Volunteered as Student Branch Chapters Coordinator and SAC Liaison to Technical Activities Chapters Coordination Subcommittee.",
+    "category": "ieee",
+    "level": "region"
+  },
+  {
+    "id": "ieee-jordan-ssr",
+    "organization": "IEEE Jordan Section",
+    "position": "Jordan Section Student Representative",
+    "startDate": "2020-03",
+    "endDate": "2022-02",
+    "current": false,
+    "logo": "assets/img/ieee-logo.webp",
+    "url": "https://jordan.ieee.org/",
+    "description": "As Jordan Section Student Representative (SSR), represented all the Student Branches, supported all IEEE student members in the Jordan Section, and was responsible for coordinating and encouraging activities of interest to all IEEE student organizations that report to the Jordan Section. Kept students connected with the Section and its organizational units while providing networking and learning opportunities in technical, professional leadership, and teamwork skills areas.",
+    "category": "ieee",
+    "level": "section"
+  },
+  {
+    "id": "ieee-uj-president",
+    "organization": "IEEE University of Jordan Student Branch",
+    "position": "President",
+    "startDate": "2019-08",
+    "endDate": "2021-09",
+    "current": false,
+    "logo": "assets/img/ieee-logo.webp",
+    "url": null,
+    "description": "Elected to lead and drive an Executive Committee of 10 officers, approximately 20 volunteers and 180 members, as well as work with 4 different sub-committees and Affinity Group at the IEEE University of Jordan Student Branch. The branch aims to serve students and improve their technical and non-technical skills through organizing diverse activities, conferences and workshops.",
+    "category": "ieee",
+    "level": "student-branch"
+  },
+  {
+    "id": "ieee-uj-pes",
+    "organization": "IEEE University of Jordan Student Branch - Power and Energy Society",
+    "position": "Volunteer - PV Charity Project",
+    "startDate": "2018-02",
+    "endDate": "2018-10",
+    "current": false,
+    "logo": "assets/img/IEEE-pes-logo.gif",
+    "url": null,
+    "description": "Volunteered in the implementation of PV cells on 'Shabab Al Wadi charity' by IEEE University of Jordan PES Chapter. Installed a Photovoltaic system for a charity in Jordan valley – one of the remote areas in Jordan – that subsidizes poor families, orphans, refugees and college students, and provides literacy lessons and courses for the unemployed. It supports more than 600 persons in different fields.",
+    "category": "ieee",
+    "level": "student-branch"
+  }
+]

@@ -1,0 +1,171 @@
+[
+  {
+    "id": "aptiv-2025",
+    "company": "Aptiv",
+    "position": "Vision Engineer in Advanced Safety Systems",
+    "type": "part-time",
+    "startDate": "2025-03",
+    "endDate": null,
+    "current": true,
+    "location": "Gothenburg, Sweden",
+    "logo": "assets/img/aptiv-logo.png",
+    "url": "https://www.aptiv.com/en",
+    "description": "Working on saving more lives through Advanced Safety Systems, specifically on the Vision System of cars.",
+    "responsibilities": [
+      "Analyze the events and cases related to AEB (Automatic Emergency Braking)",
+      "Automate the software processes and make them efficient",
+      "Fuse sensors such as camera and LiDAR",
+      "Test the advanced safety systems in real-life scenarios",
+      "Work on internal tools development"
+    ],
+    "technologies": ["Computer Vision", "LiDAR", "Sensor Fusion", "Python", "C++"]
+  },
+  {
+    "id": "rise-uos-2022",
+    "company": "Research Institute of Sciences and Engineering (RISE) - University of Sharjah",
+    "position": "Machine Learning Scientist",
+    "type": "full-time",
+    "startDate": "2022-12",
+    "endDate": "2024-08",
+    "current": false,
+    "location": "Sharjah, UAE",
+    "logo": "assets/img/university_of_sharjah_logo.png",
+    "url": "https://www.sharjah.ac.ae/en/Research/RISE",
+    "description": "Worked on NLP and Computer Vision projects under the supervision of Prof. Ashraf Elnagar and Prof. Imad Afyouni.",
+    "responsibilities": [
+      "Responsible for working in NLP and CV projects",
+      "Developing a chatbot for the Arabic language and integrating it into other applications",
+      "Developing Arabic Sign Language projects using image classification and object detection",
+      "Deploying the models to be used in production (Prototypes and Demos)"
+    ],
+    "supervisors": [
+      {
+        "name": "Ashraf Elnagar",
+        "url": "https://www.sharjah.ac.ae/Academics/Faculty-And-Staff/Ashraf-Elnagar"
+      },
+      {
+        "name": "Imad Afyouni",
+        "url": "https://www.sharjah.ac.ae/Academics/Faculty-And-Staff/Imad-Afyouni"
+      }
+    ],
+    "technologies": ["PyTorch", "Transformers", "Arabic NLP", "Computer Vision", "RASA", "Docker"]
+  },
+  {
+    "id": "appswave-2022",
+    "company": "Appswave Information Technology",
+    "position": "Product Owner",
+    "type": "full-time",
+    "startDate": "2022-01",
+    "endDate": "2022-11",
+    "current": false,
+    "location": "Amman, Jordan",
+    "logo": "assets/img/appswave-logo.png",
+    "url": "https://appswave.io/en/home",
+    "description": "Led product development and managed cross-functional teams.",
+    "responsibilities": [
+      "Responsible for communicating with stakeholders across the board",
+      "Serving as a liaison between product and development",
+      "Maximizing the value of the products",
+      "Managing and prioritizing the product backlog",
+      "Managing the repositories in Bitbucket"
+    ],
+    "technologies": ["Agile", "Scrum", "Bitbucket", "JIRA"]
+  },
+  {
+    "id": "kenda-ai-2022",
+    "company": "Kenda AI",
+    "position": "AI Engineer and Co-founder",
+    "type": "full-time",
+    "startDate": "2022-02",
+    "endDate": "2022-07",
+    "current": false,
+    "location": "Remote",
+    "logo": "assets/img/kendaai_logo.jpeg",
+    "url": "https://kenda-ai.com/",
+    "description": "Co-founded Kenda AI and contributed to building AI-powered solutions.",
+    "responsibilities": [
+      "Co-founded Kenda AI and contributed to building AI-powered solutions focused on Arabic language learning and handwriting recognition using Computer Vision",
+      "Supported the development and deployment of AI models, ensuring smooth integration into production systems"
+    ],
+    "technologies": ["Computer Vision", "PyTorch", "Arabic Handwriting Recognition", "Flask"]
+  },
+  {
+    "id": "xina-ai-2020",
+    "company": "Xina AI",
+    "position": "Data Science Intern",
+    "type": "internship",
+    "startDate": "2020-09",
+    "endDate": "2020-12",
+    "current": false,
+    "location": "Amman, Jordan",
+    "logo": "assets/img/xina_ai_logo.png",
+    "url": null,
+    "description": "Learned and applied AI/ML fundamentals in practical projects.",
+    "responsibilities": [
+      "Mastered the fundamentals of Artificial Intelligence",
+      "Used PyTorch to build multi-layer neural networks and analyze real data",
+      "Built Convolutional Networks for image classification",
+      "Learned NLP basics and built Recurrent Networks for sentiment analysis",
+      "Learned data annotation for ASR, NER, POS tagging",
+      "Built NLU and Rule-Based chatbots"
+    ],
+    "technologies": ["PyTorch", "Python", "NLP", "CNN", "RNN"]
+  },
+  {
+    "id": "nanolab-gju-2019",
+    "company": "Nano Lab - German Jordanian University",
+    "position": "Embedded Systems Intern",
+    "type": "internship",
+    "startDate": "2019-05",
+    "endDate": "2019-07",
+    "current": false,
+    "location": "Madaba, Jordan",
+    "logo": "assets/img/GJU_logo.png",
+    "url": "https://nanolab.gju.edu.jo/",
+    "description": "Worked on embedded systems programming for medical devices.",
+    "responsibilities": [
+      "Programmed ARM microcontroller using C-embedded language for blood type checking device",
+      "Developed software for semi-automated blood grouping apparatus using microfluidic disc technology",
+      "Implemented centrifugal force-based blood sample movement through microfluidic channels"
+    ],
+    "technologies": ["ARM", "C", "Embedded Systems", "Microcontrollers"]
+  },
+  {
+    "id": "ebtikar-2019",
+    "company": "Innovation for Creativity Development Association",
+    "position": "Trainer - Arduino Course",
+    "type": "part-time",
+    "startDate": "2019-05",
+    "endDate": "2019-07",
+    "current": false,
+    "location": "Amman, Jordan",
+    "logo": "assets/img/ebtikar_logo.png",
+    "url": "https://ebtikar-innov.org/",
+    "description": "Trained students aged 13-19 in electronics and microcontrollers.",
+    "responsibilities": [
+      "Trained electronics and microcontrollers practical lectures for students 13-19 years",
+      "Collaborated with Albaqa's association for Humanitarian helping funded by UNICEF",
+      "Used Arduino microcontroller to create practical applications"
+    ],
+    "technologies": ["Arduino", "Electronics", "Embedded Systems", "Teaching"]
+  },
+  {
+    "id": "phi-science-2019",
+    "company": "Phi Science Institute",
+    "position": "Applied Researcher",
+    "type": "part-time",
+    "startDate": "2019-02",
+    "endDate": "2020-02",
+    "current": false,
+    "location": "Amman, Jordan",
+    "logo": "assets/img/phiscience_logo.jpeg",
+    "url": "https://www.phi.science/",
+    "description": "Participated in PAIR program integrating applied scientific research with innovation and entrepreneurship.",
+    "responsibilities": [
+      "Selected as one of the 10% innovators among all candidates",
+      "Worked through four phases: Problem Definition, Ideation and Evaluation, Business and Marketing, and Prototype",
+      "Collaborated with multidisciplinary teams including engineers, medical majors, and others"
+    ],
+    "technologies": ["Research", "Innovation", "Product Development"]
+  }
+]

@@ -1,0 +1,294 @@
+/**
+ * Publications Module
+ * Handles filtering, searching, and rendering of publications
+ */
+
+class PublicationsManager {
+  constructor(containerId = 'publications-container') {
+    this.container = document.getElementById(containerId);
+    this.publications = [];
+    this.filters = {
+      year: 'all',
+      type: 'all',
+      search: ''
+    };
+  }
+
+  /**
+   * Initialize the publications manager
+   */
+  async init() {
+    try {
+      this.publications = await window.dataLoader.load('publications');
+      this.render();
+      this.setupEventListeners();
+    } catch (error) {
+      console.error('Failed to initialize publications:', error);
+      this.showError();
+    }
+  }
+
+  /**
+   * Setup filter and search event listeners
+   */
+  setupEventListeners() {
+    // Year filter
+    const yearFilter = document.getElementById('pub-filter-year');
+    if (yearFilter) {
+      yearFilter.addEventListener('change', (e) => {
+        this.filters.year = e.target.value;
+        this.render();
+      });
+    }
+
+    // Type filter
+    const typeFilter = document.getElementById('pub-filter-type');
+    if (typeFilter) {
+      typeFilter.addEventListener('change', (e) => {
+        this.filters.type = e.target.value;
+        this.render();
+      });
+    }
+
+    // Search input
+    const searchInput = document.getElementById('pub-search');
+    if (searchInput) {
+      let debounceTimer;
+      searchInput.addEventListener('input', (e) => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          this.filters.search = e.target.value.toLowerCase();
+          this.render();
+        }, 300);
+      });
+    }
+
+    // Cite button click handlers
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.cite-btn')) {
+        const btn = e.target.closest('.cite-btn');
+        const pubId = btn.dataset.pubId;
+        const bibtexDiv = document.getElementById(`bibtex-${pubId}`);
+        if (bibtexDiv) {
+          bibtexDiv.classList.toggle('show');
+        }
+      }
+
+      if (e.target.closest('.copy-bibtex')) {
+        const btn = e.target.closest('.copy-bibtex');
+        const bibtex = decodeURIComponent(btn.dataset.bibtex);
+        this.copyToClipboard(bibtex, btn);
+      }
+    });
+  }
+
+  /**
+   * Filter publications based on current filters
+   */
+  getFilteredPublications() {
+    return this.publications.filter(pub => {
+      // Year filter
+      if (this.filters.year !== 'all' && pub.year.toString() !== this.filters.year) {
+        return false;
+      }
+
+      // Type filter
+      if (this.filters.type !== 'all' && pub.type !== this.filters.type) {
+        return false;
+      }
+
+      // Search filter
+      if (this.filters.search) {
+        const searchStr = this.filters.search.toLowerCase();
+        const searchable = [
+          pub.title,
+          pub.venue,
+          pub.abstract || '',
+          ...(pub.keywords || []),
+          ...pub.authors.map(a => a.name)
+        ].join(' ').toLowerCase();
+        
+        if (!searchable.includes(searchStr)) {
+          return false;
+        }
+      }
+
+      return true;
+    });
+  }
+
+  /**
+   * Get unique years from publications
+   */
+  getYears() {
+    const years = [...new Set(this.publications.map(p => p.year))];
+    return years.sort((a, b) => b - a);
+  }
+
+  /**
+   * Get unique types from publications
+   */
+  getTypes() {
+    return [...new Set(this.publications.map(p => p.type))];
+  }
+
+  /**
+   * Render filter controls
+   */
+  renderFilters() {
+    const years = this.getYears();
+    const types = this.getTypes();
+
+    const yearOptions = ['<option value="all">All Years</option>']
+      .concat(years.map(y => `<option value="${y}">${y}</option>`))
+      .join('');
+
+    const typeLabels = {
+      journal: 'Journal',
+      conference: 'Conference',
+      workshop: 'Workshop',
+      preprint: 'Preprint'
+    };
+
+    const typeOptions = ['<option value="all">All Types</option>']
+      .concat(types.map(t => `<option value="${t}">${typeLabels[t] || t}</option>`))
+      .join('');
+
+    return `
+      <div class="publications-filters mb-4">
+        <div class="row g-3 align-items-center">
+          <div class="col-md-4">
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-search"></i></span>
+              <input type="text" id="pub-search" class="form-control" placeholder="Search publications...">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <select id="pub-filter-year" class="form-select">
+              ${yearOptions}
+            </select>
+          </div>
+          <div class="col-md-3">
+            <select id="pub-filter-type" class="form-select">
+              ${typeOptions}
+            </select>
+          </div>
+          <div class="col-md-2">
+            <span class="pub-count" id="pub-count"></span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  /**
+   * Render the publications list
+   */
+  render() {
+    if (!this.container) return;
+
+    const filtered = this.getFilteredPublications();
+    
+    // Group by year
+    const grouped = {};
+    filtered.forEach(pub => {
+      if (!grouped[pub.year]) {
+        grouped[pub.year] = [];
+      }
+      grouped[pub.year].push(pub);
+    });
+
+    // Sort years descending
+    const sortedYears = Object.keys(grouped).sort((a, b) => b - a);
+
+    let html = this.renderFilters();
+
+    // Featured publications first
+    const featured = filtered.filter(p => p.featured);
+    if (featured.length > 0 && this.filters.year === 'all' && this.filters.type === 'all' && !this.filters.search) {
+      html += `
+        <div class="featured-publications mb-5">
+          <h3 class="section-subtitle"><i class="bi bi-star-fill text-warning"></i> Featured Publications</h3>
+          <div class="publications-list">
+            ${featured.map(pub => DataRenderer.createPublicationCard(pub)).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // All publications by year
+    html += '<div class="publications-by-year">';
+    sortedYears.forEach(year => {
+      html += `
+        <div class="year-group" data-aos="fade-up">
+          <h3 class="year-header">${year}</h3>
+          <div class="publications-list">
+            ${grouped[year].map(pub => DataRenderer.createPublicationCard(pub)).join('')}
+          </div>
+        </div>
+      `;
+    });
+    html += '</div>';
+
+    this.container.innerHTML = html;
+
+    // Update count
+    const countEl = document.getElementById('pub-count');
+    if (countEl) {
+      countEl.textContent = `${filtered.length} publication${filtered.length !== 1 ? 's' : ''}`;
+    }
+
+    // Re-setup event listeners for dynamic content
+    this.setupEventListeners();
+
+    // Refresh AOS animations if available
+    if (typeof AOS !== 'undefined') {
+      AOS.refresh();
+    }
+  }
+
+  /**
+   * Copy text to clipboard
+   */
+  async copyToClipboard(text, btn) {
+    try {
+      await navigator.clipboard.writeText(text);
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="bi bi-check"></i> Copied!';
+      btn.classList.add('btn-success');
+      btn.classList.remove('btn-primary');
+      
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('btn-success');
+        btn.classList.add('btn-primary');
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+      alert('Failed to copy to clipboard');
+    }
+  }
+
+  /**
+   * Show error message
+   */
+  showError() {
+    if (this.container) {
+      this.container.innerHTML = `
+        <div class="alert alert-danger">
+          <i class="bi bi-exclamation-triangle"></i>
+          Failed to load publications. Please try refreshing the page.
+        </div>
+      `;
+    }
+  }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const pubContainer = document.getElementById('publications-container');
+  if (pubContainer) {
+    window.publicationsManager = new PublicationsManager('publications-container');
+    window.publicationsManager.init();
+  }
+});

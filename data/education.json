@@ -1,0 +1,101 @@
+[
+  {
+    "id": "chalmers-msc",
+    "institution": "Chalmers University of Technology",
+    "location": "Gothenburg, Sweden",
+    "degree": "MSc in Systems, Control and Mechatronics",
+    "focus": "Artificial Intelligence, Autonomous Systems & Control",
+    "startDate": "2024-09",
+    "endDate": null,
+    "current": true,
+    "logo": "assets/img/chalmers_logo.png",
+    "url": "https://www.chalmers.se/en/",
+    "scholarship": "SI Scholarship for Global Professionals",
+    "completedCourses": [
+      {
+        "code": "ESS101",
+        "name": "Modelling and simulation",
+        "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/ESS101/"
+      },
+      {
+        "code": "SSY165",
+        "name": "Logic, learning, and decision",
+        "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY165/"
+      },
+      {
+        "code": "EEN020",
+        "name": "Computer vision",
+        "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/EEN020/"
+      },
+      {
+        "code": "SSY285",
+        "name": "Linear control system design",
+        "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY285/"
+      },
+      {
+        "code": "TDA233",
+        "name": "Algorithms for machine learning and inference",
+        "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/TDA233/"
+      },
+      {
+        "code": "SSY156",
+        "name": "Modelling and control of mechatronic systems",
+        "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY156/"
+      },
+      {
+        "code": "SSY345",
+        "name": "Sensor fusion and nonlinear filtering",
+        "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY345/"
+      },
+      {
+        "code": "SUMMER",
+        "name": "Summer School (2025): Analysis and Modelling of Road-User Behaviour",
+        "url": "https://idealeague.org/analysis-and-modelling-road-user-behavior-2025/"
+      },
+      {
+        "code": "RRY025",
+        "name": "Image processing",
+        "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/RRY025/"
+      },
+      {
+        "code": "SSY340",
+        "name": "Deep machine learning",
+        "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY340/?acYear=2025%2F2026"
+      }
+    ],
+    "currentCourses": [
+      {
+        "code": "TRA220",
+        "name": "GPU-accelerated Computational Methods using Python and CUDA",
+        "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/TRA220/?acYear=2025%2F2026"
+      },
+      {
+        "code": "SSY226",
+        "name": "Design project in systems",
+        "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY226/?acYear=2025%2F2026"
+      }
+    ]
+  },
+  {
+    "id": "uj-bsc",
+    "institution": "University of Jordan",
+    "location": "Amman, Jordan",
+    "degree": "BSc in Mechatronics Engineering",
+    "focus": "Robotics, Artificial Intelligence, Control, Automation, FPGA, Embedded Systems, and Mechatronics System Design",
+    "startDate": "2016-09",
+    "endDate": "2022-06",
+    "current": false,
+    "logo": "assets/img/University_of_Jordan_Logo.png",
+    "url": "https://www.ju.edu.jo/Home.aspx",
+    "gpa": "3.94/4.00",
+    "rank": "1st",
+    "accreditation": "ABET (Accreditation Board for Engineering and Technology)",
+    "scholarship": "Grant from Ministry of Higher Education and Scientific Research",
+    "graduationProject": {
+      "title": "Design of Arabic sign language recognition model",
+      "url": "https://arxiv.org/abs/2301.02693"
+    },
+    "completedCourses": [],
+    "currentCourses": []
+  }
+]

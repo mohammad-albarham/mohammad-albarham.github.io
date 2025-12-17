@@ -1,0 +1,309 @@
+/**
+ * Publications Component Styles
+ * Modern styling for the publications section with filtering and search
+ */
+
+/* ====== Filter Controls ====== */
+.publications-filters {
+  background: var(--bg-secondary, #f5f8fb);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.publications-filters .form-control,
+.publications-filters .form-select {
+  border-radius: 6px;
+  border-color: #dee2e6;
+}
+
+.publications-filters .form-control:focus,
+.publications-filters .form-select:focus {
+  border-color: #149ddd;
+  box-shadow: 0 0 0 0.2rem rgba(20, 157, 221, 0.25);
+}
+
+.publications-filters .input-group-text {
+  background: #fff;
+  border-color: #dee2e6;
+}
+
+.pub-count {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+/* ====== Publication Cards ====== */
+.publications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.publication-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #149ddd;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.publication-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Type-based border colors */
+.publication-card.pub-type-journal {
+  border-left-color: #28a745;
+}
+
+.publication-card.pub-type-conference {
+  border-left-color: #149ddd;
+}
+
+.publication-card.pub-type-workshop {
+  border-left-color: #6f42c1;
+}
+
+.publication-card.pub-type-preprint {
+  border-left-color: #fd7e14;
+}
+
+/* Publication Header */
+.pub-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pub-year {
+  background: #149ddd;
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pub-venue {
+  background: #e9ecef;
+  color: #495057;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Publication Title */
+.pub-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.pub-title a {
+  color: #272829;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pub-title a:hover {
+  color: #149ddd;
+}
+
+/* Publication Authors */
+.pub-authors {
+  color: #6c757d;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.pub-authors strong {
+  color: #149ddd;
+  font-weight: 600;
+}
+
+/* Publication Venue Full */
+.pub-venue-full {
+  font-style: italic;
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Publication Links */
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.pub-links .btn {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* BibTeX Section */
+.pub-bibtex {
+  margin-top: 1rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 1rem;
+  position: relative;
+}
+
+.pub-bibtex pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 0.8rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.pub-bibtex code {
+  color: #495057;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.pub-bibtex .copy-bibtex {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+/* ====== Year Groups ====== */
+.year-group {
+  margin-bottom: 2.5rem;
+}
+
+.year-header {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #272829;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #149ddd;
+  display: inline-block;
+}
+
+/* ====== Featured Publications ====== */
+.featured-publications {
+  background: linear-gradient(135deg, #fff9e6 0%, #fff 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.featured-publications .section-subtitle {
+  margin-bottom: 1.5rem;
+}
+
+.featured-publications .publication-card {
+  border-left-color: #ffc107;
+}
+
+/* ====== Section Subtitle ====== */
+.section-subtitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #272829;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ====== Responsive Design ====== */
+@media (max-width: 768px) {
+  .publication-card {
+    padding: 1rem;
+  }
+
+  .pub-title {
+    font-size: 1rem;
+  }
+
+  .pub-links {
+    flex-direction: column;
+  }
+
+  .pub-links .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .publications-filters .row > div {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* ====== Dark Mode Support ====== */
+[data-theme="dark"] .publications-filters {
+  background: var(--dark-bg-secondary, #242526);
+}
+
+[data-theme="dark"] .publication-card {
+  background: var(--dark-bg-secondary, #242526);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .pub-title a {
+  color: var(--dark-text-primary, #e4e6eb);
+}
+
+[data-theme="dark"] .pub-title a:hover {
+  color: #149ddd;
+}
+
+[data-theme="dark"] .pub-authors {
+  color: var(--dark-text-secondary, #b0b3b8);
+}
+
+[data-theme="dark"] .pub-venue-full {
+  color: var(--dark-text-secondary, #b0b3b8);
+}
+
+[data-theme="dark"] .pub-venue {
+  background: #3a3b3c;
+  color: #e4e6eb;
+}
+
+[data-theme="dark"] .year-header {
+  color: var(--dark-text-primary, #e4e6eb);
+}
+
+[data-theme="dark"] .pub-bibtex {
+  background: #3a3b3c;
+}
+
+[data-theme="dark"] .pub-bibtex code {
+  color: #e4e6eb;
+}
+
+[data-theme="dark"] .featured-publications {
+  background: linear-gradient(135deg, #3a3b3c 0%, #242526 100%);
+}
+
+[data-theme="dark"] .publications-filters .form-control,
+[data-theme="dark"] .publications-filters .form-select {
+  background: #3a3b3c;
+  border-color: #4a4b4c;
+  color: #e4e6eb;
+}
+
+[data-theme="dark"] .publications-filters .input-group-text {
+  background: #3a3b3c;
+  border-color: #4a4b4c;
+  color: #e4e6eb;
+}

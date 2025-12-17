@@ -1,0 +1,325 @@
+/**
+ * Dark Mode Styles
+ * Override variables and specific elements for dark theme
+ */
+
+/* ====== CSS Custom Properties for Theming ====== */
+:root {
+  /* Light theme (default) */
+  --primary: #149ddd;
+  --primary-hover: #37b3ed;
+  --primary-dark: #0d6efd;
+  --text-primary: #272829;
+  --text-secondary: #6c757d;
+  --text-muted: #858585;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f8fb;
+  --bg-card: #ffffff;
+  --bg-sidebar: #040b14;
+  --border-color: #dee2e6;
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] {
+  /* Dark theme */
+  --primary: #149ddd;
+  --primary-hover: #37b3ed;
+  --text-primary: #e4e6eb;
+  --text-secondary: #b0b3b8;
+  --text-muted: #8a8d91;
+  --bg-primary: #18191a;
+  --bg-secondary: #242526;
+  --bg-card: #242526;
+  --bg-sidebar: #040b14;
+  --border-color: #3a3b3c;
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ====== Theme Toggle Button ====== */
+.theme-toggle {
+  position: fixed;
+  bottom: 70px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  z-index: 996;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--primary-hover);
+  transform: scale(1.1);
+}
+
+.theme-toggle i {
+  font-size: 20px;
+}
+
+/* Hide icon based on theme */
+[data-theme="light"] .theme-toggle .bi-sun-fill,
+.theme-toggle .bi-sun-fill {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle .bi-moon-fill,
+.theme-toggle .bi-moon-fill {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .bi-moon-fill {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .bi-sun-fill {
+  display: block;
+}
+
+/* ====== Base Element Overrides ====== */
+[data-theme="dark"] body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] a {
+  color: var(--primary);
+}
+
+[data-theme="dark"] a:hover {
+  color: var(--primary-hover);
+}
+
+/* ====== Header / Sidebar ====== */
+[data-theme="dark"] #header {
+  background: var(--bg-sidebar);
+}
+
+/* ====== Main Content Area ====== */
+[data-theme="dark"] #main {
+  background: var(--bg-primary);
+}
+
+/* ====== Section Backgrounds ====== */
+[data-theme="dark"] .section-bg {
+  background: var(--bg-secondary);
+}
+
+/* ====== Section Titles ====== */
+[data-theme="dark"] .section-title h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .section-title p {
+  color: var(--text-secondary);
+}
+
+/* ====== Cards and Boxes ====== */
+[data-theme="dark"] .card,
+[data-theme="dark"] .portfolio-wrap,
+[data-theme="dark"] .resume-item {
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ====== Forms ====== */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+  background: var(--bg-secondary);
+  border-color: var(--primary);
+  color: var(--text-primary);
+  box-shadow: 0 0 0 0.2rem rgba(20, 157, 221, 0.25);
+}
+
+[data-theme="dark"] .form-control::placeholder {
+  color: var(--text-muted);
+}
+
+/* ====== Portfolio Section ====== */
+[data-theme="dark"] .portfolio-wrap {
+  background: var(--bg-card);
+}
+
+[data-theme="dark"] .portfolio-wrap .portfolio-info {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] .portfolio-wrap .portfolio-info h4 {
+  color: #fff;
+}
+
+[data-theme="dark"] .portfolio-wrap .portfolio-info p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ====== About Section ====== */
+[data-theme="dark"] .about .content h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .about .content p {
+  color: var(--text-secondary);
+}
+
+/* ====== Resume Section ====== */
+[data-theme="dark"] .resume .resume-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .resume .resume-item h4 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .resume .resume-item h5 {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .resume .resume-item p {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .resume .resume-item ul li {
+  color: var(--text-secondary);
+}
+
+/* ====== Volunteering Section ====== */
+[data-theme="dark"] .volunteer-card {
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="dark"] .volunteer-card .volunteer-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .volunteer-card .volunteer-description {
+  color: var(--text-secondary);
+}
+
+/* ====== Travel / Map Section ====== */
+[data-theme="dark"] #countries-visited {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] #countries-visited h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] #countries-visited p {
+  color: var(--text-secondary);
+}
+
+/* ====== Contact Section ====== */
+[data-theme="dark"] .contact {
+  background: var(--bg-primary);
+}
+
+[data-theme="dark"] .contact .info {
+  background: var(--bg-card);
+}
+
+[data-theme="dark"] .contact .info h4 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .contact .info p {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .contact form {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+/* ====== Footer ====== */
+[data-theme="dark"] #footer {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+/* ====== Back to Top Button ====== */
+[data-theme="dark"] .back-to-top {
+  background: var(--primary);
+}
+
+/* ====== Breadcrumbs ====== */
+[data-theme="dark"] .breadcrumbs {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .breadcrumbs h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .breadcrumbs ol li {
+  color: var(--text-secondary);
+}
+
+/* ====== Badges ====== */
+[data-theme="dark"] .badge.bg-light {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ====== Code blocks ====== */
+[data-theme="dark"] pre,
+[data-theme="dark"] code {
+  background: #1e1e1e;
+  color: #d4d4d4;
+}
+
+[data-theme="dark"] pre.prettyprint {
+  background: #1e1e1e !important;
+  border-color: var(--border-color) !important;
+}
+
+/* ====== Scrollbar ====== */
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #4a4b4c;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #5a5b5c;
+}
+
+/* ====== Transition for smooth theme switching ====== */
+body,
+#main,
+.section-bg,
+.card,
+.portfolio-wrap,
+.resume-item,
+.form-control,
+.form-select,
+.btn {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

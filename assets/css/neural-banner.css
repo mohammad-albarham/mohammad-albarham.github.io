@@ -1,0 +1,285 @@
+/**
+ * Neural Network Banner - Centered Data Flow Visualization
+ */
+
+/* ====== Hero Section ====== */
+#hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #040b14 0%, #0a192f 50%, #112240 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(20, 157, 221, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+  animation: none;
+}
+
+#hero::after {
+  display: none;
+}
+
+/* ====== Centered Layout ====== */
+#hero .hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+  gap: 40px;
+}
+
+#hero .hero-text {
+  max-width: 600px;
+}
+
+#hero .hero-text h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+#hero .hero-text p {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
+}
+
+#hero .hero-text .typed {
+  color: #149ddd;
+  font-weight: 600;
+}
+
+/* ====== Neural Network Container ====== */
+.nn-visual {
+  width: 480px;
+  height: 280px;
+  position: relative;
+}
+
+.nn-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ====== Nodes ====== */
+.nn-node {
+  fill: rgba(20, 157, 221, 0.12);
+  stroke: rgba(20, 157, 221, 0.6);
+  stroke-width: 1.5;
+  opacity: 0;
+  transform-origin: center;
+  transition: 
+    opacity 0.4s ease,
+    fill 0.25s ease,
+    stroke 0.25s ease,
+    filter 0.25s ease;
+}
+
+.nn-ready .nn-node {
+  opacity: 1;
+}
+
+/* Stagger load-in by layer */
+.nn-ready .nn-node[data-layer="0"] { transition-delay: 0.1s; }
+.nn-ready .nn-node[data-layer="1"] { transition-delay: 0.2s; }
+.nn-ready .nn-node[data-layer="2"] { transition-delay: 0.3s; }
+.nn-ready .nn-node[data-layer="3"] { transition-delay: 0.4s; }
+
+/* Active node (during data flow) */
+.nn-node.active {
+  fill: rgba(79, 195, 247, 0.6);
+  stroke: #4fc3f7;
+  filter: url(#glow);
+}
+
+/* ====== Connections ====== */
+.nn-connection {
+  stroke: rgba(79, 195, 247, 0.12);
+  stroke-width: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease, stroke 0.2s ease, stroke-width 0.2s ease;
+}
+
+.nn-ready .nn-connection {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+/* Active connection (signal passing) */
+.nn-connection.active {
+  stroke: rgba(79, 195, 247, 0.5);
+  stroke-width: 2;
+}
+
+/* ====== Input/Output Arrows ====== */
+.nn-input-arrow,
+.nn-output-arrow {
+  stroke-width: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease, stroke 0.2s ease;
+}
+
+.nn-input-arrow {
+  stroke: rgba(255, 193, 7, 0.3);
+}
+
+.nn-output-arrow {
+  stroke: rgba(76, 175, 80, 0.3);
+}
+
+.nn-ready .nn-input-arrow,
+.nn-ready .nn-output-arrow {
+  opacity: 1;
+  transition-delay: 0.6s;
+}
+
+/* Active arrows (data flowing) */
+.nn-input-arrow.active {
+  stroke: #ffc107;
+  filter: drop-shadow(0 0 4px rgba(255, 193, 7, 0.5));
+}
+
+.nn-output-arrow.active {
+  stroke: #4caf50;
+  filter: drop-shadow(0 0 4px rgba(76, 175, 80, 0.5));
+}
+
+/* ====== Scroll Indicator ====== */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  opacity: 0;
+  animation: fadeIn 0.6s ease 1.2s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.hero-scroll-indicator a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.hero-scroll-indicator a:hover {
+  color: #149ddd;
+}
+
+.hero-scroll-indicator .mouse {
+  width: 22px;
+  height: 34px;
+  border: 2px solid currentColor;
+  border-radius: 11px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.hero-scroll-indicator .wheel {
+  width: 3px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 2px;
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollWheel 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollWheel {
+  0%, 100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.3; transform: translateX(-50%) translateY(8px); }
+}
+
+.hero-scroll-indicator span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  #hero .hero-text h1 {
+    font-size: 2.2rem;
+  }
+  
+  #hero .hero-text p {
+    font-size: 1.1rem;
+  }
+  
+  .nn-visual {
+    width: 360px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero .hero-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  #hero .hero-text p {
+    font-size: 1rem;
+  }
+  
+  .nn-visual {
+    width: 300px;
+    height: 180px;
+  }
+}
+
+/* ====== Reduced Motion ====== */
+@media (prefers-reduced-motion: reduce) {
+  .nn-node,
+  .nn-connection,
+  .nn-input-arrow,
+  .nn-output-arrow {
+    opacity: 1;
+    transition: none;
+  }
+  
+  .nn-node.active,
+  .nn-connection.active,
+  .nn-input-arrow.active,
+  .nn-output-arrow.active {
+    filter: none;
+  }
+  
+  .hero-scroll-indicator {
+    opacity: 1;
+    animation: none;
+  }
+  
+  .hero-scroll-indicator .wheel {
+    animation: none;
+  }
+}
+
+/* ====== Dark Mode ====== */
+[data-theme="dark"] #hero {
+  background: linear-gradient(135deg, #020508 0%, #050d17 50%, #0a1628 100%);
+}

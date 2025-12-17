@@ -1,0 +1,237 @@
+/**
+ * Enhanced Button & Interactive Element Styles
+ * Works with GSAP for micro-animations
+ */
+
+/* ====== Base Button Enhancements ====== */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+/* Primary button glow effect */
+.btn-primary,
+.btn[type="submit"] {
+  box-shadow: 0 4px 15px rgba(20, 157, 221, 0.3);
+}
+
+.btn-primary:hover,
+.btn[type="submit"]:hover {
+  box-shadow: 0 6px 25px rgba(20, 157, 221, 0.4);
+}
+
+/* ====== Social Link Animations ====== */
+.social-links a {
+  position: relative;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.social-links a::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(20, 157, 221, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.social-links a:hover::after {
+  opacity: 1;
+}
+
+/* ====== Navigation Link Effects ====== */
+.nav-menu a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-menu a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #149ddd, #4fc3f7);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::before,
+.nav-menu a.active::before {
+  width: 100%;
+}
+
+/* ====== Card Hover States ====== */
+.highlight-item,
+.portfolio-item {
+  transition: all 0.3s ease;
+  will-change: transform, box-shadow;
+}
+
+.highlight-item {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(20, 157, 221, 0.1);
+}
+
+.highlight-item:hover {
+  border-color: rgba(20, 157, 221, 0.3);
+  background: rgba(20, 157, 221, 0.05);
+}
+
+/* ====== Scroll Progress Bar ====== */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #149ddd, #0563bb, #4fc3f7);
+  z-index: 9999;
+  transform-origin: left;
+}
+
+/* ====== Section Reveal Preparation ====== */
+.reveal-fade {
+  opacity: 0;
+}
+
+.reveal-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.reveal-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* When JS is disabled, show content normally */
+@media (scripting: none) {
+  .reveal-fade,
+  .reveal-slide-up,
+  .reveal-slide-left,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ====== Icon Animations ====== */
+.bi, .bx, .ai {
+  transition: transform 0.3s ease;
+}
+
+a:hover .bi,
+a:hover .bx,
+button:hover .bi,
+button:hover .bx {
+  transform: scale(1.1);
+}
+
+/* ====== Form Input Focus Effects ====== */
+.form-control,
+.form-select {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #149ddd;
+  box-shadow: 0 0 0 4px rgba(20, 157, 221, 0.1);
+}
+
+/* ====== Back to Top Button ====== */
+.back-to-top {
+  transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(20, 157, 221, 0.4);
+}
+
+/* ====== Loading Shimmer for Dynamic Content ====== */
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ====== Reduced Motion ====== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .reveal-fade,
+  .reveal-slide-up,
+  .reveal-slide-left,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+  
+  #scroll-progress {
+    display: none;
+  }
+}
+
+/* ====== Dark Mode Adjustments ====== */
+[data-theme="dark"] .highlight-item {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(20, 157, 221, 0.2);
+}
+
+[data-theme="dark"] .highlight-item:hover {
+  background: rgba(20, 157, 221, 0.1);
+  border-color: rgba(20, 157, 221, 0.4);
+}
+
+[data-theme="dark"] .btn::before {
+  background: rgba(255, 255, 255, 0.05);
+}

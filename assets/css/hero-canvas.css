@@ -1,0 +1,33 @@
+/**
+ * Hero Visualization Canvas Styles
+ * Positioning for the animated canvas element
+ */
+
+#hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ensure hero content stays above canvas */
+#hero .hero-container,
+#hero .hero-scroll-indicator {
+  position: relative;
+  z-index: 2;
+}
+
+/* Adjust decoration for layering */
+#hero .hero-decoration {
+  z-index: 1;
+}
+
+/* Reduced motion: hide canvas animation */
+@media (prefers-reduced-motion: reduce) {
+  #hero-canvas {
+    display: none;
+  }
+}

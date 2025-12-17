@@ -1,5 +1,6 @@
 /**
- * Neural Network Banner - Centered Data Flow Visualization
+ * Neural Network Visualization - Manim Style
+ * Clean, professional neural network banner
  */
 
 /* ====== Hero Section ====== */
@@ -20,14 +21,11 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(20, 157, 221, 0.06) 0%, transparent 60%);
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(20, 157, 221, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(79, 195, 247, 0.03) 0%, transparent 50%);
   pointer-events: none;
   z-index: 1;
-  animation: none;
-}
-
-#hero::after {
-  display: none;
 }
 
 /* ====== Centered Layout ====== */
@@ -40,136 +38,102 @@
   padding: 0 20px;
   position: relative;
   z-index: 10;
-  gap: 40px;
+  gap: 30px;
 }
 
+/* ====== Hero Text ====== */
 #hero .hero-text {
   max-width: 600px;
+  order: 1;
 }
 
 #hero .hero-text h1 {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   line-height: 1.2;
+  letter-spacing: -0.5px;
 }
 
 #hero .hero-text p {
-  font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 0;
 }
 
 #hero .hero-text .typed {
-  color: #149ddd;
+  color: #4fc3f7;
   font-weight: 600;
 }
 
 /* ====== Neural Network Container ====== */
 .nn-visual {
-  width: 480px;
+  width: 580px;
   height: 280px;
   position: relative;
+  order: 2;
 }
 
 .nn-svg {
   width: 100%;
   height: 100%;
+  overflow: visible;
 }
 
-/* ====== Nodes ====== */
+/* ====== Input Grid (MNIST-style) ====== */
+.nn-input-cell {
+  transition: fill-opacity 0.3s ease;
+}
+
+/* ====== Network Nodes ====== */
 .nn-node {
-  fill: rgba(20, 157, 221, 0.12);
-  stroke: rgba(20, 157, 221, 0.6);
-  stroke-width: 1.5;
-  opacity: 0;
   transform-origin: center;
-  transition: 
-    opacity 0.4s ease,
-    fill 0.25s ease,
-    stroke 0.25s ease,
-    filter 0.25s ease;
+  will-change: opacity, transform, fill, filter;
 }
 
 .nn-ready .nn-node {
   opacity: 1;
 }
 
-/* Stagger load-in by layer */
-.nn-ready .nn-node[data-layer="0"] { transition-delay: 0.1s; }
-.nn-ready .nn-node[data-layer="1"] { transition-delay: 0.2s; }
-.nn-ready .nn-node[data-layer="2"] { transition-delay: 0.3s; }
-.nn-ready .nn-node[data-layer="3"] { transition-delay: 0.4s; }
-
-/* Active node (during data flow) */
-.nn-node.active {
-  fill: rgba(79, 195, 247, 0.6);
-  stroke: #4fc3f7;
-  filter: url(#glow);
-}
+/* Layer stagger for entrance animation */
+.nn-ready .nn-layer-0 { transition-delay: 0.1s; }
+.nn-ready .nn-layer-1 { transition-delay: 0.15s; }
+.nn-ready .nn-layer-2 { transition-delay: 0.2s; }
+.nn-ready .nn-layer-3 { transition-delay: 0.25s; }
 
 /* ====== Connections ====== */
 .nn-connection {
-  stroke: rgba(79, 195, 247, 0.12);
-  stroke-width: 1;
-  opacity: 0;
-  transition: opacity 0.5s ease, stroke 0.2s ease, stroke-width 0.2s ease;
+  will-change: opacity, stroke, stroke-width;
+  pointer-events: none;
 }
 
-.nn-ready .nn-connection {
-  opacity: 1;
-  transition-delay: 0.5s;
+.nn-input-connection {
+  stroke-dasharray: 4 2;
 }
 
-/* Active connection (signal passing) */
-.nn-connection.active {
-  stroke: rgba(79, 195, 247, 0.5);
-  stroke-width: 2;
+/* ====== Signal Animation ====== */
+.nn-signal {
+  pointer-events: none;
+  will-change: cx, cy;
 }
 
-/* ====== Input/Output Arrows ====== */
-.nn-input-arrow,
-.nn-output-arrow {
-  stroke-width: 2;
-  opacity: 0;
-  transition: opacity 0.4s ease, stroke 0.2s ease;
-}
-
-.nn-input-arrow {
-  stroke: rgba(255, 193, 7, 0.3);
-}
-
-.nn-output-arrow {
-  stroke: rgba(76, 175, 80, 0.3);
-}
-
-.nn-ready .nn-input-arrow,
-.nn-ready .nn-output-arrow {
-  opacity: 1;
-  transition-delay: 0.6s;
-}
-
-/* Active arrows (data flowing) */
-.nn-input-arrow.active {
-  stroke: #ffc107;
-  filter: drop-shadow(0 0 4px rgba(255, 193, 7, 0.5));
-}
-
-.nn-output-arrow.active {
-  stroke: #4caf50;
-  filter: drop-shadow(0 0 4px rgba(76, 175, 80, 0.5));
+/* ====== Output Labels ====== */
+.nn-output-label {
+  transition: fill 0.3s ease, font-weight 0.3s ease;
+  user-select: none;
+  pointer-events: none;
 }
 
 /* ====== Scroll Indicator ====== */
 .hero-scroll-indicator {
   position: absolute;
-  bottom: 30px;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
   opacity: 0;
-  animation: fadeIn 0.6s ease 1.2s forwards;
+  animation: fadeIn 0.6s ease 2s forwards;
 }
 
 @keyframes fadeIn {
@@ -180,22 +144,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.4);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .hero-scroll-indicator a:hover {
-  color: #149ddd;
+  color: #4fc3f7;
 }
 
 .hero-scroll-indicator .mouse {
-  width: 22px;
-  height: 34px;
+  width: 20px;
+  height: 32px;
   border: 2px solid currentColor;
-  border-radius: 11px;
+  border-radius: 10px;
   position: relative;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 .hero-scroll-indicator .wheel {
@@ -211,18 +175,24 @@
 }
 
 @keyframes scrollWheel {
-  0%, 100% { opacity: 1; transform: translateX(-50%) translateY(0); }
-  50% { opacity: 0.3; transform: translateX(-50%) translateY(8px); }
+  0%, 100% { 
+    opacity: 1; 
+    transform: translateX(-50%) translateY(0); 
+  }
+  50% { 
+    opacity: 0.3; 
+    transform: translateX(-50%) translateY(8px); 
+  }
 }
 
 .hero-scroll-indicator span {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
-/* ====== Responsive ====== */
-@media (max-width: 768px) {
+/* ====== Responsive Design ====== */
+@media (max-width: 992px) {
   #hero .hero-text h1 {
     font-size: 2.2rem;
   }
@@ -232,14 +202,18 @@
   }
   
   .nn-visual {
-    width: 360px;
-    height: 220px;
+    width: 500px;
+    height: 240px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  #hero .hero-container {
+    gap: 25px;
+  }
+  
   #hero .hero-text h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
   
   #hero .hero-text p {
@@ -247,8 +221,27 @@
   }
   
   .nn-visual {
-    width: 300px;
-    height: 180px;
+    width: 420px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero .hero-text h1 {
+    font-size: 1.6rem;
+  }
+  
+  #hero .hero-text p {
+    font-size: 0.95rem;
+  }
+  
+  .nn-visual {
+    width: 320px;
+    height: 160px;
+  }
+  
+  .hero-scroll-indicator {
+    bottom: 15px;
   }
 }
 
@@ -256,17 +249,13 @@
 @media (prefers-reduced-motion: reduce) {
   .nn-node,
   .nn-connection,
-  .nn-input-arrow,
-  .nn-output-arrow {
-    opacity: 1;
-    transition: none;
+  .nn-input-cell,
+  .nn-output-label {
+    transition: none !important;
   }
   
-  .nn-node.active,
-  .nn-connection.active,
-  .nn-input-arrow.active,
-  .nn-output-arrow.active {
-    filter: none;
+  .nn-signal {
+    display: none;
   }
   
   .hero-scroll-indicator {
@@ -279,7 +268,22 @@
   }
 }
 
-/* ====== Dark Mode ====== */
+/* ====== Dark Mode Adjustments ====== */
 [data-theme="dark"] #hero {
   background: linear-gradient(135deg, #020508 0%, #050d17 50%, #0a1628 100%);
+}
+
+[data-theme="dark"] #hero::before {
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(20, 157, 221, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(79, 195, 247, 0.02) 0%, transparent 50%);
+}
+
+/* ====== Animation Optimization ====== */
+.nn-visual {
+  contain: layout style paint;
+}
+
+.nn-svg * {
+  shape-rendering: geometricPrecision;
 }

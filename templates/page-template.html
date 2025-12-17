@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="theme-color" content="#0563bb">
+  
+  <!-- SEO Meta Tags - TO BE CUSTOMIZED PER PAGE -->
+  <title>{{PAGE_TITLE}} | Mohammad Albarham</title>
+  <meta name="description" content="{{PAGE_DESCRIPTION}}">
+  <meta name="keywords" content="{{PAGE_KEYWORDS}}">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mohammad-albarham.github.io/{{PAGE_URL}}">
+  <meta property="og:title" content="{{PAGE_TITLE}}">
+  <meta property="og:description" content="{{PAGE_DESCRIPTION}}">
+  <meta property="og:image" content="{{PAGE_IMAGE}}">
+  
+  <!-- Favicons -->
+  <link href="/assets/img/favicon.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Vendor CSS -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  
+  <!-- Main CSS -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="/assets/css/modern-portfolio.css" rel="stylesheet">
+  <link href="/assets/css/dark-mode.css" rel="stylesheet">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJHNQN2HWX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VJHNQN2HWX');
+  </script>
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center">
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        <li><a href="/#hero" class="nav-link scrollto"><i class="bi bi-house"></i> <span>Home</span></a></li>
+        <li><a href="/#about" class="nav-link scrollto"><i class="bi bi-person"></i> <span>About</span></a></li>
+        <li><a href="/#resume" class="nav-link scrollto"><i class="bi bi-file-text"></i> <span>Resume</span></a></li>
+        <li><a href="/#projects" class="nav-link scrollto"><i class="bi bi-folder"></i> <span>Projects</span></a></li>
+        <li><a href="/#publications" class="nav-link scrollto"><i class="bi bi-book"></i> <span>Publications</span></a></li>
+        <li><a href="/#volunteering" class="nav-link scrollto"><i class="bi bi-heart"></i> <span>Volunteering</span></a></li>
+        <li><a href="/#contact" class="nav-link scrollto"><i class="bi bi-envelope"></i> <span>Contact</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ======= Mobile Navigation Toggle ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+
+  <main id="main">
+    <!-- Breadcrumb Navigation -->
+    <section class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>{{PAGE_TITLE}}</h2>
+          <ol>
+            <li><a href="/">Home</a></li>
+            {{BREADCRUMB_ITEMS}}
+            <li>{{PAGE_TITLE}}</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <section class="inner-page">
+      <div class="container">
+        {{PAGE_CONTENT}}
+      </div>
+    </section>
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/albarham/" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/mohammad-albarham" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://scholar.google.com/citations?user=3znRUJoAAAAJ" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; <span id="footer-year"></span> Mohammad Albarham. All Rights Reserved.
+      </div>
+      <div class="credits">
+        Built with <span style="color: #e25555;">♥</span> for open science
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Vendor JS -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Main JS -->
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/theme.js"></script>
+  
+  <!-- Page-specific scripts -->
+  {{PAGE_SCRIPTS}}
+  
+  <script>
+    // Update footer year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

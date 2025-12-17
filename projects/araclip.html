@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="theme-color" content="#0563bb">
+  
+  <!-- SEO Meta Tags -->
+  <title>AraCLIP: Arabic Image Retrieval | Mohammad Albarham</title>
+  <meta name="description" content="Cross-lingual learning model for effective Arabic text-to-image retrieval using knowledge distillation from CLIP">
+  <meta name="keywords" content="AraCLIP, Arabic NLP, Computer Vision, CLIP, Image Retrieval, Deep Learning, Arabic Language">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mohammad-albarham.github.io/projects/araclip.html">
+  <meta property="og:title" content="AraCLIP: Arabic Image Retrieval">
+  <meta property="og:description" content="Cross-lingual learning model for effective Arabic text-to-image retrieval using knowledge distillation from CLIP">
+  <meta property="og:image" content="https://mohammad-albarham.github.io/assets/img/portfolio/lp_photo_1.png">
+  
+  <!-- Favicons -->
+  <link href="/assets/img/favicon.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Vendor CSS -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  
+  <!-- Main CSS -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="/assets/css/modern-portfolio.css" rel="stylesheet">
+  <link href="/assets/css/dark-mode.css" rel="stylesheet">
+  
+  <style>
+    .project-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 80px 0;
+      color: white;
+      text-align: center;
+    }
+    
+    .project-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .project-hero .lead {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .project-image-main {
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      margin: -50px auto 50px;
+      max-width: 900px;
+    }
+    
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--bg-accent);
+      border-radius: 12px;
+    }
+    
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .meta-item i {
+      color: var(--primary-color);
+      font-size: 1.25rem;
+    }
+    
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .project-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    
+    .project-link-btn:hover {
+      background: var(--primary-dark);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    
+    .project-link-btn.secondary {
+      background: var(--bg-accent);
+      color: var(--text-primary);
+      border: 2px solid var(--border-color);
+    }
+    
+    .project-link-btn.secondary:hover {
+      background: var(--bg-secondary);
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .feature-card {
+      padding: 1.5rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      transition: all 0.3s;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px var(--shadow-md);
+      border-color: var(--primary-color);
+    }
+    
+    .feature-card h4 {
+      color: var(--primary-color);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .code-block {
+      background: var(--bg-accent);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+    }
+    
+    .code-block code {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center">
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        <li><a href="/#hero" class="nav-link scrollto"><i class="bi bi-house"></i> <span>Home</span></a></li>
+        <li><a href="/#about" class="nav-link scrollto"><i class="bi bi-person"></i> <span>About</span></a></li>
+        <li><a href="/#resume" class="nav-link scrollto"><i class="bi bi-file-text"></i> <span>Resume</span></a></li>
+        <li><a href="/#projects" class="nav-link scrollto active"><i class="bi bi-folder"></i> <span>Projects</span></a></li>
+        <li><a href="/#publications" class="nav-link scrollto"><i class="bi bi-book"></i> <span>Publications</span></a></li>
+        <li><a href="/#contact" class="nav-link scrollto"><i class="bi bi-envelope"></i> <span>Contact</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ======= Mobile Navigation Toggle ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+
+  <main id="main">
+    <!-- Project Hero -->
+    <section class="project-hero">
+      <div class="container">
+        <h1>AraCLIP: Arabic Image Retrieval</h1>
+        <p class="lead">Cross-lingual learning model for effective Arabic text-to-image retrieval using knowledge distillation from CLIP</p>
+      </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="inner-page" style="padding-top: 0;">
+      <div class="container">
+        <!-- Main Project Image -->
+        <img src="/assets/img/portfolio/lp_photo_1.png" alt="AraCLIP Architecture" class="img-fluid project-image-main">
+
+        <!-- Project Meta -->
+        <div class="project-meta">
+          <div class="meta-item">
+            <i class="bi bi-calendar3"></i>
+            <div>
+              <strong>Year:</strong> 2024
+            </div>
+          </div>
+          <div class="meta-item">
+            <i class="bi bi-code-slash"></i>
+            <div>
+              <strong>Tech:</strong> PyTorch, CLIP, Transformers
+            </div>
+          </div>
+          <div class="meta-item">
+            <i class="bi bi-tag"></i>
+            <div>
+              <strong>Category:</strong> Computer Vision, NLP, Arabic
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Links -->
+        <div class="project-links">
+          <a href="https://huggingface.co/Arabic-Clip" class="project-link-btn" target="_blank" rel="noopener">
+            🤗 HuggingFace Model
+          </a>
+          <a href="https://aclanthology.org/2024.arabicnlp-1.9/" class="project-link-btn secondary" target="_blank" rel="noopener">
+            <i class="bi bi-file-text"></i> Read Paper
+          </a>
+          <a href="https://github.com/mohammad-albarham/AraCLIP" class="project-link-btn secondary" target="_blank" rel="noopener">
+            <i class="bi bi-github"></i> GitHub
+          </a>
+        </div>
+
+        <!-- Overview -->
+        <div class="section-content">
+          <h2>Overview</h2>
+          <p>
+            AraCLIP extends the CLIP architecture for Arabic image retrieval tasks. It leverages Knowledge Distillation 
+            to transfer cross-modal knowledge from English to Arabic, enhancing its ability to understand Arabic text 
+            and retrieve relevant images.
+          </p>
+          <p>
+            The model outperforms state-of-the-art multilingual models by approximately <strong>10%</strong> across 
+            various evaluation metrics including recall@1, recall@5, and mean reciprocal rank.
+          </p>
+        </div>
+
+        <!-- Key Features -->
+        <div class="section-content mt-5">
+          <h2>Key Features</h2>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <h4><i class="bi bi-lightning-charge-fill"></i> Knowledge Distillation</h4>
+              <p>Transfers cross-modal knowledge from English CLIP to Arabic, preserving semantic relationships.</p>
+            </div>
+            <div class="feature-card">
+              <h4><i class="bi bi-translate"></i> Arabic-First Design</h4>
+              <p>Specifically optimized for Arabic text understanding, not just multilingual adaptation.</p>
+            </div>
+            <div class="feature-card">
+              <h4><i class="bi bi-graph-up-arrow"></i> Superior Performance</h4>
+              <p>10% improvement over state-of-the-art multilingual vision-language models.</p>
+            </div>
+            <div class="feature-card">
+              <h4><i class="bi bi-hdd"></i> Open Source</h4>
+              <p>Model weights and training code available on HuggingFace and GitHub.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Details -->
+        <div class="section-content mt-5">
+          <h2>Technical Approach</h2>
+          <h3>Architecture</h3>
+          <p>
+            AraCLIP uses a dual-encoder architecture with:
+          </p>
+          <ul>
+            <li><strong>Text Encoder:</strong> AraBERT-based model fine-tuned for Arabic text understanding</li>
+            <li><strong>Image Encoder:</strong> Vision Transformer (ViT) pre-trained on ImageNet</li>
+            <li><strong>Projection Heads:</strong> Linear layers mapping both encoders to shared embedding space</li>
+          </ul>
+
+          <h3>Training Strategy</h3>
+          <p>The model is trained using a two-stage approach:</p>
+          <ol>
+            <li><strong>Stage 1:</strong> Knowledge distillation from English CLIP using parallel Arabic-English datasets</li>
+            <li><strong>Stage 2:</strong> Fine-tuning on Arabic-specific image-caption pairs with contrastive learning</li>
+          </ol>
+
+          <div class="code-block">
+            <code>
+# Example usage<br>
+from transformers import CLIPProcessor, CLIPModel<br>
+<br>
+model = CLIPModel.from_pretrained("Arabic-Clip/AraCLIP")<br>
+processor = CLIPProcessor.from_pretrained("Arabic-Clip/AraCLIP")<br>
+<br>
+# Arabic text query<br>
+text = "قطة جالسة على طاولة"  # "A cat sitting on a table"<br>
+inputs = processor(text=text, images=image, return_tensors="pt")<br>
+outputs = model(**inputs)<br>
+            </code>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="section-content mt-5">
+          <h2>Results</h2>
+          <p>AraCLIP was evaluated on multiple Arabic image-text retrieval benchmarks:</p>
+          
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Recall@1</th>
+                <th>Recall@5</th>
+                <th>MRR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>mCLIP</td>
+                <td>45.2%</td>
+                <td>68.3%</td>
+                <td>0.542</td>
+              </tr>
+              <tr>
+                <td>AltCLIP</td>
+                <td>48.7%</td>
+                <td>71.5%</td>
+                <td>0.567</td>
+              </tr>
+              <tr style="background: rgba(5, 99, 187, 0.1); font-weight: 600;">
+                <td><strong>AraCLIP (Ours)</strong></td>
+                <td><strong>55.3%</strong></td>
+                <td><strong>78.9%</strong></td>
+                <td><strong>0.631</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Citation -->
+        <div class="section-content mt-5">
+          <h2>Citation</h2>
+          <p>If you use AraCLIP in your research, please cite:</p>
+          <div class="code-block">
+            <code>
+@inproceedings{albarham2024araclip,<br>
+  title={AraCLIP: Cross-Lingual Arabic Image Retrieval},<br>
+  author={Albarham, Mohammad and Others},<br>
+  booktitle={Proceedings of ArabicNLP 2024},<br>
+  year={2024},<br>
+  url={https://aclanthology.org/2024.arabicnlp-1.9/}<br>
+}
+            </code>
+          </div>
+        </div>
+
+        <!-- Back to Projects -->
+        <div class="text-center mt-5">
+          <a href="/#projects" class="btn btn-outline-primary btn-lg">
+            <i class="bi bi-arrow-left"></i> Back to Projects
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/albarham/" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/mohammad-albarham" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://scholar.google.com/citations?user=3znRUJoAAAAJ" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; <span id="footer-year"></span> Mohammad Albarham. All Rights Reserved.
+      </div>
+      <div class="credits">
+        Built with <span style="color: #e25555;">♥</span> for open science
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Vendor JS -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Main JS -->
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/theme.js"></script>
+  
+  <script>
+    // Update footer year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

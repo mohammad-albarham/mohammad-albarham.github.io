@@ -157,29 +157,99 @@
 .pub-bibtex {
   margin-top: 1rem;
   background: #f8f9fa;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 1rem;
   position: relative;
+  display: none;
+  animation: slideDown 0.3s ease-out;
+  border: 1px solid #e9ecef;
+}
+
+.pub-bibtex.show {
+  display: block;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* BibTeX Header */
+.bibtex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.bibtex-label {
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.9rem;
 }
 
 .pub-bibtex pre {
   margin: 0;
   white-space: pre-wrap;
   word-wrap: break-word;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   max-height: 200px;
   overflow-y: auto;
+  line-height: 1.5;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
 }
 
 .pub-bibtex code {
   color: #495057;
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', monospace;
+  font-size: 0.75rem;
 }
 
 .pub-bibtex .copy-bibtex {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.pub-bibtex .copy-bibtex:hover {
+  transform: scale(1.02);
+}
+
+.pub-bibtex .copy-bibtex.copied {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+  color: white !important;
+}
+
+/* Cite button states */
+.cite-btn {
+  transition: all 0.2s ease;
+}
+
+.cite-btn:hover {
+  background-color: #149ddd;
+  border-color: #149ddd;
+  color: white;
+}
+
+.cite-btn.active {
+  background-color: #149ddd;
+  border-color: #149ddd;
+  color: white;
 }
 
 /* ====== Year Groups ====== */

@@ -63,18 +63,40 @@ class PublicationsManager {
       });
     }
 
-    // Cite button click handlers
+    // Cite button click handlers - using event delegation
     document.addEventListener('click', (e) => {
+      // Handle cite button clicks
       if (e.target.closest('.cite-btn')) {
+        e.preventDefault();
         const btn = e.target.closest('.cite-btn');
         const pubId = btn.dataset.pubId;
         const bibtexDiv = document.getElementById(`bibtex-${pubId}`);
+        
         if (bibtexDiv) {
-          bibtexDiv.classList.toggle('show');
+          // Toggle bibtex visibility
+          const isShowing = bibtexDiv.classList.toggle('show');
+          
+          // Toggle button active state
+          btn.classList.toggle('active', isShowing);
+          btn.setAttribute('aria-expanded', isShowing);
+          
+          // Close other open bibtex sections
+          document.querySelectorAll('.pub-bibtex.show').forEach(el => {
+            if (el.id !== `bibtex-${pubId}`) {
+              el.classList.remove('show');
+              const otherBtn = document.querySelector(`[data-pub-id="${el.id.replace('bibtex-', '')}"]`);
+              if (otherBtn) {
+                otherBtn.classList.remove('active');
+                otherBtn.setAttribute('aria-expanded', 'false');
+              }
+            }
+          });
         }
       }
 
+      // Handle copy button clicks
       if (e.target.closest('.copy-bibtex')) {
+        e.preventDefault();
         const btn = e.target.closest('.copy-bibtex');
         const bibtex = decodeURIComponent(btn.dataset.bibtex);
         this.copyToClipboard(bibtex, btn);
@@ -248,24 +270,64 @@ class PublicationsManager {
   }
 
   /**
-   * Copy text to clipboard
+   * Copy text to clipboard with visual feedback
    */
   async copyToClipboard(text, btn) {
+    if (!text) {
+      console.warn('No text to copy');
+      return;
+    }
+    
     try {
       await navigator.clipboard.writeText(text);
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '<i class="bi bi-check"></i> Copied!';
-      btn.classList.add('btn-success');
-      btn.classList.remove('btn-primary');
       
+      // Store original button content
+      const originalHTML = btn.innerHTML;
+      const originalClasses = btn.className;
+      
+      // Show success state
+      btn.innerHTML = '<i class="bi bi-check-lg"></i> Copied!';
+      btn.classList.add('copied');
+      btn.classList.remove('btn-primary');
+      btn.classList.add('btn-success');
+      
+      // Reset after 2 seconds
       setTimeout(() => {
-        btn.innerHTML = originalText;
-        btn.classList.remove('btn-success');
+        btn.innerHTML = originalHTML;
+        btn.classList.remove('copied', 'btn-success');
         btn.classList.add('btn-primary');
       }, 2000);
+      
     } catch (err) {
       console.error('Failed to copy:', err);
-      alert('Failed to copy to clipboard');
+      
+      // Fallback for older browsers
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-9999px';
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        // Show success
+        btn.innerHTML = '<i class="bi bi-check-lg"></i> Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerHTML = '<i class="bi bi-clipboard"></i> Copy to Clipboard';
+          btn.classList.remove('copied');
+        }, 2000);
+      } catch (fallbackErr) {
+        // Show error state
+        btn.innerHTML = '<i class="bi bi-x-lg"></i> Failed';
+        btn.classList.add('btn-danger');
+        setTimeout(() => {
+          btn.innerHTML = '<i class="bi bi-clipboard"></i> Copy to Clipboard';
+          btn.classList.remove('btn-danger');
+        }, 2000);
+      }
     }
   }
 

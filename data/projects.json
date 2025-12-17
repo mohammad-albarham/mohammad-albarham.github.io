@@ -14,7 +14,7 @@
       "paper": "https://aclanthology.org/2024.arabicnlp-1.9/"
     },
     "year": 2024,
-    "detailsPage": "latest-projects-1.html"
+    "detailsPage": "projects/latest-projects-1.html"
   },
   {
     "id": "sfm-project",
@@ -28,7 +28,7 @@
     "technologies": ["Python", "OpenCV", "NumPy", "Computer Vision"],
     "links": {},
     "year": 2024,
-    "detailsPage": "latest-projects-2.html"
+    "detailsPage": "projects/latest-projects-2.html"
   },
   {
     "id": "tts-arabic-poetry",
@@ -42,7 +42,7 @@
     "technologies": ["PyTorch", "TTS", "Arabic NLP"],
     "links": {},
     "year": 2024,
-    "detailsPage": "latest-projects-3.html"
+    "detailsPage": "projects/latest-projects-3.html"
   },
   {
     "id": "mapillary-visualizer",
@@ -56,7 +56,7 @@
     "technologies": ["Python", "Visualization", "Semantic Segmentation"],
     "links": {},
     "year": 2024,
-    "detailsPage": "latest-projects-4.html"
+    "detailsPage": "projects/latest-projects-4.html"
   },
   {
     "id": "rasa-chatgpt",
@@ -72,7 +72,7 @@
       "github": "https://github.com/ML-ALP-Research-Group/Rasa_chatbot_with_chatgpt"
     },
     "year": 2023,
-    "detailsPage": "portfolio-details-1.html"
+    "detailsPage": "projects/portfolio-details-1.html"
   },
   {
     "id": "masc",
@@ -90,7 +90,7 @@
       "paper": "https://ieeexplore.ieee.org/document/10022652"
     },
     "year": 2023,
-    "detailsPage": "portfolio-details-2.html"
+    "detailsPage": "projects/portfolio-details-2.html"
   },
   {
     "id": "maha-library",
@@ -104,7 +104,7 @@
     "technologies": ["Python", "Arabic NLP", "Text Processing"],
     "links": {},
     "year": 2022,
-    "detailsPage": "portfolio-details-3.html"
+    "detailsPage": "projects/portfolio-details-3.html"
   },
   {
     "id": "dwai-app",
@@ -118,7 +118,7 @@
     "technologies": ["Mobile Development", "Healthcare"],
     "links": {},
     "year": 2021,
-    "detailsPage": "portfolio-details-4.html"
+    "detailsPage": "projects/portfolio-details-4.html"
   },
   {
     "id": "arsl-raspberry-pi",
@@ -132,7 +132,7 @@
     "technologies": ["Raspberry Pi", "TensorFlow Lite", "Computer Vision", "Python"],
     "links": {},
     "year": 2022,
-    "detailsPage": "portfolio-details-10.html"
+    "detailsPage": "projects/portfolio-details-10.html"
   },
   {
     "id": "rgb-arsl-dataset",
@@ -151,7 +151,7 @@
       "paper": "https://arxiv.org/abs/2301.11932"
     },
     "year": 2023,
-    "detailsPage": "portfolio-details-15.html"
+    "detailsPage": "projects/portfolio-details-15.html"
   },
   {
     "id": "gans-mnist",
@@ -165,7 +165,7 @@
     "technologies": ["PyTorch", "GANs", "Deep Learning"],
     "links": {},
     "year": 2020,
-    "detailsPage": "portfolio-details-11.html"
+    "detailsPage": "projects/portfolio-details-11.html"
   },
   {
     "id": "sentiment-rnn",
@@ -179,7 +179,7 @@
     "technologies": ["PyTorch", "RNN", "NLP"],
     "links": {},
     "year": 2020,
-    "detailsPage": "portfolio-details-9.html"
+    "detailsPage": "projects/portfolio-details-9.html"
   },
   {
     "id": "word2vec",
@@ -193,7 +193,7 @@
     "technologies": ["PyTorch", "NLP", "Word Embeddings"],
     "links": {},
     "year": 2020,
-    "detailsPage": "portfolio-details-6.html"
+    "detailsPage": "projects/portfolio-details-6.html"
   },
   {
     "id": "tv-script-generation",
@@ -207,7 +207,7 @@
     "technologies": ["PyTorch", "RNN", "Text Generation"],
     "links": {},
     "year": 2020,
-    "detailsPage": "portfolio-details-8.html"
+    "detailsPage": "projects/portfolio-details-8.html"
   },
   {
     "id": "mnist-nn",
@@ -221,7 +221,7 @@
     "technologies": ["PyTorch", "Neural Networks", "Computer Vision"],
     "links": {},
     "year": 2020,
-    "detailsPage": "portfolio-details-7.html"
+    "detailsPage": "projects/portfolio-details-7.html"
   },
   {
     "id": "bike-sharing",
@@ -235,7 +235,7 @@
     "technologies": ["Python", "Scikit-learn", "Data Analysis"],
     "links": {},
     "year": 2020,
-    "detailsPage": "portfolio-details-12.html"
+    "detailsPage": "projects/portfolio-details-12.html"
   },
   {
     "id": "memory-chatbot",
@@ -249,7 +249,7 @@
     "technologies": ["C++", "Memory Management", "Chatbot"],
     "links": {},
     "year": 2020,
-    "detailsPage": "portfolio-details-13.html"
+    "detailsPage": "projects/portfolio-details-13.html"
   },
   {
     "id": "arsl-deep-learning",
@@ -263,7 +263,7 @@
     "technologies": ["TensorFlow", "Computer Vision", "Deep Learning"],
     "links": {},
     "year": 2022,
-    "detailsPage": "portfolio-details-14.html"
+    "detailsPage": "projects/portfolio-details-14.html"
   },
   {
     "id": "pwm-motor-control",
@@ -277,7 +277,7 @@
     "technologies": ["PIC Microcontroller", "C", "PWM", "Embedded Systems"],
     "links": {},
     "year": 2019,
-    "detailsPage": "portfolio-details-16.html"
+    "detailsPage": "projects/portfolio-details-16.html"
   },
   {
     "id": "fpga-projects",
@@ -291,7 +291,7 @@
     "technologies": ["FPGA", "VHDL", "Verilog", "Digital Design"],
     "links": {},
     "year": 2019,
-    "detailsPage": "portfolio-details-19.html"
+    "detailsPage": "projects/portfolio-details-19.html"
   },
   {
     "id": "cnc-projects",
@@ -305,7 +305,7 @@
     "technologies": ["CNC", "G-code", "CAD/CAM"],
     "links": {},
     "year": 2019,
-    "detailsPage": "portfolio-details-20.html"
+    "detailsPage": "projects/portfolio-details-20.html"
   },
   {
     "id": "automation-projects",
@@ -319,6 +319,6 @@
     "technologies": ["PLC", "Automation", "Control Systems"],
     "links": {},
     "year": 2019,
-    "detailsPage": "portfolio-details-21.html"
+    "detailsPage": "projects/portfolio-details-21.html"
   }
 ]

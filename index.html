@@ -54,6 +54,10 @@
   <!-- Main CSS Files -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/modern-portfolio.css" rel="stylesheet">
+  <link href="assets/css/optimized-hero.css" rel="stylesheet">
+  <link href="assets/css/optimized-sidebar.css" rel="stylesheet">
+  <link href="assets/css/animations.css" rel="stylesheet">
+  <link href="assets/css/responsive-images.css" rel="stylesheet">
   <link href="assets/css/components/publications.css" rel="stylesheet">
   <link href="assets/css/dark-mode.css" rel="stylesheet">
 
@@ -166,11 +170,26 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <!-- Decorative floating shapes -->
+    <div class="hero-decoration" aria-hidden="true"></div>
+    <div class="hero-decoration" aria-hidden="true"></div>
+    <div class="hero-decoration" aria-hidden="true"></div>
+    
     <div class="hero-container">
       <h1>Mohammad Albarham</h1>
       <p>I'm a <span class="typed"
           data-typed-items="Computer Vision Engineer, AI Researcher, Machine Learning Engineer, Problem Solver, Open Source Contributor"></span>
       </p>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="hero-scroll-indicator">
+      <a href="#about" class="nav-link scrollto">
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+        <span>Scroll</span>
+      </a>
     </div>
   </section>
   <!-- End Hero -->
@@ -483,6 +502,8 @@
   <script src="assets/js/data-loader.js"></script>
   <script src="assets/js/portfolio-renderer.js"></script>
   <script src="assets/js/publications.js"></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/image-optimizer.js" defer></script>
   <script src="assets/js/theme.js"></script>
 
   <!-- Particles.js for header animation -->

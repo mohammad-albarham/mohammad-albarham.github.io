@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="theme-color" content="#0563bb">
+
+  <!-- SEO Meta Tags - CUSTOMIZE THESE -->
+  <title>{{PROJECT_TITLE}} | Mohammad Albarham</title>
+  <meta name="description" content="{{PROJECT_DESCRIPTION}}">
+  <meta name="keywords" content="{{PROJECT_KEYWORDS}}">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mohammad-albarham.github.io/projects/{{PROJECT_ID}}.html">
+  <meta property="og:title" content="{{PROJECT_TITLE}} | Mohammad Albarham">
+  <meta property="og:description" content="{{PROJECT_DESCRIPTION}}">
+  <meta property="og:image" content="https://mohammad-albarham.github.io/{{PROJECT_IMAGE}}">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Academicons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJHNQN2HWX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-VJHNQN2HWX');
+  </script>
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Main CSS Files -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/modern-portfolio.css" rel="stylesheet">
+  <link href="../assets/css/optimized-sidebar.css" rel="stylesheet">
+  <link href="../assets/css/project-details.css" rel="stylesheet">
+  <link href="../assets/css/dark-mode.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Mobile nav toggle button -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header / Sidebar ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+      <div class="profile">
+        <img src="../assets/img/profile-img.jpg" alt="Mohammad Albarham profile photo" class="img-fluid rounded-circle" width="120" height="120">
+        <h1 class="text-light"><a href="../index.html">MOHAMMAD ALBARHAM</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="https://www.linkedin.com/in/albarham/" class="linkedin" aria-label="LinkedIn profile" rel="noopener" target="_blank">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://github.com/mohammad-albarham" class="github" aria-label="GitHub profile" rel="noopener" target="_blank">
+            <i class="bx bxl-github"></i>
+          </a>
+          <a href="https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en" aria-label="Google Scholar" rel="noopener" target="_blank">
+            <i class="ai ai-google-scholar-square ai-1x"></i>
+          </a>
+          <a href="https://huggingface.co/pain" aria-label="Hugging Face profile" rel="noopener" target="_blank">
+            <object data="../assets/img/hf-logo.svg" width="17" height="17" alt="Hugging Face logo"></object>
+          </a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="../index.html" class="nav-link"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="../index.html#about" class="nav-link"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="../index.html#resume" class="nav-link"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+          <li><a href="../index.html#projects" class="nav-link active"><i class="bx bx-folder"></i> <span>Projects</span></a></li>
+          <li><a href="../index.html#publications" class="nav-link"><i class="bx bx-book-content"></i> <span>Publications</span></a></li>
+          <li><a href="../index.html#volunteering" class="nav-link"><i class="bx bx-heart"></i> <span>Volunteering</span></a></li>
+          <li><a href="../index.html#travel" class="nav-link"><i class="bx bx-globe"></i> <span>Travel</span></a></li>
+          <li><a href="../index.html#contact" class="nav-link"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
+          <h2>{{PROJECT_TITLE}}</h2>
+          <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li>{{PROJECT_TITLE_SHORT}}</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Project Details Section ======= -->
+    <section id="project-details" class="project-details">
+      <div class="container">
+        <div class="row">
+          <!-- Project Info Sidebar -->
+          <div class="col-lg-4 order-lg-2">
+            <div class="project-info-card">
+              <h3><i class="bi bi-info-circle"></i> Project Information</h3>
+              <ul class="project-meta">
+                <li>
+                  <strong><i class="bi bi-calendar3"></i> Year</strong>
+                  <span>{{PROJECT_YEAR}}</span>
+                </li>
+                <li>
+                  <strong><i class="bi bi-tag"></i> Category</strong>
+                  <span>{{PROJECT_CATEGORY}}</span>
+                </li>
+                <li>
+                  <strong><i class="bi bi-code-slash"></i> Technologies</strong>
+                  <div class="tech-tags">
+                    <!-- Add technology tags here -->
+                    {{TECHNOLOGY_TAGS}}
+                  </div>
+                </li>
+              </ul>
+
+              <!-- Project Links -->
+              <div class="project-links">
+                <h4>Links</h4>
+                <!-- Add links dynamically -->
+                {{PROJECT_LINKS}}
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Content -->
+          <div class="col-lg-8 order-lg-1">
+            <!-- Project Image/Gallery -->
+            <div class="project-gallery">
+              <img src="{{PROJECT_IMAGE}}" alt="{{PROJECT_TITLE}}" class="img-fluid main-image" loading="lazy">
+              <!-- Additional gallery images can be added here -->
+            </div>
+
+            <!-- Project Description -->
+            <div class="project-description">
+              <h3>About This Project</h3>
+              <p>{{PROJECT_DESCRIPTION_FULL}}</p>
+              
+              <!-- Add more sections as needed -->
+              {{ADDITIONAL_CONTENT}}
+            </div>
+
+            <!-- Key Features (optional) -->
+            <div class="project-features">
+              <h3>Key Features</h3>
+              <ul>
+                {{KEY_FEATURES}}
+              </ul>
+            </div>
+
+            <!-- Related Publications (optional) -->
+            {{RELATED_PUBLICATIONS}}
+          </div>
+        </div>
+
+        <!-- Navigation between projects -->
+        <div class="project-navigation">
+          <a href="../index.html#projects" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i> Back to Projects
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- End Project Details Section -->
+  </main>
+  <!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; <span id="footer-year">2025</span> Mohammad Albarham. All Rights Reserved.
+      </div>
+      <div class="credits">
+        Built with <span style="color: #e25555;">♥</span> for open science
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <!-- Back to top button -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/theme.js" type="module"></script>
+
+  <script>
+    // Update footer year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

@@ -151,10 +151,13 @@ const DataRenderer = {
     const featuredBadge = pub.featured ? '<span class="badge bg-warning text-dark">Featured</span>' : '';
     
     let links = [];
-    if (pub.pdfUrl) links.push(`<a href="${pub.pdfUrl}" class="btn btn-sm btn-outline-primary" target="_blank"><i class="bi bi-file-pdf"></i> PDF</a>`);
-    if (pub.url) links.push(`<a href="${pub.url}" class="btn btn-sm btn-outline-secondary" target="_blank"><i class="bi bi-link-45deg"></i> Paper</a>`);
-    if (pub.huggingface) links.push(`<a href="${pub.huggingface}" class="btn btn-sm btn-outline-warning" target="_blank"><i class="bi bi-box"></i> HuggingFace</a>`);
-    if (pub.github) links.push(`<a href="${pub.github}" class="btn btn-sm btn-outline-dark" target="_blank"><i class="bi bi-github"></i> Code</a>`);
+    if (pub.pdfUrl) links.push(`<a href="${pub.pdfUrl}" class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener"><i class="bi bi-file-pdf"></i> PDF</a>`);
+    if (pub.url) links.push(`<a href="${pub.url}" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener"><i class="bi bi-link-45deg"></i> Paper</a>`);
+    if (pub.huggingface) links.push(`<a href="${pub.huggingface}" class="btn btn-sm btn-outline-warning" target="_blank" rel="noopener"><i class="bi bi-box"></i> HuggingFace</a>`);
+    if (pub.github) links.push(`<a href="${pub.github}" class="btn btn-sm btn-outline-dark" target="_blank" rel="noopener"><i class="bi bi-github"></i> Code</a>`);
+    
+    // Escape bibtex for HTML attribute storage
+    const escapedBibtex = pub.bibtex ? encodeURIComponent(pub.bibtex) : '';
     
     return `
       <div class="publication-card ${typeClass}" data-year="${pub.year}" data-type="${pub.type}" data-keywords="${pub.keywords?.join(',') || ''}">
@@ -164,21 +167,24 @@ const DataRenderer = {
           ${featuredBadge}
         </div>
         <h4 class="pub-title">
-          <a href="${pub.url || '#'}" target="_blank">${pub.title}</a>
+          <a href="${pub.url || '#'}" target="_blank" rel="noopener">${pub.title}</a>
         </h4>
         <p class="pub-authors">${this.formatAuthors(pub.authors)}</p>
         <p class="pub-venue-full">${pub.venue}</p>
         <div class="pub-links">
           ${links.join(' ')}
-          <button class="btn btn-sm btn-outline-info cite-btn" data-pub-id="${pub.id}">
+          <button class="btn btn-sm btn-outline-info cite-btn" data-pub-id="${pub.id}" aria-expanded="false" aria-controls="bibtex-${pub.id}">
             <i class="bi bi-quote"></i> Cite
           </button>
         </div>
-        <div class="pub-bibtex collapse" id="bibtex-${pub.id}">
-          <pre><code>${pub.bibtex}</code></pre>
-          <button class="btn btn-sm btn-primary copy-bibtex" data-bibtex="${encodeURIComponent(pub.bibtex)}">
-            <i class="bi bi-clipboard"></i> Copy
-          </button>
+        <div class="pub-bibtex" id="bibtex-${pub.id}" role="region" aria-label="BibTeX citation">
+          <div class="bibtex-header">
+            <span class="bibtex-label">BibTeX Citation</span>
+            <button class="btn btn-sm btn-primary copy-bibtex" data-bibtex="${escapedBibtex}">
+              <i class="bi bi-clipboard"></i> Copy to Clipboard
+            </button>
+          </div>
+          <pre><code>${pub.bibtex || 'No BibTeX available'}</code></pre>
         </div>
       </div>
     `;

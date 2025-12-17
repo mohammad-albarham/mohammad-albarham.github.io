@@ -1,0 +1,384 @@
+/**
+ * Responsive Images CSS
+ * Ensures all images are properly sized, responsive, and fit nicely in their containers
+ */
+
+/* =================================================================
+   Base Image Reset
+   ================================================================= */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =================================================================
+   Profile Image Optimization
+   ================================================================= */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent-color, #149ddd);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(20, 157, 221, 0.3);
+}
+
+/* Sidebar profile image */
+#header .profile img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* =================================================================
+   Portfolio/Project Card Images
+   ================================================================= */
+.portfolio-item img,
+.project-card img,
+.portfolio-wrap img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.4s ease, filter 0.3s ease;
+  border-radius: 8px 8px 0 0;
+}
+
+.portfolio-item:hover img,
+.project-card:hover img,
+.portfolio-wrap:hover img {
+  transform: scale(1.05);
+}
+
+/* Portfolio card container */
+.portfolio-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--card-bg, #1a1a2e);
+}
+
+/* Latest projects section images */
+.latest-project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.latest-project-card:hover img {
+  transform: scale(1.03);
+}
+
+/* =================================================================
+   Company/Logo Images
+   ================================================================= */
+.company-logo,
+.logo-img,
+.organization-logo {
+  max-width: 150px;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(0);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.company-logo:hover,
+.logo-img:hover,
+.organization-logo:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+/* Experience section logos */
+.resume-item .company-logo {
+  max-width: 100px;
+  max-height: 60px;
+  margin-bottom: 10px;
+}
+
+/* Timeline logos */
+.timeline-item .logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  padding: 5px;
+}
+
+/* =================================================================
+   Certification/Award Images
+   ================================================================= */
+.certification-img,
+.award-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certification-img:hover,
+.award-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* =================================================================
+   Testimonial Images
+   ================================================================= */
+.testimonial-img,
+.testimonials .testimonial-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent-color, #149ddd);
+}
+
+/* =================================================================
+   Gallery/Lightbox Images
+   ================================================================= */
+.gallery-img,
+.lightbox-img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery-img:hover,
+.lightbox-img:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+/* =================================================================
+   Project Detail Page Images
+   ================================================================= */
+.project-detail-img,
+.portfolio-details-slider img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  background: var(--bg-secondary, #1f1f38);
+  border-radius: 8px;
+}
+
+.project-screenshot {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem;
+}
+
+/* =================================================================
+   Background Images (for cards/sections)
+   ================================================================= */
+.bg-image-cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-image-contain {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* =================================================================
+   Lazy Loading States
+   ================================================================= */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+img[loading="lazy"].loaded,
+img[loading="lazy"]:not([data-src]) {
+  opacity: 1;
+}
+
+/* Placeholder/skeleton for loading images */
+.img-placeholder {
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary, #1a1a2e) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    var(--bg-secondary, #1a1a2e) 75%
+  );
+  background-size: 200% 100%;
+  animation: img-shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes img-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* =================================================================
+   Aspect Ratio Containers (prevents layout shift)
+   ================================================================= */
+.aspect-ratio-16-9 {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.aspect-ratio-4-3 {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.aspect-ratio-1-1 {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.aspect-ratio-16-9 img,
+.aspect-ratio-4-3 img,
+.aspect-ratio-1-1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =================================================================
+   WebP Support with Fallback
+   ================================================================= */
+.webp-support picture img {
+  width: 100%;
+  height: auto;
+}
+
+/* =================================================================
+   Responsive Image Sizes
+   ================================================================= */
+@media (max-width: 992px) {
+  .profile-img,
+  #header .profile img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .portfolio-item img,
+  .project-card img {
+    height: 180px;
+  }
+  
+  .company-logo,
+  .logo-img {
+    max-width: 120px;
+    max-height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-img,
+  #header .profile img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .portfolio-item img,
+  .project-card img {
+    height: 160px;
+  }
+  
+  .testimonial-img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .company-logo,
+  .logo-img {
+    max-width: 100px;
+    max-height: 50px;
+  }
+  
+  .project-detail-img,
+  .portfolio-details-slider img {
+    max-height: 350px;
+  }
+}
+
+@media (max-width: 576px) {
+  .portfolio-item img,
+  .project-card img {
+    height: 140px;
+  }
+  
+  .certification-img,
+  .award-img {
+    max-width: 100%;
+  }
+  
+  .project-detail-img,
+  .portfolio-details-slider img {
+    max-height: 250px;
+  }
+}
+
+/* =================================================================
+   Print Optimization
+   ================================================================= */
+@media print {
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  .portfolio-item img,
+  .project-card img {
+    height: auto;
+  }
+}
+
+/* =================================================================
+   High DPI/Retina Support
+   ================================================================= */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .profile-img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* =================================================================
+   Error State for Broken Images
+   ================================================================= */
+img.error,
+img[src=""],
+img:not([src]) {
+  background: var(--bg-secondary, #1a1a2e);
+  position: relative;
+  min-height: 100px;
+}
+
+img.error::after {
+  content: "Image not available";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-muted, #888);
+  font-size: 0.875rem;
+}

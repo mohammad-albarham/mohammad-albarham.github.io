@@ -1,0 +1,326 @@
+/**
+ * Modern Sidebar Styles
+ * Clean, professional, and lightweight sidebar design
+ */
+
+/* ====== Main Sidebar Container ====== */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  z-index: 9997;
+  padding: 0;
+  background: linear-gradient(180deg, #0a0f1a 0%, #141b2d 100%);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(20, 157, 221, 0.3) transparent;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#header::-webkit-scrollbar {
+  width: 4px;
+}
+
+#header::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#header::-webkit-scrollbar-thumb {
+  background: rgba(20, 157, 221, 0.3);
+  border-radius: 2px;
+}
+
+#header::-webkit-scrollbar-thumb:hover {
+  background: rgba(20, 157, 221, 0.5);
+}
+
+/* ====== Particles Background ====== */
+#header .pheader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+#header #particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* ====== Profile Section ====== */
+#header .profile {
+  text-align: center;
+  padding: 30px 20px 20px;
+  position: relative;
+}
+
+/* Profile image with modern styling */
+#header .profile img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(20, 157, 221, 0.5);
+  box-shadow: 0 0 25px rgba(20, 157, 221, 0.2);
+  margin-bottom: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+#header .profile img:hover {
+  transform: scale(1.05);
+  border-color: #64ffda;
+  box-shadow: 0 0 35px rgba(100, 255, 218, 0.3);
+}
+
+/* Profile name */
+#header .profile h1 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 15px;
+  font-family: "Raleway", sans-serif;
+}
+
+#header .profile h1 a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#header .profile h1 a:hover {
+  color: #64ffda;
+}
+
+/* ====== Social Links ====== */
+#header .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+#header .social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+#header .social-links a:hover {
+  background: #149ddd;
+  border-color: #149ddd;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(20, 157, 221, 0.4);
+}
+
+#header .social-links a object {
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+#header .social-links a:hover object {
+  filter: brightness(0) invert(1);
+}
+
+/* ====== Navigation Menu ====== */
+#header .nav-menu {
+  padding: 20px 15px 30px;
+}
+
+#header .nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#header .nav-menu li {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+#header .nav-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#header .nav-menu a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #149ddd;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+#header .nav-menu a:hover {
+  color: #fff;
+  background: rgba(20, 157, 221, 0.1);
+}
+
+#header .nav-menu a:hover::before {
+  transform: scaleY(1);
+}
+
+#header .nav-menu a.active {
+  color: #64ffda;
+  background: rgba(100, 255, 218, 0.1);
+}
+
+#header .nav-menu a.active::before {
+  transform: scaleY(1);
+  background: #64ffda;
+}
+
+#header .nav-menu a i {
+  font-size: 18px;
+  min-width: 24px;
+  text-align: center;
+}
+
+#header .nav-menu a span {
+  white-space: nowrap;
+}
+
+/* ====== Divider ====== */
+#header .sidebar-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  margin: 20px 15px;
+}
+
+/* ====== Status/Availability Badge ====== */
+.availability-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  margin: 0 20px 20px;
+  background: rgba(100, 255, 218, 0.1);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: 20px;
+  font-size: 12px;
+  color: #64ffda;
+}
+
+.availability-badge .status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #64ffda;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.4);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 0 6px rgba(100, 255, 218, 0);
+  }
+}
+
+/* ====== Mobile Navigation Toggle ====== */
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  background: rgba(10, 15, 26, 0.9);
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-nav-toggle:hover {
+  background: #149ddd;
+}
+
+/* ====== Mobile View ====== */
+@media (max-width: 1199px) {
+  #header {
+    transform: translateX(-100%);
+  }
+  
+  .mobile-nav-active #header {
+    transform: translateX(0);
+  }
+  
+  #main {
+    margin-left: 0;
+  }
+}
+
+/* ====== Desktop View ====== */
+@media (min-width: 1200px) {
+  .mobile-nav-toggle {
+    display: none;
+  }
+  
+  #main {
+    margin-left: 280px;
+  }
+}
+
+/* ====== Dark Mode Adjustments ====== */
+[data-theme="dark"] #header {
+  background: linear-gradient(180deg, #0a0f1a 0%, #141b2d 100%);
+}
+
+/* ====== Reduced Motion ====== */
+@media (prefers-reduced-motion: reduce) {
+  #header .profile img,
+  #header .nav-menu a,
+  #header .social-links a,
+  .availability-badge .status-dot {
+    transition: none;
+    animation: none;
+  }
+}

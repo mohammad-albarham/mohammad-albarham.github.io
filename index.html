@@ -53,8 +53,7 @@
 
   <!-- Main CSS Files -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/css/modern-portfolio.css" rel="stylesheet">
-  <link href="assets/css/optimized-hero.css" rel="stylesheet">
+  <link href="assets/css/modern-portfolio.css" rel="stylesheet">  <link href="assets/css/contact-form.css" rel="stylesheet">  <link href="assets/css/optimized-hero.css" rel="stylesheet">
   <link href="assets/css/optimized-sidebar.css" rel="stylesheet">
   <link href="assets/css/animations.css" rel="stylesheet">
   <link href="assets/css/responsive-images.css" rel="stylesheet">
@@ -434,62 +433,136 @@
           <p>Feel free to reach out for collaboration, research opportunities, or just to say hello!</p>
         </div>
 
-        <div class="row" data-aos="fade-in">
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
+        <div class="contact-content" data-aos="fade-up">
+          <!-- Contact Info Cards -->
+          <div class="contact-info-row">
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
                 <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
+              </div>
+              <div class="contact-info-text">
+                <h4>Location</h4>
                 <p>Gothenburg, Sweden</p>
               </div>
-
-              <div class="email">
+            </div>
+            
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
                 <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
+              </div>
+              <div class="contact-info-text">
+                <h4>Email</h4>
                 <p><a href="mailto:mohammad.albarham.work@gmail.com">mohammad.albarham.work@gmail.com</a></p>
               </div>
-
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2754.568435536346!2d11.97158677755629!3d57.68980037386219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff36b628efec3%3A0xc148ed83d6f0a03!2sChalmers%20University%20of%20Technology!5e1!3m2!1sen!2sse!4v1738448346101!5m2!1sen!2sse"
-                width="100%" height="290" style="border:0; border-radius: 10px;" allowfullscreen loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade" title="Chalmers University Location">
-              </iframe>
+            </div>
+            
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <i class="bi bi-clock"></i>
+              </div>
+              <div class="contact-info-text">
+                <h4>Response Time</h4>
+                <p>Usually within 24-48 hours</p>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form name="gform" id="gform" class="php-email-form"
+          <!-- Contact Form Card -->
+          <div class="contact-form-card">
+            <div class="contact-form-header">
+              <h3>Send a Message</h3>
+              <p>Have a question or want to work together? Drop me a line!</p>
+            </div>
+            
+            <!-- Inline Message Container (shows above form) -->
+            <div id="messageContainer" role="alert" aria-live="polite"></div>
+            
+            <form name="gform" id="gform" class="contact-form"
               action="https://docs.google.com/forms/d/e/1FAIpQLSftHTXBY8-bmgmpnIbUCBXDTbv9GDPDAJUbVk9TBzj62_8TzQ/formResponse"
-              target="hidden_iframe" onsubmit="return submitForm();">
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="entry.1312125580">Your Name</label>
-                  <input type="text" name="entry.1312125580" class="form-control" id="entry.1312125580" required>
+              target="hidden_iframe" novalidate>
+              
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="contact-name">
+                    <i class="bi bi-person"></i>
+                    Your Name
+                  </label>
+                  <input type="text" 
+                         name="entry.1312125580" 
+                         id="contact-name" 
+                         placeholder="John Doe"
+                         required 
+                         aria-required="true"
+                         autocomplete="name">
+                  <span class="field-error" aria-live="polite"></span>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="entry.906047473">Your Email</label>
-                  <input type="email" class="form-control" name="entry.906047473" id="entry.906047473" required>
+                
+                <div class="form-field">
+                  <label for="contact-email">
+                    <i class="bi bi-envelope"></i>
+                    Your Email
+                  </label>
+                  <input type="email" 
+                         name="entry.906047473" 
+                         id="contact-email" 
+                         placeholder="john@example.com"
+                         required 
+                         aria-required="true"
+                         autocomplete="email">
+                  <span class="field-error" aria-live="polite"></span>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="entry.1661175821">Subject</label>
-                <input type="text" class="form-control" name="entry.1661175821" id="entry.1661175821" required>
+              
+              <div class="form-field">
+                <label for="contact-subject">
+                  <i class="bi bi-chat-left-text"></i>
+                  Subject
+                </label>
+                <input type="text" 
+                       name="entry.1661175821" 
+                       id="contact-subject" 
+                       placeholder="Project collaboration, Research inquiry, etc."
+                       required 
+                       aria-required="true">
+                <span class="field-error" aria-live="polite"></span>
               </div>
-              <div class="form-group">
-                <label for="entry.845402219">Message</label>
-                <textarea class="form-control" name="entry.845402219" rows="10" id="entry.845402219"
-                  required></textarea>
+              
+              <div class="form-field">
+                <label for="contact-message">
+                  <i class="bi bi-pencil-square"></i>
+                  Message
+                </label>
+                <textarea name="entry.845402219" 
+                          id="contact-message" 
+                          rows="5" 
+                          placeholder="Tell me about your project, idea, or inquiry..."
+                          required 
+                          aria-required="true"></textarea>
+                <span class="field-error" aria-live="polite"></span>
               </div>
-              <div class="text-center">
-                <button type="submit" class="btn btn-primary">
-                  <i class="bi bi-send"></i> Send Message
-                </button>
-              </div>
+              
+              <button type="submit" class="submit-btn" aria-label="Send message">
+                <span class="btn-text">
+                  <i class="bi bi-send"></i>
+                  Send Message
+                </span>
+                <span class="btn-loading">
+                  <span class="spinner"></span>
+                  Sending...
+                </span>
+              </button>
             </form>
 
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
-              onload="onHiddenIframeLoad();"></iframe>
-            <div id="messageContainer"></div>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" aria-hidden="true"></iframe>
+          </div>
+
+          <!-- Map -->
+          <div class="contact-map-card" data-aos="fade-up" data-aos-delay="100">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2754.568435536346!2d11.97158677755629!3d57.68980037386219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff36b628efec3%3A0xc148ed83d6f0a03!2sChalmers%20University%20of%20Technology!5e1!3m2!1sen!2sse!4v1738448346101!5m2!1sen!2sse"
+              width="100%" height="280" style="border:0;" allowfullscreen loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="Chalmers University Location">
+            </iframe>
           </div>
         </div>
       </div>
@@ -667,20 +740,10 @@
       });
     }
 
-    // Contact form submission
-    function submitForm() {
-      setTimeout(function () {
-        const messageContainer = document.getElementById('messageContainer');
-        messageContainer.innerHTML = '<div class="alert alert-success mt-3" role="alert"><i class="bi bi-check-circle"></i> Thank you! Your message has been sent.</div>';
-        document.getElementById('gform').reset();
-      }, 500);
-      return true;
-    }
-
-    function onHiddenIframeLoad() {
-      // Form submitted
-    }
   </script>
+  
+  <!-- Contact Form Handler -->
+  <script src="assets/js/contact-form.js"></script>
 </body>
 
 </html>

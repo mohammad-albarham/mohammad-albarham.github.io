@@ -173,11 +173,16 @@ const DataRenderer = {
     }
     
     // Only show cite button if BibTeX is available
-    const citeButton = hasBibtex 
-      ? `<button class="btn btn-sm btn-outline-info cite-btn" data-pub-id="${pub.id}" aria-expanded="false" aria-controls="bibtex-${pub.id}">
-           <i class="bi bi-quote"></i> Cite
-         </button>`
-      : '';
+const citeButton = hasBibtex 
+  ? `<button class="btn btn-sm btn-outline-info cite-btn" 
+       data-pub-id="${pub.id}" 
+       data-bibtex="${escapedBibtex}" 
+       data-pub-title="${pub.title.replace(/"/g, '&quot;')}" 
+       title="Show BibTeX citation" 
+       aria-label="Show BibTeX citation for ${pub.title.replace(/"/g, '')}">
+       <i class="bi bi-quote"></i> Cite
+     </button>`
+  : '';
     
     return `
       <div class="publication-card ${typeClass}" data-year="${pub.year}" data-type="${pub.type}" data-keywords="${pub.keywords?.join(',') || ''}">
@@ -195,17 +200,6 @@ const DataRenderer = {
           ${links.join(' ')}
           ${citeButton}
         </div>
-        ${hasBibtex ? `
-        <div class="pub-bibtex" id="bibtex-${pub.id}" role="region" aria-label="BibTeX citation">
-          <div class="bibtex-header">
-            <span class="bibtex-label">BibTeX Citation</span>
-            <button class="btn btn-sm btn-primary copy-bibtex" data-bibtex="${escapedBibtex}" title="Copy BibTeX to clipboard">
-              <i class="bi bi-clipboard"></i> Copy to Clipboard
-            </button>
-          </div>
-          <pre><code>${bibtexDisplay}</code></pre>
-        </div>
-        ` : ''}
       </div>
     `;
   },

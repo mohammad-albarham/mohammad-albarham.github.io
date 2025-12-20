@@ -137,12 +137,12 @@ const PublicationsTest = {
    */
   testCiteButtonsExist() {
     const citeButtons = document.querySelectorAll('.cite-btn');
-    const bibtexDivs = document.querySelectorAll('.pub-bibtex');
+    const modalExists = document.querySelector('.bibtex-modal') !== null;
     
-    const passed = citeButtons.length > 0 && bibtexDivs.length > 0;
+    const passed = citeButtons.length > 0 && modalExists;
     return this.log('Cite Buttons Exist', passed,
-                    passed ? `${citeButtons.length} cite buttons, ${bibtexDivs.length} BibTeX sections` 
-                           : 'No cite buttons found');
+                    passed ? `${citeButtons.length} cite buttons, modal ready` 
+                           : `Cite buttons: ${citeButtons.length}, Modal: ${modalExists}`);
   },
   
   /**
@@ -154,36 +154,42 @@ const PublicationsTest = {
       return this.log('Cite Button Click', false, 'No cite button found to test');
     }
     
-    const pubId = citeBtn.dataset.pubId;
-    const bibtexDiv = document.getElementById(`bibtex-${pubId}`);
-    
-    if (!bibtexDiv) {
-      return this.log('Cite Button Click', false, `BibTeX div not found for ${pubId}`);
+    const modal = document.querySelector('.bibtex-modal');
+    if (!modal) {
+      return this.log('Cite Button Click', false, 'Modal not found');
     }
     
+    // Check modal was closed before click
+    const wasOpen = modal.classList.contains('active');
+    
     // Simulate click
-    const wasShowing = bibtexDiv.classList.contains('show');
     citeBtn.click();
     
     // Wait for animation
-    await new Promise(resolve => setTimeout(resolve, 100));
+    await new Promise(resolve => setTimeout(resolve, 150));
     
-    const isShowing = bibtexDiv.classList.contains('show');
-    const passed = wasShowing !== isShowing; // State should have toggled
+    const isOpen = modal.classList.contains('active');
+    const passed = !wasOpen && isOpen; // Modal should now be open
+    
+    // Close modal for cleanup
+    if (isOpen && window.bibtexModal) {
+      window.bibtexModal.close();
+    }
     
     return this.log('Cite Button Click', passed,
-                    passed ? 'BibTeX toggle working' : 'Toggle failed');
+                    passed ? 'Modal opens on cite click' : 'Modal did not open');
   },
   
   /**
-   * Test: Copy to clipboard button exists
+   * Test: Copy to clipboard button exists (in modal)
    */
   testCopyButtonsExist() {
-    const copyButtons = document.querySelectorAll('.copy-bibtex');
-    const passed = copyButtons.length > 0;
+    const modal = document.querySelector('.bibtex-modal');
+    const copyButton = modal ? modal.querySelector('.bibtex-copy-btn') : null;
+    const passed = copyButton !== null;
     
     return this.log('Copy Buttons Exist', passed,
-                    passed ? `${copyButtons.length} copy buttons found` : 'No copy buttons found');
+                    passed ? 'Copy button found in modal' : 'No copy button found in modal');
   },
   
   /**

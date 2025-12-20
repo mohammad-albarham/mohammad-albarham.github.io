@@ -12,6 +12,7 @@ class PublicationsManager {
       type: 'all',
       search: ''
     };
+    this.clickHandlerAdded = false;
   }
 
   /**
@@ -21,7 +22,13 @@ class PublicationsManager {
     try {
       this.publications = await window.dataLoader.load('publications');
       this.render();
-      this.setupEventListeners();
+      this.setupFilterListeners();
+      
+      // Only add click handler once
+      if (!this.clickHandlerAdded) {
+        this.setupDocumentClickHandlers();
+        this.clickHandlerAdded = true;
+      }
     } catch (error) {
       console.error('Failed to initialize publications:', error);
       this.showError();
@@ -67,9 +74,44 @@ class PublicationsManager {
   }
 
   /**
-   * Setup filter and search event listeners
+   * Setup document-wide click handlers for cite buttons
    */
-  setupEventListeners() {
+  setupDocumentClickHandlers() {
+    console.log('Setting up document click handlers for cite buttons');
+    
+    // Use event delegation for cite buttons (they're dynamically added)
+    document.addEventListener('click', (e) => {
+      const citeBtn = e.target.closest('.cite-btn');
+      if (citeBtn) {
+        console.log('Cite button clicked:', citeBtn);
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const bibtex = citeBtn.dataset.bibtex;
+        const title = citeBtn.dataset.pubTitle;
+        
+        console.log('BibTeX data:', bibtex ? 'Found' : 'Missing');
+        console.log('Modal instance:', window.bibtexModal ? 'Found' : 'Missing');
+        
+        if (bibtex && window.bibtexModal) {
+          console.log('Opening modal with title:', title);
+          window.bibtexModal.open(bibtex, title);
+        } else {
+          console.error('Cannot open modal:', {
+            hasBibtex: !!bibtex,
+            hasModal: !!window.bibtexModal
+          });
+        }
+      }
+    });
+    
+    console.log('Click handler registered');
+  }
+
+  /**
+   * Setup filter and search event listeners (called on each render)
+   */
+  setupFilterListeners() {
     // Year filter
     const yearFilter = document.getElementById('pub-filter-year');
     if (yearFilter) {
@@ -122,70 +164,6 @@ class PublicationsManager {
         this.resetFilters();
       });
     }
-
-    // Cite button click handlers - using event delegation
-    document.addEventListener('click', (e) => {
-      // Handle cite button clicks
-      if (e.target.closest('.cite-btn')) {
-        e.preventDefault();
-        const btn = e.target.closest('.cite-btn');
-        const pubId = btn.dataset.pubId;
-        
-        if (!pubId) {
-          console.error('Cite button missing data-pub-id attribute');
-          return;
-        }
-        
-        const bibtexDiv = document.getElementById(`bibtex-${pubId}`);
-        
-        if (!bibtexDiv) {
-          console.error(`BibTeX div not found for publication: ${pubId}`);
-          // Show error feedback
-          const originalHTML = btn.innerHTML;
-          btn.innerHTML = '<i class="bi bi-exclamation-circle"></i> Error';
-          btn.classList.add('btn-danger');
-          setTimeout(() => {
-            btn.innerHTML = originalHTML;
-            btn.classList.remove('btn-danger');
-          }, 2000);
-          return;
-        }
-        
-        // Toggle bibtex visibility
-        const isShowing = bibtexDiv.classList.toggle('show');
-        
-        // Toggle button active state
-        btn.classList.toggle('active', isShowing);
-        btn.setAttribute('aria-expanded', isShowing);
-        
-        // Close other open bibtex sections
-        document.querySelectorAll('.pub-bibtex.show').forEach(el => {
-          if (el.id !== `bibtex-${pubId}`) {
-            el.classList.remove('show');
-            const otherBtn = document.querySelector(`[data-pub-id="${el.id.replace('bibtex-', '')}"]`);
-            if (otherBtn) {
-              otherBtn.classList.remove('active');
-              otherBtn.setAttribute('aria-expanded', 'false');
-            }
-          }
-        });
-        
-        // Scroll to bibtex if showing
-        if (isShowing) {
-          setTimeout(() => {
-            bibtexDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }, 350); // Match CSS transition duration
-        }
-      }
-
-      // Handle copy button clicks
-      if (e.target.closest('.copy-bibtex')) {
-        e.preventDefault();
-        const btn = e.target.closest('.copy-bibtex');
-        const bibtex = decodeURIComponent(btn.dataset.bibtex);
-        this.copyToClipboard(bibtex, btn);
-      }
-    });
   }
 
   /**
@@ -359,8 +337,8 @@ class PublicationsManager {
       countEl.textContent = `${filtered.length} publication${filtered.length !== 1 ? 's' : ''}`;
     }
 
-    // Re-setup event listeners for dynamic content
-    this.setupEventListeners();
+    // Re-setup filter listeners for dynamic content
+    this.setupFilterListeners();
 
     // Refresh AOS animations if available
     if (typeof AOS !== 'undefined') {
@@ -445,11 +423,281 @@ class PublicationsManager {
   }
 }
 
+/**
+ * BibTeX Modal Manager
+ * Handles displaying BibTeX citations in an accessible modal
+ */
+class BibtexModal {
+  constructor() {
+    console.log('BibtexModal: Constructor called');
+    this.modal = null;
+    this.overlay = null;
+    this.isOpen = false;
+    this.previousFocus = null;
+    this.focusableElements = [];
+    this.createModal();
+    this.setupEventListeners();
+    console.log('BibtexModal: Initialization complete');
+  }
+
+  /**
+   * Create modal DOM structure
+   */
+  createModal() {
+    console.log('BibtexModal: Creating modal elements');
+    
+    // Create overlay
+    this.overlay = document.createElement('div');
+    this.overlay.className = 'bibtex-modal-overlay';
+    this.overlay.setAttribute('aria-hidden', 'true');
+
+    // Create modal
+    this.modal = document.createElement('div');
+    this.modal.className = 'bibtex-modal';
+    this.modal.setAttribute('role', 'dialog');
+    this.modal.setAttribute('aria-modal', 'true');
+    this.modal.setAttribute('aria-labelledby', 'bibtex-modal-title');
+    this.modal.setAttribute('aria-hidden', 'true');
+
+    this.modal.innerHTML = `
+      <div class="bibtex-modal-content">
+        <div class="bibtex-modal-header">
+          <h3 id="bibtex-modal-title" class="bibtex-modal-title">
+            <i class="bi bi-quote"></i> BibTeX Citation
+          </h3>
+          <button class="bibtex-modal-close" aria-label="Close modal" title="Close (ESC)">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="bibtex-modal-body">
+          <pre><code class="bibtex-code" id="bibtex-code"></code></pre>
+        </div>
+        <div class="bibtex-modal-footer">
+          <button class="btn btn-primary bibtex-copy-btn" id="bibtex-copy-btn">
+            <i class="bi bi-clipboard"></i> Copy BibTeX
+          </button>
+          <button class="btn btn-outline-secondary bibtex-close-btn">
+            Close
+          </button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(this.overlay);
+    document.body.appendChild(this.modal);
+    console.log('BibtexModal: Elements appended to body');
+  }
+
+  /**
+   * Setup event listeners
+   */
+  setupEventListeners() {
+    console.log('BibtexModal: Setting up event listeners');
+    
+    // Close button
+    const closeBtn = this.modal.querySelector('.bibtex-modal-close');
+    closeBtn.addEventListener('click', () => {
+      console.log('Close button clicked');
+      this.close();
+    });
+
+    // Close button in footer
+    const footerCloseBtn = this.modal.querySelector('.bibtex-close-btn');
+    footerCloseBtn.addEventListener('click', () => {
+      console.log('Footer close button clicked');
+      this.close();
+    });
+
+    // Copy button
+    const copyBtn = this.modal.querySelector('.bibtex-copy-btn');
+    copyBtn.addEventListener('click', () => this.copyBibtex());
+
+    // Click outside to close
+    this.overlay.addEventListener('click', () => this.close());
+
+    // ESC key to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.isOpen) {
+        this.close();
+      }
+    });
+
+    // Tab trap for accessibility
+    this.modal.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab' && this.isOpen) {
+        this.handleTabKey(e);
+      }
+    });
+  }
+
+  /**
+   * Handle Tab key for focus trap
+   */
+  handleTabKey(e) {
+    const focusable = this.modal.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const focusableArray = Array.from(focusable);
+    const firstFocusable = focusableArray[0];
+    const lastFocusable = focusableArray[focusableArray.length - 1];
+
+    if (e.shiftKey) {
+      // Shift + Tab
+      if (document.activeElement === firstFocusable) {
+        lastFocusable.focus();
+        e.preventDefault();
+      }
+    } else {
+      // Tab
+      if (document.activeElement === lastFocusable) {
+        firstFocusable.focus();
+        e.preventDefault();
+      }
+    }
+  }
+
+  /**
+   * Open modal with BibTeX content
+   */
+  open(bibtex, title = '') {
+    console.log('BibtexModal.open() called', { bibtex: bibtex ? 'present' : 'missing', title });
+    
+    if (this.isOpen) {
+      console.log('Modal already open, ignoring');
+      return;
+    }
+
+    // Store the element that triggered the modal
+    this.previousFocus = document.activeElement;
+
+    // Decode and set BibTeX content
+    const decodedBibtex = decodeURIComponent(bibtex);
+    console.log('Decoded BibTeX length:', decodedBibtex.length);
+    
+    const codeElement = this.modal.querySelector('#bibtex-code');
+    codeElement.textContent = decodedBibtex;
+    this.currentBibtex = decodedBibtex;
+
+    // Update title if provided
+    if (title) {
+      const titleElement = this.modal.querySelector('#bibtex-modal-title');
+      titleElement.innerHTML = `<i class="bi bi-quote"></i> ${title}`;
+    }
+
+    // Show modal
+    console.log('Showing modal...');
+    this.isOpen = true;
+    this.overlay.classList.add('active');
+    this.modal.classList.add('active');
+    this.overlay.setAttribute('aria-hidden', 'false');
+    this.modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    console.log('Modal visible');
+
+    // Focus the close button
+    setTimeout(() => {
+      const closeBtn = this.modal.querySelector('.bibtex-modal-close');
+      closeBtn.focus();
+      console.log('Focus set to close button');
+    }, 100);
+  }
+
+  /**
+   * Close modal
+   */
+  close() {
+    if (!this.isOpen) return;
+
+    this.isOpen = false;
+    this.overlay.classList.remove('active');
+    this.modal.classList.remove('active');
+    this.overlay.setAttribute('aria-hidden', 'true');
+    this.modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+
+    // Return focus to the element that opened the modal
+    if (this.previousFocus) {
+      this.previousFocus.focus();
+      this.previousFocus = null;
+    }
+  }
+
+  /**
+   * Copy BibTeX to clipboard
+   */
+  async copyBibtex() {
+    const btn = this.modal.querySelector('.bibtex-copy-btn');
+    const originalHTML = btn.innerHTML;
+
+    try {
+      await navigator.clipboard.writeText(this.currentBibtex);
+      
+      // Show success state
+      btn.innerHTML = '<i class="bi bi-check-lg"></i> Copied!';
+      btn.classList.add('btn-success');
+      btn.classList.remove('btn-primary');
+      
+      // Reset after 2 seconds
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.classList.remove('btn-success');
+        btn.classList.add('btn-primary');
+      }, 2000);
+      
+    } catch (err) {
+      console.error('Failed to copy:', err);
+      
+      // Fallback for older browsers
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = this.currentBibtex;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-9999px';
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        btn.innerHTML = '<i class="bi bi-check-lg"></i> Copied!';
+        btn.classList.add('btn-success');
+        btn.classList.remove('btn-primary');
+        
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+          btn.classList.remove('btn-success');
+          btn.classList.add('btn-primary');
+        }, 2000);
+      } catch (fallbackErr) {
+        btn.innerHTML = '<i class="bi bi-x-lg"></i> Failed';
+        btn.classList.add('btn-danger');
+        btn.classList.remove('btn-primary');
+        
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+          btn.classList.remove('btn-danger');
+          btn.classList.add('btn-primary');
+        }, 2000);
+      }
+    }
+  }
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('Publications.js: DOM loaded');
+  
+  // Always initialize BibTeX modal (needed for cite buttons)
+  window.bibtexModal = new BibtexModal();
+  console.log('BibtexModal initialized:', window.bibtexModal);
+  
+  // Initialize publications manager if container exists
   const pubContainer = document.getElementById('publications-container');
   if (pubContainer) {
+    console.log('Publications container found, initializing manager...');
     window.publicationsManager = new PublicationsManager('publications-container');
     window.publicationsManager.init();
+  } else {
+    console.warn('Publications container not found');
   }
 });
+

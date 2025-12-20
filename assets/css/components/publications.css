@@ -32,6 +32,44 @@
   font-size: 0.9rem;
   color: #6c757d;
   font-weight: 500;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Reset Filter Button */
+#pub-reset-filters {
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+#pub-reset-filters:hover {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#pub-reset-filters:active {
+  transform: translateY(0);
+}
+
+#pub-reset-filters.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+
+#pub-reset-filters i {
+  transition: transform 0.3s ease;
+}
+
+#pub-reset-filters:hover i {
+  transform: rotate(-180deg);
 }
 
 /* ====== Publication Cards ====== */
@@ -243,18 +281,36 @@
 /* Cite button states */
 .cite-btn {
   transition: all 0.2s ease;
+  position: relative;
 }
 
 .cite-btn:hover {
   background-color: #149ddd;
   border-color: #149ddd;
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(20, 157, 221, 0.3);
+}
+
+.cite-btn:active {
+  transform: translateY(0);
 }
 
 .cite-btn.active {
   background-color: #149ddd;
   border-color: #149ddd;
   color: white;
+  box-shadow: 0 0 0 0.2rem rgba(20, 157, 221, 0.25);
+}
+
+.cite-btn.btn-danger {
+  animation: shakeError 0.5s ease;
+}
+
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
 }
 
 /* ====== Year Groups ====== */

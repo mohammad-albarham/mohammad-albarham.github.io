@@ -156,8 +156,28 @@ const DataRenderer = {
     if (pub.huggingface) links.push(`<a href="${pub.huggingface}" class="btn btn-sm btn-outline-warning" target="_blank" rel="noopener"><i class="bi bi-box"></i> HuggingFace</a>`);
     if (pub.github) links.push(`<a href="${pub.github}" class="btn btn-sm btn-outline-dark" target="_blank" rel="noopener"><i class="bi bi-github"></i> Code</a>`);
     
-    // Escape bibtex for HTML attribute storage
-    const escapedBibtex = pub.bibtex ? encodeURIComponent(pub.bibtex) : '';
+    // Validate and escape bibtex for HTML attribute storage
+    let escapedBibtex = '';
+    let bibtexDisplay = 'No BibTeX available';
+    let hasBibtex = false;
+    
+    if (pub.bibtex && pub.bibtex.trim()) {
+      try {
+        escapedBibtex = encodeURIComponent(pub.bibtex);
+        bibtexDisplay = pub.bibtex;
+        hasBibtex = true;
+      } catch (error) {
+        console.warn(`Failed to encode BibTeX for publication ${pub.id}:`, error);
+        bibtexDisplay = 'Error: Invalid BibTeX format';
+      }
+    }
+    
+    // Only show cite button if BibTeX is available
+    const citeButton = hasBibtex 
+      ? `<button class="btn btn-sm btn-outline-info cite-btn" data-pub-id="${pub.id}" aria-expanded="false" aria-controls="bibtex-${pub.id}">
+           <i class="bi bi-quote"></i> Cite
+         </button>`
+      : '';
     
     return `
       <div class="publication-card ${typeClass}" data-year="${pub.year}" data-type="${pub.type}" data-keywords="${pub.keywords?.join(',') || ''}">
@@ -173,19 +193,19 @@ const DataRenderer = {
         <p class="pub-venue-full">${pub.venue}</p>
         <div class="pub-links">
           ${links.join(' ')}
-          <button class="btn btn-sm btn-outline-info cite-btn" data-pub-id="${pub.id}" aria-expanded="false" aria-controls="bibtex-${pub.id}">
-            <i class="bi bi-quote"></i> Cite
-          </button>
+          ${citeButton}
         </div>
+        ${hasBibtex ? `
         <div class="pub-bibtex" id="bibtex-${pub.id}" role="region" aria-label="BibTeX citation">
           <div class="bibtex-header">
             <span class="bibtex-label">BibTeX Citation</span>
-            <button class="btn btn-sm btn-primary copy-bibtex" data-bibtex="${escapedBibtex}">
+            <button class="btn btn-sm btn-primary copy-bibtex" data-bibtex="${escapedBibtex}" title="Copy BibTeX to clipboard">
               <i class="bi bi-clipboard"></i> Copy to Clipboard
             </button>
           </div>
-          <pre><code>${pub.bibtex || 'No BibTeX available'}</code></pre>
+          <pre><code>${bibtexDisplay}</code></pre>
         </div>
+        ` : ''}
       </div>
     `;
   },

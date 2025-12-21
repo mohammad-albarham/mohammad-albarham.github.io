@@ -1,0 +1,245 @@
+/* ===================================
+   Sponsorship Buttons & Sections
+   =================================== */
+
+/* Sidebar Sponsorship Links */
+.sponsor-links {
+  padding: 0 20px;
+}
+
+.sponsor-text {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+.sponsor-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.sponsor-btn:hover::before {
+  left: 100%;
+}
+
+.sponsor-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  color: #fff;
+}
+
+.sponsor-btn:active {
+  transform: translateY(0);
+}
+
+.sponsor-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Ko-fi Button */
+.kofi-btn {
+  background: linear-gradient(135deg, #ff5e5b 0%, #ff3838 100%);
+  border: 2px solid rgba(255, 94, 91, 0.4);
+}
+
+.kofi-btn:hover {
+  background: linear-gradient(135deg, #ff3838 0%, #ff1a1a 100%);
+  border-color: rgba(255, 94, 91, 0.6);
+}
+
+/* GitHub Sponsor Button */
+.github-sponsor-btn {
+  background: linear-gradient(135deg, #ea4aaa 0%, #c93884 100%);
+  border: 2px solid rgba(234, 74, 170, 0.4);
+}
+
+.github-sponsor-btn:hover {
+  background: linear-gradient(135deg, #c93884 0%, #a82d6b 100%);
+  border-color: rgba(234, 74, 170, 0.6);
+}
+
+/* About Section Support Box */
+.support-section {
+  background: linear-gradient(135deg, rgba(5, 99, 187, 0.05) 0%, rgba(234, 74, 170, 0.05) 100%);
+  border-radius: 12px;
+  border: 2px solid rgba(5, 99, 187, 0.1);
+  transition: all 0.3s ease;
+}
+
+.support-section:hover {
+  border-color: rgba(5, 99, 187, 0.2);
+  box-shadow: 0 8px 24px rgba(5, 99, 187, 0.1);
+  transform: translateY(-2px);
+}
+
+.support-section h4 {
+  color: #272829;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.support-section p {
+  line-height: 1.7;
+}
+
+/* Button Support Styles */
+.btn-support {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+.btn-support::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.btn-support:hover::before {
+  left: 100%;
+}
+
+.btn-support:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn-support:active {
+  transform: translateY(-1px);
+}
+
+.btn-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Ko-fi Button in About Section */
+.btn-support.kofi {
+  background: linear-gradient(135deg, #ff5e5b 0%, #ff3838 100%);
+}
+
+.btn-support.kofi:hover {
+  background: linear-gradient(135deg, #ff3838 0%, #ff1a1a 100%);
+}
+
+/* GitHub Sponsor Button in About Section */
+.btn-support.github {
+  background: linear-gradient(135deg, #ea4aaa 0%, #c93884 100%);
+}
+
+.btn-support.github:hover {
+  background: linear-gradient(135deg, #c93884 0%, #a82d6b 100%);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .sponsor-links {
+    padding: 0 10px;
+  }
+  
+  .sponsor-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  
+  .btn-support {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .support-section {
+    padding: 1.5rem !important;
+  }
+  
+  .support-section h4 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn-support {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .d-flex.gap-3 {
+    flex-direction: column;
+    gap: 0.75rem !important;
+  }
+}
+
+/* Dark Mode Support */
+body.dark-mode .support-section {
+  background: linear-gradient(135deg, rgba(5, 99, 187, 0.1) 0%, rgba(234, 74, 170, 0.1) 100%);
+  border-color: rgba(5, 99, 187, 0.2);
+}
+
+body.dark-mode .support-section:hover {
+  border-color: rgba(5, 99, 187, 0.3);
+}
+
+body.dark-mode .support-section h4 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .support-section p {
+  color: #b0b0b0 !important;
+}
+
+/* Animation for attention */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(234, 74, 170, 0.4);
+  }
+}
+
+.btn-support:hover {
+  animation: pulse-glow 2s infinite;
+}

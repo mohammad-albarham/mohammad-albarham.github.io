@@ -113,6 +113,11 @@ See **[PORTFOLIO_GUIDE.md](PORTFOLIO_GUIDE.md)** for complete documentation.
 - Total Size: ~150KB (CSS + JS, minified)
 - Optimizations: Lazy loading, deferred JS, Intersection Observer
 
+## Notes:
+
+Travel section has been adopted from this website, special thanks to Julian: https://www.julian.ac/travel/
+
+
 ## 📄 License
 
 MIT License - feel free to use this template for your own portfolio!

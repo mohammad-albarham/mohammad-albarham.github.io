@@ -1,5 +1,36 @@
 [
   {
+    "id": "fast-rich",
+    "title": "Fast-Rich: High-Performance Terminal UI",
+    "category": "tools",
+    "tags": ["Rust", "Terminal UI", "CLI", "Performance"],
+    "featured": true,
+    "image": "assets/img/portfolio/fast-rich.png",
+    "shortDescription": "High-performance Rust library for rendering rich text and complex terminal user interfaces",
+    "description": "Fast-Rich is a high-performance Rust library for rendering rich text and complex terminal user interfaces. Inspired by Python's Rich library, it provides a powerful and easy-to-use API for building beautiful CLI applications.",
+    "technologies": ["Rust", "Terminal UI", "CLI", "Performance"],
+    "links": {
+      "demo": "https://mohammad-albarham.github.io/fast-rich/",
+      "github": "https://github.com/mohammad-albarham/fast-rich"
+    },
+    "year": 2025
+  },
+  {
+    "id": "ratatalk",
+    "title": "RataTalk: Terminal Chat Client",
+    "category": "application",
+    "tags": ["Rust", "TUI", "Chat", "Ratatui"],
+    "featured": true,
+    "image": "assets/img/portfolio/ratatalk.png",
+    "shortDescription": "Terminal-based chat client built with Rust and Ratatui",
+    "description": "RataTalk is a terminal-based chat client built with Rust and Ratatui. It offers a secure, fast, and lightweight way to communicate directly from your terminal, featuring a modern TUI interface.",
+    "technologies": ["Rust", "TUI", "Ratatui", "Chat"],
+    "links": {
+      "github": "https://github.com/mohammad-albarham/ratatalk"
+    },
+    "year": 2025
+  },
+  {
     "id": "araclip-project",
     "title": "AraCLIP: Cross-Lingual Arabic Image Retrieval",
     "category": "ai",

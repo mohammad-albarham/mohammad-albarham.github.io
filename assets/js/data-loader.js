@@ -254,6 +254,7 @@ const citeButton = hasBibtex
    */
   createProjectCard(project) {
     const featuredBadge = project.featured ? '<span class="project-badge">Featured</span>' : '';
+    const webpImage = project.image.replace('assets/img/', 'assets/img_webp/').replace(/\.(jpg|jpeg|png)$/, '.webp');
     
     let links = [];
     if (project.links?.github) links.push(`<a href="${project.links.github}" target="_blank"><i class="bx bxl-github"></i></a>`);
@@ -265,8 +266,12 @@ const citeButton = hasBibtex
       <div class="col-lg-4 col-md-6 portfolio-item filter-${project.category}" data-category="${project.category}" data-featured="${project.featured}">
         <div class="portfolio-wrap">
           ${featuredBadge}
-          <img src="${project.image}" class="img-fluid" alt="${project.title}">
+          <picture>
+            <source srcset="${webpImage}" type="image/webp">
+            <img src="${project.image}" class="img-fluid" alt="${project.title}" loading="lazy">
+          </picture>
           <div class="portfolio-info">
+
             <h4>${project.title}</h4>
             <p>${project.shortDescription}</p>
             <div class="portfolio-links">

@@ -17,11 +17,12 @@ class ThemeManager {
   }
 
   /**
-   * Get preferred theme based on system preference
+   * Get preferred theme (default to light)
    */
   getPreferredTheme() {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return 'light';
   }
+
 
   /**
    * Initialize theme on page load
@@ -115,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Apply theme immediately to prevent flash of wrong theme
 (function() {
   const storedTheme = localStorage.getItem('theme');
-  const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  const theme = storedTheme || preferredTheme;
+  const theme = storedTheme || 'light';
   document.documentElement.setAttribute('data-theme', theme);
 })();
+

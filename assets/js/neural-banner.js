@@ -79,10 +79,10 @@
   let currentPrediction = 7;  // Default prediction
   let reducedMotion = false;
 
-  // ============================================
-  // INITIALIZATION
-  // ============================================
-  function init() {
+  /**
+   * INITIALIZATION
+   */
+  async function init() {
     const container = document.querySelector('.nn-visual');
     if (!container) return;
 
@@ -91,15 +91,22 @@
     // Clear existing
     container.innerHTML = '';
     
-    // Create SVG
-    createSVG(container);
+    // Create SVG (fragment-based)
+    const fragment = document.createDocumentFragment();
+    createSVG(fragment);
     
-    // Build network
-    createInputGrid();
-    createNetworkLayers();
-    createConnections();
-    createOutputLabels();
+    // Build network with small delays to avoid blocking
+    createInputGrid(fragment);
+    await nextTick();
+    createNetworkLayers(fragment);
+    await nextTick();
+    createConnections(fragment);
+    await nextTick();
+    createOutputLabels(fragment);
     
+    container.appendChild(fragment);
+    svg = container.querySelector('svg');
+
     // Setup digit selector buttons
     setupDigitSelector();
     
@@ -108,7 +115,23 @@
       container.classList.add('nn-ready');
       animateEntrance();
     });
+
+    if (!reducedMotion) {
+      setTimeout(startSignalFlow, CONFIG.timing.initialDelay);
+    }
   }
+
+  function nextTick() {
+    return new Promise(resolve => {
+      if (window.requestIdleCallback) {
+        window.requestIdleCallback(resolve);
+      } else {
+        setTimeout(resolve, 10);
+      }
+    });
+  }
+
+
 
   // ============================================
   // DIGIT SELECTOR
@@ -786,10 +809,46 @@
     runSignalFlow
   };
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
+  // Optimize with IntersectionObserver
+  function setupIntersectionObserver() {
+    const container = document.querySelector('.nn-visual');
+    if (!container || !window.IntersectionObserver) {
+      window.addEventListener('load', () => {
+        if (window.requestIdleCallback) {
+          window.requestIdleCallback(() => init());
+        } else {
+          setTimeout(init, 1000);
+        }
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!svg) {
+            // Lazy init only when in view AND after load
+            if (document.readyState === 'complete') {
+              init();
+            } else {
+              window.addEventListener('load', () => {
+                setTimeout(init, 500); // Small extra delay to clear TBT window
+              });
+            }
+          } else {
+            startSignalFlow();
+          }
+        } else {
+          stop();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(container);
   }
 
+  setupIntersectionObserver();
+
 })();
+
+

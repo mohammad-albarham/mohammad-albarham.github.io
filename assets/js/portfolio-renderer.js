@@ -117,11 +117,24 @@ class PortfolioRenderer {
               </p>
             ` : ''}
           </div>
-          ${edu.relevantCourses && edu.relevantCourses.length > 0 ? `
-            <div class="timeline-tags">
-              ${edu.relevantCourses.slice(0, 6).map(course => 
-                `<span class="timeline-tag">${course}</span>`
-              ).join('')}
+          ${edu.completedCourses && edu.completedCourses.length > 0 ? `
+            <div class="timeline-courses">
+              <p class="courses-label">Courses completed so far:</p>
+              <ul>
+                ${edu.completedCourses.map(c =>
+                  `<li>${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.code} – ${c.name}</a>` : `${c.code} – ${c.name}`}</li>`
+                ).join('')}
+              </ul>
+            </div>
+          ` : ''}
+          ${edu.currentCourses && edu.currentCourses.length > 0 ? `
+            <div class="timeline-courses">
+              <p class="courses-label">Current Courses:</p>
+              <ul>
+                ${edu.currentCourses.map(c =>
+                  `<li>${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.code} – ${c.name}</a>` : `${c.code} – ${c.name}`}</li>`
+                ).join('')}
+              </ul>
             </div>
           ` : ''}
         </div>

@@ -61,9 +61,7 @@
         "code": "SSY340",
         "name": "Deep machine learning",
         "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY340/?acYear=2025%2F2026"
-      }
-    ],
-    "currentCourses": [
+      },
       {
         "code": "TRA220",
         "name": "GPU-accelerated Computational Methods using Python and CUDA",
@@ -73,6 +71,12 @@
         "code": "SSY226",
         "name": "Design project in systems",
         "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY226/?acYear=2025%2F2026"
+      }
+    ],
+    "currentCourses": [
+      {
+        "code": "Master Thesis",
+        "name": "Scene Understanding and Query-Based Retrieval for Automotive Vision Systems in ADAS"
       }
     ]
   },

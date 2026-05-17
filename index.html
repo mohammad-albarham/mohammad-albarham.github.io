@@ -671,9 +671,16 @@
 
       for (const [continent, countries] of Object.entries(travel.visited)) {
         ++numContinents;
+        // Map between ISO-like country codes and the vector map's internal region keys.
+        // Kosovo is represented as "_1" in the `world_mill_en` map data, while
+        // the data file uses the code "XK". Translate here so regions highlight.
+        function mapCountryCode(code) {
+          if (code === 'XK') return '_1';
+          return code;
+        }
 
         var countryColors = {};
-        for (const c of countries) countryColors[c] = 1;
+        for (const c of countries) countryColors[mapCountryCode(c)] = 1;
         regions.push({
           values: countryColors,
           scale: ["#ff00ff", travel.continentColors[continent]],

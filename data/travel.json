@@ -15,7 +15,11 @@
       "DK",
       "BA",
       "LT",
-      "FI"
+      "FI",
+      "AL",
+      "HR",
+      "ME",
+      "_1"
     ],
     "North America": ["CA"]
   },
@@ -47,6 +51,7 @@
     "BA": "Bosnia and Herzegovina",
     "LT": "Lithuania",
     "FI": "Finland",
-    "CA": "Canada"
+    "CA": "Canada",
+    "_1": "Kosovo"
   }
 }

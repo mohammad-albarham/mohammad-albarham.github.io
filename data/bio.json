@@ -9,7 +9,7 @@
   },
   "email": "mohammad.albarham.work@gmail.com",
   "photo": "assets/img/profile-img.jpg",
-  "summary": "I'm a problem solver with a passion for coding, solving problems and trying new things. Currently, I fell in love with computer vision and AI in general, where I am working as a part-time engineer at Aptiv while completing my master's degree at Chalmers University of Technology in Sweden.",
+  "summary": "I'm a problem solver with a passion for coding, solving problems and trying new things. Currently, I fell in love with computer vision and AI in general. I have recently completed my master's degree at Chalmers University of Technology. I am working as a full time perception and vision engineer at Aptiv during 2026 summer.",
   "socialLinks": {
     "linkedin": {
       "url": "https://www.linkedin.com/in/albarham/",
@@ -29,10 +29,6 @@
     }
   },
   "highlights": [
-    "SI Scholarship for Global Professionals recipient",
-    "8+ peer-reviewed publications",
-    "IEEE Region 8 Active Volunteer",
-    "1st rank in BSc Mechatronics Engineering"
   ],
   "keywords": [
     "computer vision",

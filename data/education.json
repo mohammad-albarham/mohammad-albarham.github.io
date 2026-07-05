@@ -6,8 +6,8 @@
     "degree": "MSc in Systems, Control and Mechatronics",
     "focus": "Artificial Intelligence, Autonomous Systems & Control",
     "startDate": "2024-09",
-    "endDate": null,
-    "current": true,
+    "endDate": "2026-06",
+    "current": false,
     "logo": "assets/img/chalmers_logo.png",
     "url": "https://www.chalmers.se/en/",
     "scholarship": "SI Scholarship for Global Professionals",
@@ -71,13 +71,13 @@
         "code": "SSY226",
         "name": "Design project in systems",
         "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY226/?acYear=2025%2F2026"
-      }
-    ],
-    "currentCourses": [
+      },
       {
         "code": "Master Thesis",
         "name": "Scene Understanding and Query-Based Retrieval for Automotive Vision Systems in ADAS"
       }
+    ],
+    "currentCourses": [
     ]
   },
   {

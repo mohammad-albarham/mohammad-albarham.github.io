@@ -23,6 +23,7 @@ CSS_FILES=(
   assets/css/section-headers.css
   assets/css/components/publications.css
   assets/css/components/competitions.css
+  assets/css/components/language-chart.css
   assets/css/neural-network.css
   assets/css/dark-mode.css
   assets/css/buttons.css
@@ -35,6 +36,7 @@ JS_FILES=(
   assets/js/portfolio-renderer.js
   assets/js/theme.js
   assets/js/publications.js
+  assets/js/language-chart.js
   assets/js/animations.js
   assets/js/neural-banner.js
   assets/js/site-enhancements.js

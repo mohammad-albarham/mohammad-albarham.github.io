@@ -1,0 +1,222 @@
+/**
+ * Language Chart
+ *
+ * Slice colours are the first eight slots of a categorical palette validated
+ * for colour-vision deficiency in both themes, followed by neutral steps for
+ * the tail below 3%. Every slice is labelled with its own name, so identity is
+ * never carried by colour alone -- which is what lets the tail go grey.
+ */
+
+.lang-chart-figure {
+  position: relative;
+  margin: 0;
+  padding: 1.5rem 0 0;
+
+  /* Categorical slots 1-8 */
+  --lang-1: #2a78d6;
+  --lang-2: #eb6834;
+  --lang-3: #1baf7a;
+  --lang-4: #eda100;
+  --lang-5: #e87ba4;
+  --lang-6: #008300;
+  --lang-7: #4a3aa7;
+  --lang-8: #e34948;
+  /* Neutral tail, kept in a narrow band so the 1% slivers stay visible */
+  --lang-9: #6f6e69;
+  --lang-10: #7f7e78;
+  --lang-11: #8f8e88;
+  --lang-12: #9e9d96;
+  --lang-13: #adaca5;
+
+  --lang-surface: var(--bg-primary, #ffffff);
+}
+
+.lang-chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+[data-theme="dark"] .lang-chart-figure {
+  --lang-1: #3987e5;
+  --lang-2: #d95926;
+  --lang-3: #199e70;
+  --lang-4: #c98500;
+  --lang-5: #d55181;
+  --lang-6: #008300;
+  --lang-7: #9085e9;
+  --lang-8: #e66767;
+  --lang-9: #bdbcb3;
+  --lang-10: #ababa2;
+  --lang-11: #999891;
+  --lang-12: #8b8a83;
+  --lang-13: #7d7b74;
+}
+
+/* A surface-coloured stroke separates neighbouring slices without a border. */
+.lang-slice {
+  stroke: var(--lang-surface);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+}
+
+.lang-chart-figure.has-hover .lang-slice {
+  opacity: 0.45;
+}
+
+.lang-chart-figure.has-hover .lang-slice.is-hovered {
+  opacity: 1;
+}
+
+.lang-leader {
+  fill: none;
+  stroke: var(--text-muted, #858585);
+  stroke-width: 1;
+}
+
+.lang-label {
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.lang-label-name {
+  fill: var(--text-primary, #272829);
+  font-weight: 700;
+}
+
+.lang-label-pct {
+  fill: var(--text-secondary, #6c757d);
+}
+
+/* ---------- tooltip ---------- */
+
+.lang-chart-tooltip {
+  position: absolute;
+  z-index: 5;
+  transform: translate(-50%, calc(-100% - 14px));
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  background: var(--text-primary, #272829);
+  color: var(--bg-primary, #ffffff);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: var(--shadow-sm, 0 2px 10px rgba(0, 0, 0, 0.08));
+}
+
+.lang-chart-tooltip strong {
+  margin-right: 0.35rem;
+}
+
+/* ---------- caption and table ---------- */
+
+.lang-chart-caption {
+  max-width: 62ch;
+  margin: 0.5rem auto 0;
+  color: var(--text-secondary, #6c757d);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.lang-chart-table-toggle {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--primary, #149ddd);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.lang-chart-table-wrap {
+  max-width: 34rem;
+  margin: 1.25rem auto 0;
+  overflow-x: auto;
+}
+
+.lang-chart-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.lang-chart-table th,
+.lang-chart-table td {
+  padding: 0.4rem 0.75rem;
+  border-bottom: 1px solid var(--border-color, #dee2e6);
+  text-align: left;
+}
+
+.lang-chart-table thead th {
+  color: var(--text-secondary, #6c757d);
+  font-weight: 600;
+}
+
+.lang-chart-table tbody th {
+  font-weight: 600;
+}
+
+.lang-chart-table td:last-child {
+  color: var(--text-secondary, #6c757d);
+}
+
+.lang-chart-error {
+  color: var(--text-secondary, #6c757d);
+  text-align: center;
+}
+
+/* ---------- compact layout ---------- */
+
+.lang-chart-figure.is-compact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lang-chart-figure.is-compact .lang-chart-svg {
+  max-width: 320px;
+}
+
+.lang-chart-legend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.3rem 1.25rem;
+  width: 100%;
+  max-width: 26rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+}
+
+.lang-chart-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.lang-chart-swatch {
+  flex: 0 0 auto;
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+}
+
+.lang-chart-legend-name {
+  flex: 1 1 auto;
+  color: var(--text-primary, #272829);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lang-chart-legend-pct {
+  color: var(--text-secondary, #6c757d);
+  font-variant-numeric: tabular-nums;
+}

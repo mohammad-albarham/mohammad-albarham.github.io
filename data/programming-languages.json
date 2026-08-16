@@ -1,0 +1,74 @@
+{
+  "source": "github.com/mohammad-albarham",
+  "method": "Hand-written code only, across public non-fork repositories. Notebook code cells count as their kernel language; notebook outputs, vendored libraries, datasets and media are excluded.",
+  "repositories": 57,
+  "notebooks": 179,
+  "totalBytes": 7343895,
+  "languages": [
+    {
+      "name": "Python",
+      "pct": 33,
+      "bytes": 2430143
+    },
+    {
+      "name": "Rust",
+      "pct": 17,
+      "bytes": 1234031
+    },
+    {
+      "name": "HTML & CSS",
+      "pct": 15,
+      "bytes": 1116360
+    },
+    {
+      "name": "JavaScript",
+      "pct": 9,
+      "bytes": 701548
+    },
+    {
+      "name": "TypeScript",
+      "pct": 8,
+      "bytes": 590708
+    },
+    {
+      "name": "C",
+      "pct": 7,
+      "bytes": 505096
+    },
+    {
+      "name": "Assembly",
+      "pct": 3,
+      "bytes": 201848
+    },
+    {
+      "name": "C++",
+      "pct": 2,
+      "bytes": 142096
+    },
+    {
+      "name": "Kotlin",
+      "pct": 2,
+      "bytes": 119777
+    },
+    {
+      "name": "Shell",
+      "pct": 1,
+      "bytes": 84366
+    },
+    {
+      "name": "Verilog",
+      "pct": 1,
+      "bytes": 71130
+    },
+    {
+      "name": "MATLAB",
+      "pct": 1,
+      "bytes": 53626
+    },
+    {
+      "name": "Arduino",
+      "pct": 1,
+      "bytes": 49037
+    }
+  ]
+}

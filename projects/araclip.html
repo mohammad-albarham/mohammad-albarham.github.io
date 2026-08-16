@@ -82,7 +82,12 @@
       border-radius: 12px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.1);
       margin: -50px auto 50px;
+      /* This rule follows Bootstrap's .img-fluid, so it would override its
+         max-width:100% cap; width:100% keeps the image inside narrow viewports. */
       max-width: 900px;
+      width: 100%;
+      height: auto;
+      display: block;
     }
     
     .project-meta {

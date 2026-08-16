@@ -33,6 +33,23 @@ python3 -m http.server 8080
 open http://localhost:8080
 ```
 
+### Building the bundles
+
+`index.html` loads only `assets/css/bundle.css` and `assets/js/bundle.js`. **Editing a source
+file under `assets/css/` or `assets/js/` has no effect until you rebuild:**
+
+```bash
+./scripts/build.sh          # regenerate the bundles
+./scripts/build.sh --check  # verify the committed bundles match their sources
+```
+
+The file lists live at the top of `scripts/build.sh`; order matters for the CSS cascade. Add any
+new source file there.
+
+`assets/js/travel-map.js` (jVectorMap + world map data, ~178 KB) is built as a separate bundle and
+loaded on demand when the travel section scrolls into view, along with jQuery — neither is needed
+for the rest of the page.
+
 ### Editing Content
 
 All content is stored in `/data/` as JSON files:
@@ -108,10 +125,21 @@ See **[PORTFOLIO_GUIDE.md](PORTFOLIO_GUIDE.md)** for complete documentation.
 
 ## ⚡ Performance
 
-- Lighthouse Performance: 95+
-- First Contentful Paint: <1s
-- Total Size: ~150KB (CSS + JS, minified)
-- Optimizations: Lazy loading, deferred JS, Intersection Observer
+- Homepage, fully loaded (every image): **~1.6 MB**, down from 6.8 MB
+- Images alone: **~0.6 MB**, down from 5.7 MB
+- First Contentful Paint <150 ms, CLS ~0.007
+
+Optimizations:
+
+- Every raster image is served as WebP via `<picture>`, sized for how it actually renders
+  (96px logos, 800px cards, 240px avatar), with the original as fallback
+- One icon font instead of two
+- The travel map (jQuery + jVectorMap + world data, ~265 KB) loads only when the travel
+  section nears the viewport
+
+**Adding images:** put the original in `assets/img/` and a matching WebP in `assets/img_webp/`
+(same relative path, `.webp` extension). `PortfolioRenderer.picture()` wires up the `<picture>`
+automatically and falls back to the original if no WebP exists.
 
 ## Notes:
 

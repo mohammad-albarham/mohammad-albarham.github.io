@@ -72,7 +72,11 @@
   <header id="header">
     <div class="d-flex flex-column">
       <div class="profile">
-        <img src="../assets/img/profile-img.jpg" alt="Mohammad Albarham" class="img-fluid rounded-circle" loading="lazy">
+        <picture>
+          <source srcset="../assets/img_webp/profile-img-240.webp" type="image/webp">
+          <img src="../assets/img/profile-img-240.jpg" alt="Mohammad Albarham" class="img-fluid rounded-circle"
+            width="120" height="120" decoding="async" fetchpriority="high">
+        </picture>
         <h1 class="text-light"><a href="../index.html">MOHAMMAD ALBARHAM</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://www.linkedin.com/in/albarham/" class="linkedin" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
@@ -159,7 +163,6 @@
                       <a href="https://github.com/mohammad-albarham/pic16f778_projects#additional-bounce-exercise">Link</a>
                     </li> -->
                     </ul>
-                  </ul>
                   <iframe width="804" height="452" src="https://www.youtube.com/embed/dWMfn8JSEEk" title="Controlling DC motor using PWM with pic16f778" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </p>
             </div>

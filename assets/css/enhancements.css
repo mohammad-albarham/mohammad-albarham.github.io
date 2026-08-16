@@ -1,0 +1,488 @@
+/**
+ * Enhancements
+ * - Skip link
+ * - Hero identity layout
+ * - About section (summary, keywords, stats)
+ * - Project filter bar and grid
+ *
+ * Loaded last in the bundle so it can override earlier rules.
+ */
+
+/* ============================================
+   Skip link
+   ============================================ */
+
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -120%);
+  z-index: 10000;
+  padding: 0.7rem 1.4rem;
+  background: #0563bb;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 8px 8px;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translate(-50%, 0);
+  color: #fff;
+  outline: 3px solid #fff;
+  outline-offset: -6px;
+}
+
+/* The toggle is now a real <button>, but .mobile-nav-toggle carries
+   `outline: none !important`, which would leave keyboard users with no focus
+   indicator. Restore a visible ring. */
+.mobile-nav-toggle:focus-visible,
+.project-filter:focus-visible,
+.hero-btn:focus-visible {
+  outline: 3px solid #4fc3f7 !important;
+  outline-offset: 2px;
+}
+
+/* The sidebar name was an <h1>; it is a <p> now so the hero can own the h1.
+   These rules preserve its previous appearance. */
+.profile .profile-name {
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-family: "Poppins", "Raleway", sans-serif;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.profile .profile-name a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.profile .hf-icon {
+  vertical-align: middle;
+}
+
+/* ============================================
+   Hero
+   ============================================ */
+
+/* #hero was a fixed `height: 100vh` flex box with centred content and
+   `overflow: hidden`. Now that the hero carries real content, that content is
+   taller than a short viewport (995px of content in a 787px phone viewport),
+   and the centring pushed the overflow equally above and below — the part
+   above the fold was clipped and unreachable, since the page is already at
+   scroll position 0. Growing past 100vh instead keeps everything reachable;
+   overflow:hidden stays so the decorative background is still clipped. */
+#hero {
+  height: auto;
+  min-height: 100vh;
+}
+
+/* #hero is a sibling of #main, so it never inherited the 300px sidebar offset.
+   That went unnoticed while the hero held only a narrow digit selector; a full
+   -width container slides under the fixed sidebar. Match #main above the
+   breakpoint where the sidebar is on screen. */
+@media (min-width: 1200px) {
+  #hero {
+    /* Padding rather than margin: #hero carries an explicit width, so a margin
+       would push its right edge past the viewport. With border-box this insets
+       the content while the background stays full-bleed behind the sidebar. */
+    box-sizing: border-box;
+    padding-left: 300px;
+  }
+}
+
+#hero .hero-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Entrance animation. `both` fill mode guarantees these settle fully visible
+   even if the animation is interrupted, unlike the GSAP tween this replaced.
+
+   The hero tagline is the LCP element, and fading it up from opacity 0 delays
+   LCP by the full animation duration. The text therefore slides only — no
+   opacity ramp — so it is painted immediately; the decorative demo column,
+   which is not an LCP candidate, keeps the fade. */
+@keyframes heroRise {
+  from { transform: translateY(20px); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes heroFadeRise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-intro {
+  animation: heroRise 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+.hero-demo {
+  animation: heroFadeRise 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) 0.15s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-intro,
+  .hero-demo {
+    animation: none;
+  }
+}
+
+.hero-intro {
+  max-width: 34rem;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 1rem;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* An existing `#hero h1` rule runs a fadeInUp animation that settles back to
+   opacity 0, and its ID specificity beats a bare class. Both are overridden
+   here so the name can never render invisible. */
+#hero .hero-name {
+  margin: 0;
+  font-family: "Poppins", "Raleway", sans-serif;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #fff;
+  opacity: 1;
+  animation: none;
+}
+
+.hero-role {
+  margin: 0.6rem 0 0;
+  font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+  font-weight: 600;
+  color: #4fc3f7;
+}
+
+.hero-tagline {
+  margin: 1.1rem 0 0;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.9rem;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-btn:hover,
+.hero-btn:focus-visible {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+.hero-btn-primary {
+  background: #0563bb;
+  border-color: #0563bb;
+  color: #fff;
+}
+
+.hero-btn-primary:hover,
+.hero-btn-primary:focus-visible {
+  background: #0678e3;
+  border-color: #0678e3;
+}
+
+/* .nn-visual is a fixed 580x280 box carrying `contain: layout style paint`,
+   and paint containment CLIPS anything that overflows it. The generated SVG's
+   viewBox is 598x360 (taller than 280 once scaled to the full width), so the
+   box must follow the artwork's real aspect ratio or the network gets cut off.
+   Sizing the container by aspect-ratio and letting the SVG fill it exactly
+   keeps the whole visualisation inside the clip region at every width. */
+.hero-demo {
+  min-width: 0;
+}
+
+.hero-demo .nn-visual {
+  width: 100%;
+  max-width: 580px;
+  height: auto;
+  aspect-ratio: 598 / 360;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-demo .nn-visual svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-demo-caption {
+  margin: 0 0 1rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+}
+
+/* Two columns once there is room for them. */
+@media (min-width: 992px) {
+  #hero .hero-container {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 3.5rem;
+    padding: 3rem 2.5rem;
+  }
+
+  .hero-intro {
+    text-align: left;
+  }
+
+  .hero-cta {
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-btn:hover,
+  .hero-btn:focus-visible {
+    transform: none;
+  }
+}
+
+/* ============================================
+   About
+   ============================================ */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.about-summary {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.about-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-keywords li {
+  padding: 0.32rem 0.8rem;
+  border: 1px solid rgba(5, 99, 187, 0.25);
+  border-radius: 999px;
+  background: rgba(5, 99, 187, 0.07);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0563bb;
+}
+
+@media (min-width: 992px) {
+  .about-grid {
+    gap: 3rem;
+  }
+}
+
+/* ============================================
+   Contact cards
+   ============================================ */
+
+/* The email address is one long unbreakable token. Grid and flex children
+   default to min-width:auto, so the card could not shrink below the address's
+   intrinsic width and overflowed the viewport at 320-375px. */
+.contact-info-row {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.contact-info-card,
+.contact-info-text {
+  min-width: 0;
+}
+
+.contact-info-text p,
+.contact-info-text a {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 991px) {
+  .contact-info-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   Project filters
+   ============================================ */
+
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.9rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #45505b;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.project-filter:hover {
+  border-color: #0563bb;
+  color: #0563bb;
+}
+
+.project-filter.active {
+  background: #0563bb;
+  border-color: #0563bb;
+  color: #fff;
+}
+
+.filter-count {
+  font-size: 0.75rem;
+  font-weight: 700;
+  opacity: 0.65;
+}
+
+.project-filter-status {
+  min-height: 1.2rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.88rem;
+  color: #6c757d;
+}
+
+/* ============================================
+   Project grid
+   ============================================ */
+
+/* Featured projects keep the wide single-column row so they stay distinct. */
+#all-projects-container .projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+#all-projects-container .project-card[hidden] {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  #all-projects-container .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Cards become vertical in the grid: image on top, content below. */
+  #all-projects-container .project-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #all-projects-container .project-image {
+    width: 100%;
+    height: 180px;
+  }
+
+  #all-projects-container .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #all-projects-container .project-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  #all-projects-container .project-links {
+    margin-top: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  #all-projects-container .projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ============================================
+   Dark mode
+   ============================================ */
+
+[data-theme="dark"] .about-keywords li {
+  background: rgba(79, 195, 247, 0.1);
+  border-color: rgba(79, 195, 247, 0.3);
+  color: #4fc3f7;
+}
+
+[data-theme="dark"] .project-filter {
+  background: #1a1d26;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #c9d1d9;
+}
+
+[data-theme="dark"] .project-filter:hover {
+  border-color: #4fc3f7;
+  color: #4fc3f7;
+}
+
+[data-theme="dark"] .project-filter.active {
+  background: #0563bb;
+  border-color: #0563bb;
+  color: #fff;
+}

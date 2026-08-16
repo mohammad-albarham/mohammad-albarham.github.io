@@ -1,0 +1,1161 @@
+/**
+ * Enhanced Button & Interactive Element Styles
+ * Works with GSAP for micro-animations
+ */
+
+/* ====== Base Button Enhancements ====== */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+/* Primary button glow effect */
+.btn-primary,
+.btn[type="submit"] {
+  box-shadow: 0 4px 15px rgba(20, 157, 221, 0.3);
+}
+
+.btn-primary:hover,
+.btn[type="submit"]:hover {
+  box-shadow: 0 6px 25px rgba(20, 157, 221, 0.4);
+}
+
+/* ====== Social Link Animations ====== */
+.social-links a {
+  position: relative;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.social-links a::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(20, 157, 221, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.social-links a:hover::after {
+  opacity: 1;
+}
+
+/* ====== Navigation Link Effects ====== */
+.nav-menu a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-menu a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #149ddd, #4fc3f7);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::before,
+.nav-menu a.active::before {
+  width: 100%;
+}
+
+/* ====== Card Hover States ====== */
+.highlight-item,
+.portfolio-item {
+  transition: all 0.3s ease;
+  will-change: transform, box-shadow;
+}
+
+.highlight-item {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(20, 157, 221, 0.1);
+}
+
+.highlight-item:hover {
+  border-color: rgba(20, 157, 221, 0.3);
+  background: rgba(20, 157, 221, 0.05);
+}
+
+/* ====== Scroll Progress Bar ====== */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #149ddd, #0563bb, #4fc3f7);
+  z-index: 9999;
+  transform-origin: left;
+}
+
+/* ====== Section Reveal Preparation ====== */
+.reveal-fade {
+  opacity: 0;
+}
+
+.reveal-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.reveal-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* When JS is disabled, show content normally */
+@media (scripting: none) {
+  .reveal-fade,
+  .reveal-slide-up,
+  .reveal-slide-left,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ====== Icon Animations ====== */
+.bi, .bx, .ai {
+  transition: transform 0.3s ease;
+}
+
+a:hover .bi,
+a:hover .bx,
+button:hover .bi,
+button:hover .bx {
+  transform: scale(1.1);
+}
+
+/* ====== Form Input Focus Effects ====== */
+.form-control,
+.form-select {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #149ddd;
+  box-shadow: 0 0 0 4px rgba(20, 157, 221, 0.1);
+}
+
+/* ====== Back to Top Button ====== */
+.back-to-top {
+  transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(20, 157, 221, 0.4);
+}
+
+/* ====== Loading Shimmer for Dynamic Content ====== */
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ====== Reduced Motion ====== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .reveal-fade,
+  .reveal-slide-up,
+  .reveal-slide-left,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+  
+  #scroll-progress {
+    display: none;
+  }
+}
+
+/* ====== Dark Mode Adjustments ====== */
+[data-theme="dark"] .highlight-item {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(20, 157, 221, 0.2);
+}
+
+[data-theme="dark"] .highlight-item:hover {
+  background: rgba(20, 157, 221, 0.1);
+  border-color: rgba(20, 157, 221, 0.4);
+}
+
+[data-theme="dark"] .btn::before {
+  background: rgba(255, 255, 255, 0.05);
+}
+/**
+ * Site Enhancements CSS
+ * - Page transitions
+ * - Loading screen
+ * - Back-to-top button
+ * - Section dividers
+ * - Skills animations
+ * - Contact form enhancements
+ * - Portfolio filtering effects
+ * - Theme toggle
+ */
+
+/* ============================================
+   1. PAGE LOADING SCREEN
+   ============================================ */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #040b14 0%, #0a192f 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-loader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-content {
+  text-align: center;
+}
+
+.loader-spinner {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  margin: 0 auto 20px;
+}
+
+.loader-spinner::before,
+.loader-spinner::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+.loader-spinner::before {
+  inset: 0;
+  border: 3px solid rgba(20, 157, 221, 0.2);
+}
+
+.loader-spinner::after {
+  inset: 0;
+  border: 3px solid transparent;
+  border-top-color: #149ddd;
+  animation: loaderSpin 0.8s linear infinite;
+}
+
+@keyframes loaderSpin {
+  to { transform: rotate(360deg); }
+}
+
+.loader-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.loader-progress {
+  width: 150px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+.loader-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #149ddd, #4fc3f7);
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+/* ============================================
+   2. PAGE TRANSITIONS
+   ============================================ */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  background: #040b14;
+  z-index: 99998;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.page-transition.active {
+  transform: translateY(0);
+}
+
+body.page-transitioning {
+  overflow: hidden;
+}
+
+/* Content fade-in on load */
+.page-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+body.page-loaded .page-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   3. BACK TO TOP BUTTON (ENHANCED)
+   ============================================ */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #149ddd 0%, #0d7ab5 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 9996;
+  box-shadow: 0 4px 15px rgba(20, 157, 221, 0.3);
+  overflow: hidden;
+}
+
+.back-to-top.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: linear-gradient(135deg, #0d7ab5 0%, #149ddd 100%);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(20, 157, 221, 0.4);
+  color: #fff;
+}
+
+/* Progress ring */
+.back-to-top .progress-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+}
+
+.back-to-top .progress-ring circle {
+  fill: none;
+  stroke-width: 3;
+}
+
+.back-to-top .progress-ring .progress-bg {
+  stroke: rgba(255, 255, 255, 0.2);
+}
+
+.back-to-top .progress-ring .progress-value {
+  stroke: #fff;
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  transition: stroke-dashoffset 0.1s ease;
+}
+
+/* ============================================
+   4. SECTION DIVIDERS
+   ============================================ */
+.section-divider {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.section-divider svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+.section-divider.wave-top svg {
+  top: 0;
+}
+
+.section-divider.wave-bottom svg {
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
+.section-divider path {
+  fill: var(--section-bg, #f5f8fd);
+}
+
+/* Different section backgrounds */
+.section-divider.to-dark path {
+  fill: #040b14;
+}
+
+.section-divider.to-light path {
+  fill: #f5f8fd;
+}
+
+.section-divider.to-white path {
+  fill: #fff;
+}
+
+/* Animated wave */
+.section-divider.animated path {
+  animation: wavePulse 8s ease-in-out infinite;
+}
+
+@keyframes wavePulse {
+  0%, 100% { d: path("M0,64 C200,100 400,20 600,64 C800,108 1000,44 1200,64 L1200,120 L0,120 Z"); }
+  50% { d: path("M0,64 C200,20 400,100 600,64 C800,28 1000,90 1200,64 L1200,120 L0,120 Z"); }
+}
+
+/* ============================================
+   5. SKILLS SECTION ANIMATION
+   ============================================ */
+.skill-item {
+  margin-bottom: 25px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.skill-name {
+  font-weight: 600;
+  color: #45505b;
+  font-size: 0.95rem;
+}
+
+.skill-percent {
+  font-size: 0.85rem;
+  color: #149ddd;
+  font-weight: 600;
+}
+
+.skill-bar {
+  height: 10px;
+  background: rgba(20, 157, 221, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #149ddd 0%, #4fc3f7 100%);
+  border-radius: 5px;
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.skill-progress::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: skillShine 2s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes skillShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Skill categories */
+.skill-category {
+  margin-bottom: 35px;
+}
+
+.skill-category-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #45505b;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-category-title i {
+  color: #149ddd;
+}
+
+/* ============================================
+   6. CONTACT FORM ENHANCEMENTS
+   ============================================ */
+.php-email-form .form-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.php-email-form label {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+  color: #6c757d;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  background: transparent;
+  padding: 0 5px;
+}
+
+.php-email-form .form-control {
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.php-email-form .form-control:focus {
+  border-color: #149ddd;
+  box-shadow: 0 0 0 4px rgba(20, 157, 221, 0.1);
+}
+
+/* Floating label effect */
+.php-email-form .form-control:focus + label,
+.php-email-form .form-control:not(:placeholder-shown) + label,
+.php-email-form .form-control.has-value + label {
+  top: -10px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #149ddd;
+  background: #fff;
+}
+
+/* Input validation states */
+.php-email-form .form-control.is-valid {
+  border-color: #28a745;
+}
+
+.php-email-form .form-control.is-invalid {
+  border-color: #dc3545;
+  animation: inputShake 0.5s ease;
+}
+
+@keyframes inputShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+/* Submit button */
+.php-email-form button[type="submit"] {
+  position: relative;
+  padding: 12px 35px;
+  border-radius: 30px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.php-email-form button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.php-email-form button[type="submit"]:hover::before {
+  transform: translateX(100%);
+}
+
+/* Success message animation */
+.form-success-message {
+  animation: successPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes successPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ============================================
+   7. PORTFOLIO FILTERING EFFECTS
+   ============================================ */
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.portfolio-filters li {
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #45505b;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-filters li::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #149ddd 0%, #4fc3f7 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  border-radius: 25px;
+}
+
+.portfolio-filters li:hover {
+  color: #149ddd;
+  border-color: rgba(20, 157, 221, 0.3);
+}
+
+.portfolio-filters li.filter-active {
+  color: #fff;
+  border-color: transparent;
+}
+
+.portfolio-filters li.filter-active::before {
+  opacity: 1;
+}
+
+/* Portfolio items transition */
+.portfolio-item {
+  transition: all 0.4s ease;
+}
+
+.portfolio-item.filtering {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.portfolio-item.filtered-in {
+  animation: portfolioFadeIn 0.5s ease forwards;
+}
+
+@keyframes portfolioFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ============================================
+   8. THEME TOGGLE BUTTON
+   ============================================ */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(20, 157, 221, 0.1);
+  border: 2px solid rgba(20, 157, 221, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9997;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+  background: rgba(20, 157, 221, 0.2);
+  border-color: #149ddd;
+  transform: scale(1.1);
+}
+
+.theme-toggle i {
+  font-size: 1.2rem;
+  color: #149ddd;
+  transition: transform 0.5s ease;
+}
+
+.theme-toggle:hover i {
+  transform: rotate(180deg);
+}
+
+/* Sun/Moon icons */
+.theme-toggle .bi-sun-fill {
+  display: none;
+}
+
+.theme-toggle .bi-moon-fill {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .bi-sun-fill {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .bi-moon-fill {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: rgba(255, 193, 7, 0.1);
+  border-color: rgba(255, 193, 7, 0.3);
+}
+
+[data-theme="dark"] .theme-toggle i {
+  color: #ffc107;
+}
+
+/* ============================================
+   9. DARK MODE ENHANCEMENTS
+   ============================================ */
+[data-theme="dark"] .page-loader {
+  background: linear-gradient(135deg, #020508 0%, #0a1628 100%);
+}
+
+[data-theme="dark"] .skill-name {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .skill-bar {
+  background: rgba(79, 195, 247, 0.1);
+}
+
+[data-theme="dark"] .php-email-form .form-control {
+  background: #112240;
+  border-color: #233554;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .php-email-form label {
+  color: #8892b0;
+}
+
+[data-theme="dark"] .php-email-form .form-control:focus + label,
+[data-theme="dark"] .php-email-form .form-control:not(:placeholder-shown) + label {
+  background: #112240;
+}
+
+[data-theme="dark"] .portfolio-filters li {
+  color: #ccd6f6;
+}
+
+[data-theme="dark"] .section-divider.to-light path {
+  fill: #0a192f;
+}
+
+/* ============================================
+   10. REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .loader-spinner::after,
+  .skill-progress::after,
+  .section-divider.animated path {
+    animation: none;
+  }
+  
+  .page-transition,
+  .page-content,
+  .back-to-top,
+  .portfolio-item {
+    transition: none;
+  }
+  
+  .portfolio-item.filtered-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================
+   11. RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+  .back-to-top {
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 20px;
+  }
+  
+  .theme-toggle {
+    top: 15px;
+    left: 15px;  /* Position on left side on mobile */
+    right: auto;
+    width: 40px;
+    height: 40px;
+    z-index: 9996;  /* Below mobile nav toggle to avoid conflicts */
+  }
+  
+  .section-divider {
+    height: 60px;
+  }
+  
+  .portfolio-filters li {
+    padding: 6px 15px;
+    font-size: 0.85rem;
+  }
+}
+/* ===================================
+   Sponsorship Buttons & Sections
+   =================================== */
+
+/* Sidebar Sponsorship Links */
+.sponsor-links {
+  padding: 0 20px;
+}
+
+.sponsor-text {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+.sponsor-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.sponsor-btn:hover::before {
+  left: 100%;
+}
+
+.sponsor-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  color: #fff;
+}
+
+.sponsor-btn:active {
+  transform: translateY(0);
+}
+
+.sponsor-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Ko-fi Button */
+.kofi-btn {
+  background: linear-gradient(135deg, #ff5e5b 0%, #ff3838 100%);
+  border: 2px solid rgba(255, 94, 91, 0.4);
+}
+
+.kofi-btn:hover {
+  background: linear-gradient(135deg, #ff3838 0%, #ff1a1a 100%);
+  border-color: rgba(255, 94, 91, 0.6);
+}
+
+/* GitHub Sponsor Button */
+.github-sponsor-btn {
+  background: linear-gradient(135deg, #ea4aaa 0%, #c93884 100%);
+  border: 2px solid rgba(234, 74, 170, 0.4);
+}
+
+.github-sponsor-btn:hover {
+  background: linear-gradient(135deg, #c93884 0%, #a82d6b 100%);
+  border-color: rgba(234, 74, 170, 0.6);
+}
+
+/* About Section Support Box */
+.support-section {
+  background: linear-gradient(135deg, rgba(5, 99, 187, 0.05) 0%, rgba(234, 74, 170, 0.05) 100%);
+  border-radius: 12px;
+  border: 2px solid rgba(5, 99, 187, 0.1);
+  transition: all 0.3s ease;
+}
+
+.support-section:hover {
+  border-color: rgba(5, 99, 187, 0.2);
+  box-shadow: 0 8px 24px rgba(5, 99, 187, 0.1);
+  transform: translateY(-2px);
+}
+
+.support-section h4 {
+  color: #272829;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.support-section p {
+  line-height: 1.7;
+}
+
+/* Button Support Styles */
+.btn-support {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+.btn-support::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.btn-support:hover::before {
+  left: 100%;
+}
+
+.btn-support:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn-support:active {
+  transform: translateY(-1px);
+}
+
+.btn-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Ko-fi Button in About Section */
+.btn-support.kofi {
+  background: linear-gradient(135deg, #ff5e5b 0%, #ff3838 100%);
+}
+
+.btn-support.kofi:hover {
+  background: linear-gradient(135deg, #ff3838 0%, #ff1a1a 100%);
+}
+
+/* GitHub Sponsor Button in About Section */
+.btn-support.github {
+  background: linear-gradient(135deg, #ea4aaa 0%, #c93884 100%);
+}
+
+.btn-support.github:hover {
+  background: linear-gradient(135deg, #c93884 0%, #a82d6b 100%);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .sponsor-links {
+    padding: 0 10px;
+  }
+  
+  .sponsor-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  
+  .btn-support {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .support-section {
+    padding: 1.5rem !important;
+  }
+  
+  .support-section h4 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn-support {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .d-flex.gap-3 {
+    flex-direction: column;
+    gap: 0.75rem !important;
+  }
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .support-section {
+  background: linear-gradient(135deg, rgba(5, 99, 187, 0.1) 0%, rgba(234, 74, 170, 0.1) 100%);
+  border-color: rgba(5, 99, 187, 0.2);
+}
+
+[data-theme="dark"] .support-section:hover {
+  border-color: rgba(5, 99, 187, 0.3);
+}
+
+[data-theme="dark"] .support-section h4 {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .support-section p {
+  color: #d0d0d0 !important;
+}
+
+[data-theme="dark"] .support-section p.text-muted {
+  color: #b8b8b8 !important;
+}
+
+[data-theme="dark"] .support-section p.small {
+  color: #a8a8a8 !important;
+}
+
+/* Fallback for body.dark-mode class */
+body.dark-mode .support-section {
+  background: linear-gradient(135deg, rgba(5, 99, 187, 0.1) 0%, rgba(234, 74, 170, 0.1) 100%);
+  border-color: rgba(5, 99, 187, 0.2);
+}
+
+body.dark-mode .support-section:hover {
+  border-color: rgba(5, 99, 187, 0.3);
+}
+
+body.dark-mode .support-section h4 {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+body.dark-mode .support-section p {
+  color: #d0d0d0 !important;
+}
+
+body.dark-mode .support-section p.text-muted {
+  color: #b8b8b8 !important;
+}
+
+body.dark-mode .support-section p.small {
+  color: #a8a8a8 !important;
+}
+
+/* Animation for attention */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(234, 74, 170, 0.4);
+  }
+}
+
+.btn-support:hover {
+  animation: pulse-glow 2s infinite;
+}

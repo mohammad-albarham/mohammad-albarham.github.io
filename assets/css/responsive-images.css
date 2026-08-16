@@ -382,3 +382,17 @@ img.error::after {
   color: var(--text-muted, #888);
   font-size: 0.875rem;
 }
+
+/* ====== Responsive video embeds ====== */
+/* YouTube/Vimeo embeds carry fixed width/height attributes (e.g. 1280x720),
+   which overflow narrow viewports. Scale to the container and keep 16:9. */
+iframe[src*="youtube.com/embed"],
+iframe[src*="youtube-nocookie.com/embed"],
+iframe[src*="player.vimeo.com"] {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}

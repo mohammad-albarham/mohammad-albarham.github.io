@@ -1,7 +1,16 @@
 {
   "visited": {
-    "Africa": ["TN"],
-    "Asia": ["JO", "PS", "SA", "AE", "TR", "OM"],
+    "Africa": [
+      "TN"
+    ],
+    "Asia": [
+      "JO",
+      "PS",
+      "SA",
+      "AE",
+      "TR",
+      "OM"
+    ],
     "Europe": [
       "NO",
       "PL",
@@ -19,9 +28,11 @@
       "AL",
       "HR",
       "ME",
-      "_1"
+      "XK"
     ],
-    "North America": ["CA"]
+    "North America": [
+      "CA"
+    ]
   },
   "continentColors": {
     "Europe": "#c10000",
@@ -52,6 +63,6 @@
     "LT": "Lithuania",
     "FI": "Finland",
     "CA": "Canada",
-    "_1": "Kosovo"
+    "XK": "Kosovo"
   }
 }

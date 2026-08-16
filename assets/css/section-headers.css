@@ -1,0 +1,247 @@
+/**
+ * Section Headers Fix
+ * Ensures all section headers are consistently aligned across different screen sizes
+ */
+
+/* ====================================
+   Base Section Title Styling
+   ==================================== */
+.section-title {
+  padding-bottom: 30px;
+  text-align: left;
+  width: 100%;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: #173b6c;
+  display: inline-block;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #149ddd;
+  bottom: 0;
+  left: 0;
+}
+
+.section-title p {
+  margin-bottom: 0;
+  color: #6c757d;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* ====================================
+   Resume/Section Sub-titles (Education, Experience, etc.)
+   ==================================== */
+.resume-title,
+h3.resume-title,
+.section h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #050d18;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #149ddd;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.resume-title i,
+.section h3 i {
+  color: #149ddd;
+  font-size: 1.2em;
+}
+
+/* ====================================
+   Fix Container Alignment Issues
+   ==================================== */
+section .container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+section .row {
+  margin-right: 0;
+  margin-left: 0;
+  width: 100%;
+}
+
+section .col-12 {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* ====================================
+   Volunteering Section Specific Fix
+   ==================================== */
+#volunteering .section-title h2 {
+  margin-bottom: 10px;
+}
+
+#volunteering .section-title p {
+  margin-bottom: 20px;
+}
+
+#volunteering h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #050d18;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+#volunteering h3 i {
+  color: #ffc107;
+  font-size: 1.1em;
+}
+
+/* ====================================
+   Ensure Consistent Padding in Main Content
+   ==================================== */
+#main {
+  margin-left: 300px;
+  padding: 0;
+}
+
+#main section {
+  padding: 60px 0;
+}
+
+#main section.section-bg {
+  background: #f5f8fd;
+}
+
+/* ====================================
+   Responsive Adjustments
+   ==================================== */
+@media (max-width: 1199px) {
+  #main {
+    margin-left: 0;
+  }
+  
+  .section-title h2 {
+    font-size: 28px;
+  }
+  
+  .resume-title,
+  h3.resume-title,
+  .section h3 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 992px) {
+  section .container {
+    max-width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  
+  .section-title h2 {
+    font-size: 26px;
+  }
+  
+  .section-title p {
+    font-size: 0.95rem;
+  }
+  
+  .resume-title,
+  h3.resume-title,
+  .section h3 {
+    font-size: 20px;
+  }
+  
+  #main section {
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    padding-bottom: 20px;
+  }
+  
+  .section-title h2 {
+    font-size: 24px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .section-title p {
+    font-size: 0.9rem;
+  }
+  
+  .resume-title,
+  h3.resume-title,
+  .section h3 {
+    font-size: 18px;
+    gap: 8px;
+  }
+  
+  #main section {
+    padding: 40px 0;
+  }
+  
+  section .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title h2 {
+    font-size: 22px;
+  }
+  
+  .resume-title,
+  h3.resume-title,
+  .section h3 {
+    font-size: 17px;
+    flex-wrap: wrap;
+  }
+  
+  #main section {
+    padding: 30px 0;
+  }
+}
+
+/* ====================================
+   Dark Mode Support
+   ==================================== */
+[data-theme="dark"] .section-title h2 {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .section-title p {
+  color: #a4b1c3;
+}
+
+[data-theme="dark"] .resume-title,
+[data-theme="dark"] h3.resume-title,
+[data-theme="dark"] .section h3 {
+  color: #ffffff;
+  border-bottom-color: #149ddd;
+}
+
+[data-theme="dark"] #main section.section-bg {
+  background: #1a1f25;
+}

@@ -72,7 +72,11 @@
   <header id="header">
     <div class="d-flex flex-column">
       <div class="profile">
-        <img src="../assets/img/profile-img.jpg" alt="Mohammad Albarham" class="img-fluid rounded-circle" loading="lazy">
+        <picture>
+          <source srcset="../assets/img_webp/profile-img-240.webp" type="image/webp">
+          <img src="../assets/img/profile-img-240.jpg" alt="Mohammad Albarham" class="img-fluid rounded-circle"
+            width="120" height="120" decoding="async" fetchpriority="high">
+        </picture>
         <h1 class="text-light"><a href="../index.html">MOHAMMAD ALBARHAM</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://www.linkedin.com/in/albarham/" class="linkedin" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
@@ -156,11 +160,12 @@
                   <p>
                     Arabic-Sign-Language-RaspberryPi
 
-                  </ul>
 
                 </p>
               </div>
             </div>
+
+          </div>
 
           </div>
 

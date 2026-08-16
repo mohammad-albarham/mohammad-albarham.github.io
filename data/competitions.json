@@ -1,0 +1,185 @@
+[
+  {
+    "id": "competition-1",
+    "title": "Asyad Global Logistics Challenge - Kaggle Competition",
+    "award": "2nd Place",
+    "rank": 2,
+    "date": "2021-11",
+    "organizer": "Asyad Group (Kaggle Days Meetup Dubai)",
+    "location": "Dubai, UAE",
+    "image": "assets/img/competitions/competition-1/1635950081679.jpeg",
+    "shortDescription": "Placed 2nd in a live Kaggle Days competition estimating future ship prices for Asyad Group.",
+    "description": "A live, in-person Kaggle competition held at the Kaggle Days Meetup in Dubai, sponsored by Asyad Group, a major logistics and maritime services provider in Oman. Teams competed to build a regression model estimating future ship prices from historical maritime and shipping data. Our team placed 2nd overall.",
+    "technologies": ["Python", "AI", "Kaggle-Competitions", "Data Science"],
+    "links": {
+      "Competition link": "https://www.kaggle.com/competitions/kaggle-days-meetup-dubai-competition/overview"
+    },
+    "highlights": [
+      "Finished 2nd on the final leaderboard as team \"ninja\" with a score of 0.06930, between the winning team at 0.06221 and third place at 0.07393.",
+      "Awarded a USD $1,500 gift certificate at the prize ceremony on 3 November 2021.",
+      "Built a regression model estimating future ship prices from historical maritime and shipping data, the challenge set by Asyad Group.",
+      "Competed live and on-site over the two-day event rather than as a remote, long-running Kaggle competition.",
+      "Held at the Dubai Exhibition Centre, Expo 2020 Dubai, on 2–3 November 2021.",
+      "Part of Kaggle Days Meetup Dubai, powered by Asyad Group together with Kaggle, LogicAI, and Hypermotion Dubai."
+    ],
+    "gallery": [
+      "assets/img/competitions/competition-1/252169070_1239676323167401_2116295815816253876_n copy.jpg",
+      "assets/img/competitions/competition-1/249340873_1237290123406021_8060094637034926188_n.jpg",
+      "assets/img/competitions/competition-1/250670445_1237859416682425_4471218178086061639_n.jpg",
+      "assets/img/competitions/competition-1/2.jpg",
+      "assets/img/competitions/competition-1/20211102_115321.jpg",
+      "assets/img/competitions/competition-1/20211102_191118.jpg",
+      "assets/img/competitions/competition-1/20211102_192716.jpg",
+      "assets/img/competitions/competition-1/20211102_192805.jpg",
+      "assets/img/competitions/competition-1/20211102_192856.jpg",
+      "assets/img/competitions/competition-1/20211102_193214.jpg",
+      "assets/img/competitions/competition-1/20211103_183313.jpg",
+      "assets/img/competitions/competition-1/image.png",
+      "assets/img/competitions/competition-1/Screenshot_20211102-200409_Messenger.jpg",
+      "assets/img/competitions/competition-1/Screenshot_20211102-200438_Chrome.jpg",
+      "assets/img/competitions/competition-1/Screenshot_20211102-200951_Chrome.jpg",
+      "assets/img/competitions/competition-1/Screenshot_20211104-012355_Instagram.jpg"
+    ],
+    "detailsPage": "competitions/competition-details-1.html"
+  },
+  {
+    "id": "competition-2",
+    "title": "Crown Prince Award for Best Government Service Application",
+    "award": "3rd Place",
+    "rank": 3,
+    "date": "2021-09",
+    "organizer": "Crown Prince Foundation & Ministry of Digital Economy and Entrepreneurship",
+    "location": "Amman, Jordan",
+    "image": "assets/img/competitions/competition-2/award-announcement.png",
+    "shortDescription": "Won 3rd place and a 20,000 JOD (about $28,200) team prize, competing against 122 projects from 25 Jordanian universities.",
+    "description": "The Crown Prince Award for Best Government Service Application is an annual award designed to stimulate and encourage university students to provide creative solutions via smartphone applications. The aim is to improve government services and provide simple around the clock government services that are easy, efficient, and transparent to exceed customer expectations. Our team entered Dawaie, a medical application making government health services easier to reach, into the 2nd edition of the award and placed 3rd.",
+    "technologies": ["Mobile Development", "Healthcare"],
+    "links": {
+      "Official award website": "https://cpgovappaward.jo/en",
+      "Award video": "https://www.youtube.com/watch?v=mVs_xDY97-w"
+    },
+    "highlights": [
+      "Placed 3rd in the 2nd edition of the Crown Prince Award for Best Government Service Application with the Dawaie app.",
+      "The team was awarded a 20,000 JOD (about $28,200) prize.",
+      "Competed against about 122 projects submitted by 25 universities across Jordan.",
+      "Led the four-student team from the University of Jordan as team leader: Mohammad Albarham, Mohammad Khaleel Al-Khawaldeh, Zaid Sameer Al-Khateeb, and Zuhair Raed Mahmoud.",
+      "Recognised by the University of Jordan's Innovation and Entrepreneurship Centre with a certificate of appreciation and a university shield on 1 September 2021.",
+      "Represented the team on Jordanian television to present the application after the award."
+    ],
+    "gallery": [
+      "assets/img/competitions/competition-2/award-ceremony-livestream.jpg",
+      "assets/img/competitions/competition-2/app-screenshot.png",
+      "assets/img/competitions/competition-2/crown-prince-award-site.png",
+      "assets/img/competitions/competition-2/tv-interview.jpg",
+      "assets/img/competitions/competition-2/certificate.jpg",
+      "assets/img/competitions/competition-2/certificate-and-shield.jpg"
+    ],
+    "detailsPage": "competitions/competition-details-2.html"
+  },
+  {
+    "id": "competition-3",
+    "title": "ICPC — JU Competitive Programming Contest (JUCPC)",
+    "award": ["Extreme Programmers", "First to Solve Problem A"],
+    "rank": null,
+    "date": "2019-06",
+    "organizer": "ICPC — International Competitive Programming Contest & the University of Jordan",
+    "location": "Amman, Jordan",
+    "image": "assets/img/competitions/competition-3/jucpc-2019-group-photo.jpg",
+    "shortDescription": "Competed in the 2018 and 2019 editions of the JU Competitive Programming Contest, earning the Extreme Programmers award and a First to Solve Problem A award in 2019.",
+    "description": "The JU Competitive Programming Contest (JUCPC) is the University of Jordan's qualifier within the ICPC, the International Competitive Programming Contest. Teams of three share a single machine and race to solve as many algorithmic problems as they can within a five-hour window, with a balloon delivered to the desk for every problem accepted. I competed in the 2018 edition on 6 April 2018 and again in the 2019 edition on 22 June 2019, where the contest was run under the ACPC, the Africa and Arab Collegiate Programming Championship, and I received two Certificates of Achievement.",
+    "technologies": ["C++", "Algorithms", "Data Structures", "Problem Solving"],
+    "links": {
+      "site": "https://icpc.global/"
+    },
+    "highlights": [
+      "Awarded the Extreme Programmers Certificate of Achievement at the 2019 JU Competitive Programming Contest on 22 June 2019.",
+      "Awarded a First to Solve Problem A Certificate of Achievement at the same contest, for being first in the field to get problem A accepted.",
+      "Both certificates were signed by William B. Poucher, ICPC Executive Director, and Ossama M. Ismail, ACPC Championship Director.",
+      "Also competed in JUCPC 2018 on 6 April 2018, receiving a Certificate of Participation signed by the Dean of the King Abdullah II School for Information Technology and the President of the Jordan Programmers Association.",
+      "Solved algorithmic problems in C++ under ICPC rules: three contestants to a team, one shared computer, five hours, penalty time for wrong submissions.",
+      "Organised by the University of Jordan with the Jordanian Programmers Association, the Students' Union, the Innovation and Entrepreneurship Center, and the ICPC Foundation."
+    ],
+    "gallery": [
+      "assets/img/competitions/competition-3/certificate-extreme-programmers.jpg",
+      "assets/img/competitions/competition-3/certificate-first-to-solve-problem-a.jpg",
+      "assets/img/competitions/competition-3/jucpc-2019-team.jpg",
+      "assets/img/competitions/competition-3/jucpc-2019-contestants.jpg",
+      "assets/img/competitions/competition-3/jucpc-2019-contest-hall.jpg",
+      "assets/img/competitions/competition-3/jucpc-2019-opening-ceremony.jpg",
+      "assets/img/competitions/competition-3/jucpc-2019-closing-ceremony.jpg",
+      "assets/img/competitions/competition-3/jucpc-2018-group-photo.jpg",
+      "assets/img/competitions/competition-3/jucpc-2018-team.jpg",
+      "assets/img/competitions/competition-3/jucpc-2018-team-selfie.jpg",
+      "assets/img/competitions/competition-3/jucpc-2018-certificate.jpg",
+      "assets/img/competitions/competition-3/jucpc-2018-campus-banner.jpg",
+      "assets/img/competitions/competition-3/jucpc-2018-balloons.jpg",
+      "assets/img/competitions/competition-3/icpc-logo.jpg"
+    ],
+    "detailsPage": "competitions/competition-details-3.html"
+  },
+  {
+    "id": "competition-4",
+    "title": "IEEE RAS Portal: FireFighting I",
+    "award": ["4th Place", "Best Design Award", "Clean Sheet Award"],
+    "rank": 4,
+    "date": "2019-06",
+    "organizer": "IEEE RAS - University of Jordan Student Branch",
+    "location": "Amman, Jordan",
+    "image": "assets/img/competitions/competition-4/portal-2019-team-with-robots.jpg",
+    "shortDescription": "Placed 4th and took the Best Design and Clean Sheet awards with a self-built firefighting robot, as team Electrone X.",
+    "description": "Portal: FireFighting is the annual IEEE RAS robotics competition run by the IEEE RAS chapter at the University of Jordan Student Branch, giving Jordanian youth a local arena to design and build their own firefighting robot prototypes. Competing as team Electrone X with my colleague Abdullah Abu Dabaseh, we built our robots from scratch and finished 4th overall, and were also awarded the Best Design Award for the mechanical design and the Clean Sheet Award for faultless runs.",
+    "technologies": ["Robotics", "Embedded Systems", "Mechanical Design", "3D Printing"],
+    "links": {
+      "Competition event page": "https://web.facebook.com/events/384083625504106/"
+    },
+    "highlights": [
+      "Finished 4th overall in the IEEE RAS Portal: FireFighting competition, held on 29 June 2019 at the University of Jordan.",
+      "Won the Best Design Award for the mechanical design of the robot, and the Clean Sheet Award for completing the runs without faults.",
+      "Competed as team Electrone X with my colleague Abdullah Abu Dabaseh, each of us building and running a robot of our own design.",
+      "Built the robots from scratch on a custom four-wheel chassis, with microcontroller-driven motors and a servo, a motor-driven fan to put out the flame, and laser-cut acrylic and 3D-printed parts.",
+      "Certificates signed by Prof. Lutfi Al-Sharif, IEEE RAS Jordan Chapter Chairman, and Omar Turkmani, IEEE JU RAS Chairman.",
+      "Placed 3rd with the same colleague in the previous Portal: Firefighting competition, held in October 2018."
+    ],
+    "gallery": [
+      "assets/img/competitions/competition-4/portal-2019-robot-setup.jpg",
+      "assets/img/competitions/competition-4/portal-2019-event-banners.jpg",
+      "assets/img/competitions/competition-4/portal-2019-robot-prototype.jpg",
+      "assets/img/competitions/competition-4/portal-2019-robot-chassis.jpg",
+      "assets/img/competitions/competition-4/certificate-best-design.jpg",
+      "assets/img/competitions/competition-4/certificate-clean-sheet.jpg",
+      "assets/img/competitions/competition-4/certificate-participation.jpg"
+    ],
+    "detailsPage": "competitions/competition-details-4.html"
+  },
+  {
+    "id": "competition-5",
+    "title": "Portal: Firefighting Competition",
+    "award": "3rd Place",
+    "rank": 3,
+    "date": "2018-10",
+    "organizer": "IEEE RAS - University of Jordan Student Branch",
+    "location": "Amman, Jordan",
+    "image": "assets/img/competitions/competition-5/portal-2018-arena-run.jpg",
+    "shortDescription": "Placed 3rd with my colleague Abdullah Abu Dabaseh in the IEEE RAS Portal firefighting robot competition at the University of Jordan.",
+    "description": "Portal: Firefighting is the IEEE RAS robotics competition run by the IEEE RAS chapter at the University of Jordan Student Branch, where teams build their own robots and send them through a maze arena to find and put out a flame. Competing with my colleague Abdullah Abu Dabaseh, we placed 3rd in this edition, held on 6 October 2018. We entered again the following year, in IEEE RAS Portal: FireFighting I in June 2019, and finished 4th while taking the Best Design and Clean Sheet awards.",
+    "technologies": ["Robotics", "Embedded Systems", "Mechanical Design"],
+    "links": {
+      "Competition event page": "https://web.facebook.com/events/960500750804137/"
+    },
+    "highlights": [
+      "Placed 3rd with my colleague Abdullah Abu Dabaseh, competing on 6 October 2018 at the University of Jordan.",
+      "Teams sent self-built robots through a plywood maze arena to reach a flame and extinguish it, with judges following each run around the arena.",
+      "Organised by the IEEE RAS chapter of the University of Jordan Student Branch, with the event carrying IEEE Day branding.",
+      "Returned the following year for IEEE RAS Portal: FireFighting I in June 2019, where we finished 4th and won the Best Design and Clean Sheet awards."
+    ],
+    "gallery": [
+      "assets/img/competitions/competition-5/portal-2018-opening-remarks.jpg",
+      "assets/img/competitions/competition-5/portal-2018-judging-run.jpg",
+      "assets/img/competitions/competition-5/portal-2018-robot-in-maze.jpg",
+      "assets/img/competitions/competition-5/portal-2018-teams-preparing.jpg",
+      "assets/img/competitions/competition-5/portal-2018-team-table.jpg",
+      "assets/img/competitions/competition-5/portal-2018-group-photo.jpg"
+    ],
+    "detailsPage": "competitions/competition-details-5.html"
+  }
+]

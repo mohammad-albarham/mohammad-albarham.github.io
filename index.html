@@ -23,7 +23,7 @@
       "@type": "Person",
       "name": "Mohammad Albarham",
       "url": "https://mohammad-albarham.github.io/",
-      "image": "https://mohammad-albarham.github.io/assets/img/profile-img.jpg",
+      "image": "https://mohammad-albarham.github.io/assets/img/profile-img-1200.jpg",
       "jobTitle": "Vision Engineer",
       "worksFor": {
         "@type": "Organization",
@@ -56,7 +56,7 @@
   <meta property="og:title" content="Mohammad Albarham - AI & Computer Vision Engineer">
   <meta property="og:description"
     content="Computer Vision & AI Engineer at Aptiv | Master's student at Chalmers University | Researcher in AI, Computer Vision, and Arabic NLP">
-  <meta property="og:image" content="https://mohammad-albarham.github.io/assets/img/profile-img.jpg">
+  <meta property="og:image" content="https://mohammad-albarham.github.io/assets/img/profile-img-1200.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -82,7 +82,6 @@
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
 
   <!-- jVectorMap for travel -->
   <!-- Main CSS Bundle -->
@@ -158,14 +157,20 @@
   <!-- Page Transition Overlay -->
   <div class="page-transition"></div>
 
+  <!-- Skip to content: must stay the first focusable element on the page -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <!-- Theme Toggle Button -->
   <button class="theme-toggle" aria-label="Toggle dark mode">
-    <i class="bi bi-moon-fill"></i>
-    <i class="bi bi-sun-fill"></i>
+    <i class="bi bi-moon-fill" aria-hidden="true"></i>
+    <i class="bi bi-sun-fill" aria-hidden="true"></i>
   </button>
 
   <!-- Mobile nav toggle button -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+  <button type="button" class="mobile-nav-toggle d-xl-none" aria-label="Toggle navigation menu"
+    aria-expanded="false" aria-controls="navbar">
+    <i class="bi bi-list" aria-hidden="true"></i>
+  </button>
 
   <!-- ======= Header / Sidebar ======= -->
   <header id="header">
@@ -175,25 +180,31 @@
 
     <div class="d-flex flex-column">
       <div class="profile">
-        <img src="assets/img/profile-img.jpg" alt="Mohammad Albarham - Computer Vision & AI Engineer profile photo" class="img-fluid rounded-circle"
-          width="120" height="120" fetchpriority="high" loading="lazy">
+        <picture>
+          <source srcset="assets/img_webp/profile-img-240.webp" type="image/webp">
+          <img src="assets/img/profile-img-240.jpg"
+            alt="Mohammad Albarham - Computer Vision & AI Engineer profile photo" class="img-fluid rounded-circle"
+            width="120" height="120" fetchpriority="high" decoding="async">
+        </picture>
 
-        <h1 class="text-light"><a href="index.html">MOHAMMAD ALBARHAM</a></h1>
+        <p class="profile-name text-light"><a href="index.html">MOHAMMAD ALBARHAM</a></p>
         <div class="social-links mt-3 text-center">
           <a href="https://www.linkedin.com/in/albarham/" class="linkedin" aria-label="LinkedIn profile"
             rel="noopener noreferrer" target="_blank">
-            <i class="bx bxl-linkedin"></i>
+            <i class="bi bi-linkedin" aria-hidden="true"></i>
           </a>
           <a href="https://github.com/mohammad-albarham" class="github" aria-label="GitHub profile" rel="noopener noreferrer"
             target="_blank">
-            <i class="bx bxl-github"></i>
+            <i class="bi bi-github" aria-hidden="true"></i>
           </a>
           <a href="https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en" aria-label="Google Scholar"
             rel="noopener noreferrer" target="_blank">
-            <i class="ai ai-google-scholar-square ai-1x"></i>
+            <i class="ai ai-google-scholar-square ai-1x" aria-hidden="true"></i>
           </a>
           <a href="https://huggingface.co/pain" aria-label="Hugging Face profile" rel="noopener noreferrer" target="_blank">
-            <object data="assets/img/hf-logo.svg" width="17" height="17" alt="Hugging Face logo"></object>
+            <svg class="hf-icon" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-3.5 7a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm7 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 18c-2.4 0-4.44-1.5-5.27-3.61a.6.6 0 01.56-.82h9.42a.6.6 0 01.56.82C16.44 16.5 14.4 18 12 18z"/>
+            </svg>
           </a>
         </div>
 
@@ -201,16 +212,18 @@
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#projects" class="nav-link scrollto"><i class="bx bx-folder"></i> <span>Projects</span></a></li>
-          <li><a href="#publications" class="nav-link scrollto"><i class="bx bx-book-content"></i>
+          <li><a href="#hero" class="nav-link scrollto active"><i class="bi bi-house" aria-hidden="true"></i> <span>Home</span></a></li>
+          <li><a href="#about" class="nav-link scrollto"><i class="bi bi-person" aria-hidden="true"></i> <span>About</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bi bi-file-earmark" aria-hidden="true"></i> <span>Resume</span></a></li>
+          <li><a href="#projects" class="nav-link scrollto"><i class="bi bi-folder" aria-hidden="true"></i> <span>Projects</span></a></li>
+          <li><a href="#competitions" class="nav-link scrollto"><i class="bi bi-trophy" aria-hidden="true"></i>
+              <span>Competitions</span></a></li>
+          <li><a href="#publications" class="nav-link scrollto"><i class="bi bi-journal-text" aria-hidden="true"></i>
               <span>Publications</span></a></li>
-          <li><a href="#volunteering" class="nav-link scrollto"><i class="bx bx-heart"></i>
+          <li><a href="#volunteering" class="nav-link scrollto"><i class="bi bi-heart" aria-hidden="true"></i>
               <span>Volunteering</span></a></li>
-          <li><a href="#travel" class="nav-link scrollto"><i class="bx bx-globe"></i> <span>Travel</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+          <li><a href="#travel" class="nav-link scrollto"><i class="bi bi-globe" aria-hidden="true"></i> <span>Travel</span></a></li>
+          <li><a href="#contact" class="nav-link scrollto"><i class="bi bi-envelope" aria-hidden="true"></i> <span>Contact</span></a></li>
         </ul>
       </nav>
     </div>
@@ -220,29 +233,56 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
-      <!-- Digit Selector -->
-      <div class="nn-digit-selector">
-        <span class="nn-selector-label">Select a digit:</span>
-        <div class="nn-digit-buttons">
-          <button class="nn-digit-btn" data-digit="0">0</button>
-          <button class="nn-digit-btn" data-digit="1">1</button>
-          <button class="nn-digit-btn" data-digit="2">2</button>
-          <button class="nn-digit-btn" data-digit="3">3</button>
-          <button class="nn-digit-btn" data-digit="4">4</button>
-          <button class="nn-digit-btn" data-digit="5">5</button>
-          <button class="nn-digit-btn" data-digit="6">6</button>
-          <button class="nn-digit-btn active" data-digit="7">7</button>
-          <button class="nn-digit-btn" data-digit="8">8</button>
-          <button class="nn-digit-btn" data-digit="9">9</button>
+      <!-- Identity -->
+      <div class="hero-intro">
+        <p class="hero-eyebrow">Gothenburg, Sweden</p>
+        <h1 class="hero-name">Mohammad Albarham</h1>
+        <p class="hero-role">Computer Vision &amp; AI Engineer</p>
+        <p class="hero-tagline">
+          Advanced Safety & User Experience engineer in vision systems at Aptiv, MSc from Chalmers. I work on autonomous systems,
+          multi-modal systems, open source projects &mdash; and I publish what I learn.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="hero-btn hero-btn-primary scrollto">
+            <i class="bi bi-folder2-open" aria-hidden="true"></i> View Projects
+          </a>
+          <a href="#publications" class="hero-btn scrollto">
+            <i class="bi bi-journal-text" aria-hidden="true"></i> Publications
+          </a>
+          <a href="#contact" class="hero-btn scrollto">
+            <i class="bi bi-envelope" aria-hidden="true"></i> Get in touch
+          </a>
         </div>
       </div>
-      
-      <!-- Neural Network Visualization -->
-      <div class="nn-visual" aria-label="Neural network visualization showing digit recognition">
-        <!-- SVG generated by neural-banner.js -->
+
+      <!-- Live demo -->
+      <div class="hero-demo">
+        <p class="hero-demo-caption">A neural network classifying handwritten digits, live.</p>
+
+        <!-- Digit Selector -->
+        <div class="nn-digit-selector">
+          <span class="nn-selector-label">Select a digit:</span>
+          <div class="nn-digit-buttons">
+            <button class="nn-digit-btn" data-digit="0">0</button>
+            <button class="nn-digit-btn" data-digit="1">1</button>
+            <button class="nn-digit-btn" data-digit="2">2</button>
+            <button class="nn-digit-btn" data-digit="3">3</button>
+            <button class="nn-digit-btn" data-digit="4">4</button>
+            <button class="nn-digit-btn" data-digit="5">5</button>
+            <button class="nn-digit-btn" data-digit="6">6</button>
+            <button class="nn-digit-btn active" data-digit="7">7</button>
+            <button class="nn-digit-btn" data-digit="8">8</button>
+            <button class="nn-digit-btn" data-digit="9">9</button>
+          </div>
+        </div>
+
+        <!-- Neural Network Visualization -->
+        <div class="nn-visual" aria-label="Neural network visualization showing digit recognition">
+          <!-- SVG generated by neural-banner.js -->
+        </div>
       </div>
     </div>
-    
+
     <!-- Scroll indicator -->
     <div class="hero-scroll-indicator">
       <a href="#about" class="nav-link scrollto">
@@ -262,15 +302,15 @@
       <div class="container">
         <div class="section-title">
           <h2>About</h2>
-          <p>
-            I'm a problem solver with a passion for coding and trying new things. Currently, I'm deeply focused on
-            computer vision and AI, working as a part-time Vision Engineer at Aptiv while completing my master's degree
-            at Chalmers University of Technology in Sweden.
-          </p>
+          <p>Computer vision, AI, and the occasional detour into Arabic NLP</p>
         </div>
 
-
-
+        <div id="about-container" data-aos="fade-up">
+          <!-- Loaded dynamically from data/bio.json -->
+          <div class="loading-skeleton" style="height: 180px; border-radius: 12px;"></div>
+        </div>
+      </div>
+    </section>
     <!-- End About Section -->
 
     <!-- ======= Resume Section ======= -->
@@ -324,6 +364,13 @@
         <!-- All Projects -->
         <div class="mt-5" data-aos="fade-up">
           <h3 class="section-subtitle mb-4">All Projects</h3>
+
+          <!-- Technology filter, built from data/projects.json -->
+          <div id="project-filters" class="project-filters" role="group" aria-label="Filter projects by technology">
+            <!-- Loaded dynamically -->
+          </div>
+          <p id="project-filter-status" class="project-filter-status" role="status" aria-live="polite"></p>
+
           <div id="all-projects-container">
             <!-- Loaded dynamically -->
           </div>
@@ -332,8 +379,24 @@
     </section>
     <!-- End Projects Section -->
 
+    <!-- ======= Competitions Section ======= -->
+    <section id="competitions" class="portfolio section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Competitions</h2>
+          <p>Hackathons, challenges, and contests I've taken part in</p>
+        </div>
+
+        <div id="competitions-container" data-aos="fade-up">
+          <!-- Loaded dynamically -->
+          <div class="loading-skeleton" style="height: 200px; border-radius: 12px;"></div>
+        </div>
+      </div>
+    </section>
+    <!-- End Competitions Section -->
+
     <!-- ======= Publications Section ======= -->
-    <section id="publications" class="resume section">
+    <section id="publications" class="resume section-bg">
       <div class="container">
         <div class="section-title">
           <h2>Publications</h2>
@@ -432,7 +495,7 @@
                 <i class="bi bi-geo-alt"></i>
               </div>
               <div class="contact-info-text">
-                <h4>Location</h4>
+                <h3>Location</h3>
                 <p>Gothenburg, Sweden</p>
               </div>
             </div>
@@ -442,7 +505,7 @@
                 <i class="bi bi-envelope"></i>
               </div>
               <div class="contact-info-text">
-                <h4>Email</h4>
+                <h3>Email</h3>
                 <p><a href="mailto:mohammad.albarham.work@gmail.com">mohammad.albarham.work@gmail.com</a></p>
               </div>
             </div>
@@ -452,38 +515,10 @@
                 <i class="bi bi-clock"></i>
               </div>
               <div class="contact-info-text">
-                <h4>Response Time</h4>
+                <h3>Response Time</h3>
                 <p>Usually within 24-48 hours</p>
               </div>
             </div>
-          </div>
-
-                  <!-- Support Section -->
-          <div class="row mt-4">
-            <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
-              <div class="support-section text-center p-4">
-                <h4 class="mb-3">💖 Enjoying my work?</h4>
-                <p class="text-muted mb-4">If you find my projects, publications, or open-source contributions helpful, consider supporting my work. Your contribution helps me continue researching, building, and sharing knowledge with the community!</p>
-                <div class="d-flex justify-content-center gap-3 flex-wrap">
-                  <a href="https://ko-fi.com/albarham" class="btn btn-support kofi" rel="noopener" target="_blank">
-                    <span class="btn-icon">☕</span>
-                    <span>Buy me a coffee</span>
-                  </a>
-                  <a href="https://github.com/sponsors/mohammad-albarham" class="btn btn-support github" rel="noopener" target="_blank">
-                    <span class="btn-icon">💖</span>
-                    <span>Become a GitHub Sponsor</span>
-                  </a>
-                </div>
-                <p class="small text-muted mt-3 mb-0">Every contribution, no matter the size, is deeply appreciated! 🙏</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-          <!-- Ko-fi Support Widget -->
-          <div class="kofi-widget-container" data-aos="fade-up" style="margin: 2rem 0;">
-            <iframe id='kofiframe' src='https://ko-fi.com/albarham/?hidefeed=true&widget=true&embed=true&preview=true' style='border:none;width:100%;padding:4px;background:#f9f9f9;' height='712' title='albarham'></iframe>
           </div>
 
           <!-- Contact Form Card -->
@@ -614,13 +649,12 @@
   </a>
 
   <!-- Vendor JS Files -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
+  <!-- jQuery is only needed by the travel map, so it is loaded on demand (see below). -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
 
   <!-- External JS CDNs -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js" defer></script>
-  <script src="assets/vendor/typed.js/typed.umd.js" defer></script>
+  <!-- typed.js removed: no page contains a .typed element for it to drive. -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
@@ -651,16 +685,56 @@
         pubsManager.init();
       }
     });
-    // Initialize travel map when data is loaded
-    window.addEventListener('portfolioRendered', async function () {
-      try {
-        const response = await fetch('/data/travel.json');
-        const travel = await response.json();
-        if (travel) renderTravelMap(travel);
-      } catch (error) {
-        console.error('Error loading travel data:', error);
+    // The travel map needs jQuery + jVectorMap + the world map data (~265 KB).
+    // None of it is needed until the travel section is close to the viewport.
+    (function () {
+      const section = document.getElementById('travel');
+      if (!section) return;
+
+      const loadScript = src => new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = src;
+        s.onload = resolve;
+        s.onerror = () => reject(new Error('Failed to load ' + src));
+        document.head.appendChild(s);
+      });
+
+      let started = false;
+      async function loadTravelMap() {
+        if (started) return;
+        started = true;
+        window.removeEventListener('scroll', maybeLoad);
+        window.removeEventListener('resize', maybeLoad);
+        try {
+          if (!window.jQuery) {
+            await loadScript('https://code.jquery.com/jquery-3.7.1.min.js');
+          }
+          await loadScript('assets/js/travel-map.js');
+          const travel = await fetch('data/travel.json').then(r => r.json());
+          if (travel) renderTravelMap(travel);
+        } catch (error) {
+          console.error('Error loading travel map:', error);
+        }
       }
-    });
+
+      // A plain scroll check rather than IntersectionObserver: one cheap rect
+      // read, it unbinds itself after firing once, and it cannot silently fail
+      // to deliver. Loads once the section is within 400px of the viewport.
+      function maybeLoad() {
+        if (section.getBoundingClientRect().top < window.innerHeight + 400) {
+          loadTravelMap();
+        }
+      }
+
+      window.addEventListener('scroll', maybeLoad, { passive: true });
+      window.addEventListener('resize', maybeLoad, { passive: true });
+      maybeLoad();
+
+      // Jumping straight to the section (nav link or #travel in the URL).
+      window.addEventListener('hashchange', () => {
+        if (location.hash === '#travel') loadTravelMap();
+      });
+    })();
 
     // Render travel map
     function renderTravelMap(travel) {

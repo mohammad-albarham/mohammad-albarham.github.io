@@ -91,10 +91,21 @@
   /**
    * Mobile nav toggle
    */
+  /**
+   * Swap the hamburger/close icon and keep aria-expanded in sync.
+   * On the homepage the toggle is a <button> wrapping an <i>; on the inner
+   * pages the toggle is the <i> itself, so handle both shapes.
+   */
+  const setNavToggleState = (toggleEl, expanded) => {
+    const icon = toggleEl.querySelector('i') || toggleEl
+    icon.classList.toggle('bi-list', !expanded)
+    icon.classList.toggle('bi-x', expanded)
+    toggleEl.setAttribute('aria-expanded', String(expanded))
+  }
+
   on('click', '.mobile-nav-toggle', function(e) {
-    select('body').classList.toggle('mobile-nav-active')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
+    const expanded = select('body').classList.toggle('mobile-nav-active')
+    setNavToggleState(this, expanded)
   })
 
   /**
@@ -108,8 +119,7 @@
       if (body.classList.contains('mobile-nav-active')) {
         body.classList.remove('mobile-nav-active')
         let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
+        if (navbarToggle) setNavToggleState(navbarToggle, false)
       }
       scrollto(this.hash)
     }
@@ -190,73 +200,86 @@
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * The libraries below are only loaded on the pages that need them: the
+   * homepage loads none of them, the inner pages load all but PureCounter.
+   * Each is guarded so a missing global cannot throw and abort the rest of
+   * this file.
    */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
+
+  /**
+   * Initiate portfolio lightbox
+   */
+  if (typeof GLightbox !== 'undefined') {
+    GLightbox({
+      selector: '.portfolio-lightbox'
+    });
+  }
 
   /**
    * Portfolio details slider
    */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
+  if (typeof Swiper !== 'undefined') {
+    new Swiper('.portfolio-details-slider', {
+      speed: 400,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
       },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
       }
-    }
-  });
+    });
+
+    // Testimonials slider
+    new Swiper('.testimonials-slider', {
+      speed: 600,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      slidesPerView: 'auto',
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
+
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        }
+      }
+    });
+  }
 
   /**
    * Animation on scroll
    */
   window.addEventListener('load', () => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    })
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      })
+    }
   });
 
   /**
-   * Initiate Pure Counter 
+   * Initiate Pure Counter
    */
-  new PureCounter();
+  if (typeof PureCounter !== 'undefined') {
+    new PureCounter();
+  }
 
 })()

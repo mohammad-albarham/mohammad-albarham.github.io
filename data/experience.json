@@ -2,15 +2,15 @@
   {
     "id": "aptiv-2025",
     "company": "Aptiv",
-    "position": "Vision Engineer in Advanced Safety Systems",
-    "type": "part-time",
+    "position": "Advanced Safety System Student Engineer",
+    "type": "full-time",
     "startDate": "2025-03",
     "endDate": null,
     "current": true,
     "location": "Gothenburg, Sweden",
     "logo": "assets/img/aptiv-logo.png",
     "url": "https://www.aptiv.com/en",
-    "description": "Working on saving more lives through Advanced Safety Systems, specifically on the Vision System of cars.",
+    "description": "Working on saving more lives through Advanced Safety Systems, specifically on the Vision System of vehicles.",
     "responsibilities": [
       "Analyze the events and cases related to AEB (Automatic Emergency Braking)",
       "Automate the software processes and make them efficient",

@@ -1563,6 +1563,26 @@ section {
   border-color: var(--primary-color);
 }
 
+.timeline-details-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: var(--spacing-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.course-links a {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.5rem;
+  background: var(--bg-accent);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
 /* ====================================
    Enhanced Project Cards (Image Left)
    ==================================== */

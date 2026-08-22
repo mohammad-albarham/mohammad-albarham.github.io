@@ -74,7 +74,17 @@
       },
       {
         "code": "Master Thesis",
-        "name": "Scene Understanding and Query-Based Retrieval for Automotive Vision Systems in ADAS"
+        "name": "Scene Understanding and Query-Based Retrieval for Automotive Vision Systems in ADAS",
+        "links": [
+          {
+            "label": "Chalmers ODR",
+            "url": "https://odr.chalmers.se/items/d9204e49-d64d-40e7-9cc2-38bd4aefbd60"
+          },
+          {
+            "label": "Google Scholar",
+            "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3znRUJoAAAAJ&citation_for_view=3znRUJoAAAAJ:KlAtU1dfN6UC"
+          }
+        ]
       }
     ],
     "currentCourses": [

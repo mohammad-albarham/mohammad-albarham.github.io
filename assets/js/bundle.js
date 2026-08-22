@@ -490,6 +490,22 @@ class PortfolioRenderer {
   }
 
   /**
+   * Render a single course list item, with optional reference links
+   */
+  courseItem(c) {
+    const label = `${c.code} – ${c.name}`;
+    const title = c.url
+      ? `<a href="${c.url}" target="_blank" rel="noopener">${label}</a>`
+      : label;
+    const links = c.links && c.links.length > 0
+      ? `<span class="course-links">${c.links.map(l =>
+          `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`
+        ).join('')}</span>`
+      : '';
+    return `<li>${title}${links}</li>`;
+  }
+
+  /**
    * Render Education Timeline
    */
   renderEducation(education) {
@@ -538,9 +554,7 @@ class PortfolioRenderer {
             <div class="timeline-courses">
               <p class="courses-label">Courses completed so far:</p>
               <ul>
-                ${edu.completedCourses.map(c =>
-                  `<li>${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.code} – ${c.name}</a>` : `${c.code} – ${c.name}`}</li>`
-                ).join('')}
+                ${edu.completedCourses.map(c => this.courseItem(c)).join('')}
               </ul>
             </div>
           ` : ''}
@@ -548,9 +562,7 @@ class PortfolioRenderer {
             <div class="timeline-courses">
               <p class="courses-label">Current Courses:</p>
               <ul>
-                ${edu.currentCourses.map(c =>
-                  `<li>${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.code} – ${c.name}</a>` : `${c.code} – ${c.name}`}</li>`
-                ).join('')}
+                ${edu.currentCourses.map(c => this.courseItem(c)).join('')}
               </ul>
             </div>
           ` : ''}
@@ -608,6 +620,11 @@ class PortfolioRenderer {
                 `<span class="timeline-tag">${tech}</span>`
               ).join('')}
             </div>
+          ` : ''}
+          ${exp.detailsPage ? `
+            <a href="${exp.detailsPage}" class="timeline-details-link">
+              <i class="bi bi-arrow-right-circle"></i> Learn more
+            </a>
           ` : ''}
         </div>
       </div>

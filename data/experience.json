@@ -160,12 +160,14 @@
     "location": "Amman, Jordan",
     "logo": "assets/img/phiscience_logo.jpeg",
     "url": "https://www.phi.science/",
-    "description": "Participated in PAIR program integrating applied scientific research with innovation and entrepreneurship.",
+    "detailsPage": "/experience/phi-pair.html",
+    "description": "Selected as a top-10% innovator into PAIR, Phi's applied research and entrepreneurship program funded by the Embassy of the Netherlands in Jordan, taking a hardware product from problem statement to a fabricated prototype with a multidisciplinary team.",
     "responsibilities": [
-      "Selected as one of the 10% innovators among all candidates",
-      "Worked through four phases: Problem Definition, Ideation and Evaluation, Business and Marketing, and Prototype",
-      "Collaborated with multidisciplinary teams including engineers, medical majors, and others"
+      "Defined a scientific problem from qualitative market research and defended the research proposal before a scientific committee",
+      "Applied the Delft industrial design approach to turn the concept into a functional hardware product",
+      "Built the go-to-market strategy: competitive analysis, positioning, messaging and pricing for a hardware product",
+      "Fabricated the working prototype using 3D printing, CNC, laser cutting and moulding, presented to industry professionals"
     ],
-    "technologies": ["Research", "Innovation", "Product Development"]
+    "technologies": ["Applied Research", "Product Design", "Delft Design Approach", "Market Research", "Go-To-Market Strategy", "Digital Fabrication", "3D Printing", "CNC and Laser Cutting"]
   }
 ]

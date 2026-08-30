@@ -1583,6 +1583,59 @@ section {
   white-space: nowrap;
 }
 
+.course-project-link-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0.45rem 0 0.35rem;
+  padding: 0;
+}
+
+.course-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  max-width: 100%;
+  min-height: 2rem;
+  padding: 0.35rem 0.75rem;
+  background: var(--bg-accent);
+  border: 1px solid var(--primary-color);
+  border-radius: 999px;
+  color: var(--primary-color);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.1;
+  text-decoration: none;
+  margin-left: 0;
+  transition: transform var(--transition-fast),
+              background var(--transition-fast),
+              color var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+.course-project-link i {
+  font-size: 0.9rem;
+  transition: transform var(--transition-fast);
+}
+
+.course-project-link:hover,
+.course-project-link:focus-visible {
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(5, 99, 187, 0.18);
+  transform: translateX(2px);
+}
+
+.course-project-link:hover i,
+.course-project-link:focus-visible i {
+  transform: translateX(1px);
+}
+
+.course-project-link:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 3px;
+}
+
 /* ====================================
    Enhanced Project Cards (Image Left)
    ==================================== */
@@ -1593,6 +1646,7 @@ section {
 }
 
 .project-card {
+  position: relative;
   display: flex;
   gap: var(--spacing-lg);
   background: var(--bg-primary);

@@ -1,5 +1,23 @@
 [
   {
+    "id": "dinov3-mask2former",
+    "title": "DINOv3-Mask2Former: Urban Instance Segmentation",
+    "category": "ai",
+    "tags": ["Computer Vision", "Deep Learning", "Instance Segmentation", "Transformers"],
+    "featured": true,
+    "image": "assets/img/portfolio/dinov3_segmentation_result.jpg",
+    "shortDescription": "Unified instance segmentation framework combining self-supervised DINOv3 Vision Transformer with Mask2Former for urban streetscapes",
+    "description": "A unified instance segmentation framework (DINOv3-Mask2Former) for urban streetscapes, integrating a self-supervised Vision Transformer (DINOv3) backbone with a Mask2Former head via an enhanced ViT Adapter. Evaluated on the Mapillary Vistas dataset, demonstrating strong performance on large urban objects. Developed as part of SSY340 – Deep Machine Learning at Chalmers University.",
+    "technologies": ["PyTorch", "DINOv3", "Mask2Former", "ViT Adapter", "HuggingFace Transformers"],
+    "links": {
+      "github": "https://github.com/mohammad-albarham/DINOv3-and-Mask2Former-for-Urban-Streetscapes-Instance-Segmentation",
+      "report": "assets/docs/SSY340_Project_report.pdf",
+      "poster": "assets/docs/SSY340_Project_Poster.pdf"
+    },
+    "year": 2025,
+    "detailsPage": "projects/latest-projects-5.html"
+  },
+  {
     "id": "fast-rich",
     "title": "Fast-Rich: High-Performance Terminal UI",
     "category": "tools",
@@ -85,7 +103,9 @@
     "shortDescription": "Interactive visualizer for the Mapillary Vistas semantic segmentation dataset",
     "description": "An interactive visualization tool for exploring the Mapillary Vistas dataset, a large-scale street-level imagery dataset for semantic segmentation.",
     "technologies": ["Python", "Visualization", "Semantic Segmentation"],
-    "links": {},
+    "links": {
+      "github": "https://github.com/mohammad-albarham/mapillary_dataset_visualizer_InsSeg"
+    },
     "year": 2024,
     "detailsPage": "projects/latest-projects-4.html"
   },

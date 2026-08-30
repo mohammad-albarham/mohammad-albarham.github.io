@@ -388,7 +388,9 @@ class PortfolioRenderer {
     demo: { icon: 'bi-play-circle', label: 'Live Demo' },
     site: { icon: 'bi-link-45deg', label: 'Competition Site' },
     kaggle: { icon: 'bi-bar-chart', label: 'Kaggle' },
-    paper: { icon: 'bi-file-text', label: 'Paper' }
+    paper: { icon: 'bi-file-text', label: 'Paper' },
+    report: { icon: 'bi-file-earmark-pdf', label: 'Report' },
+    poster: { icon: 'bi-easel', label: 'Poster' }
   };
 
   constructor() {
@@ -502,7 +504,14 @@ class PortfolioRenderer {
           `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`
         ).join('')}</span>`
       : '';
-    return `<li>${title}${links}</li>`;
+    const projectLink = c.projectUrl
+      ? `<div class="course-project-link-row">
+          <a class="course-project-link" href="${c.projectUrl}">
+            <i class="bi bi-folder2-open" aria-hidden="true"></i> View related project
+          </a>
+        </div>`
+      : '';
+    return `<li>${title}${links}${projectLink}</li>`;
   }
 
   /**

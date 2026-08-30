@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>DINOv3-Mask2Former Urban Instance Segmentation - Mohammad Al-Barham</title>
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mohammad-albarham.github.io/projects/latest-projects-5.html">
+
+  <meta content="DINOv3-Mask2Former for Urban Instance Segmentation - Deep Machine Learning course project at Chalmers University" name="description">
+  <meta content="instance segmentation, DINOv3, Mask2Former, deep learning, computer vision, urban streetscapes, Mapillary Vistas" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJHNQN2HWX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VJHNQN2HWX');
+  </script>
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Code highlighting -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css" />
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+      <!-- Main CSS Files -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/modern-portfolio.css" rel="stylesheet">
+  <link href="../assets/css/subpage.css" rel="stylesheet">
+  <link href="../assets/css/responsive-images.css" rel="stylesheet">
+  <link href="../assets/css/dark-mode.css" rel="stylesheet">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "DINOv3-Mask2Former for Urban Instance Segmentation",
+      "author": {
+        "@type": "Person",
+        "name": "Mohammad Albarham"
+      },
+      "applicationCategory": "Research Project"
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+    <!-- ======= Header / Sidebar ======= -->
+    <!-- ======= Header / Sidebar ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+      <div class="profile">
+        <picture>
+          <source srcset="../assets/img_webp/profile-img-240.webp" type="image/webp">
+          <img src="../assets/img/profile-img-240.jpg" alt="Mohammad Albarham" class="img-fluid rounded-circle"
+            width="120" height="120" decoding="async" fetchpriority="high">
+        </picture>
+        <h1 class="text-light"><a href="../index.html">MOHAMMAD ALBARHAM</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="https://www.linkedin.com/in/albarham/" class="linkedin" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://github.com/mohammad-albarham" class="github" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <i class="bx bxl-github"></i>
+          </a>
+          <a href="https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer">
+            <i class="ai ai-google-scholar-square ai-1x"></i>
+          </a>
+          <a href="https://huggingface.co/pain" aria-label="Hugging Face" target="_blank" rel="noopener noreferrer">
+            <object data="../assets/img/hf-logo.svg" width="17" height="17" aria-hidden="true"></object>
+          </a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="../index.html#hero" class="nav-link"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="../index.html#about" class="nav-link"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="../index.html#resume" class="nav-link"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+          <li><a href="../index.html#projects" class="nav-link active"><i class="bx bx-folder"></i> <span>Projects</span></a></li>
+          <li><a href="../index.html#publications" class="nav-link"><i class="bx bx-book-content"></i> <span>Publications</span></a></li>
+          <li><a href="../index.html#volunteering" class="nav-link"><i class="bx bx-heart"></i> <span>Volunteering</span></a></li>
+          <li><a href="../index.html#travel" class="nav-link"><i class="bx bx-globe"></i> <span>Travel</span></a></li>
+          <li><a href="../index.html#contact" class="nav-link"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header -->
+
+    <main id="main">
+
+      <!-- ======= Breadcrumbs ======= -->
+      <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Portfolio Details</h2>
+            <ol>
+              <li><a href="../index.html">Home</a></li>
+              <li>Portfolio Details</li>
+            </ol>
+          </div>
+
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+      <!-- ======= Portfolio Details Section ======= -->
+      <section id="portfolio-details" class="portfolio-details">
+        <div class="container">
+
+          <div class="row gy-4 align-items-start">
+
+            <div class="col-lg-8">
+              <div class="portfolio-details-slider swiper">
+                <div class="swiper-wrapper align-items-center">
+
+                  <!-- Project image -->
+                  <div class="swiper-slide">
+                    <img
+                      src="../assets/img/portfolio/dinov3_segmentation_result.jpg"
+                      alt="DINOv3-Mask2Former Urban Instance Segmentation">
+                  </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="portfolio-info">
+                <h3>Project information</h3>
+                <ul>
+                  <li>
+                    <strong>Project name</strong>
+                    <span>: Combining DINOv3 and Mask2Former for Urban Streetscapes Instance Segmentation</span>
+                  </li>
+                  <li>
+                    <strong>Course</strong>
+                    <span>
+                      : SSY340 – Deep Machine Learning (Chalmers University)
+                      <a class="course-detail-link"
+                         href="https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY340/?acYear=2025%2F2026"
+                         target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-book-half" aria-hidden="true"></i> View course details
+                      </a>
+                    </span>
+                  </li>
+                  <li>
+                    <strong>GitHub</strong>
+                    <span>
+                      : <a class="repository-link"
+                           href="https://github.com/mohammad-albarham/DINOv3-and-Mask2Former-for-Urban-Streetscapes-Instance-Segmentation"
+                           target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-github" aria-hidden="true"></i> Source code
+                      </a>
+                    </span>
+                  </li>
+                  <li>
+                    <strong>Authors</strong>
+                    <span>: Yinghao Chen, Mohammad Albarham</span>
+                  </li>
+                  <li>
+                    <strong>Year</strong>
+                    <span>: 2025</span>
+                  </li>
+                  <li>
+                    <strong>Report</strong>
+                    <span>:
+                      <a href="../assets/docs/SSY340_Project_report.pdf"
+                         target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Project Report (PDF)
+                      </a>
+                    </span>
+                  </li>
+                  <li>
+                    <strong>Poster</strong>
+                    <span>:
+                      <a href="../assets/docs/SSY340_Project_Poster.pdf"
+                         target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Project Poster (PDF)
+                      </a>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="row gy-4 mt-1">
+            <div class="col-12">
+              <div class="portfolio-description">
+                <h2>Project overview</h2>
+                <p>
+                  This project presents a unified instance segmentation
+                  framework (<strong>DINOv3-Mask2Former</strong>) for urban streetscapes,
+                  developed as part of the
+                  <strong>SSY340 – Deep Machine Learning</strong> course at
+                  <a href="https://www.chalmers.se/" target="_blank" rel="noopener noreferrer">Chalmers University of Technology</a>.
+                  The model integrates a self-supervised Vision Transformer
+                  (<strong>DINOv3</strong>) backbone with a
+                  <strong>Mask2Former</strong> head via an enhanced
+                  <strong>ViT Adapter</strong>, forming a cohesive architecture
+                  that captures both global context and local details for
+                  robust segmentation of complex urban scenes.
+                </p>
+
+                <h3>Abstract</h3>
+                <p>
+                  Experiments on the <strong>Mapillary Vistas dataset</strong> validate the feasibility of
+                  this approach, showing that DINOv3's transferable features can
+                  be adapted for structured urban scene understanding. The model
+                  achieves strong instance segmentation performance on large
+                  objects while identifying key challenges in small and occluded
+                  instance recognition, underscoring the potential of self-supervised
+                  transformers for scalable urban perception.
+                </p>
+
+                <h3>Architecture</h3>
+                <div class="text-center mb-3">
+                  <img src="../assets/img/portfolio/dinov3_architecture.png"
+                       alt="Figure 1: Proposed instance segmentation architecture – DINOv3 backbone, ViT Adapter neck, and Mask2Former head"
+                       class="img-fluid rounded shadow-sm"
+                       style="max-width: 100%;">
+                  <p class="text-muted mt-2" style="font-size: 0.9em;"><em>Figure 1: Proposed instance segmentation architecture.</em></p>
+                </div>
+                <ul>
+                  <li><strong>Backbone</strong>: Frozen DINOv3 pre-trained ViT-S16 extracts rich, transferable visual features.</li>
+                  <li><strong>Neck (ViT Adapter)</strong>: Custom multi-scale adapter with Conv blocks, Squeeze &amp; Excitation modules, and cross-scale feature fusion to produce pyramid features at 1/8, 1/16, and 1/32 scales.</li>
+                  <li><strong>Head (Mask2Former)</strong>: Trainable pixel decoder and mask/class heads for generating instance masks and class logits.</li>
+                </ul>
+
+                <h3>Dataset</h3>
+                <p>
+                  Trained and evaluated on the <strong>Mapillary Vistas</strong> dataset —
+                  a large-scale benchmark with 25,000 high-resolution street-level images
+                  collected worldwide. The project focused on 12 instance-level classes
+                  including Person, Car, Truck, Bus, Bicycle, Motorcycle, Traffic Sign,
+                  Street Light, Pole, Crosswalk, Driveway, and Bicyclist.
+                </p>
+
+                <h3>Key highlights</h3>
+                <ul>
+                  <li>Novel integration of a frozen DINOv3-ViT backbone with a trainable Mask2Former head.</li>
+                  <li>Custom multi-scale ViT Adapter with Squeeze &amp; Excitation for cross-scale feature fusion.</li>
+                  <li>Strong performance on large urban objects (vehicles, buildings).</li>
+                  <li>Identified key challenges in small and occluded instance recognition.</li>
+                  <li>Demonstrates the potential of self-supervised transformers for scalable urban perception tasks.</li>
+                </ul>
+
+                <h3>Technologies</h3>
+                <ul>
+                  <li>PyTorch</li>
+                  <li>DINOv3 (Self-supervised Vision Transformer)</li>
+                  <li>Mask2Former</li>
+                  <li>ViT Adapter</li>
+                  <li>HuggingFace Transformers</li>
+                  <li>Mapillary Vistas Dataset</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section><!-- End Portfolio Details Section -->
+
+    </main><!-- End #main -->
+
+        <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; <span id="footer-year">2024</span> <strong><span>Mohammad Albarham</span></strong>. All Rights Reserved.
+      </div>
+      <div class="credits">
+        Designed with <i class="bi bi-heart-fill" style="color: #e74c3c;"></i>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+      <!-- Vendor JS Files -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+
+  <!-- Main JS Files -->
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/image-optimizer.js" defer></script>
+  <script src="../assets/js/theme.js" type="module"></script>
+
+  <script>
+    // Update footer year
+    document.addEventListener('DOMContentLoaded', function() {
+      const yearEl = document.getElementById('footer-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+
+</html>

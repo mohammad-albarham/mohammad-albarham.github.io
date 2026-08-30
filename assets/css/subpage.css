@@ -348,6 +348,14 @@
   padding: 40px 0;
 }
 
+.portfolio-details > .container > .row {
+  align-items: flex-start;
+}
+
+.portfolio-details > .container > .row + .row {
+  margin-top: 0.5rem;
+}
+
 .portfolio-info {
   background: #fff;
   padding: 30px;
@@ -374,9 +382,10 @@
 .portfolio-info ul li {
   padding: 10px 0;
   border-bottom: 1px solid #eee;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: minmax(140px, max-content) minmax(0, 1fr);
+  column-gap: 8px;
+  align-items: start;
 }
 
 .portfolio-info ul li:last-child {
@@ -385,7 +394,33 @@
 
 .portfolio-info ul li strong {
   color: var(--secondary-color);
-  min-width: 140px;
+  min-width: 0;
+}
+
+.portfolio-info ul li > span {
+  min-width: 0;
+}
+
+.portfolio-info .course-detail-link,
+.portfolio-info .repository-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.65rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: var(--transition-fast);
+}
+
+.portfolio-info .course-detail-link:hover,
+.portfolio-info .repository-link:hover {
+  background: var(--primary-color);
+  color: #fff;
 }
 
 .portfolio-info ul li a {
@@ -403,6 +438,7 @@
   padding: 30px;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-sm);
+  height: 100%;
 }
 
 .portfolio-description h2 {
@@ -419,10 +455,17 @@
 }
 
 .portfolio-description img {
-  width: 100%;
+  display: block;
+  width: auto;
+  max-width: 100%;
   border-radius: var(--border-radius);
   margin-top: 20px;
   box-shadow: var(--shadow-sm);
+}
+
+.portfolio-description .text-center img {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Portfolio Details Slider */
@@ -430,9 +473,11 @@
   overflow: hidden;
 }
 
-.portfolio-details-slider img {
+.portfolio-details .portfolio-details-slider img {
+  display: block;
   width: 100%;
-  max-height: 500px;
+  height: auto;
+  max-height: none;
   object-fit: contain;
   background: #f5f8fb;
   border-radius: var(--border-radius);
@@ -584,6 +629,11 @@
   
   .portfolio-info h3 {
     font-size: 1.2rem;
+  }
+
+  .portfolio-info ul li {
+    grid-template-columns: 1fr;
+    row-gap: 4px;
   }
   
   .portfolio-description h2 {

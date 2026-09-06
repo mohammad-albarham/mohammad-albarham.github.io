@@ -4,3 +4,5 @@
 
 .venv/*
 .bundle-check/
+scripts/qa/screenshots/
+screenshots/

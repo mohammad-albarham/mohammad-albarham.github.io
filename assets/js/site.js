@@ -1,0 +1,236 @@
+/* Site chrome: mobile nav disclosure + a hairline under the bar once it sticks. */
+(function () {
+  'use strict';
+
+  var toggle = document.querySelector('.nav-toggle');
+  var pills = document.getElementById('nav-pills');
+  var bar = document.querySelector('.topbar');
+
+  function isCompact() {
+    return window.matchMedia('(max-width: 60rem)').matches;
+  }
+
+  function setOpen(open) {
+    if (!pills || !toggle) return;
+    pills.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  }
+
+  function syncToViewport() {
+    if (!pills) return;
+    // On wide screens the list is always visible and the button is hidden,
+    // so `hidden` must be cleared or the nav disappears on resize.
+    if (isCompact()) {
+      setOpen(false);
+    } else {
+      pills.hidden = false;
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  if (toggle && pills) {
+    toggle.addEventListener('click', function () {
+      setOpen(pills.hidden);
+    });
+    pills.addEventListener('click', function (event) {
+      if (event.target.closest('a') && isCompact()) setOpen(false);
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && isCompact() && !pills.hidden) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    window.addEventListener('resize', syncToViewport);
+    syncToViewport();
+  }
+
+  if (bar) {
+    var onScroll = function () {
+      bar.classList.toggle('is-stuck', window.scrollY > 8);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+})();
+/* Light/dark toggle. The initial theme is applied by an inline snippet in
+   <head> so the page never flashes the wrong colours; this only wires the
+   button and keeps the choice. */
+(function () {
+  'use strict';
+
+  var KEY = 'ma-theme';
+  var button = document.querySelector('.theme-toggle');
+  if (!button) return;
+
+  function current() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+
+  function apply(theme) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    button.setAttribute('aria-pressed', String(theme === 'dark'));
+    button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+
+  apply(current());
+
+  button.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    apply(next);
+    try {
+      localStorage.setItem(KEY, next);
+    } catch (error) {
+      /* Private mode or blocked storage: the choice just won't outlive the page. */
+    }
+  });
+})();
+/* Technology filter for the project grids. Progressive enhancement: with no
+   JavaScript every project is already in the HTML and visible. */
+(function () {
+  'use strict';
+
+  document.querySelectorAll('[data-filter-group]').forEach(function (group) {
+    var chips = group.querySelectorAll('.filter-chip');
+    var grid = document.getElementById(group.getAttribute('data-filter-group'));
+    var status = document.getElementById(group.getAttribute('data-filter-status'));
+    if (!grid) return;
+
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('[data-tech]'));
+
+    function announce(shown, label) {
+      if (!status) return;
+      status.textContent = label === 'all'
+        ? 'Showing all ' + cards.length + ' projects'
+        : 'Showing ' + shown + ' of ' + cards.length + ' projects tagged ' + label;
+    }
+
+    function select(chip) {
+      var value = chip.getAttribute('data-tech-value');
+      var shown = 0;
+
+      cards.forEach(function (card) {
+        var techs = (card.getAttribute('data-tech') || '').split('|');
+        var match = value === 'all' || techs.indexOf(value) !== -1;
+        card.classList.toggle('is-hidden', !match);
+        if (match) shown++;
+      });
+
+      chips.forEach(function (other) {
+        other.setAttribute('aria-pressed', String(other === chip));
+      });
+      announce(shown, value);
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () { select(chip); });
+    });
+
+    announce(cards.length, 'all');
+  });
+})();
+/* Copy a BibTeX entry. The entry itself is always on the page inside a
+   <details>, so this only saves a selection — it is never the only way in. */
+(function () {
+  'use strict';
+
+  document.querySelectorAll('.copy-bibtex').forEach(function (button) {
+    var target = document.getElementById(button.getAttribute('data-bibtex-for'));
+    if (!target) return;
+
+    var idle = button.textContent;
+    button.addEventListener('click', function () {
+      var text = target.textContent;
+
+      var done = function (message) {
+        button.textContent = message;
+        window.setTimeout(function () { button.textContent = idle; }, 2000);
+      };
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(
+          function () { done('Copied'); },
+          function () { done('Press Ctrl+C'); }
+        );
+        return;
+      }
+
+      // http:// and older browsers: select the text so the keyboard copy works.
+      var range = document.createRange();
+      range.selectNodeContents(target);
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      done('Press Ctrl+C');
+    });
+  });
+})();
+/* The travel map needs jQuery + jVectorMap + the world map data (~430 KB
+   uncompressed). None of it is needed until the travel section is close to
+   the viewport, and the country list is already rendered in the HTML, so the
+   section is meaningful before — and without — any of this loading. */
+(function () {
+  'use strict';
+
+  var host = document.getElementById('travel-map');
+  if (!host) return;
+
+  var regions = JSON.parse(host.getAttribute('data-regions') || '[]');
+  if (!regions.length) return;
+
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+      document.head.appendChild(s);
+    });
+  }
+
+  var started = false;
+
+  async function load() {
+    if (started) return;
+    started = true;
+    window.removeEventListener('scroll', maybeLoad);
+    window.removeEventListener('resize', maybeLoad);
+
+    try {
+      if (!window.jQuery) await loadScript('assets/js/jquery.js');
+      await loadScript('assets/js/travel-map.js');
+      window.jQuery(host).vectorMap({
+        map: 'world_mill_en',
+        backgroundColor: 'transparent',
+        zoomMax: 6,
+        regionStyle: {
+          initial: { fill: '#d3dadd', 'fill-opacity': 1, stroke: 'none', 'stroke-width': 0 },
+          hover: { 'fill-opacity': 0.85 }
+        },
+        series: { regions: regions }
+      });
+    } catch (error) {
+      // Leave the country list standing and say what happened, rather than
+      // showing an empty frame.
+      host.innerHTML = '<p class="map-fallback">The interactive map could not load. ' +
+        'The countries are listed below.</p>';
+      console.error(error);
+    }
+  }
+
+  function maybeLoad() {
+    if (host.getBoundingClientRect().top < window.innerHeight + 400) load();
+  }
+
+  window.addEventListener('scroll', maybeLoad, { passive: true });
+  window.addEventListener('resize', maybeLoad, { passive: true });
+  window.addEventListener('hashchange', function () {
+    if (location.hash === '#travel') load();
+  });
+  maybeLoad();
+})();

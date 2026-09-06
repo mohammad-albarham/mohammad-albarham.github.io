@@ -2,130 +2,103 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Portfoio Details - Mohammad Al-Barham</title>
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://mohammad-albarham.github.io/projects/latest-projects-2.html">
+<title>Structure from Motion Algorithm — Mohammad Albarham</title>
+<meta name="description" content="Implementation of Structure from Motion algorithm for 3D reconstruction from multiple images">
+<meta name="author" content="Mohammad Albarham">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mohammad-albarham.github.io/projects/latest-projects-2.html">
+<meta name="theme-color" content="#00796b">
 
-  <meta content="Portfoio Details - Mohammad Al-Barham's Portfolio" name="description">
-  <meta content="portfolio, projects, research, machine learning" name="keywords">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mohammad Albarham">
+<meta property="og:url" content="https://mohammad-albarham.github.io/projects/latest-projects-2.html">
+<meta property="og:title" content="Structure from Motion Algorithm — Mohammad Albarham">
+<meta property="og:description" content="Implementation of Structure from Motion algorithm for 3D reconstruction from multiple images">
+<meta property="og:image" content="https://mohammad-albarham.github.io/assets/img/portfolio/lp_photo_2.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Structure from Motion Algorithm — Mohammad Albarham">
+<meta name="twitter:description" content="Implementation of Structure from Motion algorithm for 3D reconstruction from multiple images">
+<meta name="twitter:image" content="https://mohammad-albarham.github.io/assets/img/portfolio/lp_photo_2.png">
 
-  <!-- Favicons -->
-  <link href="../assets/img/favicon.png" rel="icon">
-  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/nunito-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+<link rel="stylesheet" href="/assets/css/site.css">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJHNQN2HWX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-VJHNQN2HWX');
-  </script>
+<script>
+// Apply the saved theme before first paint so the page never flashes.
+(function () {
+  try {
+    var saved = localStorage.getItem('ma-theme');
+    var dark = saved ? saved === 'dark'
+      : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+  } catch (e) {}
+})();
+</script>
 
-  <!-- Vendor CSS Files -->
-  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Code highlighting -->
-  <link rel="stylesheet" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css" />
-  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-
-      <!-- Main CSS Files -->
-  <link href="../assets/css/style.css" rel="stylesheet">
-  <link href="../assets/css/modern-portfolio.css" rel="stylesheet">
-  <link href="../assets/css/subpage.css" rel="stylesheet">
-  <link href="../assets/css/responsive-images.css" rel="stylesheet">
-  <link href="../assets/css/dark-mode.css" rel="stylesheet">
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareSourceCode",
-      "name": "Portfoio Details",
-      "author": {
-        "@type": "Person",
-        "name": "Mohammad Albarham"
-      },
-      "applicationCategory": "Research Project"
-    }
-  </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJHNQN2HWX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-VJHNQN2HWX');
+</script>
 </head>
+
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-
-    <!-- ======= Header / Sidebar ======= -->
-    <!-- ======= Header / Sidebar ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
-      <div class="profile">
-        <picture>
-          <source srcset="../assets/img_webp/profile-img-240.webp" type="image/webp">
-          <img src="../assets/img/profile-img-240.jpg" alt="Mohammad Albarham" class="img-fluid rounded-circle"
-            width="120" height="120" decoding="async" fetchpriority="high">
-        </picture>
-        <h1 class="text-light"><a href="../index.html">MOHAMMAD ALBARHAM</a></h1>
-        <div class="social-links mt-3 text-center">
-          <a href="https://www.linkedin.com/in/albarham/" class="linkedin" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-            <i class="bx bxl-linkedin"></i>
-          </a>
-          <a href="https://github.com/mohammad-albarham" class="github" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-            <i class="bx bxl-github"></i>
-          </a>
-          <a href="https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer">
-            <i class="ai ai-google-scholar-square ai-1x"></i>
-          </a>
-          <a href="https://huggingface.co/pain" aria-label="Hugging Face" target="_blank" rel="noopener noreferrer">
-            <object data="../assets/img/hf-logo.svg" width="17" height="17" aria-hidden="true"></object>
-          </a>
-        </div>
-      </div>
-
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="../index.html#hero" class="nav-link"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="../index.html#about" class="nav-link"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="../index.html#resume" class="nav-link"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="../index.html#projects" class="nav-link active"><i class="bx bx-folder"></i> <span>Projects</span></a></li>
-          <li><a href="../index.html#publications" class="nav-link"><i class="bx bx-book-content"></i> <span>Publications</span></a></li>
-          <li><a href="../index.html#volunteering" class="nav-link"><i class="bx bx-heart"></i> <span>Volunteering</span></a></li>
-          <li><a href="../index.html#travel" class="nav-link"><i class="bx bx-globe"></i> <span>Travel</span></a></li>
-          <li><a href="../index.html#contact" class="nav-link"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-        </ul>
-      </nav>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="/">
+      <picture><source srcset="/assets/img_webp/profile-img-240.webp" type="image/webp"><img src="/assets/img/profile-img-240.jpg" alt="Mohammad Albarham" width="34" height="34" fetchpriority="high" decoding="async"></picture>
+      <span>Mohammad Albarham</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-pills" id="nav-pills"><li><a href="/projects/" aria-current="page">Projects</a></li><li><a href="/research/">Research</a></li><li><a href="/about/">About &amp; CV</a></li><li><a href="/#contact">Contact</a></li></ul>
+    </nav>
+    <div class="topbar-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <i class="bi bi-moon" aria-hidden="true"></i><i class="bi bi-sun" aria-hidden="true"></i>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" aria-expanded="false"
+              aria-controls="nav-pills" aria-label="Open navigation">
+        <i class="bi bi-list" aria-hidden="true"></i>
+      </button>
     </div>
-  </header>
-  <!-- End Header -->
+  </div>
+</header>
 
-    <main id="main">
+<main id="main">
+
+<section class="detail-header">
+  <div class="wrap">
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li aria-current="page">Structure from Motion Algorithm</li>
+      </ol>
+    </nav>
+    <h1 class="page-title">Structure from Motion Algorithm</h1>
+    <p class="meta">2024</p>
+    
+  </div>
+</section>
+
+<div class="wrap">
+<div class="detail-body" data-legacy-content>
 
       <!-- ======= Breadcrumbs ======= -->
-      <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-
-          <div class="d-flex justify-content-between align-items-center">
-            <h2>Portfoio Details</h2>
-            <ol>
-              <li><a href="../index.html">Home</a></li>
-              <li>Portfoio Details</li>
-            </ol>
-          </div>
-
-        </div>
-      </section><!-- End Breadcrumbs -->
+      <!-- End Breadcrumbs -->
 
       <!-- ======= Portfolio Details Section ======= -->
       <section id="portfolio-details" class="portfolio-details">
@@ -139,8 +112,7 @@
 
                   <!-- <div class="swiper-slide"> -->
                   <div>
-                    <img src="../assets/img/portfolio/" alt>
-                  </div>
+</div>
 
                 </div>
                 <div class="swiper-pagination"></div>
@@ -191,41 +163,58 @@
         </div>
       </section><!-- End Portfolio Details Section -->
 
-    </main><!-- End #main -->
+    
+</div>
+</div>
 
-        <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; <span id="footer-year">2024</span> <strong><span>Mohammad Albarham</span></strong>. All Rights Reserved.
+<section class="section">
+  <div class="wrap">
+    <p><a class="btn" href="/projects/"><i class="bi bi-arrow-left" aria-hidden="true"></i> Back to Projects</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Mohammad Albarham</h2>
+        <p>Computer vision and AI engineer in Gothenburg, Sweden. Autonomous
+           systems, multi-modal models and Arabic NLP.</p>
+        <p><a href="mailto:mohammad.albarham.work@gmail.com">mohammad.albarham.work@gmail.com</a></p>
+        <ul class="social"><li><a href="https://www.linkedin.com/in/albarham/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin" aria-hidden="true"></i></a></li><li><a href="https://github.com/mohammad-albarham" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i></a></li><li><a href="https://scholar.google.com/citations?user=3znRUJoAAAAJ&amp;hl=en" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9zM6 13.2V17c0 2.2 2.7 4 6 4s6-1.8 6-4v-3.8l-6 3.3z"/></svg></a></li><li><a href="https://huggingface.co/pain" aria-label="Hugging Face" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zM8.5 9a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm7 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 18c-2.4 0-4.44-1.5-5.27-3.61a.6.6 0 01.56-.82h9.42a.6.6 0 01.56.82C16.44 16.5 14.4 18 12 18z"/></svg></a></li></ul>
       </div>
-      <div class="credits">
-        Designed with <i class="bi bi-heart-fill" style="color: #e74c3c;"></i>
+      <div>
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/research/">Research</a></li>
+          <li><a href="/about/">About &amp; CV</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Sections</h2>
+        <ul>
+          <li><a href="/#resume">Experience</a></li>
+          <li><a href="/#publications">Publications</a></li>
+          <li><a href="/#competitions">Competitions</a></li>
+          <li><a href="/#volunteering">Volunteering</a></li>
+          <li><a href="/#travel">Travel</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
-  <!-- End Footer -->
+    <div class="footer-bottom">
+      <span>&copy; 2026 Mohammad Albarham</span>
+      <span>Built as a static site, hosted on GitHub Pages</span>
+      <span><a href="/sitemap.xml">Sitemap</a></span>
+    </div>
+  </div>
+</footer>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<script src="/assets/js/site.js" defer></script>
 
-      <!-- Vendor JS Files -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
-  <script src="../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
-  <script src="../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
-
-  <!-- Main JS Files -->
-  <script src="../assets/js/main.js" defer></script>
-  <script src="../assets/js/image-optimizer.js" defer></script>
-  <script src="../assets/js/theme.js" type="module"></script>
-
-  <script>
-    // Update footer year
-    document.addEventListener('DOMContentLoaded', function() {
-      const yearEl = document.getElementById('footer-year');
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-    });
-  </script>
 </body>
 
 </html>

@@ -1,169 +1,174 @@
-# 🌐 Mohammad Albarham - Portfolio Website
+# mohammad-albarham.github.io
 
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fmohammad-albarham.github.io)](https://mohammad-albarham.github.io/)
-[![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-blue)](https://pages.github.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+Personal site of Mohammad Albarham — computer vision and AI engineer in Gothenburg.
 
-> A fast, modern, and maintainable personal portfolio website for AI & Computer Vision research
+**Live:** <https://mohammad-albarham.github.io/>
 
-**Live Site:** [https://mohammad-albarham.github.io/](https://mohammad-albarham.github.io/)
+A static site: no framework, no Node, no runtime server. Pages are generated from
+`data/*.json` by a Python script that uses nothing outside the standard library,
+and the generated HTML is committed. GitHub Pages serves the repository as-is.
 
-## ✨ Features
-
-- ⚡ **Ultra-fast performance** - Optimized CSS/JS, lazy loading, minimal dependencies
-- 📊 **Data-driven architecture** - All content managed through JSON files
-- 🎨 **Modern design** - Clean timelines, elegant project cards, smooth animations
-- 🌙 **Dark mode** - System preference detection with manual toggle
-- 📱 **Fully responsive** - Beautiful on all devices
-- 🔍 **SEO optimized** - Proper meta tags, Open Graph, structured data
-
-## 🚀 Quick Start
-
-### Local Development
+## Quick start
 
 ```bash
-# Clone the repository
 git clone https://github.com/mohammad-albarham/mohammad-albarham.github.io.git
 cd mohammad-albarham.github.io
 
-# Start local server
-python3 -m http.server 8080
-
-# Open in browser
-open http://localhost:8080
+python3 -m http.server 8765        # preview at http://localhost:8765
 ```
 
-### Building the bundles
+Use a server rather than opening `index.html` from the filesystem: links and
+assets are root-relative (`/assets/...`), so `file://` will not resolve them.
 
-`index.html` loads only `assets/css/bundle.css` and `assets/js/bundle.js`. **Editing a source
-file under `assets/css/` or `assets/js/` has no effect until you rebuild:**
+## Build
 
 ```bash
-./scripts/build.sh          # regenerate the bundles
-./scripts/build.sh --check  # verify the committed bundles match their sources
+scripts/build.sh          # regenerate pages and bundle CSS/JS
+scripts/build.sh --check  # fail if anything committed is out of date
 ```
 
-The file lists live at the top of `scripts/build.sh`; order matters for the CSS cascade. Add any
-new source file there.
+`--check` rebuilds into a temporary directory and diffs. It covers **both** the
+CSS/JS bundles and the generated HTML, so a commit that edits
+`assets/css/src/*.css`, `assets/js/src/*.js` or `data/*.json` without rebuilding
+is caught. Run it before committing.
 
-`assets/js/travel-map.js` (jVectorMap + world map data, ~178 KB) is built as a separate bundle and
-loaded on demand when the travel section scrolls into view, along with jQuery — neither is needed
-for the rest of the page.
+Editing a file under `assets/css/src/` or `assets/js/src/` has no effect until
+you rebuild — pages load only the concatenated `assets/css/site.css` and
+`assets/js/site.js`. The file lists live at the top of `scripts/build.sh`;
+order matters for the CSS cascade.
 
-### Editing Content
+## Checks
 
-All content is stored in `/data/` as JSON files:
-
-- `bio.json` - Personal info & highlights
-- `education.json` - Academic background
-- `experience.json` - Work history
-- `projects.json` - Portfolio projects
-- `publications.json` - Research papers
-- `volunteering.json` - IEEE & volunteer roles
-- `travel.json` - Countries visited
-
-**Example:** Adding a new project
-
-```json
-// data/projects.json
-{
-  "id": "my-new-project",
-  "title": "My Awesome Project",
-  "featured": true,
-  "image": "assets/img/portfolio/project.png",
-  "shortDescription": "A brief description",
-  "technologies": ["Python", "PyTorch", "React"],
-  "links": {
-    "github": "https://github.com/username/project",
-    "demo": "https://demo.example.com"
-  }
-}
+```bash
+python3 scripts/check_site.py
 ```
 
-See **[PORTFOLIO_GUIDE.md](PORTFOLIO_GUIDE.md)** for complete documentation.
+Structural checks, no dependencies. Fails on a broken internal link, a missing
+legacy route, a missing homepage anchor, a record in `data/*.json` that never
+reached a page, or a contact form that could not actually send anything.
 
-## 📁 Project Structure
+```bash
+# one-time setup for the browser tests
+python3 -m venv .venv
+.venv/bin/pip install playwright
+.venv/bin/python -m playwright install chromium
 
-```
-/
-├── index.html                   # Main homepage
-├── data/                        # ⭐ Content (JSON files)
-├── assets/
-│   ├── css/
-│   │   ├── modern-portfolio.css # Enhanced styles
-│   │   └── components/          # Modular CSS
-│   └── js/
-│       ├── portfolio-renderer.js # Main rendering logic
-│       └── publications.js      # Publications manager
-├── templates/
-│   └── page-template.html       # Reusable inner page template
-├── projects/                    # Project detail pages
-├── publications/                # Publication detail pages
-└── volunteering/                # Volunteering detail pages
+.venv/bin/python .agents/skills/webapp-testing/scripts/with_server.py \
+  --server "python3 -m http.server 8765" --port 8765 \
+  -- .venv/bin/python tests/e2e.py
 ```
 
-## 🛠️ Tech Stack
+49 browser checks across desktop (1440×900) and mobile (390×844): every page
+answers 200, the theme toggle persists, the mobile nav opens and closes, the
+project filter narrows the grid and announces it, BibTeX expands and copies,
+the contact link is a real `mailto:`, the travel map lazy-loads, every legacy
+detail route still serves a page, no page scrolls sideways on a phone, and no
+page logs a console error. Screenshots are written to `tests/screenshots/`.
 
-- **Framework:** Pure HTML/CSS/JS (no build required!)
-- **UI:** Bootstrap 5
-- **Animations:** CSS transitions + Intersection Observer
-- **Icons:** Bootstrap Icons, Academicons
-- **Fonts:** Google Fonts (Open Sans, Raleway)
-- **Map:** jVectorMap
-- **Hosting:** GitHub Pages
+## Structure
 
-## 📚 Documentation
+```
+data/                  content, as JSON — the single source of truth
+site/
+  render.py            data -> index.html, projects/, research/, about/, sitemap.xml
+  restyle_legacy.py    re-shells the 32 hand-written detail pages
+assets/
+  css/src/*.css        design tokens, base, chrome, home, legacy, pages
+  css/site.css         built; do not edit
+  js/src/*.js          nav, theme, filters, bibtex, travel
+  js/site.js           built; do not edit
+  fonts/               self-hosted Nunito, Nunito Sans, JetBrains Mono + OFL licences
+scripts/
+  build.sh             build + --check
+  check_site.py        structural checks
+tests/e2e.py           Playwright checks and screenshots
+projects/ competitions/ experience/ volunteering/
+                       hand-written detail pages (see below)
+```
 
-- **[PORTFOLIO_GUIDE.md](PORTFOLIO_GUIDE.md)** - Complete guide for content management, styling, and deployment
-- **[PLAN.md](PLAN.md)** - Architecture and design decisions
+## Editing content
 
-## 🎨 Design Inspiration
+Everything on the generated pages comes from `data/`:
 
-- [Lane McIntosh](https://www.lanemcintosh.com/#cv) - Clean timeline design
-- [Maggy Liang](https://maggyl.github.io/) - Project card layout
-- [Georg Hess](https://georghess.se/publications/) - Publication filtering
+| File | Holds |
+|---|---|
+| `bio.json` | name, title, location, summary, social links |
+| `education.json` | degrees, coursework, graduation projects |
+| `experience.json` | roles, responsibilities, technologies |
+| `projects.json` | projects, tags, links, `detailsPage` |
+| `publications.json` | papers, abstracts, DOIs, BibTeX |
+| `competitions.json` | contests, awards, highlights, galleries |
+| `volunteering.json` | IEEE and other service |
+| `travel.json` | visited countries, per-continent colours |
+| `programming-languages.json` | measured language shares |
 
-## ⚡ Performance
+Edit the JSON, run `scripts/build.sh`, commit both the data and the regenerated
+HTML.
 
-- Homepage, fully loaded (every image): **~1.6 MB**, down from 6.8 MB
-- Images alone: **~0.6 MB**, down from 5.7 MB
-- First Contentful Paint <150 ms, CLS ~0.007
+### The hand-written detail pages
 
-Optimizations:
+The 32 pages under `projects/`, `competitions/`, `experience/` and
+`volunteering/` are **not** generated. They hold galleries, result tables,
+figures, posters and long-form write-ups that do not exist in `data/*.json`, and
+their filenames are linked from search engines and CVs, so they are preserved
+exactly.
 
-- Every raster image is served as WebP via `<picture>`, sized for how it actually renders
-  (96px logos, 800px cards, 240px avatar), with the original as fallback
-- One icon font instead of two
-- The travel map (jQuery + jVectorMap + world data, ~265 KB) loads only when the travel
-  section nears the viewport
+`site/restyle_legacy.py` only replaces the shell around them — head, nav,
+breadcrumb, footer. The preserved region is marked in each file:
 
-**Adding images:** put the original in `assets/img/` and a matching WebP in `assets/img_webp/`
-(same relative path, `.webp` extension). `PortfolioRenderer.picture()` wires up the `<picture>`
-automatically and falls back to the original if no WebP exists.
+```html
+<div class="detail-body" data-legacy-content>
+  ... original markup, untouched ...
+</div>
+```
 
-## Notes:
+Edit inside that region freely. Re-running the script keeps your edits:
 
-Travel section has been adopted from this website, special thanks to Julian: https://www.julian.ac/travel/
+```bash
+python3 site/restyle_legacy.py           # apply the current shell
+python3 site/restyle_legacy.py --check   # report pages whose shell is stale
+```
 
+To add a new detail page, copy an existing one, put your content inside the
+marked region, add a `detailsPage` entry in the matching JSON file, and run
+`scripts/build.sh` so the sitemap picks it up.
 
-## 📄 License
+## Design
 
-MIT License - feel free to use this template for your own portfolio!
+- **Type:** Nunito for headings (800), Nunito Sans for body (300–400),
+  JetBrains Mono for data labels. Self-hosted; see `assets/fonts/README.md`
+  for provenance and licences.
+- **Colour:** teal `#00796b` on white, ink `#15171c`, with indigo, amber and
+  rose reserved for research, competitions and service respectively — the
+  accent tells you what kind of thing you are looking at.
+- **Tokens:** every colour is defined once, in `assets/css/src/01-tokens.css`.
+  Dark mode overrides those tokens and nothing else.
+- Motion is limited to one entrance animation and hover states, and
+  `prefers-reduced-motion` disables it.
 
-**Template:** [iPortfolio by BootstrapMade](https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/)  
-**Customizations:** Mohammad Albarham © 2025
+## Contact
 
-## 🤝 Contributing
+There is no contact form. GitHub Pages serves static files and cannot run the
+old PHP handler, so any form here would have to either post to a third-party
+service or quietly discard the message. The site shows the email address as a
+plain `mailto:` link instead.
 
-Issues and pull requests are welcome! For major changes, please open an issue first.
+The unused `forms/` directory is kept for reference; nothing links to it.
 
-## 📞 Contact
+## Hosting
 
-- **Website:** [mohammad-albarham.github.io](https://mohammad-albarham.github.io/)
-- **LinkedIn:** [linkedin.com/in/albarham](https://www.linkedin.com/in/albarham/)
-- **GitHub:** [github.com/mohammad-albarham](https://github.com/mohammad-albarham)
-- **Email:** mohammad.albarham.work@gmail.com
+`.github/workflows/pages.yml` publishes the repository to GitHub Pages on every
+push to `main`. There is no build step in CI — what is committed is what ships,
+which is why `scripts/build.sh --check` matters.
 
----
+## Credits
 
-**Last updated:** December 17, 2025
+- Travel map: [jVectorMap](https://github.com/bjornd/jvectormap); the idea comes
+  from [Julian](https://www.julian.ac/travel/).
+- Icons: [Bootstrap Icons](https://icons.getbootstrap.com/) (MIT).
+- Fonts: Nunito, Nunito Sans and JetBrains Mono, all SIL OFL 1.1.
+
+## Licence
+
+MIT for the code. Content, photographs and written material are
+© Mohammad Albarham.

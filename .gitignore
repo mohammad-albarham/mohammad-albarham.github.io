@@ -6,3 +6,5 @@
 .bundle-check/
 scripts/qa/screenshots/
 screenshots/
+TASK.md
+REVIEW*.md

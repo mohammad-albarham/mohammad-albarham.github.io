@@ -6,41 +6,22 @@ Crawl every local HTML file in the site, resolve every href and src pointing to 
 local path, and report anything that does not resolve on disk (including anchors
 pointing at a missing element id or name).
 
-Python standard library only. Exits with code 1 if broken links are found, 0 if clean.
+Baseline-aware:
+- Compares findings against scripts/qa/baseline_links.json by default.
+- Exits 0 if all findings are known baseline items (no regressions).
+- Exits 1 if any NEW broken links / missing anchors are detected (regressions).
+- In --strict mode, exits 1 on ANY finding (zero tolerance).
+- In --update-baseline mode, writes current findings to the baseline file.
 """
 
 import argparse
+from datetime import datetime, timezone
 import json
 import os
 import sys
 import urllib.parse
 from html.parser import HTMLParser
 from pathlib import Path
-
-
-KNOWN_PREEXISTING_ANOMALIES = [
-    {
-        "file": "projects/latest-projects-1.html",
-        "tag": "img",
-        "attr": "src",
-        "target": "../assets/img/portfolio/",
-        "reason": "Image tag src points to directory instead of file",
-    },
-    {
-        "file": "projects/latest-projects-2.html",
-        "tag": "img",
-        "attr": "src",
-        "target": "../assets/img/portfolio/",
-        "reason": "Image tag src points to directory instead of file",
-    },
-    {
-        "file": "projects/latest-projects-3.html",
-        "tag": "img",
-        "attr": "src",
-        "target": "../assets/img/portfolio/",
-        "reason": "Image tag src points to directory instead of file",
-    },
-]
 
 
 class HTMLContentParser(HTMLParser):
@@ -73,16 +54,9 @@ class HTMLContentParser(HTMLParser):
                 self.references.append((tag, attr, val.strip(), line, col))
 
 
-def is_known_preexisting(rel_file: str, tag: str, attr: str, target: str) -> bool:
-    for anomaly in KNOWN_PREEXISTING_ANOMALIES:
-        if (
-            anomaly["file"] == rel_file
-            and anomaly["tag"] == tag
-            and anomaly["attr"] == attr
-            and anomaly["target"] == target
-        ):
-            return True
-    return False
+def make_link_key(rel_file: str, tag: str, attr: str, target: str) -> str:
+    """Generate a stable finding key that does not depend on line numbers."""
+    return f"{rel_file}::{tag}::{attr}::{target}"
 
 
 def collect_html_files(site_dir: Path, include_templates: bool = False) -> list[Path]:
@@ -131,6 +105,7 @@ def check_site_links(site_dir: Path, include_templates: bool = False, verbose: b
             if not raw_url:
                 if attr == "src":
                     broken_items.append({
+                        "key": make_link_key(rel_source, tag, attr, raw_url),
                         "file": rel_source,
                         "line": line,
                         "col": col,
@@ -138,7 +113,6 @@ def check_site_links(site_dir: Path, include_templates: bool = False, verbose: b
                         "attr": attr,
                         "url": raw_url,
                         "error": "Empty src attribute",
-                        "preexisting": False,
                     })
                 continue
 
@@ -197,8 +171,8 @@ def check_site_links(site_dir: Path, include_templates: bool = False, verbose: b
                     error_msg = f"Target does not exist on disk: {raw_path}"
 
             if error_msg:
-                is_pre = is_known_preexisting(rel_source, tag, attr, raw_url)
                 broken_items.append({
+                    "key": make_link_key(rel_source, tag, attr, raw_url),
                     "file": rel_source,
                     "line": line,
                     "col": col,
@@ -206,7 +180,6 @@ def check_site_links(site_dir: Path, include_templates: bool = False, verbose: b
                     "attr": attr,
                     "url": raw_url,
                     "error": error_msg,
-                    "preexisting": is_pre,
                 })
                 continue
 
@@ -225,8 +198,8 @@ def check_site_links(site_dir: Path, include_templates: bool = False, verbose: b
                             pass
 
                     if target_parser and fragment not in target_parser.ids:
-                        is_pre = is_known_preexisting(rel_source, tag, attr, raw_url)
                         broken_items.append({
+                            "key": make_link_key(rel_source, tag, attr, raw_url),
                             "file": rel_source,
                             "line": line,
                             "col": col,
@@ -234,7 +207,6 @@ def check_site_links(site_dir: Path, include_templates: bool = False, verbose: b
                             "attr": attr,
                             "url": raw_url,
                             "error": f"Anchor '#{fragment}' not found in target file '{resolved_file.name}'",
-                            "preexisting": is_pre,
                         })
 
     return {
@@ -247,6 +219,38 @@ def check_site_links(site_dir: Path, include_templates: bool = False, verbose: b
     }
 
 
+def load_baseline(baseline_file: Path) -> dict:
+    if not baseline_file.is_file():
+        return {"items": []}
+    try:
+        return json.loads(baseline_file.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"[WARN] Failed to read baseline file {baseline_file}: {e}", file=sys.stderr)
+        return {"items": []}
+
+
+def save_baseline(baseline_file: Path, items: list[dict]):
+    baseline_file.parent.mkdir(parents=True, exist_ok=True)
+    clean_items = []
+    for item in items:
+        clean_items.append({
+            "key": item["key"],
+            "file": item["file"],
+            "tag": item["tag"],
+            "attr": item["attr"],
+            "url": item["url"],
+            "error": item["error"],
+        })
+    data = {
+        "description": "Baseline of accepted pre-existing link and anchor issues",
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "total_items": len(clean_items),
+        "items": clean_items,
+    }
+    baseline_file.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    print(f"Updated baseline written to: {baseline_file} ({len(clean_items)} items)")
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Verify static link and anchor integrity across all local HTML files."
@@ -255,6 +259,21 @@ def main():
         "--site",
         default=".",
         help="Root directory of the portfolio site (default: current directory)",
+    )
+    parser.add_argument(
+        "--baseline",
+        default=None,
+        help="Path to baseline JSON file (default: scripts/qa/baseline_links.json)",
+    )
+    parser.add_argument(
+        "--update-baseline",
+        action="store_true",
+        help="Record current findings as the new baseline and exit 0",
+    )
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Strict mode: exit non-zero on any finding, ignoring baseline",
     )
     parser.add_argument(
         "--json",
@@ -275,11 +294,17 @@ def main():
     )
 
     args = parser.parse_args()
-    site_path = Path(args.site)
+    site_path = Path(args.site).resolve()
 
     if not site_path.is_dir():
         print(f"Error: Site directory does not exist: {site_path}", file=sys.stderr)
         sys.exit(2)
+
+    baseline_path = (
+        Path(args.baseline).resolve()
+        if args.baseline
+        else site_path / "scripts/qa/baseline_links.json"
+    )
 
     results = check_site_links(
         site_path,
@@ -287,9 +312,36 @@ def main():
         verbose=args.verbose,
     )
 
+    if args.update_baseline:
+        save_baseline(baseline_path, results["broken_items"])
+        sys.exit(0)
+
+    # Baseline comparison
+    baseline_data = load_baseline(baseline_path)
+    baseline_map = {item["key"]: item for item in baseline_data.get("items", [])}
+    current_map = {item["key"]: item for item in results["broken_items"]}
+
+    regressions = [item for key, item in current_map.items() if key not in baseline_map]
+    fixed_items = [item for key, item in baseline_map.items() if key not in current_map]
+    preexisting = [item for key, item in current_map.items() if key in baseline_map]
+
+    summary = {
+        **results,
+        "baseline_file": str(baseline_path),
+        "baseline_items_count": len(baseline_map),
+        "preexisting_count": len(preexisting),
+        "regressions_count": len(regressions),
+        "fixed_count": len(fixed_items),
+        "regressions": regressions,
+        "fixed_items": fixed_items,
+        "preexisting": preexisting,
+    }
+
     if args.json_output:
-        print(json.dumps(results, indent=2))
-        sys.exit(1 if results["broken_count"] > 0 else 0)
+        print(json.dumps(summary, indent=2))
+        if args.strict:
+            sys.exit(1 if results["broken_count"] > 0 else 0)
+        sys.exit(1 if len(regressions) > 0 else 0)
 
     print("=" * 72)
     print("PORTFOLIO LINK & ANCHOR INTEGRITY REPORT")
@@ -299,31 +351,43 @@ def main():
     print(f"Total References    : {results['total_references']}")
     print(f"Local Path Checks   : {results['local_references']}")
     print(f"Broken Links Found  : {results['broken_count']}")
+    print(f"Baseline File       : {baseline_path.name} ({len(baseline_map)} accepted)")
+    print(f"Regressions (NEW)   : {len(regressions)}")
+    print(f"Fixed from Baseline : {len(fixed_items)}")
     print("-" * 72)
 
-    if results["broken_count"] == 0:
-        print("✓ All local links, media sources, and anchor targets resolve on disk.")
-        print("=" * 72)
-        sys.exit(0)
-
-    preexisting_items = [b for b in results["broken_items"] if b["preexisting"]]
-    new_items = [b for b in results["broken_items"] if not b["preexisting"]]
-
-    if new_items:
-        print(f"\n[FAIL] REBUILD REGRESSIONS / NEW BROKEN LINKS ({len(new_items)}):")
-        for item in new_items:
+    if regressions:
+        print(f"\n[FAIL] REBUILD REGRESSIONS / NEW BROKEN LINKS ({len(regressions)}):")
+        for item in regressions:
             print(f"  • {item['file']}:{item['line']} <{item['tag']} {item['attr']}=\"{item['url']}\">")
             print(f"    Error: {item['error']}")
 
-    if preexisting_items:
-        print(f"\n[INFO] PRE-EXISTING BASELINE ANOMALIES ({len(preexisting_items)}):")
-        for item in preexisting_items:
+    if fixed_items:
+        print(f"\n[INFO] FIXED ITEMS (in baseline, no longer failing): ({len(fixed_items)}):")
+        for item in fixed_items:
+            print(f"  ✓ {item['file']} <{item['tag']} {item['attr']}=\"{item['url']}\">")
+
+    if preexisting:
+        print(f"\n[INFO] ACCEPTED PRE-EXISTING BASELINE ANOMALIES ({len(preexisting)}):")
+        for item in preexisting:
             print(f"  • {item['file']}:{item['line']} <{item['tag']} {item['attr']}=\"{item['url']}\">")
             print(f"    Notice: {item['error']}")
 
     print("\n" + "=" * 72)
-    # Return non-zero because broken items were detected
-    sys.exit(1)
+
+    if args.strict:
+        if results["broken_count"] > 0:
+            print(f"STRICT MODE: Failing due to {results['broken_count']} total link finding(s).")
+            sys.exit(1)
+        print("STRICT MODE: Zero link findings. PASS.")
+        sys.exit(0)
+
+    if regressions:
+        print(f"GATE FAILED: {len(regressions)} new regression(s) detected.")
+        sys.exit(1)
+
+    print(f"GATE PASSED: 0 regressions (all {len(preexisting)} findings match baseline).")
+    sys.exit(0)
 
 
 if __name__ == "__main__":

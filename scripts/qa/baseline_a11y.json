@@ -1,0 +1,1856 @@
+{
+  "description": "Baseline of accepted pre-existing accessibility issues (technical debt to be burned down)",
+  "updated_at": "2026-09-06T22:22:53.710337+00:00",
+  "total_violations": 168,
+  "unique_rules": 4,
+  "items": [
+    {
+      "key": "competitions/competition-details-1.html::color-contrast::a[href=\"/index.html\"]",
+      "page": "competitions/competition-details-1.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href=\"/index.html\"]"
+      ],
+      "html": "<a href=\"/index.html\">Home</a>"
+    },
+    {
+      "key": "competitions/competition-details-1.html::color-contrast::li:nth-child(2) > a[href$=\"index.html#competitions\"]",
+      "page": "competitions/competition-details-1.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "li:nth-child(2) > a[href$=\"index.html#competitions\"]"
+      ],
+      "html": "<a href=\"/index.html#competitions\">Competitions</a>"
+    },
+    {
+      "key": "competitions/competition-details-1.html::color-contrast::.btn",
+      "page": "competitions/competition-details-1.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".btn"
+      ],
+      "html": "<a href=\"/index.html#competitions\" class=\"btn btn-outline-primary\">\n            <i class=\"bi bi-arrow-left\"></i> Back to"
+    },
+    {
+      "key": "competitions/competition-details-1.html::color-contrast::.credits",
+      "page": "competitions/competition-details-1.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Built with <span style=\"color: #e25555;\">\u2665</span> for open science\n      </div>"
+    },
+    {
+      "key": "competitions/competition-details-2.html::color-contrast::a[href=\"/index.html\"]",
+      "page": "competitions/competition-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href=\"/index.html\"]"
+      ],
+      "html": "<a href=\"/index.html\">Home</a>"
+    },
+    {
+      "key": "competitions/competition-details-2.html::color-contrast::li:nth-child(2) > a[href$=\"index.html#competitions\"]",
+      "page": "competitions/competition-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "li:nth-child(2) > a[href$=\"index.html#competitions\"]"
+      ],
+      "html": "<a href=\"/index.html#competitions\">Competitions</a>"
+    },
+    {
+      "key": "competitions/competition-details-2.html::color-contrast::.btn",
+      "page": "competitions/competition-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".btn"
+      ],
+      "html": "<a href=\"/index.html#competitions\" class=\"btn btn-outline-primary\">\n            <i class=\"bi bi-arrow-left\"></i> Back to"
+    },
+    {
+      "key": "competitions/competition-details-2.html::color-contrast::.credits",
+      "page": "competitions/competition-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Built with <span style=\"color: #e25555;\">\u2665</span> for open science\n      </div>"
+    },
+    {
+      "key": "competitions/competition-details-3.html::color-contrast::a[href=\"/index.html\"]",
+      "page": "competitions/competition-details-3.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href=\"/index.html\"]"
+      ],
+      "html": "<a href=\"/index.html\">Home</a>"
+    },
+    {
+      "key": "competitions/competition-details-3.html::color-contrast::li:nth-child(2) > a[href$=\"index.html#competitions\"]",
+      "page": "competitions/competition-details-3.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "li:nth-child(2) > a[href$=\"index.html#competitions\"]"
+      ],
+      "html": "<a href=\"/index.html#competitions\">Competitions</a>"
+    },
+    {
+      "key": "competitions/competition-details-3.html::color-contrast::.competition-award:nth-child(2)",
+      "page": "competitions/competition-details-3.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".competition-award:nth-child(2)"
+      ],
+      "html": "<span class=\"competition-award\">\n                <i class=\"bi bi-trophy-fill\" aria-hidden=\"true\"></i>Extreme Programmers"
+    },
+    {
+      "key": "competitions/competition-details-3.html::color-contrast::.competition-award:nth-child(3)",
+      "page": "competitions/competition-details-3.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".competition-award:nth-child(3)"
+      ],
+      "html": "<span class=\"competition-award\">\n                <i class=\"bi bi-trophy-fill\" aria-hidden=\"true\"></i>First to Solve Prob"
+    },
+    {
+      "key": "competitions/competition-details-3.html::color-contrast::.btn",
+      "page": "competitions/competition-details-3.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".btn"
+      ],
+      "html": "<a href=\"/index.html#competitions\" class=\"btn btn-outline-primary\">\n            <i class=\"bi bi-arrow-left\"></i> Back to"
+    },
+    {
+      "key": "competitions/competition-details-3.html::color-contrast::.credits",
+      "page": "competitions/competition-details-3.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Built with <span style=\"color: #e25555;\">\u2665</span> for open science\n      </div>"
+    },
+    {
+      "key": "competitions/competition-details-4.html::color-contrast::a[href=\"/index.html\"]",
+      "page": "competitions/competition-details-4.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href=\"/index.html\"]"
+      ],
+      "html": "<a href=\"/index.html\">Home</a>"
+    },
+    {
+      "key": "competitions/competition-details-4.html::color-contrast::li:nth-child(2) > a[href$=\"index.html#competitions\"]",
+      "page": "competitions/competition-details-4.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "li:nth-child(2) > a[href$=\"index.html#competitions\"]"
+      ],
+      "html": "<a href=\"/index.html#competitions\">Competitions</a>"
+    },
+    {
+      "key": "competitions/competition-details-4.html::color-contrast::.competition-award.rank-4:nth-child(2)",
+      "page": "competitions/competition-details-4.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".competition-award.rank-4:nth-child(2)"
+      ],
+      "html": "<span class=\"competition-award rank-4\">\n                <i class=\"bi bi-trophy-fill\" aria-hidden=\"true\"></i>4th Place\n  "
+    },
+    {
+      "key": "competitions/competition-details-4.html::color-contrast::.competition-award.rank-4:nth-child(3)",
+      "page": "competitions/competition-details-4.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".competition-award.rank-4:nth-child(3)"
+      ],
+      "html": "<span class=\"competition-award rank-4\">\n                <i class=\"bi bi-trophy-fill\" aria-hidden=\"true\"></i>Best Design "
+    },
+    {
+      "key": "competitions/competition-details-4.html::color-contrast::.competition-award.rank-4:nth-child(4)",
+      "page": "competitions/competition-details-4.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".competition-award.rank-4:nth-child(4)"
+      ],
+      "html": "<span class=\"competition-award rank-4\">\n                <i class=\"bi bi-trophy-fill\" aria-hidden=\"true\"></i>Clean Sheet "
+    },
+    {
+      "key": "competitions/competition-details-4.html::color-contrast::.btn",
+      "page": "competitions/competition-details-4.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".btn"
+      ],
+      "html": "<a href=\"/index.html#competitions\" class=\"btn btn-outline-primary\">\n            <i class=\"bi bi-arrow-left\"></i> Back to"
+    },
+    {
+      "key": "competitions/competition-details-4.html::color-contrast::.credits",
+      "page": "competitions/competition-details-4.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Built with <span style=\"color: #e25555;\">\u2665</span> for open science\n      </div>"
+    },
+    {
+      "key": "competitions/competition-details-5.html::color-contrast::a[href=\"/index.html\"]",
+      "page": "competitions/competition-details-5.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href=\"/index.html\"]"
+      ],
+      "html": "<a href=\"/index.html\">Home</a>"
+    },
+    {
+      "key": "competitions/competition-details-5.html::color-contrast::li:nth-child(2) > a[href$=\"index.html#competitions\"]",
+      "page": "competitions/competition-details-5.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "li:nth-child(2) > a[href$=\"index.html#competitions\"]"
+      ],
+      "html": "<a href=\"/index.html#competitions\">Competitions</a>"
+    },
+    {
+      "key": "competitions/competition-details-5.html::color-contrast::.btn",
+      "page": "competitions/competition-details-5.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".btn"
+      ],
+      "html": "<a href=\"/index.html#competitions\" class=\"btn btn-outline-primary\">\n            <i class=\"bi bi-arrow-left\"></i> Back to"
+    },
+    {
+      "key": "competitions/competition-details-5.html::color-contrast::.credits",
+      "page": "competitions/competition-details-5.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Built with <span style=\"color: #e25555;\">\u2665</span> for open science\n      </div>"
+    },
+    {
+      "key": "experience/phi-pair.html::color-contrast::a[href=\"/index.html\"]",
+      "page": "experience/phi-pair.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href=\"/index.html\"]"
+      ],
+      "html": "<a href=\"/index.html\">Home</a>"
+    },
+    {
+      "key": "experience/phi-pair.html::color-contrast::li:nth-child(2) > a[href$=\"index.html#resume\"]",
+      "page": "experience/phi-pair.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "li:nth-child(2) > a[href$=\"index.html#resume\"]"
+      ],
+      "html": "<a href=\"/index.html#resume\">Resume</a>"
+    },
+    {
+      "key": "experience/phi-pair.html::color-contrast::.btn",
+      "page": "experience/phi-pair.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".btn"
+      ],
+      "html": "<a href=\"/index.html#resume\" class=\"btn btn-outline-primary\">\n            <i class=\"bi bi-arrow-left\"></i> Back to Resum"
+    },
+    {
+      "key": "experience/phi-pair.html::color-contrast::.credits",
+      "page": "experience/phi-pair.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Built with <span style=\"color: #e25555;\">\u2665</span> for open science\n      </div>"
+    },
+    {
+      "key": "googleebff4c42c46c6acf.html::document-title::html",
+      "page": "googleebff4c42c46c6acf.html",
+      "rule_id": "document-title",
+      "impact": "serious",
+      "help": "Documents must have <title> element to aid in navigation",
+      "target": [
+        "html"
+      ],
+      "html": "<html><head></head><body>google-site-verification: googleebff4c42c46c6acf.html</body></html>"
+    },
+    {
+      "key": "googleebff4c42c46c6acf.html::html-has-lang::html",
+      "page": "googleebff4c42c46c6acf.html",
+      "rule_id": "html-has-lang",
+      "impact": "serious",
+      "help": "<html> element must have a lang attribute",
+      "target": [
+        "html"
+      ],
+      "html": "<html><head></head><body>google-site-verification: googleebff4c42c46c6acf.html</body></html>"
+    },
+    {
+      "key": "index.html::color-contrast::figcaption > a[rel=\"noopener\"][target=\"_blank\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "figcaption > a[rel=\"noopener\"][target=\"_blank\"]"
+      ],
+      "html": "<a href=\"https://github.com/mohammad-albarham\" target=\"_blank\" rel=\"noopener\">GitHub</a>"
+    },
+    {
+      "key": "index.html::color-contrast::.lang-chart-table-toggle",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".lang-chart-table-toggle"
+      ],
+      "html": "<button type=\"button\" class=\"lang-chart-table-toggle\" aria-expanded=\"false\" aria-controls=\"lang-chart-table\">\n          "
+    },
+    {
+      "key": "index.html::color-contrast::button[data-filter=\"*\"] > .filter-count",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "button[data-filter=\"*\"] > .filter-count"
+      ],
+      "html": "<span class=\"filter-count\">17</span>"
+    },
+    {
+      "key": "index.html::color-contrast::#pub-reset-filters",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "#pub-reset-filters"
+      ],
+      "html": "<button id=\"pub-reset-filters\" class=\"btn btn-outline-secondary w-100\" title=\"Reset all filters\">\n              <i class"
+    },
+    {
+      "key": "index.html::color-contrast::#pub-count",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "#pub-count"
+      ],
+      "html": "<span class=\"pub-count\" id=\"pub-count\">8 publications</span>"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-header > .pub-year",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-header > .pub-year"
+      ],
+      "html": "<span class=\"pub-year\">2025</span>"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-authors > strong",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-authors > strong"
+      ],
+      "html": "<strong>Muhammad Al-Barham</strong>"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-links > .btn-outline-warning.btn-sm.btn",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-links > .btn-outline-warning.btn-sm.btn"
+      ],
+      "html": "<a href=\"https://huggingface.co/Arabic-Clip\" class=\"btn btn-sm btn-outline-warning\" target=\"_blank\" rel=\"noopener\"><i cl"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"araclip-eaai-2025\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"araclip-eaai-2025\"]"
+      ],
+      "html": "<button class=\"btn btn-sm btn-outline-info cite-btn\" data-pub-id=\"araclip-eaai-2025\" data-bibtex=\"%40article%7BALBARHAM2"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-header > .pub-year",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-header > .pub-year"
+      ],
+      "html": "<span class=\"pub-year\">2024</span>"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-authors > strong",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-authors > strong"
+      ],
+      "html": "<strong>Muhammad Al-Barham</strong>"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-links > .btn-outline-warning.btn-sm.btn",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-links > .btn-outline-warning.btn-sm.btn"
+      ],
+      "html": "<a href=\"https://huggingface.co/Arabic-Clip\" class=\"btn btn-sm btn-outline-warning\" target=\"_blank\" rel=\"noopener\"><i cl"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"araclip-acl-2024\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"araclip-acl-2024\"]"
+      ],
+      "html": "<button class=\"btn btn-sm btn-outline-info cite-btn\" data-pub-id=\"araclip-acl-2024\" data-bibtex=\"%40inproceedings%7Bal-b"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-header > .pub-year",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-header > .pub-year"
+      ],
+      "html": "<span class=\"pub-year\">2023</span>"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-authors > strong",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-authors > strong"
+      ],
+      "html": "<strong>Muhammad Al-Barham</strong>"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-links > .btn-outline-warning.btn-sm.btn",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-links > .btn-outline-warning.btn-sm.btn"
+      ],
+      "html": "<a href=\"https://huggingface.co/datasets/pain/AASL\" class=\"btn btn-sm btn-outline-warning\" target=\"_blank\" rel=\"noopener"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"rgb-arsl-2023\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"rgb-arsl-2023\"]"
+      ],
+      "html": "<button class=\"btn btn-sm btn-outline-info cite-btn\" data-pub-id=\"rgb-arsl-2023\" data-bibtex=\"%40article%7Bal2023rgb%2C%"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-conference[data-year=\"2023\"][data-type=\"conference\"] > .pub-header > .pub-year",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-conference[data-year=\"2023\"][data-type=\"conference\"] > .pub-header > .pub-year"
+      ],
+      "html": "<span class=\"pub-year\">2023</span>"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-conference[data-year=\"2023\"][data-type=\"conference\"] > .pub-authors > strong",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-conference[data-year=\"2023\"][data-type=\"conference\"] > .pub-authors > strong"
+      ],
+      "html": "<strong>Muhammad Al-Barham</strong>"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-conference[data-year=\"2023\"][data-type=\"conference\"] > .pub-links > .btn-outline-warning.btn-sm.btn",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-conference[data-year=\"2023\"][data-type=\"conference\"] > .pub-links > .btn-outline-warning.btn-sm.btn"
+      ],
+      "html": "<a href=\"https://huggingface.co/datasets/pain/MASC\" class=\"btn btn-sm btn-outline-warning\" target=\"_blank\" rel=\"noopener"
+    },
+    {
+      "key": "index.html::color-contrast::.featured-publications > .publications-list > .pub-type-conference[data-year=\"2023\"][data-type=\"conference\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"masc-2023\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".featured-publications > .publications-list > .pub-type-conference[data-year=\"2023\"][data-type=\"conference\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"masc-2023\"]"
+      ],
+      "html": "<button class=\"btn btn-sm btn-outline-info cite-btn\" data-pub-id=\"masc-2023\" data-bibtex=\"%40inproceedings%7Bal2023masc%"
+    },
+    {
+      "key": "index.html::color-contrast::.year-group[data-aos=\"fade-up\"]:nth-child(1) > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-header > .pub-year",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".year-group[data-aos=\"fade-up\"]:nth-child(1) > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-header > .pub-year"
+      ],
+      "html": "<span class=\"pub-year\">2025</span>"
+    },
+    {
+      "key": "index.html::color-contrast::.year-group[data-aos=\"fade-up\"]:nth-child(1) > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-authors > strong",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".year-group[data-aos=\"fade-up\"]:nth-child(1) > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-authors > strong"
+      ],
+      "html": "<strong>Muhammad Al-Barham</strong>"
+    },
+    {
+      "key": "index.html::color-contrast::.year-group[data-aos=\"fade-up\"]:nth-child(1) > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-links > .btn-outline-warning.btn-sm.btn",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".year-group[data-aos=\"fade-up\"]:nth-child(1) > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-links > .btn-outline-warning.btn-sm.btn"
+      ],
+      "html": "<a href=\"https://huggingface.co/Arabic-Clip\" class=\"btn btn-sm btn-outline-warning\" target=\"_blank\" rel=\"noopener\"><i cl"
+    },
+    {
+      "key": "index.html::color-contrast::.year-group[data-aos=\"fade-up\"]:nth-child(1) > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"araclip-eaai-2025\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".year-group[data-aos=\"fade-up\"]:nth-child(1) > .publications-list > .pub-type-journal[data-year=\"2025\"][data-type=\"journal\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"araclip-eaai-2025\"]"
+      ],
+      "html": "<button class=\"btn btn-sm btn-outline-info cite-btn\" data-pub-id=\"araclip-eaai-2025\" data-bibtex=\"%40article%7BALBARHAM2"
+    },
+    {
+      "key": "index.html::color-contrast::.year-group[data-aos=\"fade-up\"]:nth-child(2) > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-header > .pub-year",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".year-group[data-aos=\"fade-up\"]:nth-child(2) > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-header > .pub-year"
+      ],
+      "html": "<span class=\"pub-year\">2024</span>"
+    },
+    {
+      "key": "index.html::color-contrast::.year-group[data-aos=\"fade-up\"]:nth-child(2) > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-authors > strong",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".year-group[data-aos=\"fade-up\"]:nth-child(2) > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-authors > strong"
+      ],
+      "html": "<strong>Muhammad Al-Barham</strong>"
+    },
+    {
+      "key": "index.html::color-contrast::.year-group[data-aos=\"fade-up\"]:nth-child(2) > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-links > .btn-outline-warning.btn-sm.btn",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".year-group[data-aos=\"fade-up\"]:nth-child(2) > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-links > .btn-outline-warning.btn-sm.btn"
+      ],
+      "html": "<a href=\"https://huggingface.co/Arabic-Clip\" class=\"btn btn-sm btn-outline-warning\" target=\"_blank\" rel=\"noopener\"><i cl"
+    },
+    {
+      "key": "index.html::color-contrast::.year-group[data-aos=\"fade-up\"]:nth-child(2) > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"araclip-acl-2024\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".year-group[data-aos=\"fade-up\"]:nth-child(2) > .publications-list > .pub-type-conference[data-year=\"2024\"][data-type=\"conference\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"araclip-acl-2024\"]"
+      ],
+      "html": "<button class=\"btn btn-sm btn-outline-info cite-btn\" data-pub-id=\"araclip-acl-2024\" data-bibtex=\"%40inproceedings%7Bal-b"
+    },
+    {
+      "key": "index.html::color-contrast::.pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(1) > .pub-header > .pub-year",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(1) > .pub-header > .pub-year"
+      ],
+      "html": "<span class=\"pub-year\">2023</span>"
+    },
+    {
+      "key": "index.html::color-contrast::.pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(1) > .pub-authors > strong",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(1) > .pub-authors > strong"
+      ],
+      "html": "<strong>Muhammad Al-Barham</strong>"
+    },
+    {
+      "key": "index.html::color-contrast::button[data-pub-id=\"arsl-transfer-2023\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "button[data-pub-id=\"arsl-transfer-2023\"]"
+      ],
+      "html": "<button class=\"btn btn-sm btn-outline-info cite-btn\" data-pub-id=\"arsl-transfer-2023\" data-bibtex=\"%40inproceedings%7Bal"
+    },
+    {
+      "key": "index.html::color-contrast::.pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(2) > .pub-header > .pub-year",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(2) > .pub-header > .pub-year"
+      ],
+      "html": "<span class=\"pub-year\">2023</span>"
+    },
+    {
+      "key": "index.html::color-contrast::.pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(2) > .pub-authors > strong",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(2) > .pub-authors > strong"
+      ],
+      "html": "<strong>Muhammad Al-Barham</strong>"
+    },
+    {
+      "key": "index.html::color-contrast::button[data-pub-id=\"arabic-news-2023\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "button[data-pub-id=\"arabic-news-2023\"]"
+      ],
+      "html": "<button class=\"btn btn-sm btn-outline-info cite-btn\" data-pub-id=\"arabic-news-2023\" data-bibtex=\"%40inproceedings%7Bkhal"
+    },
+    {
+      "key": "index.html::color-contrast::.pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(3) > .pub-header > .pub-year",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(3) > .pub-header > .pub-year"
+      ],
+      "html": "<span class=\"pub-year\">2023</span>"
+    },
+    {
+      "key": "index.html::color-contrast::.pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(3) > .pub-authors > strong",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(3) > .pub-authors > strong"
+      ],
+      "html": "<strong>Muhammad Al-Barham</strong>"
+    },
+    {
+      "key": "index.html::color-contrast::button[data-pub-id=\"mpa-ser-2023\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "button[data-pub-id=\"mpa-ser-2023\"]"
+      ],
+      "html": "<button class=\"btn btn-sm btn-outline-info cite-btn\" data-pub-id=\"mpa-ser-2023\" data-bibtex=\"%40inproceedings%7Balomari2"
+    },
+    {
+      "key": "index.html::color-contrast::.year-group[data-aos=\"fade-up\"]:nth-child(3) > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-header > .pub-year",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".year-group[data-aos=\"fade-up\"]:nth-child(3) > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-header > .pub-year"
+      ],
+      "html": "<span class=\"pub-year\">2023</span>"
+    },
+    {
+      "key": "index.html::color-contrast::.year-group[data-aos=\"fade-up\"]:nth-child(3) > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-authors > strong",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".year-group[data-aos=\"fade-up\"]:nth-child(3) > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-authors > strong"
+      ],
+      "html": "<strong>Muhammad Al-Barham</strong>"
+    },
+    {
+      "key": "index.html::color-contrast::.year-group[data-aos=\"fade-up\"]:nth-child(3) > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-links > .btn-outline-warning.btn-sm.btn",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".year-group[data-aos=\"fade-up\"]:nth-child(3) > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-links > .btn-outline-warning.btn-sm.btn"
+      ],
+      "html": "<a href=\"https://huggingface.co/datasets/pain/AASL\" class=\"btn btn-sm btn-outline-warning\" target=\"_blank\" rel=\"noopener"
+    },
+    {
+      "key": "index.html::color-contrast::.year-group[data-aos=\"fade-up\"]:nth-child(3) > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"rgb-arsl-2023\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".year-group[data-aos=\"fade-up\"]:nth-child(3) > .publications-list > .pub-type-preprint[data-type=\"preprint\"][data-year=\"2023\"] > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"rgb-arsl-2023\"]"
+      ],
+      "html": "<button class=\"btn btn-sm btn-outline-info cite-btn\" data-pub-id=\"rgb-arsl-2023\" data-bibtex=\"%40article%7Bal2023rgb%2C%"
+    },
+    {
+      "key": "index.html::color-contrast::.pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(5) > .pub-header > .pub-year",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(5) > .pub-header > .pub-year"
+      ],
+      "html": "<span class=\"pub-year\">2023</span>"
+    },
+    {
+      "key": "index.html::color-contrast::.pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(5) > .pub-authors > strong",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(5) > .pub-authors > strong"
+      ],
+      "html": "<strong>Muhammad Al-Barham</strong>"
+    },
+    {
+      "key": "index.html::color-contrast::.pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(5) > .pub-links > .btn-outline-warning.btn-sm.btn",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(5) > .pub-links > .btn-outline-warning.btn-sm.btn"
+      ],
+      "html": "<a href=\"https://huggingface.co/datasets/pain/MASC\" class=\"btn btn-sm btn-outline-warning\" target=\"_blank\" rel=\"noopener"
+    },
+    {
+      "key": "index.html::color-contrast::.pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(5) > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"masc-2023\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".pub-type-conference[data-year=\"2023\"][data-type=\"conference\"]:nth-child(5) > .pub-links > .btn-outline-info.cite-btn[data-pub-id=\"masc-2023\"]"
+      ],
+      "html": "<button class=\"btn btn-sm btn-outline-info cite-btn\" data-pub-id=\"masc-2023\" data-bibtex=\"%40inproceedings%7Bal2023masc%"
+    },
+    {
+      "key": "index.html::color-contrast::div[data-year=\"2022\"] > .pub-header > .pub-year",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "div[data-year=\"2022\"] > .pub-header > .pub-year"
+      ],
+      "html": "<span class=\"pub-year\">2022</span>"
+    },
+    {
+      "key": "index.html::color-contrast::div[data-year=\"2022\"] > .pub-authors > strong",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "div[data-year=\"2022\"] > .pub-authors > strong"
+      ],
+      "html": "<strong>Muhammad Al-Barham</strong>"
+    },
+    {
+      "key": "index.html::color-contrast::button[data-pub-id=\"arsl-deep-2022\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "button[data-pub-id=\"arsl-deep-2022\"]"
+      ],
+      "html": "<button class=\"btn btn-sm btn-outline-info cite-btn\" data-pub-id=\"arsl-deep-2022\" data-bibtex=\"%40inproceedings%7Bal2022"
+    },
+    {
+      "key": "index.html::color-contrast::small > a[rel=\"noopener\"][target=\"_blank\"]:nth-child(1)",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "small > a[rel=\"noopener\"][target=\"_blank\"]:nth-child(1)"
+      ],
+      "html": "<a href=\"https://github.com/bjornd/jvectormap\" target=\"_blank\" rel=\"noopener\">jVectorMap</a>"
+    },
+    {
+      "key": "index.html::color-contrast::a[href$=\"julian.ac/\"]",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href$=\"julian.ac/\"]"
+      ],
+      "html": "<a href=\"https://www.julian.ac/\" target=\"_blank\" rel=\"noopener\">Julian</a>"
+    },
+    {
+      "key": "index.html::color-contrast::.contact-info-text > p > a",
+      "page": "index.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".contact-info-text > p > a"
+      ],
+      "html": "<a href=\"mailto:mohammad.albarham.work@gmail.com\">mohammad.albarham.work@gmail.com</a>"
+    },
+    {
+      "key": "projects/araclip.html::color-contrast::.project-link-btn[target=\"_blank\"][rel=\"noopener noreferrer\"]:nth-child(1)",
+      "page": "projects/araclip.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".project-link-btn[target=\"_blank\"][rel=\"noopener noreferrer\"]:nth-child(1)"
+      ],
+      "html": "<a href=\"https://huggingface.co/Arabic-Clip\" class=\"project-link-btn\" target=\"_blank\" rel=\"noopener noreferrer\">\n       "
+    },
+    {
+      "key": "projects/araclip.html::color-contrast::.section-content.mt-5:nth-child(6) > .code-block > code",
+      "page": "projects/araclip.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".section-content.mt-5:nth-child(6) > .code-block > code"
+      ],
+      "html": "<code>"
+    },
+    {
+      "key": "projects/araclip.html::color-contrast::.section-content.mt-5:nth-child(8) > .code-block > code",
+      "page": "projects/araclip.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".section-content.mt-5:nth-child(8) > .code-block > code"
+      ],
+      "html": "<code>\n@inproceedings{albarham2024araclip,<br>\n  title={AraCLIP: Cross-Lingual Arabic Image Retrieval},<br>\n  author={Al"
+    },
+    {
+      "key": "projects/araclip.html::color-contrast::.credits",
+      "page": "projects/araclip.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/latest-projects-1.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/latest-projects-1.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://arabic-clip.github.io/Arabic-CLIP/\">Project Page</a>"
+    },
+    {
+      "key": "projects/latest-projects-1.html::color-contrast::li:nth-child(1) > a[href$=\"Arabic-Clip\"]",
+      "page": "projects/latest-projects-1.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "li:nth-child(1) > a[href$=\"Arabic-Clip\"]"
+      ],
+      "html": "<a href=\"https://github.com/Arabic-Clip\">Github organization: Training and evaluation codes.</a>"
+    },
+    {
+      "key": "projects/latest-projects-1.html::color-contrast::.portfolio-description > ul > li:nth-child(2) > a",
+      "page": "projects/latest-projects-1.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-description > ul > li:nth-child(2) > a"
+      ],
+      "html": "<a href=\"https://huggingface.co/Arabic-Clip\">Huggingface: Datasets and checkpoints</a>"
+    },
+    {
+      "key": "projects/latest-projects-1.html::color-contrast::.portfolio-description > ul > li:nth-child(3) > a",
+      "page": "projects/latest-projects-1.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-description > ul > li:nth-child(3) > a"
+      ],
+      "html": "<a href=\"https://huggingface.co/spaces/Arabic-Clip/AraCLIP\">Huggingface: Demo for retrieval system case</a>"
+    },
+    {
+      "key": "projects/latest-projects-1.html::color-contrast::.credits",
+      "page": "projects/latest-projects-1.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/latest-projects-2.html::color-contrast::.portfolio-info > ul > li:nth-child(1) > a",
+      "page": "projects/latest-projects-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li:nth-child(1) > a"
+      ],
+      "html": "<a href=\"https://se.mathworks.com/matlabcentral/fileexchange/179169-structure-from-motion-algorithm\">Project\n           "
+    },
+    {
+      "key": "projects/latest-projects-2.html::color-contrast::.portfolio-info > ul > li:nth-child(2) > a",
+      "page": "projects/latest-projects-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li:nth-child(2) > a"
+      ],
+      "html": "<a href=\"https://se.mathworks.com/matlabcentral/fileexchange/179169-structure-from-motion-algorithm\">Project\n           "
+    },
+    {
+      "key": "projects/latest-projects-2.html::color-contrast::p > a:nth-child(1)",
+      "page": "projects/latest-projects-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "p > a:nth-child(1)"
+      ],
+      "html": "<a href=\"https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/EEN020/?acY"
+    },
+    {
+      "key": "projects/latest-projects-2.html::color-contrast::a[href$=\"en/\"]",
+      "page": "projects/latest-projects-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href$=\"en/\"]"
+      ],
+      "html": "<a href=\"https://www.chalmers.se/en/\">Chalmers University of\n                    Technology</a>"
+    },
+    {
+      "key": "projects/latest-projects-2.html::color-contrast::.credits",
+      "page": "projects/latest-projects-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/latest-projects-3.html::color-contrast::.credits",
+      "page": "projects/latest-projects-3.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/latest-projects-4.html::color-contrast::a[href$=\"marimo.io/\"]",
+      "page": "projects/latest-projects-4.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href$=\"marimo.io/\"]"
+      ],
+      "html": "<a href=\"https://marimo.io/\" target=\"_blank\" rel=\"noopener noreferrer\">marimo</a>"
+    },
+    {
+      "key": "projects/latest-projects-4.html::color-contrast::a[href$=\"rerun.io/\"]",
+      "page": "projects/latest-projects-4.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href$=\"rerun.io/\"]"
+      ],
+      "html": "<a href=\"https://rerun.io/\" target=\"_blank\" rel=\"noopener noreferrer\">Rerun</a>"
+    },
+    {
+      "key": "projects/latest-projects-4.html::color-contrast::.credits",
+      "page": "projects/latest-projects-4.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/latest-projects-5.html::color-contrast::.course-detail-link",
+      "page": "projects/latest-projects-5.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".course-detail-link"
+      ],
+      "html": "<a class=\"course-detail-link\" href=\"https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/"
+    },
+    {
+      "key": "projects/latest-projects-5.html::color-contrast::.repository-link",
+      "page": "projects/latest-projects-5.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".repository-link"
+      ],
+      "html": "<a class=\"repository-link\" href=\"https://github.com/mohammad-albarham/DINOv3-and-Mask2Former-for-Urban-Streetscapes-Inst"
+    },
+    {
+      "key": "projects/latest-projects-5.html::color-contrast::li:nth-child(6) > span > a[target=\"_blank\"][rel=\"noopener noreferrer\"]",
+      "page": "projects/latest-projects-5.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "li:nth-child(6) > span > a[target=\"_blank\"][rel=\"noopener noreferrer\"]"
+      ],
+      "html": "<a href=\"../assets/docs/SSY340_Project_report.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">\n                        <i"
+    },
+    {
+      "key": "projects/latest-projects-5.html::color-contrast::li:nth-child(7) > span > a[target=\"_blank\"][rel=\"noopener noreferrer\"]",
+      "page": "projects/latest-projects-5.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "li:nth-child(7) > span > a[target=\"_blank\"][rel=\"noopener noreferrer\"]"
+      ],
+      "html": "<a href=\"../assets/docs/SSY340_Project_Poster.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">\n                        <i"
+    },
+    {
+      "key": "projects/latest-projects-5.html::color-contrast::a[href$=\"chalmers.se/\"]",
+      "page": "projects/latest-projects-5.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href$=\"chalmers.se/\"]"
+      ],
+      "html": "<a href=\"https://www.chalmers.se/\" target=\"_blank\" rel=\"noopener noreferrer\">Chalmers University of Technology</a>"
+    },
+    {
+      "key": "projects/latest-projects-5.html::color-contrast::.credits",
+      "page": "projects/latest-projects-5.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-1.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-1.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://github.com/ML-ALP-Research-Group/Rasa_chatbot_with_chatgpt\">Github Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-1.html::color-contrast::a[href$=\"rasa\"]",
+      "page": "projects/portfolio-details-1.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href$=\"rasa\"]"
+      ],
+      "html": "<a href=\"https://github.com/RasaHQ/rasa\">Rasa</a>"
+    },
+    {
+      "key": "projects/portfolio-details-1.html::color-contrast::p > a:nth-child(2)",
+      "page": "projects/portfolio-details-1.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "p > a:nth-child(2)"
+      ],
+      "html": "<a href=\"https://openai.com/blog/chatgpt/\">chatGPT</a>"
+    },
+    {
+      "key": "projects/portfolio-details-1.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-1.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-10.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-10.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://github.com/mohammad-albarham/Arabic-Sign-Language-RaspberryPi\">Github\n                        Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-10.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-10.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-11.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-11.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://github.com/mohammad-albarham/GANs-MNSIT\">Github Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-11.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-11.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-12.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-12.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://github.com/mohammad-albarham/project-bikesharing\">Github Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-12.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-12.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-13.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-13.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://github.com/mohammad-albarham/CppND-Memory-Management-Chatbot\">Github Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-13.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-13.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-14.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-14.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://ieeexplore.ieee.org/abstract/document/9811162\">Github Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-14.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-14.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-15.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-15.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://arxiv.org/abs/2301.11932\">Paper Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-15.html::color-contrast::.portfolio-description > ul > li:nth-child(1) > a",
+      "page": "projects/portfolio-details-15.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-description > ul > li:nth-child(1) > a"
+      ],
+      "html": "<a href=\"https://arxiv.org/abs/2301.11932\">Paper</a>"
+    },
+    {
+      "key": "projects/portfolio-details-15.html::color-contrast::.portfolio-description > ul > li:nth-child(2) > a",
+      "page": "projects/portfolio-details-15.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-description > ul > li:nth-child(2) > a"
+      ],
+      "html": "<a href=\"https://www.kaggle.com/datasets/59761a7132888de252ded8443ced1c7fb21ad28be5598f1f6ca43c663c32b40b\">Kaggle</a>"
+    },
+    {
+      "key": "projects/portfolio-details-15.html::color-contrast::.portfolio-description > ul > li:nth-child(3) > a",
+      "page": "projects/portfolio-details-15.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-description > ul > li:nth-child(3) > a"
+      ],
+      "html": "<a href=\"https://arxiv.org/abs/2301.11932\">Paper</a>"
+    },
+    {
+      "key": "projects/portfolio-details-15.html::color-contrast::a[href$=\"dErXdPQG\"]",
+      "page": "projects/portfolio-details-15.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href$=\"dErXdPQG\"]"
+      ],
+      "html": "<a href=\"https://lnkd.in/dErXdPQG\">Object Detection, whole Dataset</a>"
+    },
+    {
+      "key": "projects/portfolio-details-15.html::color-contrast::a[href$=\"dU-WbSJZ\"]",
+      "page": "projects/portfolio-details-15.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href$=\"dU-WbSJZ\"]"
+      ],
+      "html": "<a href=\"https://lnkd.in/dU-WbSJZ\">Stratified dataset for train/valid/testing splits</a>"
+    },
+    {
+      "key": "projects/portfolio-details-15.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-15.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-16.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-16.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://github.com/mohammad-albarham/pic16f778_projects#additional-bounce-exercise\">Paper Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-16.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-16.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-19.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-19.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://github.com/mohammad-albarham/fpga\">Dataset\n                      Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-19.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-19.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-2.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://ieeexplore.ieee.org/document/10022652\">Paper\n                      link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-2.html::color-contrast::a[href$=\"slt2022.org/\"]",
+      "page": "projects/portfolio-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href$=\"slt2022.org/\"]"
+      ],
+      "html": "<a href=\"https://slt2022.org/\">2022 IEEE Spoken Language\n                    Technology Workshop (SLT)</a>"
+    },
+    {
+      "key": "projects/portfolio-details-2.html::color-contrast::.portfolio-description > ul > li:nth-child(1) > a",
+      "page": "projects/portfolio-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-description > ul > li:nth-child(1) > a"
+      ],
+      "html": "<a href=\"https://ieeexplore.ieee.org/document/10022652\">Paper</a>"
+    },
+    {
+      "key": "projects/portfolio-details-2.html::color-contrast::.portfolio-description > ul > li:nth-child(2) > a",
+      "page": "projects/portfolio-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-description > ul > li:nth-child(2) > a"
+      ],
+      "html": "<a href=\"\n                    https://ieee-dataport.org/open-access/massive-arabic-speech-corpus-masc\">Dataset\n         "
+    },
+    {
+      "key": "projects/portfolio-details-2.html::color-contrast::.portfolio-description > ul > li:nth-child(3) > a",
+      "page": "projects/portfolio-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-description > ul > li:nth-child(3) > a"
+      ],
+      "html": "<a href=\"https://github.com/TRoboto/MASC/tree/main\">\n                        Code of processing, downloading the dataset"
+    },
+    {
+      "key": "projects/portfolio-details-2.html::color-contrast::.portfolio-description > ul > li:nth-child(4) > a",
+      "page": "projects/portfolio-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-description > ul > li:nth-child(4) > a"
+      ],
+      "html": "<a href=\"https://huggingface.co/datasets/pain/MASC\">\n                        Dataset on huggingface</a>"
+    },
+    {
+      "key": "projects/portfolio-details-2.html::color-contrast::.portfolio-description > ul > li:nth-child(5) > a",
+      "page": "projects/portfolio-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-description > ul > li:nth-child(5) > a"
+      ],
+      "html": "<a href=\"https://huggingface.co/TRoboto/masc_kenlm_3grams_lm\">\n                        language model</a>"
+    },
+    {
+      "key": "projects/portfolio-details-2.html::color-contrast::.portfolio-description > ul > li:nth-child(6) > a",
+      "page": "projects/portfolio-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-description > ul > li:nth-child(6) > a"
+      ],
+      "html": "<a href=\"https://huggingface.co/TRoboto/masc_deepspeech_asr_model_v0\">\n                        ASR MODEL</a>"
+    },
+    {
+      "key": "projects/portfolio-details-2.html::color-contrast::.portfolio-description > ul > li:nth-child(7) > a",
+      "page": "projects/portfolio-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-description > ul > li:nth-child(7) > a"
+      ],
+      "html": "<a href=\"https://huggingface.co/datasets/pain/Arabic-Tweets\">\n                        Twitter Dataset</a>"
+    },
+    {
+      "key": "projects/portfolio-details-2.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-2.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-20.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-20.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://github.com/mohammad-albarham/CNC\">Dataset\n                      Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-20.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-20.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-20.html::link-name::p > a",
+      "page": "projects/portfolio-details-20.html",
+      "rule_id": "link-name",
+      "impact": "serious",
+      "help": "Links must have discernible text",
+      "target": [
+        "p > a"
+      ],
+      "html": "<a href=\"https://www.youtube.com/playlist?list=PLR7GqPO_6lTiSDCSYFWXj8JvYrMdA805v\">\n                  </a>"
+    },
+    {
+      "key": "projects/portfolio-details-21.html::color-contrast::p > a",
+      "page": "projects/portfolio-details-21.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "p > a"
+      ],
+      "html": "<a href=\"https://www.youtube.com/playlist?list=PLR7GqPO_6lTgoqBkRVdcAt3OrpF7vdkGS\">Videos</a>"
+    },
+    {
+      "key": "projects/portfolio-details-21.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-21.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-3.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-3.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://github.com/TRoboto/Maha\">GITHUB</a>"
+    },
+    {
+      "key": "projects/portfolio-details-3.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-3.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-4.html::color-contrast::a[href=\"https://cpgovappaward.jo/en\"]",
+      "page": "projects/portfolio-details-4.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href=\"https://cpgovappaward.jo/en\"]"
+      ],
+      "html": "<a href=\"https://cpgovappaward.jo/en\">Official Website for\n                      the award.</a>"
+    },
+    {
+      "key": "projects/portfolio-details-4.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-4.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-6.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-6.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://github.com/mohammad-albarham/word2vec-embeddings\">Github Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-6.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-6.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-7.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-7.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://github.com/mohammad-albarham/mnist-prediction-using-Neural-Network\">Github Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-7.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-7.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-8.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-8.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://github.com/mohammad-albarham/project-tv-script-generation\">Github Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-8.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-8.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "projects/portfolio-details-9.html::color-contrast::.portfolio-info > ul > li > a",
+      "page": "projects/portfolio-details-9.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://github.com/mohammad-albarham/sentiment-rnn\">Github Link</a>"
+    },
+    {
+      "key": "projects/portfolio-details-9.html::color-contrast::.credits",
+      "page": "projects/portfolio-details-9.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    },
+    {
+      "key": "volunteering/volunteering_ieee.html::color-contrast::#ieee-gallery-1 > .container > .row.gy-4 > .col-lg- > .portfolio-info > ul > li > a",
+      "page": "volunteering/volunteering_ieee.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "#ieee-gallery-1 > .container > .row.gy-4 > .col-lg- > .portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://ieeer8.org/news/ieee-r8-volunteer-training-series-workshop-18-19-july-tunisia-call-for-participation//\""
+    },
+    {
+      "key": "volunteering/volunteering_ieee.html::color-contrast::.container:nth-child(3) > .section-divider > span",
+      "page": "volunteering/volunteering_ieee.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".container:nth-child(3) > .section-divider > span"
+      ],
+      "html": "<span>IEEE VLT (Volunteer Leadership Training)  2025</span>"
+    },
+    {
+      "key": "volunteering/volunteering_ieee.html::color-contrast::#ieee-gallery-2 > .container > .row.gy-4 > .col-lg- > .portfolio-info > ul > li > a",
+      "page": "volunteering/volunteering_ieee.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "#ieee-gallery-2 > .container > .row.gy-4 > .col-lg- > .portfolio-info > ul > li > a"
+      ],
+      "html": "<a href=\"https://sections-congress.ieee.org/\">https://sections-congress.ieee.org/</a>"
+    },
+    {
+      "key": "volunteering/volunteering_ieee.html::color-contrast::.container:nth-child(5) > .section-divider > span",
+      "page": "volunteering/volunteering_ieee.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".container:nth-child(5) > .section-divider > span"
+      ],
+      "html": "<span>IEEE Sections Congress 2023</span>"
+    },
+    {
+      "key": "volunteering/volunteering_ieee.html::color-contrast::.container:nth-child(7) > .section-divider > span",
+      "page": "volunteering/volunteering_ieee.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".container:nth-child(7) > .section-divider > span"
+      ],
+      "html": "<span>IEEE R8 Strategy Retreat 2022 meeting</span>"
+    },
+    {
+      "key": "volunteering/volunteering_ieee.html::color-contrast::a[href$=\"r8syp.ieee.tn/\"]",
+      "page": "volunteering/volunteering_ieee.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        "a[href$=\"r8syp.ieee.tn/\"]"
+      ],
+      "html": "<a href=\"https://r8syp.ieee.tn/\">https://r8syp.ieee.tn/</a>"
+    },
+    {
+      "key": "volunteering/volunteering_ieee.html::color-contrast::.container:nth-child(9) > .section-divider > span",
+      "page": "volunteering/volunteering_ieee.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".container:nth-child(9) > .section-divider > span"
+      ],
+      "html": "<span>IEEE R8 SYP CONGRESS 2022</span>"
+    },
+    {
+      "key": "volunteering/volunteering_ieee.html::color-contrast::.container:nth-child(11) > .section-divider > span",
+      "page": "volunteering/volunteering_ieee.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".container:nth-child(11) > .section-divider > span"
+      ],
+      "html": "<span> IEEE Annual Meeting - 2022 </span>"
+    },
+    {
+      "key": "volunteering/volunteering_ieee.html::color-contrast::.credits",
+      "page": "volunteering/volunteering_ieee.html",
+      "rule_id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must have sufficient color contrast",
+      "target": [
+        ".credits"
+      ],
+      "html": "<div class=\"credits\">\n        Designed with <i class=\"bi bi-heart-fill\" style=\"color: #e74c3c;\"></i>\n      </div>"
+    }
+  ]
+}

@@ -12,7 +12,7 @@
      - Claude Code Opus 5 Medium
      - agy Gemini 3.8 Flash Medium
    - Must execute in **visible Orca tabs**.
-   - Concurrency limits: Maximum **2 concurrent writers per provider**.
+   - Concurrency limits: Maximum **2 concurrent agents per provider**.
    - Worktree isolation: Each writer agent must operate in its **own dedicated git worktree**.
    - **No hidden or built-in subagents** are permitted; all agents must be explicitly orchestrated and visible.
 

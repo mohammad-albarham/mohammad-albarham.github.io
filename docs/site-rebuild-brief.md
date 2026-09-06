@@ -4,7 +4,7 @@
 
 - **Orca CLI**: `/usr/local/bin/orca` (v1.4.197). Verified functional and healthy. No reinstallation or modification needed.
 - **Repository Worktree**: `/Users/pain/orca/workspaces/mohammad-albarham.github.io/website-foundation` on branch `mohammad-albarham/website-foundation`.
-- **Operating Model**: Defined in `AGENTS.md`. Codex strictly serves as orchestrator, coordinator, reviewer, and integrator. Implementation is assigned exclusively to Claude Code Opus 5 Medium and agy Gemini 3.8 Flash Medium in visible Orca tabs (max 2 concurrent writers per provider, each in dedicated worktrees).
+- **Operating Model**: Defined in `AGENTS.md`. Codex strictly serves as orchestrator, coordinator, reviewer, and integrator. Implementation is assigned exclusively to Claude Code Opus 5 Medium and agy Gemini 3.8 Flash Medium in visible Orca tabs (max 2 concurrent agents per provider, each in dedicated worktrees).
 
 ---
 
@@ -51,13 +51,16 @@ The existing website hosts authentic historical content across multiple structur
 - **References**:
   - Live site: `https://nico.dev`
   - Source repository: `https://github.com/nico-martin/nico.dev`
-- **Design Characteristics**:
-  - **Typography & Scale**: Crisp typography with high-contrast hierarchy, clear typographic rhythm, and strong focal points.
-  - **Color Palette**: Dark-mode primary aesthetic with rich neutrals and purposeful, vibrant accent colors for interactive states and badges.
-  - **Layout & Interaction**: Content-first grid layout, generous negative space, micro-interactions with subtle easing, and responsive adaptivity.
+- **Observed Design Characteristics**:
+  - **Background & Canvas**: Crisp WHITE background (`#ffffff`).
+  - **Typography**: `Nunito` for expressive headings, `Nunito Sans` for body copy and UI labels. High-readability `#15171c` dark neutral text.
+  - **Color Accents**: Primary vibrant `#00796b` teal accent color paired with purposeful yellow and pink highlights.
+  - **Hero & Identity**: Distinctive round portrait element with clean framing.
+  - **Navigation**: Tactile pill navigation bar / badges.
+  - **Card System & Shadows**: Black outlined rounded cards featuring pronounced hard offset shadows in teal, yellow, and pink.
 - **Licensing & Copyright Constraints**:
   - Personal portfolios, brand identities, and custom visual assets are proprietary to their creators.
-  - **Strict Policy**: `nico.dev` serves solely as architectural and visual inspiration for clean, fast developer presentation. All styling, layout templates, components, and copy must be original implementations built specifically for Mohammad Albarham. No assets or copyrighted code may be copied.
+  - **Strict Policy**: `nico.dev` serves solely as architectural and visual inspiration for clean, playful, fast developer presentation. All styling, layout templates, components, and copy must be original implementations built specifically for Mohammad Albarham. No assets or copyrighted code may be copied.
 
 ---
 

@@ -1,0 +1,634 @@
+/* ==========================================================================
+   Components — Mohammad Albarham
+   --------------------------------------------------------------------------
+   Requires tokens.css and base.css, in that order.
+
+   Every component is a single flat class prefixed `ds-`. Nesting is at most
+   one level deep so nothing here can out-specify a later override, and no
+   component sets its own colour literal — the section's [data-accent] scope
+   decides. See docs/design-system.md for a snippet per component.
+
+   THE HOUSE SIGNATURE
+   A card is an outlined rectangle displaced by a hard, unblurred shadow in
+   the section accent — a stereo disparity, not a drop shadow. Interaction
+   converges it: the displacement halves and the card steps toward its
+   shadow. That is the only motion in the system, and it only ever answers a
+   user's action.
+   ========================================================================== */
+
+/* ==========================================================================
+   Focus, restated
+   base.css installs the ring on a bare :focus-visible (0,1,0). Bootstrap ships
+   its own focus shadow on .nav-link, .btn, .form-control at (0,2,0) and wins.
+   These selectors restate the system ring at a specificity that holds.
+   ========================================================================== */
+
+.ds-nav__list a:focus-visible,
+.ds-nav__brand:focus-visible,
+.ds-btn:focus-visible,
+.ds-icon-btn:focus-visible,
+.ds-tag:focus-visible,
+.ds-link:focus-visible,
+.ds-link-row a:focus-visible,
+.ds-footer a:focus-visible {
+  outline: none;
+  box-shadow: var(--ds-focus-ring);
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.ds-container {
+  width: 100%;
+  max-width: var(--ds-container);
+  margin-inline: auto;
+  padding-inline: var(--ds-gutter);
+}
+
+.ds-container--narrow { max-width: var(--ds-container-narrow); }
+
+.ds-section {
+  padding-block: var(--ds-space-8);
+}
+
+.ds-section--alt { background-color: var(--ds-paper-alt); }
+
+@media (min-width: 768px) {
+  .ds-section { padding-block: var(--ds-space-9); }
+}
+
+.ds-stack > * + * { margin-top: var(--ds-space-5); }
+
+.ds-prose { max-width: var(--ds-measure); }
+
+/* ==========================================================================
+   Section header
+   --------------------------------------------------------------------------
+   A heading, a rule that is the accent made literal, and one plain sentence
+   saying what the section holds. Optionally a count, but only where the
+   number is itself a fact worth stating.
+   ========================================================================== */
+
+.ds-section-header {
+  margin-bottom: var(--ds-space-7);
+}
+
+.ds-section-header h2,
+.ds-section-header .ds-section-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ds-space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--ds-space-3);
+  font-size: var(--ds-text-2xl);
+}
+
+/* The rule is short and thick: it reads as a measurement mark, and it is the
+   only place the raw accent appears at full strength in a quiet section. */
+.ds-section-header::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 5px;
+  margin-top: var(--ds-space-4);
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--ds-accent);
+}
+
+.ds-section-header p,
+.ds-section-header .ds-section-lede {
+  margin: 0;
+  max-width: var(--ds-measure);
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-md);
+  line-height: var(--ds-leading-body);
+}
+
+.ds-section-count {
+  flex: none;
+  padding: var(--ds-space-1) var(--ds-space-3);
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--ds-paper);
+  color: var(--ds-ink);
+  font-family: var(--ds-font-body);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-semibold);
+  line-height: 1.4;
+}
+
+/* A quieter header for a group inside a section. */
+.ds-subhead {
+  margin-bottom: var(--ds-space-5);
+  padding-bottom: var(--ds-space-2);
+  border-bottom: var(--ds-border-solid) solid var(--ds-rule);
+  font-size: var(--ds-text-xl);
+}
+
+/* ==========================================================================
+   Card
+   --------------------------------------------------------------------------
+   The workhorse. Outline plus hard offset in the section accent.
+     .ds-card               static block of content
+     .ds-card--interactive  whole card responds to hover/focus-within
+     .ds-card--flush        no padding, for cards that hold their own layout
+     .ds-card--quiet        outline only, no displacement (use inside a card)
+   ========================================================================== */
+
+.ds-card {
+  position: relative;
+  padding: var(--ds-space-5);
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: var(--ds-radius-lg);
+  background-color: var(--ds-paper);
+  box-shadow: var(--ds-shadow-hard);
+}
+
+@media (min-width: 768px) {
+  .ds-card { padding: var(--ds-space-6); }
+}
+
+.ds-card--flush { padding: 0; }
+
+.ds-card--quiet {
+  box-shadow: none;
+  border-color: var(--ds-rule);
+}
+
+.ds-card--lg { box-shadow: var(--ds-shadow-hard-lg); }
+
+/* Convergence: the displacement halves and the card steps into it. */
+.ds-card--interactive {
+  transition: box-shadow var(--ds-duration) var(--ds-ease),
+              transform var(--ds-duration) var(--ds-ease);
+}
+
+.ds-card--interactive:hover,
+.ds-card--interactive:focus-within {
+  box-shadow: var(--ds-shadow-hard-sm);
+  transform: translate(3px, 3px);
+}
+
+.ds-card__title {
+  margin-bottom: var(--ds-space-2);
+  font-size: var(--ds-text-lg);
+}
+
+.ds-card__title a { text-decoration-color: var(--ds-accent); }
+
+.ds-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2) var(--ds-space-4);
+  margin-bottom: var(--ds-space-3);
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-sm);
+}
+
+.ds-card__body { color: var(--ds-ink); }
+
+.ds-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2) var(--ds-space-4);
+  margin-top: var(--ds-space-4);
+  padding-top: var(--ds-space-4);
+  border-top: var(--ds-border-hairline) solid var(--ds-rule);
+}
+
+/* ==========================================================================
+   Tag & badge
+   --------------------------------------------------------------------------
+     .ds-tag     a fact about the thing (a technology, a topic). Neutral.
+     .ds-badge   a status of the thing (current, featured, awarded). Accent.
+   Use a <ul class="ds-tag-list"> when tags are a set rather than prose.
+   ========================================================================== */
+
+.ds-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-1);
+  padding: 0.15em 0.7em;
+  border: var(--ds-border-hairline) solid var(--ds-rule);
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--ds-paper-alt);
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-medium);
+  line-height: 1.6;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+a.ds-tag:hover {
+  border-color: var(--ds-accent);
+  color: var(--ds-ink);
+}
+
+.ds-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-1);
+  padding: 0.15em 0.7em;
+  border: var(--ds-border-hairline) solid transparent;
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--ds-accent);
+  color: var(--ds-accent-on-fill);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-semibold);
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.ds-badge--outline {
+  border-color: var(--ds-accent);
+  background-color: transparent;
+  color: var(--ds-accent-ink);
+}
+
+.ds-badge--current {
+  background-color: var(--ds-positive-wash);
+  color: var(--ds-positive);
+}
+
+.ds-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
+  margin: 0 0 var(--ds-space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.ds-tag-list > li { margin: 0; }
+
+/* ==========================================================================
+   Button
+   --------------------------------------------------------------------------
+     .ds-btn            outlined, paper ground — the default
+     .ds-btn--primary   accent fill
+     .ds-btn--ghost     no outline until hover, for tertiary actions
+     .ds-btn--sm        compact
+   Buttons carry the same displacement as cards so the two read as one family.
+   Label them with the verb that happens; never append an arrow glyph.
+   ========================================================================== */
+
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2);
+  padding: var(--ds-space-3) var(--ds-space-5);
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--ds-paper);
+  color: var(--ds-ink);
+  font-family: var(--ds-font-body);
+  font-size: var(--ds-text-base);
+  font-weight: var(--ds-weight-semibold);
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: var(--ds-shadow-hard-sm);
+  transition: box-shadow var(--ds-duration) var(--ds-ease),
+              transform var(--ds-duration) var(--ds-ease),
+              background-color var(--ds-duration) var(--ds-ease);
+}
+
+.ds-btn:hover {
+  color: var(--ds-ink);
+  background-color: var(--ds-accent-wash);
+  box-shadow: 0 0 0 0 var(--ds-accent);
+  transform: translate(3px, 3px);
+}
+
+.ds-btn:active { transform: translate(3px, 3px) scale(0.99); }
+
+.ds-btn--primary {
+  background-color: var(--ds-accent);
+  color: var(--ds-accent-on-fill);
+  border-color: var(--ds-ink);
+}
+
+.ds-btn--primary:hover {
+  background-color: var(--ds-accent);
+  color: var(--ds-accent-on-fill);
+}
+
+.ds-btn--ghost {
+  border-color: transparent;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.ds-btn--ghost:hover {
+  border-color: var(--ds-ink);
+  background-color: var(--ds-accent-wash);
+  transform: none;
+}
+
+.ds-btn--sm {
+  padding: var(--ds-space-2) var(--ds-space-4);
+  font-size: var(--ds-text-sm);
+}
+
+.ds-btn[disabled],
+.ds-btn[aria-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.ds-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-3);
+}
+
+/* ==========================================================================
+   Pill navigation
+   --------------------------------------------------------------------------
+   One outlined pill floating over the page, sticky at the top. The active
+   item is filled with the accent of the section it points at, so the nav
+   colour tells you where on the page you are. Scrolls horizontally rather
+   than wrapping, so the bar keeps a single, predictable height.
+   ========================================================================== */
+
+.ds-nav {
+  position: sticky;
+  top: var(--ds-space-3);
+  z-index: var(--ds-z-nav);
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-3);
+  /* Stays inset from the viewport edge on narrow screens and centred at the
+     content width on wide ones. */
+  max-width: min(calc(var(--ds-container) - var(--ds-space-6)),
+                 calc(100% - var(--ds-gutter) * 2));
+  margin: var(--ds-space-3) auto var(--ds-space-5);
+  padding: var(--ds-space-2) var(--ds-space-3);
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--ds-paper);
+  box-shadow: var(--ds-shadow-hard-sm);
+}
+
+.ds-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  flex: none;
+  padding-inline: var(--ds-space-2);
+  color: var(--ds-ink);
+  font-family: var(--ds-font-display);
+  font-weight: var(--ds-weight-bold);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ds-nav__nav {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ds-nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* Horizontal scroll is the fallback if a label set ever outgrows the pill.
+     A scroll container clips both axes, so the list is padded by more than the
+     focus ring's radius (and pulled back by the same amount) to keep the ring
+     from being sliced off top and bottom. */
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-block: 6px;
+  margin-block: -6px;
+}
+
+.ds-nav__list::-webkit-scrollbar { display: none; }
+
+.ds-nav__list > li { margin: 0; flex: none; }
+
+.ds-nav__list a {
+  display: block;
+  padding: var(--ds-space-2) var(--ds-space-3);
+  border-radius: var(--ds-radius-pill);
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-medium);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--ds-duration-fast) var(--ds-ease),
+              color var(--ds-duration-fast) var(--ds-ease);
+}
+
+.ds-nav__list a:hover {
+  background-color: var(--ds-paper-alt);
+  color: var(--ds-ink);
+}
+
+/* main.js adds .active to the link whose section is in view. Each link
+   carries its own [data-accent], so the fill matches the destination. */
+.ds-nav__list a.active {
+  background-color: var(--ds-accent);
+  color: var(--ds-accent-on-fill);
+  font-weight: var(--ds-weight-semibold);
+}
+
+.ds-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-1);
+  flex: none;
+}
+
+/* A round icon-only control that belongs to the pill: theme toggle, social. */
+.ds-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  padding: 0;
+  border: var(--ds-border-hairline) solid transparent;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-md);
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color var(--ds-duration-fast) var(--ds-ease),
+              color var(--ds-duration-fast) var(--ds-ease);
+}
+
+.ds-icon-btn:hover {
+  background-color: var(--ds-accent-wash);
+  color: var(--ds-ink);
+}
+
+/* Ten section labels never fit beside the written name, so on the widths that
+   show the labels the name gives way and the portrait alone links home; the
+   page's own h1 states the name a few hundred pixels below. Where the labels
+   are collapsed behind the toggle there is room, so the name comes back. */
+.ds-nav__brand-name { display: none; }
+
+.ds-nav__toggle { display: none; }
+
+/* Ten labels plus the portrait need 1008px of pill; below that they would be
+   clipped or forced to scroll, so that is where the toggle takes over. */
+@media (max-width: 1199px) {
+  .ds-nav__brand-name { display: inline; }
+  .ds-nav__toggle { display: inline-flex; }
+
+  .ds-nav__nav {
+    order: 3;
+    flex: 1 0 100%;
+    overflow: hidden;
+    max-height: 0;
+    visibility: hidden;
+    transition: max-height var(--ds-duration) var(--ds-ease);
+  }
+
+  .ds-nav__list {
+    flex-wrap: wrap;
+    overflow: visible;
+    padding-top: var(--ds-space-3);
+  }
+
+  .ds-nav__list a { padding-inline: var(--ds-space-3); }
+
+  body.mobile-nav-active .ds-nav__nav {
+    max-height: 60vh;
+    overflow-y: auto;
+    visibility: visible;
+  }
+}
+
+@media (max-width: 1199px) {
+  .ds-nav {
+    flex-wrap: wrap;
+    border-radius: var(--ds-radius-lg);
+  }
+}
+
+/* ==========================================================================
+   Avatar / portrait
+   --------------------------------------------------------------------------
+   Circular, outlined, and displaced like everything else. --ds-avatar-size
+   is the one knob.
+   ========================================================================== */
+
+.ds-avatar {
+  --ds-avatar-size: 96px;
+  position: relative;
+  display: block;
+  width: var(--ds-avatar-size);
+  height: var(--ds-avatar-size);
+  flex: none;
+  border-radius: 50%;
+  background-color: var(--ds-paper-alt);
+}
+
+.ds-avatar img {
+  width: 100%;
+  height: 100%;
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--ds-shadow-hard-sm);
+}
+
+.ds-avatar--lg { --ds-avatar-size: 168px; }
+.ds-avatar--lg img { box-shadow: var(--ds-shadow-hard); }
+.ds-avatar--sm { --ds-avatar-size: 40px; }
+.ds-avatar--sm img { box-shadow: none; border-width: var(--ds-border-hairline); }
+
+/* ==========================================================================
+   Links
+   --------------------------------------------------------------------------
+     .ds-link          inline link, accent underline (base.css styles bare <a>)
+     .ds-link--plain   strips the underline; only for links inside a card
+                       whose whole surface is already the affordance
+     .ds-link-row      a row of small labelled links (repo, paper, demo)
+   ========================================================================== */
+
+.ds-link {
+  color: var(--ds-accent-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--ds-accent);
+  text-underline-offset: 0.18em;
+}
+
+.ds-link:hover {
+  color: var(--ds-ink);
+  text-decoration-thickness: 2px;
+}
+
+.ds-link--plain {
+  color: var(--ds-ink);
+  text-decoration: none;
+}
+
+.ds-link--plain:hover { text-decoration: underline; }
+
+.ds-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2) var(--ds-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-link-row > li { margin: 0; }
+
+.ds-link-row a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  color: var(--ds-accent-ink);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-semibold);
+  text-decoration: none;
+}
+
+.ds-link-row a:hover {
+  color: var(--ds-ink);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.ds-footer {
+  margin-top: var(--ds-space-8);
+  padding-block: var(--ds-space-7);
+  border-top: var(--ds-border-solid) solid var(--ds-ink);
+  background-color: var(--ds-paper-alt);
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-sm);
+}
+
+.ds-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-4);
+}
+
+.ds-footer p { margin: 0; }
+
+.ds-footer a { color: var(--ds-ink); }
+
+.ds-footer__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-1) var(--ds-space-5);
+}

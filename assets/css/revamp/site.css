@@ -1,0 +1,1022 @@
+/* ==========================================================================
+   Site layer — homepage integration
+   --------------------------------------------------------------------------
+   NOT part of the design system. This file exists only because the homepage
+   still ships the legacy stylesheet (assets/css/bundle.css) for the blocks
+   that JavaScript renders — the timeline, project and publication cards, the
+   language chart, the neural-network demo. Those renderers cannot be edited
+   in this phase, so instead of restyling each block by hand this file:
+
+     1. re-points the legacy design tokens at the new ones, which repaints
+        every JS-rendered block at once;
+     2. undoes the legacy page chrome (300px dark sidebar, full-bleed hero);
+     3. patches the handful of blocks the remap alone cannot reach.
+
+   Load order: tokens.css, base.css, components.css, site.css — last.
+   When a later phase drops bundle.css from a page, this file goes with it.
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Legacy token remap
+   Both legacy :root blocks and both legacy [data-theme="dark"] blocks are
+   overridden from here. The --ds-* values are already theme-aware, so one
+   remap covers light and dark.
+   ========================================================================== */
+
+:root,
+:root[data-theme="dark"] {
+  --primary-color:   var(--ds-accent);
+  --primary:         var(--ds-accent);
+  --primary-dark:    var(--ds-accent-ink);
+  --primary-light:   var(--ds-accent);
+  --primary-hover:   var(--ds-accent-ink);
+  --secondary-color: var(--ds-ink-muted);
+
+  --text-primary:    var(--ds-ink);
+  --text-secondary:  var(--ds-ink-muted);
+  --text-muted:      var(--ds-ink-muted);
+
+  --bg-primary:      var(--ds-paper);
+  --bg-secondary:    var(--ds-paper-alt);
+  --bg-accent:       var(--ds-paper-alt);
+  --bg-card:         var(--ds-paper);
+  --border-color:    var(--ds-rule);
+
+  --font-primary:    var(--ds-font-body);
+  --font-headings:   var(--ds-font-display);
+  --font-monospace:  var(--ds-font-body);
+
+  --spacing-xs:  var(--ds-space-2);
+  --spacing-sm:  var(--ds-space-4);
+  --spacing-md:  var(--ds-space-5);
+  --spacing-lg:  var(--ds-space-6);
+  --spacing-xl:  var(--ds-space-7);
+  --spacing-xxl: var(--ds-space-8);
+
+  --content-max-width:  var(--ds-container);
+  --content-wide-width: var(--ds-container);
+  --border-radius:      var(--ds-radius-md);
+  --border-radius-lg:   var(--ds-radius-lg);
+
+  --transition-fast:   var(--ds-duration-fast) var(--ds-ease);
+  --transition-normal: var(--ds-duration) var(--ds-ease);
+  --transition-slow:   var(--ds-duration) var(--ds-ease);
+
+  /* The legacy sheet uses --shadow-* both as a colour and as a whole shadow.
+     Neutralise both readings: the system's displacement replaces them. */
+  --shadow-sm: transparent;
+  --shadow-md: transparent;
+  --shadow-lg: transparent;
+}
+
+/* A var() nested in a custom property is substituted where it is DECLARED, so
+   the block above froze --primary-color at cobalt for the whole document. The
+   accent scopes redeclare it, which is what repaints the legacy timeline rule,
+   dot and links in the section's own colour. */
+[data-accent] {
+  --primary-color: var(--ds-accent);
+  --primary:       var(--ds-accent);
+  --primary-dark:  var(--ds-accent-ink);
+  --primary-light: var(--ds-accent);
+  --primary-hover: var(--ds-accent-ink);
+}
+
+/* ==========================================================================
+   2. Undo legacy page chrome
+   ========================================================================== */
+
+#main { margin-left: 0; }
+
+/* The legacy footer was pinned to the bottom of the 300px sidebar. */
+#footer {
+  position: static;
+  width: auto;
+  padding: var(--ds-space-7) 0;
+  background: var(--ds-paper-alt);
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-sm);
+}
+
+#footer .copyright,
+#footer .credits { text-align: left; padding: 0; color: inherit; font-size: inherit; }
+
+#hero {
+  width: auto;
+  height: auto;
+  background: none;
+}
+
+#hero::before,
+#hero::after { content: none; }
+
+section { overflow: visible; }
+
+/* The legacy sheet sets `#main section { padding: 60px 0 }` (and smaller at
+   every breakpoint below), which out-specifies .ds-section. It also has to be
+   at least the sticky pill's height: main.js scrolls anchors with
+   window.scrollTo(el.offsetTop), which ignores scroll-padding-top, so the
+   section's own top padding is what keeps a heading out from under the nav. */
+#main section.ds-section {
+  padding-top: var(--ds-space-9);
+  padding-bottom: var(--ds-space-8);
+}
+
+@media (min-width: 768px) {
+  #main section.ds-section { padding-bottom: var(--ds-space-9); }
+}
+
+#main section.ds-section--alt { background-color: var(--ds-paper-alt); }
+
+.section-bg { background-color: var(--ds-paper-alt); }
+
+/* particles.js still initialises against this node; it has nothing to
+   decorate now that the dark sidebar is gone. */
+#particles-js { display: none; }
+
+/* The legacy overlay used for cross-page fades must never intercept clicks
+   while it is idle. */
+.page-transition:not(.active) { pointer-events: none; }
+
+/* ==========================================================================
+   3. Hero
+   The demo is the hero. Its SVG is drawn in light strokes on a dark ground by
+   assets/js/neural-banner.js, so the card that holds it is a dark sensor
+   frame — the one loud object on an otherwise white page.
+
+   Every selector here is prefixed with #hero on purpose: the legacy sheet
+   styles `#hero h1`, `#hero p` and `#hero .hero-container` for a full-bleed
+   dark hero (white text, centred, 100vh, 300px sidebar inset). Bare classes
+   lose to those on specificity, so the name renders white-on-white.
+   ========================================================================== */
+
+#hero.hero {
+  padding: var(--ds-space-6) 0 var(--ds-space-8);
+  overflow: visible;
+}
+
+@media (min-width: 1200px) {
+  #hero.hero { padding-left: 0; }
+}
+
+#hero .hero-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--ds-space-7);
+  align-items: center;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+@media (min-width: 1024px) {
+  #hero .hero-container {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: var(--ds-space-8);
+  }
+}
+
+#hero .hero-intro {
+  min-width: 0;
+  max-width: none;
+  text-align: left;
+  animation: none;
+}
+
+#hero .hero-location {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  margin: 0 0 var(--ds-space-4);
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-base);
+  font-weight: var(--ds-weight-regular);
+}
+
+#hero .hero-name {
+  margin: 0 0 var(--ds-space-2);
+  font-family: var(--ds-font-display);
+  font-size: var(--ds-text-3xl);
+  font-weight: var(--ds-weight-bold);
+  line-height: var(--ds-leading-tight);
+  letter-spacing: var(--ds-tracking-tight);
+  color: var(--ds-ink);
+  text-shadow: none;
+  opacity: 1;
+  animation: none;
+}
+
+@media (min-width: 768px) {
+  #hero .hero-name { font-size: var(--ds-text-4xl); }
+}
+
+#hero .hero-role {
+  margin: 0 0 var(--ds-space-4);
+  color: var(--ds-cobalt);
+  font-family: var(--ds-font-display);
+  font-size: var(--ds-text-lg);
+  font-weight: var(--ds-weight-medium);
+}
+
+#hero .hero-tagline {
+  margin: 0 0 var(--ds-space-6);
+  max-width: var(--ds-measure);
+  color: var(--ds-ink);
+  font-size: var(--ds-text-md);
+  line-height: var(--ds-leading-body);
+}
+
+#hero .hero-social {
+  display: flex;
+  gap: var(--ds-space-1);
+  margin: var(--ds-space-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+#hero .hero-social > li { margin: 0; }
+
+#hero .hero-social .ds-icon-btn {
+  border-color: var(--ds-rule);
+  color: var(--ds-ink);
+}
+
+/* ---- The dark demo frame ------------------------------------------------- */
+#hero .hero-demo {
+  min-width: 0;
+  padding: var(--ds-space-5);
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: var(--ds-radius-lg);
+  background-color: #060d18;
+  box-shadow: 10px 10px 0 0 var(--ds-cobalt);
+  color: #e8eef7;
+  animation: none;
+}
+
+#hero .hero-demo-caption {
+  margin: 0 0 var(--ds-space-4);
+  max-width: none;
+  color: #9fb2cc;
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-regular);
+  letter-spacing: normal;
+  text-transform: none;
+  text-align: left;
+}
+
+#hero .hero-demo .nn-visual {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  aspect-ratio: 598 / 360;
+  margin-inline: 0;
+}
+
+#hero .hero-demo .nn-visual svg { display: block; width: 100%; height: 100%; }
+
+#hero .nn-digit-selector {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-3);
+  margin-bottom: var(--ds-space-4);
+}
+
+#hero .nn-selector-label {
+  color: #9fb2cc;
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-regular);
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+#hero .nn-digit-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
+}
+
+#hero .nn-digit-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--ds-radius-sm);
+  font-family: var(--ds-font-display);
+  font-size: var(--ds-text-base);
+}
+
+#hero .nn-digit-btn:focus-visible {
+  box-shadow: 0 0 0 2px #060d18, 0 0 0 5px #8fb0ff;
+}
+
+@media (max-width: 480px) {
+  #hero .nn-digit-btn { width: 30px; height: 30px; font-size: var(--ds-text-sm); }
+}
+
+/* ==========================================================================
+   4. Floating controls
+   ========================================================================== */
+
+.theme-toggle {
+  position: fixed;
+  /* The legacy rule pins this to top: 20px, which lands it on the nav's
+     hamburger. `bottom` alone cannot win against a specified `top`. */
+  top: auto;
+  left: auto;
+  right: var(--ds-space-4);
+  bottom: calc(var(--ds-space-4) + 56px);
+  z-index: var(--ds-z-float);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: 50%;
+  background-color: var(--ds-paper);
+  color: var(--ds-ink);
+  font-size: var(--ds-text-base);
+  box-shadow: var(--ds-shadow-soft);
+}
+
+.theme-toggle:hover { background-color: var(--ds-cobalt-wash); }
+
+.back-to-top {
+  position: fixed;
+  top: auto;
+  left: auto;
+  right: var(--ds-space-4);
+  bottom: var(--ds-space-4);
+  z-index: var(--ds-z-float);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: 50%;
+  background-color: var(--ds-ink);
+  color: var(--ds-paper);
+  font-size: var(--ds-text-lg);
+  text-decoration: none;
+  box-shadow: var(--ds-shadow-soft);
+}
+
+.back-to-top.active { display: inline-flex; }
+.back-to-top:hover { background-color: var(--ds-cobalt); color: #fff; }
+
+/* ==========================================================================
+   5. JS-rendered blocks the token remap cannot fully reach
+   ========================================================================== */
+
+/* ---- About --------------------------------------------------------------- */
+.about-summary {
+  max-width: var(--ds-measure);
+  font-size: var(--ds-text-md);
+  line-height: var(--ds-leading-body);
+}
+
+.about-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
+  margin: var(--ds-space-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-keywords > li {
+  margin: 0;
+  padding: 0.15em 0.7em;
+  border: var(--ds-border-hairline) solid var(--ds-rule);
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--ds-paper);
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-medium);
+}
+
+/* ---- Timeline (education, experience, volunteering) ---------------------- */
+.timeline { max-width: none; padding: 0; }
+
+.timeline-item {
+  margin-bottom: var(--ds-space-5);
+  /* The renderer ships every item at opacity 0 waiting on an observer.
+     Content must not depend on JavaScript to become visible. */
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.timeline-content {
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: var(--ds-radius-lg);
+  background-color: var(--ds-paper);
+  box-shadow: var(--ds-shadow-hard);
+  will-change: auto;
+}
+
+.timeline-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-space-4);
+  margin-bottom: var(--ds-space-4);
+}
+
+.timeline-logo {
+  width: 48px;
+  height: 48px;
+  flex: none;
+  border: var(--ds-border-hairline) solid var(--ds-rule);
+  border-radius: var(--ds-radius-sm);
+  background-color: var(--ds-paper);
+  object-fit: contain;
+}
+
+.timeline-title h4 { margin-bottom: var(--ds-space-1); font-size: var(--ds-text-lg); }
+
+.timeline-institution {
+  margin: 0;
+  color: var(--ds-ink-muted);
+  font-weight: var(--ds-weight-medium);
+}
+
+.timeline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2) var(--ds-space-4);
+  margin-bottom: var(--ds-space-4);
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-sm);
+}
+
+.timeline-meta > span { display: inline-flex; align-items: center; gap: var(--ds-space-2); }
+
+/* `background` (not background-color): the legacy rule paints a gradient, and
+   a background-color alone would leave the gradient sitting on top of it. */
+.timeline-current-badge {
+  padding: 0.1em 0.7em;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-positive-wash);
+  color: var(--ds-positive);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-semibold);
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
+  margin-top: var(--ds-space-4);
+}
+
+.timeline-tag,
+.tech-tag {
+  display: inline-block;
+  padding: 0.15em 0.7em;
+  border: var(--ds-border-hairline) solid var(--ds-rule);
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--ds-paper-alt);
+  color: var(--ds-ink-muted);
+  font-family: var(--ds-font-body);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-medium);
+}
+
+.timeline-details-link,
+.course-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  margin-top: var(--ds-space-4);
+  color: var(--ds-accent-ink);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-semibold);
+  text-decoration: none;
+}
+
+.timeline-details-link:hover,
+.course-project-link:hover { color: var(--ds-ink); text-decoration: underline; }
+
+.timeline-courses { margin-top: var(--ds-space-5); }
+
+.courses-label {
+  margin-bottom: var(--ds-space-2);
+  font-family: var(--ds-font-display);
+  font-weight: var(--ds-weight-semibold);
+}
+
+/* Inline, not inline-flex: these sit after a course name that already fills
+   the line on a phone, and a flex box cannot break across lines. */
+.course-links { display: inline; margin-left: var(--ds-space-2); }
+.course-links a { margin-right: var(--ds-space-3); }
+
+/* ---- Project & competition cards ----------------------------------------- */
+.projects-grid { max-width: none; }
+
+.project-card {
+  display: grid;
+  gap: var(--ds-space-5);
+  align-items: start;
+  margin-bottom: var(--ds-space-6);
+  padding: var(--ds-space-5);
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: var(--ds-radius-lg);
+  background-color: var(--ds-paper);
+  box-shadow: var(--ds-shadow-hard);
+  /* Same rule as the timeline: never hide content behind an observer. */
+  opacity: 1 !important;
+  transform: none;
+  transition: box-shadow var(--ds-duration) var(--ds-ease),
+              transform var(--ds-duration) var(--ds-ease);
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  box-shadow: var(--ds-shadow-hard-sm);
+  transform: translate(3px, 3px);
+}
+
+@media (min-width: 768px) {
+  .project-card {
+    grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+    padding: var(--ds-space-6);
+  }
+}
+
+/* The legacy box is a fixed 280x200 with its own grey ground, which leaves a
+   band under the picture once the card goes single-column. Let the image set
+   the height instead, on one ratio so a column of cards lines up. */
+.project-image {
+  width: auto;
+  height: auto;
+  min-width: 0;
+  background: none;
+  overflow: visible;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  border: var(--ds-border-hairline) solid var(--ds-rule);
+  border-radius: var(--ds-radius-md);
+  object-fit: cover;
+}
+
+.project-content { min-width: 0; }
+
+.project-title { margin-bottom: var(--ds-space-3); font-size: var(--ds-text-lg); }
+.project-title a { color: var(--ds-ink); text-decoration-color: var(--ds-accent); }
+.project-title a:hover { color: var(--ds-accent-ink); }
+
+.project-description { margin-bottom: var(--ds-space-4); color: var(--ds-ink); }
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
+  margin-bottom: var(--ds-space-4);
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2) var(--ds-space-4);
+  padding-top: var(--ds-space-4);
+  border-top: var(--ds-border-hairline) solid var(--ds-rule);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  color: var(--ds-accent-ink);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-semibold);
+  text-decoration: none;
+}
+
+.project-link:hover { color: var(--ds-ink); text-decoration: underline; }
+
+.competition-award {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  margin-bottom: var(--ds-space-3);
+  padding: 0.15em 0.8em;
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--ds-accent);
+  color: var(--ds-accent-on-fill);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-semibold);
+}
+
+.competition-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2) var(--ds-space-4);
+  margin-bottom: var(--ds-space-4);
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-sm);
+}
+
+.competition-meta > span { display: inline-flex; align-items: center; gap: var(--ds-space-2); }
+
+/* The legacy "Featured" ribbon is an all-caps pseudo-element pinned over the
+   card's top-right corner, where it lands on top of long titles. Replaced with
+   a badge that sits in the flow above the title. */
+.project-card.featured {
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  background: var(--ds-paper);
+}
+
+.project-card.featured::before {
+  content: "Featured";
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-bottom: calc(var(--ds-space-5) * -1);
+  padding: 0.15em 0.8em;
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--ds-accent);
+  color: var(--ds-accent-on-fill);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-semibold);
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* ---- Project filter bar --------------------------------------------------- */
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
+  margin-bottom: var(--ds-space-4);
+}
+
+.project-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  padding: var(--ds-space-2) var(--ds-space-4);
+  border: var(--ds-border-hairline) solid var(--ds-rule);
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--ds-paper);
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-medium);
+}
+
+.project-filter:hover { border-color: var(--ds-ink); color: var(--ds-ink); }
+
+.project-filter.active {
+  border-color: var(--ds-ink);
+  background-color: var(--ds-accent);
+  color: var(--ds-accent-on-fill);
+  font-weight: var(--ds-weight-semibold);
+}
+
+.filter-count { opacity: 0.75; font-variant-numeric: tabular-nums; }
+
+.project-filter-status {
+  min-height: 1.5em;
+  margin-bottom: var(--ds-space-5);
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-sm);
+}
+
+/* ---- Publications --------------------------------------------------------- */
+/* The legacy sheet tints this block cream and re-colours the card edge; the
+   accent already says "these are the featured ones". */
+.featured-publications {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  margin-bottom: var(--ds-space-7);
+}
+
+.featured-publications .publication-card { border-left-color: var(--ds-ink); }
+
+.section-subtitle {
+  margin-bottom: var(--ds-space-5);
+  padding-bottom: var(--ds-space-2);
+  border-bottom: var(--ds-border-solid) solid var(--ds-rule);
+  font-family: var(--ds-font-display);
+  font-size: var(--ds-text-xl);
+}
+
+.publications-filters {
+  margin-bottom: var(--ds-space-6);
+  padding: var(--ds-space-4);
+  border: var(--ds-border-hairline) solid var(--ds-rule);
+  border-radius: var(--ds-radius-lg);
+  background-color: var(--ds-paper);
+}
+
+.publications-list {
+  display: grid;
+  gap: var(--ds-space-5);
+  margin-bottom: var(--ds-space-6);
+}
+
+.year-header {
+  margin-bottom: var(--ds-space-4);
+  padding-bottom: var(--ds-space-2);
+  border-bottom: var(--ds-border-solid) solid var(--ds-rule);
+  font-size: var(--ds-text-xl);
+}
+
+.publication-card {
+  padding: var(--ds-space-5);
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-left: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: var(--ds-radius-lg);
+  background-color: var(--ds-paper);
+  box-shadow: var(--ds-shadow-hard);
+  transition: box-shadow var(--ds-duration) var(--ds-ease),
+              transform var(--ds-duration) var(--ds-ease);
+}
+
+.publication-card:hover,
+.publication-card:focus-within {
+  box-shadow: var(--ds-shadow-hard-sm);
+  transform: translate(3px, 3px);
+}
+
+.pub-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-2) var(--ds-space-3);
+  margin-bottom: var(--ds-space-3);
+}
+
+.pub-year {
+  padding: 0.1em 0.7em;
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--ds-accent);
+  color: var(--ds-accent-on-fill);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-venue {
+  color: var(--ds-ink-muted);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-medium);
+}
+
+.pub-title { margin-bottom: var(--ds-space-2); font-size: var(--ds-text-lg); }
+.pub-title a { color: var(--ds-ink); text-decoration-color: var(--ds-accent); }
+.pub-title a:hover { color: var(--ds-accent-ink); }
+
+.pub-authors { margin-bottom: var(--ds-space-1); color: var(--ds-ink); }
+
+/* The author list marks Mohammad with <strong>; the legacy sheet paints that
+   #149ddd, which is 2.6:1 on white. Weight alone carries it. */
+.pub-authors strong { color: var(--ds-ink); font-weight: var(--ds-weight-semibold); }
+.pub-venue-full { margin-bottom: var(--ds-space-4); color: var(--ds-ink-muted); font-size: var(--ds-text-sm); }
+
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
+  padding-top: var(--ds-space-4);
+  border-top: var(--ds-border-hairline) solid var(--ds-rule);
+}
+
+.pub-count { color: var(--ds-ink-muted); font-size: var(--ds-text-sm); }
+
+/* Bootstrap gives each publication link its own outline colour. Collapse them
+   into one quiet family so the card's own accent stays the only colour. */
+.pub-links .btn,
+.pub-links .btn:hover {
+  border: var(--ds-border-hairline) solid var(--ds-rule);
+  background-color: var(--ds-paper);
+  color: var(--ds-ink);
+  font-size: var(--ds-text-sm);
+}
+
+.pub-links .btn:hover { border-color: var(--ds-ink); background-color: var(--ds-accent-wash); }
+
+.publication-card .badge {
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--ds-accent) !important;
+  color: var(--ds-accent-on-fill) !important;
+  font-weight: var(--ds-weight-semibold);
+}
+
+/* ---- Language chart ------------------------------------------------------- */
+.lang-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2) var(--ds-space-5);
+  padding: 0;
+  list-style: none;
+}
+
+.lang-chart-caption { color: var(--ds-ink-muted); font-size: var(--ds-text-sm); }
+
+/* ---- Travel --------------------------------------------------------------- */
+#map {
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: var(--ds-radius-lg);
+  background-color: var(--ds-paper-alt);
+  box-shadow: var(--ds-shadow-hard);
+}
+
+#country-flags { font-family: var(--ds-font-body) !important; }
+#country-flags td { border-bottom: var(--ds-border-hairline) solid var(--ds-rule); }
+
+/* ---- Contact form --------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  gap: var(--ds-space-6);
+}
+
+@media (min-width: 1024px) {
+  .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); align-items: start; }
+}
+
+.contact-facts { display: grid; gap: var(--ds-space-4); }
+
+.contact-fact {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-space-4);
+  padding: var(--ds-space-4);
+  border: var(--ds-border-hairline) solid var(--ds-rule);
+  border-radius: var(--ds-radius-md);
+  background-color: var(--ds-paper);
+}
+
+.contact-fact__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 50%;
+  background-color: var(--ds-accent-wash);
+  color: var(--ds-accent-ink);
+  font-size: var(--ds-text-md);
+}
+
+.contact-fact h3 { margin-bottom: var(--ds-space-1); font-size: var(--ds-text-base); }
+.contact-fact p { margin: 0; color: var(--ds-ink-muted); overflow-wrap: anywhere; }
+
+.contact-form { display: grid; gap: var(--ds-space-4); }
+
+.form-row { display: grid; gap: var(--ds-space-4); }
+
+@media (min-width: 560px) {
+  .form-row { grid-template-columns: 1fr 1fr; }
+}
+
+.form-field { display: grid; gap: var(--ds-space-2); }
+
+.form-field label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-semibold);
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: var(--ds-space-3) var(--ds-space-4);
+  border: var(--ds-border-solid) solid var(--ds-rule);
+  border-radius: var(--ds-radius-md);
+  background-color: var(--ds-paper);
+  color: var(--ds-ink);
+  font-size: var(--ds-text-base);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: var(--ds-ink-muted); opacity: 0.75; }
+
+.form-field input:focus-visible,
+.form-field textarea:focus-visible {
+  border-color: var(--ds-accent);
+  border-radius: var(--ds-radius-md);
+}
+
+.field-error {
+  color: var(--ds-rose);
+  font-size: var(--ds-text-sm);
+  font-weight: var(--ds-weight-medium);
+}
+
+/* The legacy .submit-btn paints a cyan gradient and its own geometry; the
+   button already carries .ds-btn--primary, so strip the legacy skin. */
+.contact-form .submit-btn {
+  justify-self: start;
+  align-self: start;
+  min-width: 0;
+  padding: var(--ds-space-3) var(--ds-space-5);
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-accent);
+  color: var(--ds-accent-on-fill);
+  font-size: var(--ds-text-base);
+  overflow: visible;
+}
+
+.contact-form .submit-btn:hover { background: var(--ds-accent); }
+
+.submit-btn .btn-loading { display: none; }
+.submit-btn.loading .btn-text { display: none; }
+.submit-btn.loading .btn-loading { display: inline-flex; align-items: center; gap: var(--ds-space-2); }
+
+.form-field.has-error input,
+.form-field.has-error textarea { border-color: var(--ds-rose); }
+
+#messageContainer:not(:empty) {
+  padding: var(--ds-space-4);
+  border: var(--ds-border-hairline) solid var(--ds-rule);
+  border-radius: var(--ds-radius-md);
+  background-color: var(--ds-paper-alt);
+}
+
+.contact-map {
+  overflow: hidden;
+  border: var(--ds-border-solid) solid var(--ds-ink);
+  border-radius: var(--ds-radius-lg);
+  box-shadow: var(--ds-shadow-hard);
+}
+
+.contact-map iframe { display: block; border: 0; }
+
+/* Same story for the JS-rendered controls: Bootstrap's focus shadow and the
+   legacy sheet both out-specify the bare :focus-visible in base.css. */
+.project-filter:focus-visible,
+.project-link:focus-visible,
+.pub-links .btn:focus-visible,
+.pub-title a:focus-visible,
+.timeline-details-link:focus-visible,
+.course-project-link:focus-visible,
+.nn-digit-btn:focus-visible,
+.theme-toggle:focus-visible,
+.back-to-top:focus-visible,
+.contact-form .submit-btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible,
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--ds-focus-ring);
+}
+
+/* ==========================================================================
+   6. Bootstrap trims
+   Bootstrap ships for the publication filter controls only. Keep its form
+   widgets from reintroducing another visual language.
+   ========================================================================== */
+
+.form-control,
+.form-select {
+  border: var(--ds-border-solid) solid var(--ds-rule);
+  border-radius: var(--ds-radius-md);
+  background-color: var(--ds-paper);
+  color: var(--ds-ink);
+  font-family: var(--ds-font-body);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--ds-accent);
+  box-shadow: none;
+}
+
+.input-group-text {
+  border: var(--ds-border-solid) solid var(--ds-rule);
+  border-right: 0;
+  background-color: var(--ds-paper-alt);
+  color: var(--ds-ink-muted);
+}
+
+.btn {
+  border-radius: var(--ds-radius-pill);
+  font-family: var(--ds-font-body);
+  font-weight: var(--ds-weight-semibold);
+}
+
+.btn-outline-secondary {
+  border-color: var(--ds-ink);
+  color: var(--ds-ink);
+}
+
+.btn-outline-secondary:hover {
+  border-color: var(--ds-ink);
+  background-color: var(--ds-accent-wash);
+  color: var(--ds-ink);
+}

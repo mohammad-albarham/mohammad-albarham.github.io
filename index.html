@@ -14,7 +14,7 @@
   <meta name="author" content="Mohammad Albarham">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://mohammad-albarham.github.io/">
-  <meta name="theme-color" content="#0563bb">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -71,9 +71,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Google Fonts - Optimized -->
+  <!-- Google Fonts: Space Grotesk (display) + IBM Plex Sans (body) -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Academicons -->
@@ -83,10 +83,14 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- jVectorMap for travel -->
-  <!-- Main CSS Bundle -->
+  <!-- Legacy CSS: still styles the blocks that JavaScript renders -->
   <link href="assets/css/bundle.css" rel="stylesheet">
 
+  <!-- Design system (loads last; see docs/design-system.md) -->
+  <link href="assets/css/revamp/tokens.css" rel="stylesheet">
+  <link href="assets/css/revamp/base.css" rel="stylesheet">
+  <link href="assets/css/revamp/components.css" rel="stylesheet">
+  <link href="assets/css/revamp/site.css" rel="stylesheet">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJHNQN2HWX"></script>
@@ -96,64 +100,9 @@
     gtag('js', new Date());
     gtag('config', 'G-VJHNQN2HWX');
   </script>
-
-  <!-- Critical CSS for above-the-fold content -->
-  <style>
-    /* Inline critical CSS for faster initial render */
-    body {
-      font-family: "Open Sans", sans-serif;
-      color: #272829;
-      background: #fff;
-    }
-    
-    #header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: 300px;
-      transition: all ease-in-out 0.5s;
-      z-index: 9997;
-      transition: all 0.5s;
-      padding: 0 15px;
-      background: #040b14;
-      overflow-y: auto;
-    }
-    
-    .profile img {
-      margin: 15px auto;
-      display: block;
-      width: 120px;
-      border: 8px solid #2c2f3f;
-      border-radius: 50%;
-    }
-
-    /* Loading state */
-    .loading-skeleton {
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: loading 1.5s infinite;
-    }
-
-    @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-  </style>
 </head>
 
 <body>
-  <!-- Page Loader -->
-  <div class="page-loader">
-    <div class="loader-content">
-      <div class="loader-spinner"></div>
-      <p class="loader-text">Loading</p>
-      <div class="loader-progress">
-        <div class="loader-progress-bar"></div>
-      </div>
-    </div>
-  </div>
-
   <!-- Page Transition Overlay -->
   <div class="page-transition"></div>
 
@@ -166,133 +115,131 @@
     <i class="bi bi-sun-fill" aria-hidden="true"></i>
   </button>
 
-  <!-- Mobile nav toggle button -->
-  <button type="button" class="mobile-nav-toggle d-xl-none" aria-label="Toggle navigation menu"
-    aria-expanded="false" aria-controls="navbar">
-    <i class="bi bi-list" aria-hidden="true"></i>
-  </button>
-
-  <!-- ======= Header / Sidebar ======= -->
-  <header id="header">
-    <div class="pheader">
-      <div id="particles-js"></div>
-    </div>
-
-    <div class="d-flex flex-column">
-      <div class="profile">
+  <!-- ======= Pill navigation ======= -->
+  <header class="ds-nav">
+    <a class="ds-nav__brand" href="index.html" aria-label="Mohammad Albarham — home">
+      <span class="ds-avatar ds-avatar--sm">
         <picture>
           <source srcset="assets/img_webp/profile-img-240.webp" type="image/webp">
           <img src="assets/img/profile-img-240.jpg"
-            alt="Mohammad Albarham - Computer Vision & AI Engineer profile photo" class="img-fluid rounded-circle"
-            width="120" height="120" fetchpriority="high" decoding="async">
+            alt="Mohammad Albarham - Computer Vision &amp; AI Engineer profile photo"
+            width="40" height="40" fetchpriority="high" decoding="async">
         </picture>
+      </span>
+      <span class="ds-nav__brand-name">Mohammad Albarham</span>
+    </a>
 
-        <p class="profile-name text-light"><a href="index.html">MOHAMMAD ALBARHAM</a></p>
-        <div class="social-links mt-3 text-center">
-          <a href="https://www.linkedin.com/in/albarham/" class="linkedin" aria-label="LinkedIn profile"
-            rel="noopener noreferrer" target="_blank">
-            <i class="bi bi-linkedin" aria-hidden="true"></i>
-          </a>
-          <a href="https://github.com/mohammad-albarham" class="github" aria-label="GitHub profile" rel="noopener noreferrer"
-            target="_blank">
-            <i class="bi bi-github" aria-hidden="true"></i>
-          </a>
-          <a href="https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en" aria-label="Google Scholar"
-            rel="noopener noreferrer" target="_blank">
-            <i class="ai ai-google-scholar-square ai-1x" aria-hidden="true"></i>
-          </a>
-          <a href="https://huggingface.co/pain" aria-label="Hugging Face profile" rel="noopener noreferrer" target="_blank">
-            <svg class="hf-icon" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-3.5 7a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm7 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 18c-2.4 0-4.44-1.5-5.27-3.61a.6.6 0 01.56-.82h9.42a.6.6 0 01.56.82C16.44 16.5 14.4 18 12 18z"/>
-            </svg>
-          </a>
-        </div>
+    <nav id="navbar" class="ds-nav__nav" aria-label="Page sections">
+      <ul class="ds-nav__list">
+        <li><a href="#hero" class="nav-link scrollto active" data-accent="base">Home</a></li>
+        <li><a href="#about" class="nav-link scrollto" data-accent="base">About</a></li>
+        <li><a href="#programming-languages" class="nav-link scrollto" data-accent="base">Programming Languages</a></li>
+        <li><a href="#resume" class="nav-link scrollto" data-accent="base">Resume</a></li>
+        <li><a href="#projects" class="nav-link scrollto" data-accent="build">Projects</a></li>
+        <li><a href="#competitions" class="nav-link scrollto" data-accent="build">Competitions</a></li>
+        <li><a href="#publications" class="nav-link scrollto" data-accent="write">Publications</a></li>
+        <li><a href="#volunteering" class="nav-link scrollto" data-accent="write">Volunteering</a></li>
+        <li><a href="#travel" class="nav-link scrollto" data-accent="base">Travel</a></li>
+        <li><a href="#contact" class="nav-link scrollto" data-accent="base">Contact</a></li>
+      </ul>
+    </nav>
 
-      </div>
-
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bi bi-house" aria-hidden="true"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bi bi-person" aria-hidden="true"></i> <span>About</span></a></li>
-          <li><a href="#programming-languages" class="nav-link scrollto"><i class="bi bi-code-slash" aria-hidden="true"></i>
-              <span>Programming Languages</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bi bi-file-earmark" aria-hidden="true"></i> <span>Resume</span></a></li>
-          <li><a href="#projects" class="nav-link scrollto"><i class="bi bi-folder" aria-hidden="true"></i> <span>Projects</span></a></li>
-          <li><a href="#competitions" class="nav-link scrollto"><i class="bi bi-trophy" aria-hidden="true"></i>
-              <span>Competitions</span></a></li>
-          <li><a href="#publications" class="nav-link scrollto"><i class="bi bi-journal-text" aria-hidden="true"></i>
-              <span>Publications</span></a></li>
-          <li><a href="#volunteering" class="nav-link scrollto"><i class="bi bi-heart" aria-hidden="true"></i>
-              <span>Volunteering</span></a></li>
-          <li><a href="#travel" class="nav-link scrollto"><i class="bi bi-globe" aria-hidden="true"></i> <span>Travel</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bi bi-envelope" aria-hidden="true"></i> <span>Contact</span></a></li>
-        </ul>
-      </nav>
+    <div class="ds-nav__actions">
+      <button type="button" class="mobile-nav-toggle ds-icon-btn ds-nav__toggle"
+        aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar">
+        <i class="bi bi-list" aria-hidden="true"></i>
+      </button>
     </div>
   </header>
-  <!-- End Header -->
+  <!-- End Pill navigation -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div class="hero-container">
-      <!-- Identity -->
-      <div class="hero-intro">
-        <p class="hero-eyebrow">Gothenburg, Sweden</p>
-        <h1 class="hero-name">Mohammad Albarham</h1>
-        <p class="hero-role">Computer Vision &amp; AI Engineer</p>
-        <p class="hero-tagline">
-          Advanced Safety & User Experience engineer in vision systems at Aptiv, MSc from Chalmers. I work on autonomous systems,
-          multi-modal systems, open source projects &mdash; and I publish what I learn.
-        </p>
-        <div class="hero-cta">
-          <a href="#projects" class="hero-btn hero-btn-primary scrollto">
-            <i class="bi bi-folder2-open" aria-hidden="true"></i> View Projects
-          </a>
-          <a href="#publications" class="hero-btn scrollto">
-            <i class="bi bi-journal-text" aria-hidden="true"></i> Publications
-          </a>
-          <a href="#contact" class="hero-btn scrollto">
-            <i class="bi bi-envelope" aria-hidden="true"></i> Get in touch
-          </a>
-        </div>
-      </div>
-
-      <!-- Live demo -->
-      <div class="hero-demo">
-        <p class="hero-demo-caption">A neural network classifying handwritten digits, live.</p>
-
-        <!-- Digit Selector -->
-        <div class="nn-digit-selector">
-          <span class="nn-selector-label">Select a digit:</span>
-          <div class="nn-digit-buttons">
-            <button class="nn-digit-btn" data-digit="0">0</button>
-            <button class="nn-digit-btn" data-digit="1">1</button>
-            <button class="nn-digit-btn" data-digit="2">2</button>
-            <button class="nn-digit-btn" data-digit="3">3</button>
-            <button class="nn-digit-btn" data-digit="4">4</button>
-            <button class="nn-digit-btn" data-digit="5">5</button>
-            <button class="nn-digit-btn" data-digit="6">6</button>
-            <button class="nn-digit-btn active" data-digit="7">7</button>
-            <button class="nn-digit-btn" data-digit="8">8</button>
-            <button class="nn-digit-btn" data-digit="9">9</button>
+  <section id="hero" class="hero">
+    <div class="ds-container">
+      <div class="hero-container">
+        <!-- Identity -->
+        <div class="hero-intro">
+          <p class="hero-location">
+            <i class="bi bi-geo-alt" aria-hidden="true"></i> Gothenburg, Sweden
+          </p>
+          <h1 class="hero-name">Mohammad Albarham</h1>
+          <p class="hero-role">Computer Vision &amp; AI Engineer</p>
+          <p class="hero-tagline">
+            Advanced Safety & User Experience engineer in vision systems at Aptiv, MSc from Chalmers. I work on autonomous systems,
+            multi-modal systems, open source projects &mdash; and I publish what I learn.
+          </p>
+          <div class="ds-btn-row">
+            <a href="#projects" class="ds-btn ds-btn--primary scrollto">
+              <i class="bi bi-folder2-open" aria-hidden="true"></i> View Projects
+            </a>
+            <a href="#publications" class="ds-btn scrollto">
+              <i class="bi bi-journal-text" aria-hidden="true"></i> Publications
+            </a>
+            <a href="#contact" class="ds-btn scrollto">
+              <i class="bi bi-envelope" aria-hidden="true"></i> Get in touch
+            </a>
           </div>
+
+          <ul class="hero-social">
+            <li>
+              <a href="https://www.linkedin.com/in/albarham/" class="linkedin ds-icon-btn" aria-label="LinkedIn profile"
+                rel="noopener noreferrer" target="_blank">
+                <i class="bi bi-linkedin" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/mohammad-albarham" class="github ds-icon-btn" aria-label="GitHub profile"
+                rel="noopener noreferrer" target="_blank">
+                <i class="bi bi-github" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en" class="ds-icon-btn"
+                aria-label="Google Scholar" rel="noopener noreferrer" target="_blank">
+                <i class="ai ai-google-scholar-square ai-1x" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://huggingface.co/pain" class="ds-icon-btn" aria-label="Hugging Face profile"
+                rel="noopener noreferrer" target="_blank">
+                <svg class="hf-icon" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-3.5 7a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm7 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 18c-2.4 0-4.44-1.5-5.27-3.61a.6.6 0 01.56-.82h9.42a.6.6 0 01.56.82C16.44 16.5 14.4 18 12 18z"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <!-- Neural Network Visualization -->
-        <div class="nn-visual" aria-label="Neural network visualization showing digit recognition">
-          <!-- SVG generated by neural-banner.js -->
+        <!-- Live demo -->
+        <div class="hero-demo">
+          <p class="hero-demo-caption">A neural network classifying handwritten digits, live.</p>
+
+          <!-- Digit Selector -->
+          <div class="nn-digit-selector">
+            <span class="nn-selector-label">Select a digit:</span>
+            <div class="nn-digit-buttons">
+              <button class="nn-digit-btn" data-digit="0">0</button>
+              <button class="nn-digit-btn" data-digit="1">1</button>
+              <button class="nn-digit-btn" data-digit="2">2</button>
+              <button class="nn-digit-btn" data-digit="3">3</button>
+              <button class="nn-digit-btn" data-digit="4">4</button>
+              <button class="nn-digit-btn" data-digit="5">5</button>
+              <button class="nn-digit-btn" data-digit="6">6</button>
+              <button class="nn-digit-btn active" data-digit="7">7</button>
+              <button class="nn-digit-btn" data-digit="8">8</button>
+              <button class="nn-digit-btn" data-digit="9">9</button>
+            </div>
+          </div>
+
+          <!-- Neural Network Visualization -->
+          <div class="nn-visual" aria-label="Neural network visualization showing digit recognition">
+            <!-- SVG generated by neural-banner.js -->
+          </div>
+
+          <!-- Retained for particles.js, which still initialises against it -->
+          <div id="particles-js" aria-hidden="true"></div>
         </div>
       </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="hero-scroll-indicator">
-      <a href="#about" class="nav-link scrollto">
-        <div class="mouse">
-          <div class="wheel"></div>
-        </div>
-        <span>Scroll</span>
-      </a>
     </div>
   </section>
   <!-- End Hero -->
@@ -300,143 +247,120 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about section-bg">
-      <div class="container">
-        <div class="section-title">
+    <section id="about" class="about ds-section ds-section--alt" data-accent="base">
+      <div class="ds-container">
+        <div class="ds-section-header">
           <h2>About</h2>
           <p>Computer vision, AI, and the occasional detour into Arabic NLP</p>
         </div>
 
-        <div id="about-container" data-aos="fade-up">
+        <div id="about-container">
           <!-- Loaded dynamically from data/bio.json -->
-          <div class="loading-skeleton" style="height: 180px; border-radius: 12px;"></div>
         </div>
       </div>
     </section>
     <!-- End About Section -->
 
     <!-- ======= Languages Section ======= -->
-    <section id="programming-languages" class="section">
-      <div class="container">
-        <div class="section-title">
+    <section id="programming-languages" class="ds-section" data-accent="base">
+      <div class="ds-container">
+        <div class="ds-section-header">
           <h2>Programming Languages</h2>
           <p>What I actually write, measured from my public repositories</p>
         </div>
 
-        <div id="programming-languages-container" data-aos="fade-up">
+        <div id="programming-languages-container">
           <!-- Loaded dynamically from data/programming-languages.json -->
-          <div class="loading-skeleton" style="height: 380px; border-radius: 12px;"></div>
         </div>
       </div>
     </section>
     <!-- End Languages Section -->
 
     <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume section">
-      <div class="container">
-        <div class="section-title">
+    <section id="resume" class="resume ds-section ds-section--alt" data-accent="base">
+      <div class="ds-container">
+        <div class="ds-section-header">
           <h2>Resume</h2>
           <p>My education and professional journey in AI and Computer Vision</p>
         </div>
 
-        <div class="row">
-          <!-- Education -->
-          <div class="col-12" data-aos="fade-up">
-            <h3 class="resume-title mb-4"><i class="bi bi-mortarboard-fill"></i> Education</h3>
-            <div id="education-container">
-              <!-- Loaded dynamically -->
-              <div class="loading-skeleton" style="height: 200px; border-radius: 12px;"></div>
-            </div>
-          </div>
+        <h3 class="ds-subhead"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i> Education</h3>
+        <div id="education-container">
+          <!-- Loaded dynamically -->
+        </div>
 
-          <!-- Experience -->
-          <div class="col-12 mt-5" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title mb-4"><i class="bi bi-briefcase-fill"></i> Professional Experience</h3>
-            <div id="experience-container">
-              <!-- Loaded dynamically -->
-              <div class="loading-skeleton" style="height: 200px; border-radius: 12px;"></div>
-            </div>
-          </div>
+        <h3 class="ds-subhead"><i class="bi bi-briefcase-fill" aria-hidden="true"></i> Professional Experience</h3>
+        <div id="experience-container">
+          <!-- Loaded dynamically -->
         </div>
       </div>
     </section>
     <!-- End Resume Section -->
 
     <!-- ======= Projects Section ======= -->
-    <section id="projects" class="portfolio section-bg">
-      <div class="container">
-        <div class="section-title">
+    <section id="projects" class="portfolio ds-section" data-accent="build">
+      <div class="ds-container">
+        <div class="ds-section-header">
           <h2>Projects</h2>
           <p>Explore my featured work across AI, Computer Vision, and Arabic NLP</p>
         </div>
 
         <!-- Featured Projects -->
-        <div class="mb-5" data-aos="fade-up">
-          <h3 class="section-subtitle mb-4"><i class="bi bi-star-fill text-warning"></i> Featured Projects</h3>
-          <div id="featured-projects-container">
-            <!-- Loaded dynamically -->
-            <div class="loading-skeleton" style="height: 250px; border-radius: 12px; margin-bottom: 2rem;"></div>
-          </div>
+        <h3 class="ds-subhead"><i class="bi bi-star-fill" aria-hidden="true"></i> Featured Projects</h3>
+        <div id="featured-projects-container">
+          <!-- Loaded dynamically -->
         </div>
 
         <!-- All Projects -->
-        <div class="mt-5" data-aos="fade-up">
-          <h3 class="section-subtitle mb-4">All Projects</h3>
+        <h3 class="ds-subhead">All Projects</h3>
 
-          <!-- Technology filter, built from data/projects.json -->
-          <div id="project-filters" class="project-filters" role="group" aria-label="Filter projects by technology">
-            <!-- Loaded dynamically -->
-          </div>
-          <p id="project-filter-status" class="project-filter-status" role="status" aria-live="polite"></p>
+        <!-- Technology filter, built from data/projects.json -->
+        <div id="project-filters" class="project-filters" role="group" aria-label="Filter projects by technology">
+          <!-- Loaded dynamically -->
+        </div>
+        <p id="project-filter-status" class="project-filter-status" role="status" aria-live="polite"></p>
 
-          <div id="all-projects-container">
-            <!-- Loaded dynamically -->
-          </div>
+        <div id="all-projects-container">
+          <!-- Loaded dynamically -->
         </div>
       </div>
     </section>
     <!-- End Projects Section -->
 
     <!-- ======= Competitions Section ======= -->
-    <section id="competitions" class="portfolio section">
-      <div class="container">
-        <div class="section-title">
+    <section id="competitions" class="portfolio ds-section ds-section--alt" data-accent="build">
+      <div class="ds-container">
+        <div class="ds-section-header">
           <h2>Competitions</h2>
           <p>Hackathons, challenges, and contests I've taken part in</p>
         </div>
 
-        <div id="competitions-container" data-aos="fade-up">
+        <div id="competitions-container">
           <!-- Loaded dynamically -->
-          <div class="loading-skeleton" style="height: 200px; border-radius: 12px;"></div>
         </div>
       </div>
     </section>
     <!-- End Competitions Section -->
 
     <!-- ======= Publications Section ======= -->
-    <section id="publications" class="resume section-bg">
-      <div class="container">
-        <div class="section-title">
+    <section id="publications" class="resume ds-section" data-accent="write">
+      <div class="ds-container">
+        <div class="ds-section-header">
           <h2>Publications</h2>
           <p>My research contributions in AI, Computer Vision, and Arabic NLP</p>
         </div>
 
-        <div id="publications-container" data-aos="fade-up">
+        <div id="publications-container">
           <!-- Loaded dynamically by publications.js -->
-          <div class="text-center py-5">
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Loading publications...</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
     <!-- End Publications Section -->
 
     <!-- ======= Volunteering Section ======= -->
-    <section id="volunteering" class="about section-bg">
-      <div class="container">
-        <div class="section-title">
+    <section id="volunteering" class="about ds-section ds-section--alt" data-accent="write">
+      <div class="ds-container">
+        <div class="ds-section-header">
           <h2>Volunteering</h2>
           <p>
             Volunteering provides an opportunity to connect with individuals who share similar interests and values,
@@ -444,50 +368,43 @@
           </p>
         </div>
 
-        <div class="row">
-          <div class="col-12" data-aos="fade-up">
-            <h3 class="mb-4"><i class="bi bi-lightning-charge-fill"></i> IEEE Volunteering</h3>
-            <p class="mb-4">
-              I have extensive experience with IEEE, starting from my student years and continuing as an active
-              volunteer today.
-            </p>
-            <a type="button" class="btn btn-primary mb-5" href="volunteering/volunteering_ieee.html">
-              <i class="bi bi-images"></i> View IEEE Gallery
-            </a>
-          </div>
-        </div>
+        <h3 class="ds-subhead"><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i> IEEE Volunteering</h3>
+        <p class="ds-prose">
+          I have extensive experience with IEEE, starting from my student years and continuing as an active
+          volunteer today.
+        </p>
+        <p>
+          <a class="ds-btn" href="volunteering/volunteering_ieee.html">
+            <i class="bi bi-images" aria-hidden="true"></i> View IEEE Gallery
+          </a>
+        </p>
 
-        <div class="col-12" data-aos="fade-up">
-          <div id="volunteering-container">
-            <!-- Loaded dynamically -->
-            <div class="loading-skeleton" style="height: 200px; border-radius: 12px;"></div>
-          </div>
+        <div id="volunteering-container">
+          <!-- Loaded dynamically -->
         </div>
       </div>
     </section>
     <!-- End Volunteering Section -->
 
     <!-- ======= Travel Section ======= -->
-    <section id="travel" class="portfolio section">
-      <div class="container">
-        <div class="section-title">
+    <section id="travel" class="portfolio ds-section" data-accent="base">
+      <div class="ds-container">
+        <div class="ds-section-header">
           <h2>Travel</h2>
           <p>Exploring the world and experiencing different cultures</p>
         </div>
 
-        <article data-aos="fade-up">
+        <article>
           <p class="lead">
             I've visited <strong><span id="num-countries">0</span> countries</strong> across
             <strong><span id="num-continents">0</span> continents</strong>:
           </p>
 
-          <div id="map" style="height: 450px; border-radius: 12px; overflow: hidden; margin: 2rem 0;"></div>
+          <div id="map" style="height: 450px; overflow: hidden; margin: 2rem 0;"></div>
 
-          <div class="mt-4">
-            <table id="country-flags" class="table" style="font-family: 'PT Sans', sans-serif;"></table>
-          </div>
+          <table id="country-flags" class="table"></table>
 
-          <p class="mt-3 text-muted text-center">
+          <p class="ds-section-lede">
             <small>Made with <a href="https://github.com/bjornd/jvectormap" target="_blank"
                 rel="noopener">jVectorMap</a> and inspired by <a href="https://www.julian.ac/" target="_blank"
                 rel="noopener">Julian</a> </small>
@@ -498,124 +415,124 @@
     <!-- End Travel Section -->
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact section-bg">
-      <div class="container">
-        <div class="section-title">
+    <section id="contact" class="contact ds-section ds-section--alt" data-accent="base">
+      <div class="ds-container">
+        <div class="ds-section-header">
           <h2>Get in Touch</h2>
           <p>Feel free to reach out for collaboration, research opportunities, or just to say hello!</p>
         </div>
 
-        <div class="contact-content" data-aos="fade-up">
-          <!-- Contact Info Cards -->
-          <div class="contact-info-row">
-            <div class="contact-info-card">
-              <div class="contact-info-icon">
-                <i class="bi bi-geo-alt"></i>
-              </div>
-              <div class="contact-info-text">
+        <div class="contact-grid">
+          <!-- Contact facts -->
+          <div class="contact-facts">
+            <div class="contact-fact">
+              <span class="contact-fact__icon"><i class="bi bi-geo-alt" aria-hidden="true"></i></span>
+              <div>
                 <h3>Location</h3>
                 <p>Gothenburg, Sweden</p>
               </div>
             </div>
-            
-            <div class="contact-info-card">
-              <div class="contact-info-icon">
-                <i class="bi bi-envelope"></i>
-              </div>
-              <div class="contact-info-text">
+
+            <div class="contact-fact">
+              <span class="contact-fact__icon"><i class="bi bi-envelope" aria-hidden="true"></i></span>
+              <div>
                 <h3>Email</h3>
                 <p><a href="mailto:mohammad.albarham.work@gmail.com">mohammad.albarham.work@gmail.com</a></p>
               </div>
             </div>
-            
-            <div class="contact-info-card">
-              <div class="contact-info-icon">
-                <i class="bi bi-clock"></i>
-              </div>
-              <div class="contact-info-text">
+
+            <div class="contact-fact">
+              <span class="contact-fact__icon"><i class="bi bi-clock" aria-hidden="true"></i></span>
+              <div>
                 <h3>Response Time</h3>
                 <p>Usually within 24-48 hours</p>
               </div>
             </div>
+
+            <div class="contact-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2754.568435536346!2d11.97158677755629!3d57.68980037386219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff36b628efec3%3A0xc148ed83d6f0a03!2sChalmers%20University%20of%20Technology!5e1!3m2!1sen!2sse!4v1738448346101!5m2!1sen!2sse"
+                width="100%" height="280" style="border:0;" allowfullscreen loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" title="Chalmers University Location">
+              </iframe>
+            </div>
           </div>
 
           <!-- Contact Form Card -->
-          <div class="contact-form-card">
-            <div class="contact-form-header">
-              <h3>Send a Message</h3>
-              <p>Have a question or want to work together? Drop me a line!</p>
-            </div>
-            
+          <div class="ds-card">
+            <h3>Send a Message</h3>
+            <p>Have a question or want to work together? Drop me a line!</p>
+
             <!-- Inline Message Container (shows above form) -->
             <div id="messageContainer" role="alert" aria-live="polite"></div>
-            
+
             <form name="gform" id="gform" class="contact-form"
               action="https://docs.google.com/forms/d/e/1FAIpQLSftHTXBY8-bmgmpnIbUCBXDTbv9GDPDAJUbVk9TBzj62_8TzQ/formResponse"
               target="hidden_iframe" novalidate>
-              
+
               <div class="form-row">
                 <div class="form-field">
                   <label for="contact-name">
-                    <i class="bi bi-person"></i>
+                    <i class="bi bi-person" aria-hidden="true"></i>
                     Your Name
                   </label>
-                  <input type="text" 
-                         name="entry.1312125580" 
-                         id="contact-name" 
+                  <input type="text"
+                         name="entry.1312125580"
+                         id="contact-name"
                          placeholder="John Doe"
-                         required 
+                         required
                          aria-required="true"
                          autocomplete="name">
                   <span class="field-error" aria-live="polite"></span>
                 </div>
-                
+
                 <div class="form-field">
                   <label for="contact-email">
-                    <i class="bi bi-envelope"></i>
+                    <i class="bi bi-envelope" aria-hidden="true"></i>
                     Your Email
                   </label>
-                  <input type="email" 
-                         name="entry.906047473" 
-                         id="contact-email" 
+                  <input type="email"
+                         name="entry.906047473"
+                         id="contact-email"
                          placeholder="john@example.com"
-                         required 
+                         required
                          aria-required="true"
                          autocomplete="email">
                   <span class="field-error" aria-live="polite"></span>
                 </div>
               </div>
-              
+
               <div class="form-field">
                 <label for="contact-subject">
-                  <i class="bi bi-chat-left-text"></i>
+                  <i class="bi bi-chat-left-text" aria-hidden="true"></i>
                   Subject
                 </label>
-                <input type="text" 
-                       name="entry.1661175821" 
-                       id="contact-subject" 
+                <input type="text"
+                       name="entry.1661175821"
+                       id="contact-subject"
                        placeholder="Project collaboration, Research inquiry, etc."
-                       required 
+                       required
                        aria-required="true">
                 <span class="field-error" aria-live="polite"></span>
               </div>
-              
+
               <div class="form-field">
                 <label for="contact-message">
-                  <i class="bi bi-pencil-square"></i>
+                  <i class="bi bi-pencil-square" aria-hidden="true"></i>
                   Message
                 </label>
-                <textarea name="entry.845402219" 
-                          id="contact-message" 
-                          rows="5" 
+                <textarea name="entry.845402219"
+                          id="contact-message"
+                          rows="5"
                           placeholder="Tell me about your project, idea, or inquiry..."
-                          required 
+                          required
                           aria-required="true"></textarea>
                 <span class="field-error" aria-live="polite"></span>
               </div>
-              
-              <button type="submit" class="submit-btn" aria-label="Send message">
+
+              <button type="submit" class="submit-btn ds-btn ds-btn--primary" aria-label="Send message">
                 <span class="btn-text">
-                  <i class="bi bi-send"></i>
+                  <i class="bi bi-send" aria-hidden="true"></i>
                   Send Message
                 </span>
                 <span class="btn-loading">
@@ -627,15 +544,6 @@
 
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" aria-hidden="true"></iframe>
           </div>
-
-          <!-- Map -->
-          <div class="contact-map-card" data-aos="fade-up" data-aos-delay="100">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2754.568435536346!2d11.97158677755629!3d57.68980037386219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff36b628efec3%3A0xc148ed83d6f0a03!2sChalmers%20University%20of%20Technology!5e1!3m2!1sen!2sse!4v1738448346101!5m2!1sen!2sse"
-              width="100%" height="280" style="border:0;" allowfullscreen loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade" title="Chalmers University Location">
-            </iframe>
-          </div>
         </div>
       </div>
     </section>
@@ -645,16 +553,16 @@
   <!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
+  <footer id="footer" class="ds-footer">
+    <div class="ds-container ds-footer__inner">
       <div class="copyright">
         &copy; <span id="footer-year">2025</span> Mohammad Albarham. All Rights Reserved.
       </div>
-      <div class="credits">
-        Built with <span style="color: #e25555;">♥</span> for open science
-      </div>
-      <div class="copyright">
-        <p>Last updated: <span id="current-date"></span></p>
+      <div class="ds-footer__meta">
+        <span class="credits">
+          Built with <span style="color: #e25555;">&hearts;</span> for open science
+        </span>
+        <span class="copyright">Last updated: <span id="current-date"></span></span>
       </div>
     </div>
   </footer>
@@ -662,7 +570,7 @@
 
   <!-- Back to top button with progress indicator -->
   <a href="#" class="back-to-top" aria-label="Back to top">
-    <i class="bi bi-arrow-up-short"></i>
+    <i class="bi bi-arrow-up-short" aria-hidden="true"></i>
     <!-- Progress ring added by JS -->
   </a>
 
@@ -832,7 +740,7 @@
     }
 
   </script>
-  
+
   <!-- Contact Form Handler -->
   <script src="assets/js/contact-form.js"></script>
 </body>

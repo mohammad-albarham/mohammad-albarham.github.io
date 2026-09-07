@@ -26,6 +26,24 @@
   --accent-rose: #d4577f;
   --accent-rose-tint: #fce9ef;
 
+  /* Language pie. A sequential ramp anchored on --brand: dark teal at the top
+     of the list, easing through the brand hue toward a pale blue-teal for the
+     1% tail, which keeps the slivers visible against --surface. Every slice
+     also carries its own label, so identity never rests on colour alone. */
+  --lang-1: #00443d;
+  --lang-2: #005348;
+  --lang-3: #006254;
+  --lang-4: #007163;
+  --lang-5: #008073;
+  --lang-6: #0f9083;
+  --lang-7: #269e93;
+  --lang-8: #3daca3;
+  --lang-9: #55b9b4;
+  --lang-10: #6cc4c4;
+  --lang-11: #7fcbd5;
+  --lang-12: #92d2e2;
+  --lang-13: #a7d9ee;
+
   /* Surfaces */
   --surface: #ffffff;
   --surface-muted: #f6f8f8;
@@ -77,6 +95,22 @@
   --accent-amber-tint: #3a2c11;
   --accent-rose: #ee87a8;
   --accent-rose-tint: #3d1a26;
+
+  /* The language ramp inverts: bright teal first, deepening to a slate-teal
+     that still separates from --surface. */
+  --lang-1: #7fe3d2;
+  --lang-2: #6ed9ca;
+  --lang-3: #5ccfc2;
+  --lang-4: #4ec3b2;
+  --lang-5: #43b6ab;
+  --lang-6: #39a9a4;
+  --lang-7: #319c9d;
+  --lang-8: #2b8f96;
+  --lang-9: #2b8390;
+  --lang-10: #2d7789;
+  --lang-11: #326d85;
+  --lang-12: #386382;
+  --lang-13: #3e5a7e;
 
   --surface: #0f1214;
   --surface-muted: #171b1e;

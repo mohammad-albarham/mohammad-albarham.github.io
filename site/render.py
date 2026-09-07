@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import html
 import json
+import math
 import os
 import re
 from datetime import date, datetime
@@ -425,18 +426,112 @@ def service_row(role: dict) -> str:
 </div>"""
 
 
+def _lang_slices(languages: list[dict]) -> list[dict]:
+    """Angles for each slice, clockwise from 12 o'clock. The percentages sum to
+    100, so the sweeps close the circle exactly."""
+    slices = []
+    angle = 0.0
+    for index, entry in enumerate(languages):
+        sweep = entry["pct"] / 100 * 360
+        slices.append({
+            "name": entry["name"],
+            "pct": entry["pct"],
+            "start": angle,
+            "end": angle + sweep,
+            "mid": angle + sweep / 2,
+            "color": f"var(--lang-{index % 13 + 1})",
+        })
+        angle += sweep
+    return slices
+
+
+def _point_at(cx: float, cy: float, r: float, angle: float) -> tuple[float, float]:
+    radians = math.radians(angle)
+    return cx + r * math.sin(radians), cy - r * math.cos(radians)
+
+
+def _lang_paths(slices: list[dict], cx: float, cy: float, r: float) -> str:
+    paths = []
+    for s in slices:
+        x1, y1 = _point_at(cx, cy, r, s["start"])
+        x2, y2 = _point_at(cx, cy, r, s["end"])
+        large = 1 if s["end"] - s["start"] > 180 else 0
+        d = (f"M {cx} {cy} L {x1:.2f} {y1:.2f} "
+             f"A {r} {r} 0 {large} 1 {x2:.2f} {y2:.2f} Z")
+        paths.append(f'<path class="lang-slice" d="{d}" fill="{s["color"]}"/>')
+    return "\n    ".join(paths)
+
+
+def _lang_leaders(slices: list[dict], cx: float, cy: float, r: float,
+                  height: float, gap: float = 84, spacing: float = 24) -> str:
+    """Name-and-percentage labels outside the pie on a leader line, placed at
+    their slice's mid-angle then pushed apart vertically so the 1% tail stays
+    readable."""
+    labels = []
+    for s in slices:
+        ax, ay = _point_at(cx, cy, r, s["mid"])
+        right = s["mid"] <= 180
+        labels.append({**s, "ax": ax, "ay": ay, "right": right, "ideal": ay,
+                       "y": ay, "x": cx + r + gap if right else cx - r - gap})
+
+    for side in (True, False):
+        column = sorted((l for l in labels if l["right"] is side),
+                        key=lambda l: l["ideal"])
+        cursor = 18.0
+        for label in column:
+            label["y"] = max(label["ideal"], cursor)
+            cursor = label["y"] + spacing
+        floor = height - 18.0
+        for label in reversed(column):
+            label["y"] = min(label["y"], floor)
+            floor = label["y"] - spacing
+
+    out = []
+    for l in labels:
+        elbow = l["x"] - 14 if l["right"] else l["x"] + 14
+        ox, oy = _point_at(cx, cy, r + 10, l["mid"])
+        points = (f'{l["ax"]:.1f},{l["ay"]:.1f} {ox:.1f},{oy:.1f} '
+                  f'{elbow:.1f},{l["y"]:.1f} {l["x"]:.1f},{l["y"]:.1f}')
+        out.append(f"""<polyline class="lang-leader" points="{points}"/>
+    <text class="lang-label" x="{l['x']:.1f}" y="{l['y']:.1f}" dx="{6 if l['right'] else -6}"
+          text-anchor="{'start' if l['right'] else 'end'}" dominant-baseline="middle"
+          ><tspan class="lang-label-name">{e(l['name'])}</tspan><tspan
+           class="lang-label-pct" dx="6">{l['pct']:.1f}%</tspan></text>""")
+    return "\n    ".join(out)
+
+
 def language_chart(langs: dict) -> str:
-    rows = "".join(
-        f"""<div class="lang-row">
-  <span class="lang-name">{e(l['name'])}</span>
-  <span class="lang-track"><span class="lang-fill" style="width:{max(l['pct'], 0.6):.4g}%"></span></span>
-  <span class="lang-pct">{l['pct']:.1f}%</span>
-</div>"""
-        for l in langs["languages"]
+    """A labelled pie, rendered here rather than in the browser: the data is
+    committed JSON, so the geometry can be baked into the page. The wide SVG
+    carries leader-line labels; below 40rem CSS swaps it for a plain pie plus a
+    two-column legend, which is the only layout that fits at 360px."""
+    slices = _lang_slices(langs["languages"])
+    summary = ", ".join(f"{l['name']} {l['pct']:.1f} percent"
+                        for l in langs["languages"])
+
+    wide = f"""<svg class="lang-pie lang-pie--wide" viewBox="0 0 880 470"
+       aria-hidden="true" focusable="false">
+    {_lang_paths(slices, 440, 235, 150)}
+    {_lang_leaders(slices, 440, 235, 150, 470)}
+  </svg>"""
+
+    compact = f"""<svg class="lang-pie lang-pie--compact" viewBox="0 0 300 300"
+       aria-hidden="true" focusable="false">
+    {_lang_paths(slices, 150, 150, 145)}
+  </svg>"""
+
+    legend = "".join(
+        f"""<li><span class="lang-swatch" style="background:{s['color']}"></span>
+    <span class="lang-legend-name">{e(s['name'])}</span>
+    <span class="lang-legend-pct">{s['pct']:.1f}%</span></li>"""
+        for s in slices
     )
+
     return f"""<div class="lang-chart" role="img"
-     aria-label="Share of hand-written code by language: {e(', '.join(f"{l['name']} {l['pct']:.1f} percent" for l in langs['languages']))}">
-{rows}
+     aria-label="Share of hand-written code by language: {e(summary)}">
+  {wide}
+  {compact}
+  <ul class="lang-legend">{legend}</ul>
 </div>
 <p class="lang-note">{e(langs['method'])} Measured across {langs['repositories']} public
 repositories and {langs['notebooks']} notebooks

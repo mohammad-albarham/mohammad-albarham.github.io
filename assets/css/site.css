@@ -26,6 +26,24 @@
   --accent-rose: #d4577f;
   --accent-rose-tint: #fce9ef;
 
+  /* Language pie. A sequential ramp anchored on --brand: dark teal at the top
+     of the list, easing through the brand hue toward a pale blue-teal for the
+     1% tail, which keeps the slivers visible against --surface. Every slice
+     also carries its own label, so identity never rests on colour alone. */
+  --lang-1: #00443d;
+  --lang-2: #005348;
+  --lang-3: #006254;
+  --lang-4: #007163;
+  --lang-5: #008073;
+  --lang-6: #0f9083;
+  --lang-7: #269e93;
+  --lang-8: #3daca3;
+  --lang-9: #55b9b4;
+  --lang-10: #6cc4c4;
+  --lang-11: #7fcbd5;
+  --lang-12: #92d2e2;
+  --lang-13: #a7d9ee;
+
   /* Surfaces */
   --surface: #ffffff;
   --surface-muted: #f6f8f8;
@@ -77,6 +95,22 @@
   --accent-amber-tint: #3a2c11;
   --accent-rose: #ee87a8;
   --accent-rose-tint: #3d1a26;
+
+  /* The language ramp inverts: bright teal first, deepening to a slate-teal
+     that still separates from --surface. */
+  --lang-1: #7fe3d2;
+  --lang-2: #6ed9ca;
+  --lang-3: #5ccfc2;
+  --lang-4: #4ec3b2;
+  --lang-5: #43b6ab;
+  --lang-6: #39a9a4;
+  --lang-7: #319c9d;
+  --lang-8: #2b8f96;
+  --lang-9: #2b8390;
+  --lang-10: #2d7789;
+  --lang-11: #326d85;
+  --lang-12: #386382;
+  --lang-13: #3e5a7e;
 
   --surface: #0f1214;
   --surface-muted: #171b1e;
@@ -788,16 +822,55 @@ a.band-row:hover {
 
 /* Language chart --------------------------------------------------------- */
 
-.lang-chart { display: grid; gap: 0.85rem; margin-bottom: 1.5rem; }
-.lang-row { display: grid; grid-template-columns: minmax(6.5rem, 9rem) minmax(0, 1fr) 3.5rem; gap: 0.9rem; align-items: center; }
-.lang-name { font-family: var(--font-heading); font-weight: 700; font-size: 0.95rem; color: var(--ink); }
-.lang-track { height: 0.7rem; border-radius: var(--radius-pill); background: var(--surface-sunk); overflow: hidden; }
-.lang-fill { display: block; height: 100%; border-radius: var(--radius-pill); background: var(--brand); }
-.lang-pct { font-family: var(--font-mono); font-size: 0.8rem; color: var(--body); text-align: right; }
+/* A labelled pie, rendered server-side into the page. Two SVGs ship: the wide
+   one with leader lines, and a plain pie for narrow screens where there is no
+   room for them. Slice colours are the --lang-* ramp; both themes get it from
+   the tokens file, so nothing here restates a colour. */
+
+.lang-chart { margin-bottom: 1.75rem; }
+.lang-pie { display: block; width: 100%; height: auto; margin-inline: auto; }
+.lang-pie--wide { max-width: 55rem; }
+.lang-pie--compact { display: none; max-width: 19rem; }
+
+/* A surface-coloured stroke separates neighbouring slices without a border. */
+.lang-slice { stroke: var(--surface); stroke-width: 2; stroke-linejoin: round; }
+
+.lang-leader { fill: none; stroke: var(--faint); stroke-width: 1; }
+.lang-label { font-size: 13.5px; }
+.lang-label-name { font-family: var(--font-heading); font-weight: 700; fill: var(--ink); }
+.lang-label-pct { font-family: var(--font-mono); font-size: 12px; fill: var(--body); }
+
+.lang-legend { display: none; }
+
 .lang-note { font-size: 0.9rem; color: var(--faint); max-width: 62ch; }
-@media (max-width: 34rem) {
-  .lang-row { grid-template-columns: minmax(0, 1fr) 3.5rem; }
-  .lang-track { grid-column: 1 / -1; }
+
+@media (max-width: 40rem) {
+  .lang-pie--wide { display: none; }
+  .lang-pie--compact { display: block; }
+
+  .lang-legend {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem 1.1rem;
+    max-width: 26rem;
+    margin: 1.25rem auto 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.85rem;
+  }
+  .lang-legend li { display: flex; align-items: center; gap: 0.45rem; min-width: 0; }
+  .lang-swatch { flex: 0 0 auto; width: 0.7rem; height: 0.7rem; border-radius: 3px; }
+  .lang-legend-name {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--ink);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .lang-legend-pct { font-family: var(--font-mono); font-size: 0.75rem; color: var(--body); }
 }
 
 /* Travel ----------------------------------------------------------------- */

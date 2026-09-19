@@ -605,6 +605,12 @@ def band_row(*, when: str, who: str, what: str, href: str | None = None,
 
 # --- pages -----------------------------------------------------------------
 
+def news_date(value: str) -> str:
+    """News entries carry a day, unlike the month-precision dates elsewhere."""
+    stamp = datetime.strptime(value, "%Y-%m-%d")
+    return f"{stamp.day} {MONTHS[stamp.month]} {stamp.year}"
+
+
 def news_block(items: list) -> str:
     """The news feed. Empty until data/news.json has entries — an honest empty
     state beats a fake placeholder post."""
@@ -621,7 +627,7 @@ def news_block(items: list) -> str:
             title = f'<a href="{e(link)}"{rel}>{title}</a>'
         body = f'<p>{e(item["body"])}</p>' if item.get("body") else ""
         entries.append(f"""<li class="news-item">
-  <p class="meta"><time datetime="{e(item['date'])}">{month(item['date'], '')}</time></p>
+  <p class="meta"><time datetime="{e(item['date'])}">{news_date(item['date'])}</time></p>
   <h3>{title}</h3>
   {body}
 </li>""")

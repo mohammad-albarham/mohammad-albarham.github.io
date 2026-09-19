@@ -2,3 +2,7 @@
 .venv/*
 .bundle-check/
 .venv/
+scripts/qa/screenshots/
+screenshots/
+TASK.md
+REVIEW*.md

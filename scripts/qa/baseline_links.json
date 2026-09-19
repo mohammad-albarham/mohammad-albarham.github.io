@@ -1,31 +1,6 @@
 {
   "description": "Baseline of accepted pre-existing link and anchor issues",
-  "updated_at": "2026-09-06T22:22:11.347992+00:00",
-  "total_items": 3,
-  "items": [
-    {
-      "key": "projects/latest-projects-1.html::img::src::../assets/img/portfolio/",
-      "file": "projects/latest-projects-1.html",
-      "tag": "img",
-      "attr": "src",
-      "url": "../assets/img/portfolio/",
-      "error": "Resource 'src' points to a directory (portfolio/), not a file"
-    },
-    {
-      "key": "projects/latest-projects-2.html::img::src::../assets/img/portfolio/",
-      "file": "projects/latest-projects-2.html",
-      "tag": "img",
-      "attr": "src",
-      "url": "../assets/img/portfolio/",
-      "error": "Resource 'src' points to a directory (portfolio/), not a file"
-    },
-    {
-      "key": "projects/latest-projects-3.html::img::src::../assets/img/portfolio/",
-      "file": "projects/latest-projects-3.html",
-      "tag": "img",
-      "attr": "src",
-      "url": "../assets/img/portfolio/",
-      "error": "Resource 'src' points to a directory (portfolio/), not a file"
-    }
-  ]
+  "updated_at": "2026-09-19T21:14:39.247965+00:00",
+  "total_items": 0,
+  "items": []
 }

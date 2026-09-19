@@ -66,6 +66,15 @@ def span(start: str | None, end: str | None) -> str:
     return f"{month(start)} – {month(end)}"
 
 
+def when(start: str | None, end: str | None, location: str, current: bool = False) -> str:
+    """The date / place line under a timeline entry's title."""
+    now = '<span class="cv-now">Current</span>' if current else ""
+    return (f'<p class="cv-when">'
+            f'<span class="meta"><i class="bi bi-calendar3" aria-hidden="true"></i> {span(start, end)}</span>'
+            f'<span class="meta"><i class="bi bi-geo-alt" aria-hidden="true"></i> {e(location)}</span>'
+            f'{now}</p>')
+
+
 def picture(src: str, alt: str, *, cls: str = "", width: int | None = None,
             height: int | None = None, eager: bool = False,
             sizes: str | None = None) -> str:
@@ -939,21 +948,22 @@ def render_resume(d) -> str:
             project = (f'<p><strong>Graduation project:</strong> '
                        f'<a href="{e(gp["url"])}" target="_blank" rel="noopener noreferrer">{e(gp["title"])}</a></p>')
         logo = picture(school["logo"], school["institution"], width=56, height=56) if school.get("logo") else ""
-        schools.append(f"""<article class="cv-entry">
-  <div class="cv-entry-head">
-    {logo}
-    <div>
-      <h3>{e(school['degree'])}</h3>
-      <p class="cv-org"><a href="{e(school.get('url') or '#')}" target="_blank" rel="noopener noreferrer">{e(school['institution'])}</a>
-         &middot; {e(school['location'])}</p>
-      <p class="meta">{span(school.get('startDate'), school.get('endDate'))}</p>
+        schools.append(f"""<li class="cv-item{' is-current' if school.get('current') else ''}">
+  <article class="cv-entry">
+    <div class="cv-entry-head">
+      {logo}
+      <div>
+        <h3>{e(school['degree'])}</h3>
+        <p class="cv-org"><a href="{e(school.get('url') or '#')}" target="_blank" rel="noopener noreferrer">{e(school['institution'])}</a></p>
+        {when(school.get('startDate'), school.get('endDate'), school['location'], school.get('current'))}
+      </div>
     </div>
-  </div>
-  <p>{e(school.get('focus') or '')}</p>
-  {f'<p class="meta">{" · ".join(facts)}</p>' if facts else ''}
-  {project}
-  {course_list(school)}
-</article>""")
+    <p>{e(school.get('focus') or '')}</p>
+    {f'<p class="meta">{" · ".join(facts)}</p>' if facts else ''}
+    {project}
+    {course_list(school)}
+  </article>
+</li>""")
 
     roles = []
     for job in experience_sorted(d["experience"]):
@@ -971,21 +981,23 @@ def render_resume(d) -> str:
         org = e(job["company"])
         if job.get("url"):
             org = f'<a href="{e(job["url"])}" target="_blank" rel="noopener noreferrer">{org}</a>'
-        roles.append(f"""<article class="cv-entry">
-  <div class="cv-entry-head">
-    {logo}
-    <div>
-      <h3>{e(job['position'])}</h3>
-      <p class="cv-org">{org} &middot; {e(job['location'])} &middot; {e(job['type'])}</p>
-      <p class="meta">{span(job.get('startDate'), job.get('endDate'))}</p>
+        roles.append(f"""<li class="cv-item{' is-current' if job.get('current') else ''}">
+  <article class="cv-entry">
+    <div class="cv-entry-head">
+      {logo}
+      <div>
+        <h3>{e(job['position'])}</h3>
+        <p class="cv-org">{org} &middot; {e(job['type'])}</p>
+        {when(job.get('startDate'), job.get('endDate'), job['location'], job.get('current'))}
+      </div>
     </div>
-  </div>
-  <p>{e(job.get('description') or '')}</p>
-  {f'<ul>{duties}</ul>' if duties else ''}
-  {supervisors}
-  {tags(job.get('technologies'))}
-  {more}
-</article>""")
+    <p>{e(job.get('description') or '')}</p>
+    {f'<ul>{duties}</ul>' if duties else ''}
+    {supervisors}
+    {tags(job.get('technologies'))}
+    {more}
+  </article>
+</li>""")
 
     body = f"""
 <section id="resume" class="section">
@@ -1001,15 +1013,19 @@ def render_resume(d) -> str:
 
 <section id="education" class="section">
   <div class="wrap">
-    <h2 class="section-title">Education</h2>
-    {''.join(schools)}
+    <h2 class="section-title title-with-icon">
+      <span class="title-icon title-icon-education"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i></span>
+      Education</h2>
+    <ol class="cv-timeline cv-timeline-education">{''.join(schools)}</ol>
   </div>
 </section>
 
 <section id="experience" class="section">
   <div class="wrap">
-    <h2 class="section-title">Experience</h2>
-    {''.join(roles)}
+    <h2 class="section-title title-with-icon">
+      <span class="title-icon"><i class="bi bi-briefcase-fill" aria-hidden="true"></i></span>
+      Experience</h2>
+    <ol class="cv-timeline">{''.join(roles)}</ol>
   </div>
 </section>
 """

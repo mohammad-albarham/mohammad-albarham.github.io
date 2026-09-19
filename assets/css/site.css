@@ -1174,11 +1174,76 @@ a.band-row:hover {
   box-shadow: 8px 8px 0 var(--brand);
 }
 
-.cv-entry {
-  padding: 1.75rem 0;
-  border-top: var(--rule);
+/* A section title can carry a glyph that says what kind of section it is —
+   the same accent the timeline's rail uses. */
+
+.title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
-.cv-entry:first-of-type { border-top: 2px solid var(--ink); }
+.title-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 1.35em;
+  height: 1.35em;
+  border-radius: var(--radius-tile);
+  background: var(--brand-tint);
+  color: var(--brand);
+  font-size: 0.62em;
+}
+.title-icon-education { background: var(--accent-amber-tint); color: var(--accent-amber); }
+
+/* Education and experience read as one line through time: a rail down the
+   left, a marker per entry, the entry itself a card. The rail's accent says
+   which kind of thing it is — amber for study, brand teal for work. */
+
+.cv-timeline {
+  --rail: var(--brand);
+  --rail-x: 0.5rem;
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 2.25rem;
+  list-style: none;
+}
+.cv-timeline-education { --rail: var(--accent-amber); }
+.cv-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: calc(var(--rail-x) - 1px);
+  width: 2px;
+  background: linear-gradient(to bottom, var(--rail), var(--border));
+}
+
+.cv-item { position: relative; margin-bottom: 1.25rem; }
+.cv-item:last-child { margin-bottom: 0; }
+.cv-item::before {
+  content: "";
+  position: absolute;
+  top: 1.7rem;
+  left: calc(var(--rail-x) - 2.25rem - 0.5rem);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 3px solid var(--rail);
+  transition: transform 0.15s var(--ease);
+}
+.cv-item.is-current::before { background: var(--rail); }
+.cv-item:hover::before { transform: scale(1.18); }
+
+.cv-entry {
+  padding: 1.35rem 1.4rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-tile);
+  transition: border-color 0.15s var(--ease);
+}
+.cv-entry:hover { border-color: var(--rail); }
+.cv-item.is-current .cv-entry { border-left: 5px solid var(--rail); }
 .cv-entry-head {
   display: grid;
   grid-template-columns: 3.5rem minmax(0, 1fr);
@@ -1195,9 +1260,38 @@ a.band-row:hover {
   padding: 4px;
 }
 .cv-entry h3 { margin: 0 0 0.2rem; font-size: 1.2rem; }
-.cv-org { margin: 0 0 0.15rem; font-size: 0.98rem; }
+.cv-org { margin: 0 0 0.35rem; font-size: 0.98rem; }
 .cv-entry .tag-list { margin-top: 1rem; }
 .cv-entry ul { max-width: 74ch; }
+
+.cv-when {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.9rem;
+  margin: 0;
+}
+.cv-now {
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--brand-tint);
+  color: var(--brand-deep);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+@media (max-width: 44rem) {
+  .cv-timeline { --rail-x: 0.375rem; padding-left: 1.4rem; }
+  .cv-item::before {
+    top: 1.5rem;
+    left: calc(var(--rail-x) - 1.4rem - 0.375rem);
+    width: 0.75rem;
+    height: 0.75rem;
+    border-width: 2px;
+  }
+  .cv-entry { padding: 1.1rem 1.1rem; }
+}
 
 .course-list { columns: 2; column-gap: 2.5rem; max-width: none; }
 .course-list li { break-inside: avoid; margin-bottom: 0.5rem; }

@@ -124,6 +124,7 @@ LINK_LABELS = {
     "huggingface": ("bi-box", "Hugging Face"),
     "kaggle": ("bi-bar-chart", "Kaggle"),
     "roboflow": ("bi-bounding-box", "Roboflow"),
+    "details": ("bi-arrow-right-circle", "Full write-up"),
 }
 
 
@@ -442,22 +443,71 @@ def publication(pub: dict, *, full: bool) -> str:
 </article>"""
 
 
+# Only the placings the record actually holds. A first place would want its
+# own gold pair in 01-tokens.css.
+MEDALS = {2: ("silver", "2nd"), 3: ("bronze", "3rd")}
+
+
+def prizes(comp: dict) -> list:
+    """`award` is a string on some records and a list of strings on others."""
+    prize = comp.get("award") or []
+    return [prize] if isinstance(prize, str) else list(prize)
+
+
 def award(comp: dict) -> str:
+    """One competition: the placing, the photo, and everything the record
+    carries underneath it — every distinction, the highlights, and the links."""
     href = details_href(comp)
     title = e(comp["title"])
     heading = f'<a href="{e(href)}">{title}</a>' if href else title
+
     rank = comp.get("rank")
-    badge = (f'<span class="award-rank">{e(rank)}</span>' if rank
-             else '<span class="award-rank"><i class="bi bi-trophy" aria-hidden="true"></i></span>')
-    # `award` is a string on some records and a list of strings on others.
-    prize = comp.get("award") or ""
-    prize = " · ".join(prize) if isinstance(prize, list) else prize
-    return f"""<article class="award-card">
-  {badge}
-  <div>
+    metal, ordinal = MEDALS.get(rank, ("plain", ""))
+    if rank:
+        badge = (f'<span class="award-rank"><span aria-hidden="true">{e(rank)}</span>'
+                 f'<span class="visually-hidden">{e(ordinal)} place</span></span>')
+    else:
+        badge = ('<span class="award-rank"><i class="bi bi-trophy" aria-hidden="true"></i>'
+                 '<span class="visually-hidden">Awarded</span></span>')
+    chips = "".join(f"<li>{e(p)}</li>" for p in prizes(comp))
+
+    image = ""
+    if comp.get("image"):
+        image = picture(comp["image"], comp["title"], sizes="(max-width: 40rem) 100vw, 20rem")
+        if href:
+            image = f'<a href="{e(href)}" tabindex="-1" aria-hidden="true">{image}</a>'
+
+    highlights = comp.get("highlights") or []
+    more = ""
+    if highlights:
+        items = "".join(f"<li>{e(h)}</li>" for h in highlights)
+        more = f"""<details class="award-more">
+  <summary><i class="bi bi-list-ul" aria-hidden="true"></i> {len(highlights)} highlights</summary>
+  <ul>{items}</ul>
+</details>"""
+
+    links = {**({"details": href} if href else {}), **(comp.get("links") or {})}
+    where = ""
+    if comp.get("location"):
+        where = f'<span class="meta"><i class="bi bi-geo-alt" aria-hidden="true"></i> {e(comp["location"])}</span>'
+
+    return f"""<article class="award-card award-{metal}">
+  {image}
+  <div class="award-body">
+    <div class="award-head">
+      {badge}
+      <ul class="award-prizes">{chips}</ul>
+    </div>
     <h3>{heading}</h3>
-    <p class="meta">{e(prize)} · {month(comp.get('date'))} · {e(comp.get('organizer'))}</p>
+    <p class="award-when">
+      <span class="meta"><i class="bi bi-calendar3" aria-hidden="true"></i> {month(comp.get('date'))}</span>
+      {where}
+    </p>
+    <p class="award-org">{e(comp.get('organizer'))}</p>
     <p>{e(comp.get('shortDescription') or comp.get('description') or '')}</p>
+    {tags(comp.get('technologies'), limit=4)}
+    {more}
+    {link_row(links, cls="award-links")}
   </div>
 </article>"""
 
@@ -856,6 +906,11 @@ def render_research(d) -> str:
     featured = [p for p in pubs if p.get("featured")]
     venues = len({p.get("venueShort") or p.get("venue") for p in pubs})
 
+    podiums = sum(1 for c in comps if (c.get("rank") or 99) <= 3)
+    distinctions = sum(len(prizes(c)) for c in comps)
+    comp_years = sorted((c["date"] or "")[:4] for c in comps if c.get("date"))
+    comp_years = f"{comp_years[0]}&ndash;{comp_years[-1]}" if comp_years else ""
+
     by_year: dict[int, list] = {}
     for pub in pubs:
         by_year.setdefault(pub["year"], []).append(pub)
@@ -916,8 +971,15 @@ def render_research(d) -> str:
       <h2 class="section-title title-with-icon">
         <span class="title-icon title-icon-competitions"><i class="bi bi-trophy-fill" aria-hidden="true"></i></span>
         Competitions</h2>
-      <p>{len(comps)} contests, with the full write-ups on their own pages.</p>
+      <p class="lead">Kaggle leaderboards, ICPC problem sets and firefighting robot
+         arenas. Each card opens its full write-up, with the photos.</p>
     </div>
+    <dl class="stat-row">
+      <div><dt>Contests</dt><dd>{len(comps)}</dd></div>
+      <div><dt>Podium finishes</dt><dd>{podiums}</dd></div>
+      <div><dt>Distinctions</dt><dd>{distinctions}</dd></div>
+      <div><dt>Years</dt><dd>{comp_years}</dd></div>
+    </dl>
     <div class="card-grid">{''.join(award(c) for c in comps)}</div>
   </div>
 </section>

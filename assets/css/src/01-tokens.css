@@ -26,6 +26,13 @@
   --accent-rose: #d4577f;
   --accent-rose-tint: #fce9ef;
 
+  /* Competition placings. Silver and bronze are the two the record holds;
+     anything unplaced falls back to the CV amber. */
+  --medal-silver: #5f6b78;
+  --medal-silver-tint: #eef1f4;
+  --medal-bronze: #8f4f22;
+  --medal-bronze-tint: #f8e8dc;
+
   /* Language pie. A sequential ramp anchored on --brand: dark teal at the top
      of the list, easing through the brand hue toward a pale blue-teal for the
      1% tail, which keeps the slivers visible against --surface. Every slice
@@ -95,6 +102,11 @@
   --accent-amber-tint: #3a2c11;
   --accent-rose: #ee87a8;
   --accent-rose-tint: #3d1a26;
+
+  --medal-silver: #b3bfcb;
+  --medal-silver-tint: #242b32;
+  --medal-bronze: #d98b57;
+  --medal-bronze-tint: #352115;
 
   /* The language ramp inverts: bright teal first, deepening to a slate-teal
      that still separates from --surface. */

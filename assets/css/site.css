@@ -26,6 +26,13 @@
   --accent-rose: #d4577f;
   --accent-rose-tint: #fce9ef;
 
+  /* Competition placings. Silver and bronze are the two the record holds;
+     anything unplaced falls back to the CV amber. */
+  --medal-silver: #5f6b78;
+  --medal-silver-tint: #eef1f4;
+  --medal-bronze: #8f4f22;
+  --medal-bronze-tint: #f8e8dc;
+
   /* Language pie. A sequential ramp anchored on --brand: dark teal at the top
      of the list, easing through the brand hue toward a pale blue-teal for the
      1% tail, which keeps the slivers visible against --surface. Every slice
@@ -95,6 +102,11 @@
   --accent-amber-tint: #3a2c11;
   --accent-rose: #ee87a8;
   --accent-rose-tint: #3d1a26;
+
+  --medal-silver: #b3bfcb;
+  --medal-silver-tint: #242b32;
+  --medal-bronze: #d98b57;
+  --medal-bronze-tint: #352115;
 
   /* The language ramp inverts: bright teal first, deepening to a slate-teal
      that still separates from --surface. */
@@ -783,32 +795,101 @@ a.band-row:hover {
 
 /* Competitions ----------------------------------------------------------- */
 
+.stat-row + .card-grid { margin-top: 1.75rem; }
+
 .award-card {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 1.1rem;
-  align-items: start;
-  padding: 1.35rem 1.4rem;
+  /* The placing colours the card. Silver and bronze carry their own ink; an
+     unplaced entry borrows the CV amber for the rule but keeps --ink for the
+     text, because amber on its own tint is too pale to read. */
+  --medal: var(--accent-amber);
+  --medal-ink: var(--ink);
+  --medal-tint: var(--accent-amber-tint);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   background: var(--surface);
   border: 2px solid var(--border);
-  border-left: 5px solid var(--accent-amber);
+  border-left: 5px solid var(--medal);
   border-radius: var(--radius-tile);
+  transition: border-color 0.18s var(--ease), transform 0.18s var(--ease);
 }
-.award-card h3 + .meta { margin-bottom: 0.6rem; }
+.award-card:hover {
+  border-color: var(--ink);
+  border-left-color: var(--medal);
+  transform: translateY(-3px);
+}
+.award-silver {
+  --medal: var(--medal-silver);
+  --medal-ink: var(--medal-silver);
+  --medal-tint: var(--medal-silver-tint);
+}
+.award-bronze {
+  --medal: var(--medal-bronze);
+  --medal-ink: var(--medal-bronze);
+  --medal-tint: var(--medal-bronze-tint);
+}
+.award-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--surface-sunk);
+  border-bottom: 2px solid var(--border);
+}
+.award-body { display: flex; flex: 1; flex-direction: column; gap: 0.6rem; padding: 1.15rem 1.25rem 1.3rem; }
+.award-head { display: flex; align-items: center; gap: 0.7rem; }
 .award-rank {
   display: grid;
   place-items: center;
-  width: 3rem;
-  height: 3rem;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 50%;
-  background: var(--accent-amber-tint);
-  color: var(--accent-amber);
+  background: var(--medal-tint);
+  color: var(--medal-ink);
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
+}
+.award-prizes { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0; padding: 0; list-style: none; }
+.award-prizes li {
+  margin: 0;
+  padding: 0.18rem 0.6rem;
+  border: 1.5px solid var(--medal);
+  border-radius: var(--radius-pill);
+  background: var(--medal-tint);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.5;
 }
 .award-card h3 { margin: 0; font-size: 1.1rem; }
-.award-card p { font-size: 0.95rem; }
+.award-card h3 a { color: var(--ink); }
+.award-card h3 a:hover { color: var(--brand); text-decoration: none; }
+.award-card p { font-size: 0.95rem; color: var(--body); }
+.award-when { display: flex; flex-wrap: wrap; gap: 0.2rem 0.9rem; }
+.award-org { font-size: 0.85rem; color: var(--faint); }
+.award-more > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--brand);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.award-more > summary::marker { content: ""; }
+.award-more ul { margin: 0.55rem 0 0; padding-left: 1.1rem; }
+.award-more li { margin-bottom: 0.35rem; font-size: 0.9rem; color: var(--body); }
+.award-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.35rem;
+  font-size: 0.875rem;
+}
 
 /* Volunteering ----------------------------------------------------------- */
 

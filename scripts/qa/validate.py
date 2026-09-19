@@ -90,6 +90,9 @@ class HTMLTextAndTagParser(HTMLParser):
                 self.raw_text_chunks.append(cleaned)
 
 
+DEFAULT_SNAPSHOT = Path(__file__).resolve().parent / "baseline_snapshot.json"
+
+
 def load_snapshot(snapshot_path: Path):
     if not snapshot_path.exists():
         raise FileNotFoundError(f"Snapshot file not found at: {snapshot_path}")
@@ -512,7 +515,7 @@ def check_pre_existing_broken_links(site_dir: Path):
     return issues
 
 
-def validate(site_path: str, snapshot_path: str = "/tmp/portfolio-qa/baseline_snapshot.json", verbose: bool = False):
+def validate(site_path: str, snapshot_path: str = str(DEFAULT_SNAPSHOT), verbose: bool = False):
     site_dir = Path(site_path).resolve()
     snap_file = Path(snapshot_path).resolve()
 
@@ -648,7 +651,7 @@ def print_report(summary: dict, verbose: bool = False):
 def main():
     parser = argparse.ArgumentParser(description="Portfolio QA Validator")
     parser.add_argument("--site", required=True, help="Path to site directory to validate")
-    parser.add_argument("--snapshot", default="/tmp/portfolio-qa/baseline_snapshot.json", help="Path to baseline snapshot JSON")
+    parser.add_argument("--snapshot", default=str(DEFAULT_SNAPSHOT), help="Path to baseline snapshot JSON")
     parser.add_argument("--verbose", action="store_true", help="Print verbose details")
     parser.add_argument("--json", action="store_true", help="Output summary as JSON")
 

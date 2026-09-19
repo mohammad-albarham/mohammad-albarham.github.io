@@ -97,6 +97,12 @@ def check_site_links(site_dir: Path, include_templates: bool = False, verbose: b
         "http://mohammad-albarham.github.io",
     )
 
+    # The Pages domain serves this repo at / and every *other* repo with Pages
+    # enabled at /<repo>/. Those live in their own repositories, so they never
+    # resolve against this checkout — but a typo'd self-link still has to fail,
+    # which is why this is a list and not a blanket skip.
+    sibling_pages = ("/fast-rich/",)
+
     for p, parser in parsed_files.items():
         rel_source = str(p.relative_to(site_dir))
         for tag, attr, raw_url, line, col in parser.references:
@@ -122,6 +128,9 @@ def check_site_links(site_dir: Path, include_templates: bool = False, verbose: b
                 if url_to_parse.startswith(prefix):
                     url_to_parse = url_to_parse[len(prefix):] or "/"
                     break
+
+            if url_to_parse != raw_url and url_to_parse in sibling_pages:
+                continue
 
             parsed = urllib.parse.urlsplit(url_to_parse)
 

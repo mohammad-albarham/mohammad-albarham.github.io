@@ -632,18 +632,9 @@ def render_home(d) -> str:
       </div>
       {social_list()}
     </div>
-    <figure class="humanoid-figure">
-      <div class="humanoid-stage">
-        <img class="humanoid-poster" src="/assets/img/humanoid-hero.webp" width="782" height="962" alt="A humanoid robot with a satin metal shell, articulated joints and a blue illuminated visor." fetchpriority="high">
-        <canvas tabindex="0" role="img" aria-label="Interactive 3D humanoid robot. Use arrow keys to rotate; Home to reset." aria-describedby="humanoid-controls"></canvas>
-      </div>
-      <figcaption>
-        <p class="humanoid-title">Intelligence, in motion.</p>
-        <p class="humanoid-interest">Exploring my interest in humanoid robotics.</p>
-        <p id="humanoid-controls" class="humanoid-hint">Drag to explore · Arrow keys to rotate</p>
-      </figcaption>
-    </figure>
-    <script src="/assets/js/humanoid-hero.js" defer></script>
+    <div class="hero-portrait rise rise-2">
+      {picture('assets/img/profile-img-hero.jpg', 'Mohammad Albarham', width=768, height=960, eager=True, sizes='(max-width: 60rem) 100vw, 24rem')}
+    </div>
   </div>
 
   <div class="wrap">

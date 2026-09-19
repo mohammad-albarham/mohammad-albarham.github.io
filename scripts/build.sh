@@ -21,7 +21,6 @@ CSS_FILES=(
   assets/css/src/04-home.css
   assets/css/src/05-legacy.css
   assets/css/src/06-pages.css
-  assets/css/humanoid-hero.css
 )
 
 JS_FILES=(

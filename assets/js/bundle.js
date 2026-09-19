@@ -1850,9 +1850,9 @@ document.addEventListener('DOMContentLoaded', () => {
  * julian.ac/about: every slice carries its own name and percentage on a leader
  * line rather than a separate legend.
  *
- * Slice colours come from CSS custom properties (--lang-1 .. --lang-13), so the
- * dark theme recolours the chart through the cascade and this module never
- * re-renders on a theme change. It does re-render on resize, because below
+ * Slice colours come from CSS custom properties (--lang-1 .. --lang-8 for the
+ * eight largest, --lang-tail for the rest), so the dark theme recolours the
+ * chart through the cascade and this module never re-renders on a theme change. It does re-render on resize, because below
  * ~640px there is no room for leader lines and the labels move to a grid under
  * the pie.
  *
@@ -1895,11 +1895,6 @@ class LanguageChart {
         ${this.buildSvg(compact)}
         ${compact ? this.buildLegend() : ''}
         <figcaption class="lang-chart-caption">
-          Share of hand-written code across ${this.data.repositories} public
-          repositories on <a href="${this.sourceUrl()}" target="_blank"
-          rel="noopener">GitHub</a>, ${this.formatSize(this.data.totalBytes)} in total.
-          Notebook code cells count as their kernel language; notebook outputs,
-          vendored libraries, datasets and media are excluded.
           <button type="button" class="lang-chart-table-toggle"
                   aria-expanded="false" aria-controls="lang-chart-table">
             Show as table
@@ -1935,7 +1930,9 @@ class LanguageChart {
         start: angle,
         end: angle + sweep,
         mid: angle + sweep / 2,
-        color: `var(--lang-${index + 1})`,
+        // Slots 1-8 are the categorical palette; everything past it shares the
+        // neutral tail, since only eight hues stay separable under CVD.
+        color: index < 8 ? `var(--lang-${index + 1})` : 'var(--lang-tail)',
       };
       angle += sweep;
       return slice;
@@ -2140,10 +2137,6 @@ class LanguageChart {
   }
 
   /* ---------- helpers ---------- */
-
-  sourceUrl() {
-    return `https://${this.data.source}`;
-  }
 
   ariaSummary() {
     const parts = this.data.languages.map((e) => `${e.name} ${e.pct}%`);

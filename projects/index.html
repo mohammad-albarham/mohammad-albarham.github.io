@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Projects — Mohammad Albarham</title>
+<meta name="description" content="All 25 of Mohammad Albarham&#x27;s projects across computer vision, Arabic NLP, embedded systems and mechatronics.">
+<meta name="author" content="Mohammad Albarham">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mohammad-albarham.github.io/projects/">
+<meta name="theme-color" content="#00796b">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mohammad Albarham">
+<meta property="og:url" content="https://mohammad-albarham.github.io/projects/">
+<meta property="og:title" content="Projects — Mohammad Albarham">
+<meta property="og:description" content="All 25 of Mohammad Albarham&#x27;s projects across computer vision, Arabic NLP, embedded systems and mechatronics.">
+<meta property="og:image" content="https://mohammad-albarham.github.io/assets/img/profile-img-1200.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Projects — Mohammad Albarham">
+<meta name="twitter:description" content="All 25 of Mohammad Albarham&#x27;s projects across computer vision, Arabic NLP, embedded systems and mechatronics.">
+<meta name="twitter:image" content="https://mohammad-albarham.github.io/assets/img/profile-img-1200.jpg">
+
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+
+<link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/nunito-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+<link rel="stylesheet" href="/assets/css/site.css">
+
+<script>
+// Apply the saved theme before first paint so the page never flashes.
+(function () {
+  try {
+    var saved = localStorage.getItem('ma-theme');
+    var dark = saved ? saved === 'dark'
+      : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+  } catch (e) {}
+})();
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJHNQN2HWX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-VJHNQN2HWX');
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="/">
+      <picture><source srcset="/assets/img_webp/profile-img-240.webp" type="image/webp"><img src="/assets/img/profile-img-240.jpg" alt="Mohammad Albarham" width="34" height="34" fetchpriority="high" decoding="async"></picture>
+      <span>Mohammad Albarham</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-pills" id="nav-pills"><li><a href="/projects/" aria-current="page">Projects</a></li><li><a href="/research/">Research</a></li><li><a href="/about/">About &amp; CV</a></li><li><a href="/#contact">Contact</a></li></ul>
+    </nav>
+    <div class="topbar-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <i class="bi bi-moon" aria-hidden="true"></i><i class="bi bi-sun" aria-hidden="true"></i>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" aria-expanded="false"
+              aria-controls="nav-pills" aria-label="Open navigation">
+        <i class="bi bi-list" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h1 class="page-title">Projects</h1>
+      <p class="lead">Every project on this site: 25 of them, from instance
+         segmentation for urban streetscapes to a firefighting robot and a CNC machine
+         built from scratch. Cards with a title link lead to a full write-up.</p>
+    </div>
+    <div data-filter-group="all-projects" data-filter-status="all-projects-status">
+  <ul class="filters" role="group" aria-label="Filter projects by technology"><li><button type="button" class="filter-chip" data-tech-value="all" aria-pressed="true">All projects</button></li><li><button type="button" class="filter-chip" data-tech-value="PyTorch" aria-pressed="false">PyTorch <span aria-hidden="true">8</span></button></li><li><button type="button" class="filter-chip" data-tech-value="Python" aria-pressed="false">Python <span aria-hidden="true">6</span></button></li><li><button type="button" class="filter-chip" data-tech-value="Computer Vision" aria-pressed="false">Computer Vision <span aria-hidden="true">5</span></button></li><li><button type="button" class="filter-chip" data-tech-value="Arabic NLP" aria-pressed="false">Arabic NLP <span aria-hidden="true">3</span></button></li><li><button type="button" class="filter-chip" data-tech-value="NLP" aria-pressed="false">NLP <span aria-hidden="true">3</span></button></li><li><button type="button" class="filter-chip" data-tech-value="Dataset Creation" aria-pressed="false">Dataset Creation <span aria-hidden="true">2</span></button></li><li><button type="button" class="filter-chip" data-tech-value="Deep Learning" aria-pressed="false">Deep Learning <span aria-hidden="true">2</span></button></li><li><button type="button" class="filter-chip" data-tech-value="RNN" aria-pressed="false">RNN <span aria-hidden="true">2</span></button></li><li><button type="button" class="filter-chip" data-tech-value="Rust" aria-pressed="false">Rust <span aria-hidden="true">2</span></button></li></ul>
+</div>
+<p class="filter-status" id="all-projects-status" role="status" aria-live="polite"></p>
+    <div class="card-grid" id="all-projects"><article class="work-card" data-tech="PyTorch|DINOv3|Mask2Former|ViT Adapter|HuggingFace Transformers">
+  <a href="/projects/latest-projects-5.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/dinov3_segmentation_result.webp" type="image/webp"><img src="/assets/img/portfolio/dinov3_segmentation_result.jpg" alt="DINOv3-Mask2Former: Urban Instance Segmentation" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2025</p>
+    <h3><a href="/projects/latest-projects-5.html">DINOv3-Mask2Former: Urban Instance Segmentation</a></h3>
+    <p>Unified instance segmentation framework combining self-supervised DINOv3 Vision Transformer with Mask2Former for urban streetscapes</p>
+    <ul class="tag-list"><li><span class="tag">PyTorch</span></li><li><span class="tag">DINOv3</span></li><li><span class="tag">Mask2Former</span></li><li><span class="tag">ViT Adapter</span></li><li><span class="tag">+1</span></li></ul>
+    <div class="work-card-links"><a href="https://github.com/mohammad-albarham/DINOv3-and-Mask2Former-for-Urban-Streetscapes-Instance-Segmentation" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i> Code</a><a href="/assets/docs/SSY340_Project_report.pdf"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Report</a><a href="/assets/docs/SSY340_Project_Poster.pdf"><i class="bi bi-easel" aria-hidden="true"></i> Poster</a></div>
+  </div>
+</article><article class="work-card" data-tech="Rust|Terminal UI|CLI|Performance">
+  <a href="https://github.com/mohammad-albarham/fast-rich" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/fast-rich.webp" type="image/webp"><img src="/assets/img/portfolio/fast-rich.png" alt="Fast-Rich: High-Performance Terminal UI" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2025</p>
+    <h3><a href="https://github.com/mohammad-albarham/fast-rich">Fast-Rich: High-Performance Terminal UI</a></h3>
+    <p>High-performance Rust library for rendering rich text and complex terminal user interfaces</p>
+    <ul class="tag-list"><li><span class="tag">Rust</span></li><li><span class="tag">Terminal UI</span></li><li><span class="tag">CLI</span></li><li><span class="tag">Performance</span></li></ul>
+    <div class="work-card-links"><a href="https://mohammad-albarham.github.io/fast-rich/" target="_blank" rel="noopener noreferrer"><i class="bi bi-play-circle" aria-hidden="true"></i> Demo</a><a href="https://github.com/mohammad-albarham/fast-rich" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i> Code</a></div>
+  </div>
+</article><article class="work-card" data-tech="Rust|TUI|Ratatui|Chat">
+  <a href="https://github.com/mohammad-albarham/ratatalk" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/ratatalk.webp" type="image/webp"><img src="/assets/img/portfolio/ratatalk.png" alt="RataTalk: Terminal Chat Client" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2025</p>
+    <h3><a href="https://github.com/mohammad-albarham/ratatalk">RataTalk: Terminal Chat Client</a></h3>
+    <p>Terminal-based chat client built with Rust and Ratatui</p>
+    <ul class="tag-list"><li><span class="tag">Rust</span></li><li><span class="tag">TUI</span></li><li><span class="tag">Ratatui</span></li><li><span class="tag">Chat</span></li></ul>
+    <div class="work-card-links"><a href="https://github.com/mohammad-albarham/ratatalk" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i> Code</a></div>
+  </div>
+</article><article class="work-card" data-tech="PyTorch|CLIP|Transformers|Knowledge Distillation|HuggingFace">
+  <a href="/projects/latest-projects-1.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/lp_photo_1.webp" type="image/webp"><img src="/assets/img/portfolio/lp_photo_1.png" alt="AraCLIP: Cross-Lingual Arabic Image Retrieval" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2024</p>
+    <h3><a href="/projects/latest-projects-1.html">AraCLIP: Cross-Lingual Arabic Image Retrieval</a></h3>
+    <p>Cross-lingual learning model for effective Arabic text-to-image retrieval using knowledge distillation from CLIP</p>
+    <ul class="tag-list"><li><span class="tag">PyTorch</span></li><li><span class="tag">CLIP</span></li><li><span class="tag">Transformers</span></li><li><span class="tag">Knowledge Distillation</span></li><li><span class="tag">+1</span></li></ul>
+    <div class="work-card-links"><a href="https://huggingface.co/Arabic-Clip" target="_blank" rel="noopener noreferrer"><i class="bi bi-box" aria-hidden="true"></i> Hugging Face</a><a href="https://aclanthology.org/2024.arabicnlp-1.9/" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Paper</a></div>
+  </div>
+</article><article class="work-card" data-tech="Python|Visualization|Semantic Segmentation">
+  <a href="/projects/latest-projects-4.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/lp_photo_4.webp" type="image/webp"><img src="/assets/img/portfolio/lp_photo_4.jpg" alt="Mapillary Vistas Dataset Visualizer" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2024</p>
+    <h3><a href="/projects/latest-projects-4.html">Mapillary Vistas Dataset Visualizer</a></h3>
+    <p>Interactive visualizer for the Mapillary Vistas semantic segmentation dataset</p>
+    <ul class="tag-list"><li><span class="tag">Python</span></li><li><span class="tag">Visualization</span></li><li><span class="tag">Semantic Segmentation</span></li></ul>
+    <div class="work-card-links"><a href="https://github.com/mohammad-albarham/mapillary_dataset_visualizer_InsSeg" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i> Code</a></div>
+  </div>
+</article><article class="work-card" data-tech="Python|OpenCV|NumPy|Computer Vision">
+  <a href="/projects/latest-projects-2.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/lp_photo_2.webp" type="image/webp"><img src="/assets/img/portfolio/lp_photo_2.png" alt="Structure from Motion Algorithm" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2024</p>
+    <h3><a href="/projects/latest-projects-2.html">Structure from Motion Algorithm</a></h3>
+    <p>Implementation of Structure from Motion algorithm for 3D reconstruction from multiple images</p>
+    <ul class="tag-list"><li><span class="tag">Python</span></li><li><span class="tag">OpenCV</span></li><li><span class="tag">NumPy</span></li><li><span class="tag">Computer Vision</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="PyTorch|TTS|Arabic NLP">
+  <a href="/projects/latest-projects-3.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/tts_image.webp" type="image/webp"><img src="/assets/img/portfolio/tts_image.jpeg" alt="Text to Speech for Arabic Poetry" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2024</p>
+    <h3><a href="/projects/latest-projects-3.html">Text to Speech for Arabic Poetry</a></h3>
+    <p>Text-to-speech system specialized for Arabic poetry with proper pronunciation and rhythm</p>
+    <ul class="tag-list"><li><span class="tag">PyTorch</span></li><li><span class="tag">TTS</span></li><li><span class="tag">Arabic NLP</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="Speech Processing|Dataset Creation|Arabic NLP">
+  <a href="/projects/portfolio-details-2.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/portfolio/p2.gif" alt="MASC: Massive Arabic Speech Corpus" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></a>
+  <div class="work-card-body">
+    <p class="meta">2023</p>
+    <h3><a href="/projects/portfolio-details-2.html">MASC: Massive Arabic Speech Corpus</a></h3>
+    <p>Large-scale Arabic speech corpus for automatic speech recognition research</p>
+    <ul class="tag-list"><li><span class="tag">Speech Processing</span></li><li><span class="tag">Dataset Creation</span></li><li><span class="tag">Arabic NLP</span></li></ul>
+    <div class="work-card-links"><a href="https://huggingface.co/datasets/pain/MASC" target="_blank" rel="noopener noreferrer"><i class="bi bi-box" aria-hidden="true"></i> Hugging Face</a><a href="https://github.com/TRoboto/MASC" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i> Code</a><a href="https://ieeexplore.ieee.org/document/10022652" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Paper</a></div>
+  </div>
+</article><article class="work-card" data-tech="RASA|OpenAI|Python|NLP">
+  <a href="/projects/portfolio-details-1.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/p1.webp" type="image/webp"><img src="/assets/img/portfolio/p1.png" alt="RASA Chatbot with ChatGPT Integration" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2023</p>
+    <h3><a href="/projects/portfolio-details-1.html">RASA Chatbot with ChatGPT Integration</a></h3>
+    <p>Integration of RASA framework with ChatGPT for enhanced conversational AI</p>
+    <ul class="tag-list"><li><span class="tag">RASA</span></li><li><span class="tag">OpenAI</span></li><li><span class="tag">Python</span></li><li><span class="tag">NLP</span></li></ul>
+    <div class="work-card-links"><a href="https://github.com/ML-ALP-Research-Group/Rasa_chatbot_with_chatgpt" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i> Code</a></div>
+  </div>
+</article><article class="work-card" data-tech="Dataset Creation|Computer Vision|Arabic Sign Language">
+  <a href="/projects/portfolio-details-15.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/rgb_paper/dataset-cover.webp" type="image/webp"><img src="/assets/img/portfolio/rgb_paper/dataset-cover.jpg" alt="RGB Arabic Alphabets Sign Language Dataset" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2023</p>
+    <h3><a href="/projects/portfolio-details-15.html">RGB Arabic Alphabets Sign Language Dataset</a></h3>
+    <p>Comprehensive RGB dataset for Arabic Alphabets Sign Language recognition</p>
+    <ul class="tag-list"><li><span class="tag">Dataset Creation</span></li><li><span class="tag">Computer Vision</span></li><li><span class="tag">Arabic Sign Language</span></li></ul>
+    <div class="work-card-links"><a href="https://www.kaggle.com/datasets/..." target="_blank" rel="noopener noreferrer"><i class="bi bi-bar-chart" aria-hidden="true"></i> Kaggle</a><a href="https://huggingface.co/datasets/pain/AASL" target="_blank" rel="noopener noreferrer"><i class="bi bi-box" aria-hidden="true"></i> Hugging Face</a><a href="https://universe.roboflow.com/rgb-arsl/rgb-arabic-alphabet-sign-language-aasl-dataset" target="_blank" rel="noopener noreferrer"><i class="bi bi-bounding-box" aria-hidden="true"></i> Roboflow</a><a href="https://arxiv.org/abs/2301.11932" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Paper</a></div>
+  </div>
+</article><article class="work-card" data-tech="Raspberry Pi|TensorFlow Lite|Computer Vision|Python">
+  <a href="/projects/portfolio-details-10.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/arsl_rasperrypi/ArSL_project.webp" type="image/webp"><img src="/assets/img/portfolio/arsl_rasperrypi/ArSL_project.jpg" alt="Arabic Sign Language Recognition on Raspberry Pi" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2022</p>
+    <h3><a href="/projects/portfolio-details-10.html">Arabic Sign Language Recognition on Raspberry Pi</a></h3>
+    <p>Real-time Arabic sign language recognition system deployed on Raspberry Pi</p>
+    <ul class="tag-list"><li><span class="tag">Raspberry Pi</span></li><li><span class="tag">TensorFlow Lite</span></li><li><span class="tag">Computer Vision</span></li><li><span class="tag">Python</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="TensorFlow|Computer Vision|Deep Learning">
+  <a href="/projects/portfolio-details-14.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/portfolio/p14.gif" alt="Arabic Sign Language Recognition using Deep Learning" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></a>
+  <div class="work-card-body">
+    <p class="meta">2022</p>
+    <h3><a href="/projects/portfolio-details-14.html">Arabic Sign Language Recognition using Deep Learning</a></h3>
+    <p>Deep learning models for Arabic Sign Language recognition</p>
+    <ul class="tag-list"><li><span class="tag">TensorFlow</span></li><li><span class="tag">Computer Vision</span></li><li><span class="tag">Deep Learning</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="Python|Arabic NLP|Text Processing">
+  <a href="/projects/portfolio-details-3.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/p3.webp" type="image/webp"><img src="/assets/img/portfolio/p3.png" alt="Maha NLP Library" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2022</p>
+    <h3><a href="/projects/portfolio-details-3.html">Maha NLP Library</a></h3>
+    <p>Arabic text processing library for NLP tasks</p>
+    <ul class="tag-list"><li><span class="tag">Python</span></li><li><span class="tag">Arabic NLP</span></li><li><span class="tag">Text Processing</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="Mobile Development|Healthcare">
+  <a href="/projects/portfolio-details-4.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/p4.webp" type="image/webp"><img src="/assets/img/portfolio/p4.png" alt="Dwai Medical Application" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2021</p>
+    <h3><a href="/projects/portfolio-details-4.html">Dwai Medical Application</a></h3>
+    <p>Medical application for healthcare services</p>
+    <ul class="tag-list"><li><span class="tag">Mobile Development</span></li><li><span class="tag">Healthcare</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="Python|Scikit-learn|Data Analysis">
+  <a href="/projects/portfolio-details-12.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/p12.webp" type="image/webp"><img src="/assets/img/portfolio/p12.png" alt="Bike Sharing Demand Prediction" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2020</p>
+    <h3><a href="/projects/portfolio-details-12.html">Bike Sharing Demand Prediction</a></h3>
+    <p>Machine learning model for predicting bike sharing demand</p>
+    <ul class="tag-list"><li><span class="tag">Python</span></li><li><span class="tag">Scikit-learn</span></li><li><span class="tag">Data Analysis</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="PyTorch|GANs|Deep Learning">
+  <a href="/projects/portfolio-details-11.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/p11.webp" type="image/webp"><img src="/assets/img/portfolio/p11.png" alt="GANs for MNIST Digit Generation" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2020</p>
+    <h3><a href="/projects/portfolio-details-11.html">GANs for MNIST Digit Generation</a></h3>
+    <p>Generative Adversarial Networks implementation for MNIST digit generation</p>
+    <ul class="tag-list"><li><span class="tag">PyTorch</span></li><li><span class="tag">GANs</span></li><li><span class="tag">Deep Learning</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="PyTorch|Neural Networks|Computer Vision">
+  <a href="/projects/portfolio-details-7.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/p7.webp" type="image/webp"><img src="/assets/img/portfolio/p7.png" alt="MNIST Prediction using Neural Network" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2020</p>
+    <h3><a href="/projects/portfolio-details-7.html">MNIST Prediction using Neural Network</a></h3>
+    <p>Neural network for MNIST handwritten digit classification</p>
+    <ul class="tag-list"><li><span class="tag">PyTorch</span></li><li><span class="tag">Neural Networks</span></li><li><span class="tag">Computer Vision</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="C++|Memory Management|Chatbot">
+  <a href="/projects/portfolio-details-13.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/portfolio/p13.gif" alt="Memory Management Chatbot" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></a>
+  <div class="work-card-body">
+    <p class="meta">2020</p>
+    <h3><a href="/projects/portfolio-details-13.html">Memory Management Chatbot</a></h3>
+    <p>Chatbot implementation with memory management concepts in C++</p>
+    <ul class="tag-list"><li><span class="tag">C++</span></li><li><span class="tag">Memory Management</span></li><li><span class="tag">Chatbot</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="PyTorch|RNN|NLP">
+  <a href="/projects/portfolio-details-9.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/p9.webp" type="image/webp"><img src="/assets/img/portfolio/p9.png" alt="Sentiment Analysis using RNN" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2020</p>
+    <h3><a href="/projects/portfolio-details-9.html">Sentiment Analysis using RNN</a></h3>
+    <p>Recurrent Neural Network for sentiment analysis of text data</p>
+    <ul class="tag-list"><li><span class="tag">PyTorch</span></li><li><span class="tag">RNN</span></li><li><span class="tag">NLP</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="PyTorch|RNN|Text Generation">
+  <a href="/projects/portfolio-details-8.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/p8.webp" type="image/webp"><img src="/assets/img/portfolio/p8.png" alt="TV Script Generation" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2020</p>
+    <h3><a href="/projects/portfolio-details-8.html">TV Script Generation</a></h3>
+    <p>RNN-based TV script generation using deep learning</p>
+    <ul class="tag-list"><li><span class="tag">PyTorch</span></li><li><span class="tag">RNN</span></li><li><span class="tag">Text Generation</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="PyTorch|NLP|Word Embeddings">
+  <a href="/projects/portfolio-details-6.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/p6.webp" type="image/webp"><img src="/assets/img/portfolio/p6.png" alt="Word2Vec Embeddings Implementation" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2020</p>
+    <h3><a href="/projects/portfolio-details-6.html">Word2Vec Embeddings Implementation</a></h3>
+    <p>Implementation of Word2Vec algorithm using skip-gram architecture</p>
+    <ul class="tag-list"><li><span class="tag">PyTorch</span></li><li><span class="tag">NLP</span></li><li><span class="tag">Word Embeddings</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="CNC|G-code|CAD/CAM">
+  <a href="/projects/portfolio-details-20.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/cnc/download.webp" type="image/webp"><img src="/assets/img/portfolio/cnc/download.jpeg" alt="CNC Machine Projects" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2019</p>
+    <h3><a href="/projects/portfolio-details-20.html">CNC Machine Projects</a></h3>
+    <p>Computer numerical control machine projects</p>
+    <ul class="tag-list"><li><span class="tag">CNC</span></li><li><span class="tag">G-code</span></li><li><span class="tag">CAD/CAM</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="PIC Microcontroller|C|PWM|Embedded Systems">
+  <a href="/projects/portfolio-details-16.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/pwm_project/PWM.webp" type="image/webp"><img src="/assets/img/portfolio/pwm_project/PWM.png" alt="DC Motor Control using PWM" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2019</p>
+    <h3><a href="/projects/portfolio-details-16.html">DC Motor Control using PWM</a></h3>
+    <p>Controlling DC motor using PWM with PIC16F778 microcontroller</p>
+    <ul class="tag-list"><li><span class="tag">PIC Microcontroller</span></li><li><span class="tag">C</span></li><li><span class="tag">PWM</span></li><li><span class="tag">Embedded Systems</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="FPGA|VHDL|Verilog|Digital Design">
+  <a href="/projects/portfolio-details-19.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/fpga/images.webp" type="image/webp"><img src="/assets/img/portfolio/fpga/images.jpeg" alt="FPGA Architecture Projects" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2019</p>
+    <h3><a href="/projects/portfolio-details-19.html">FPGA Architecture Projects</a></h3>
+    <p>Field-Programmable Gate Array architecture projects</p>
+    <ul class="tag-list"><li><span class="tag">FPGA</span></li><li><span class="tag">VHDL</span></li><li><span class="tag">Verilog</span></li><li><span class="tag">Digital Design</span></li></ul>
+    
+  </div>
+</article><article class="work-card" data-tech="PLC|Automation|Control Systems">
+  <a href="/projects/portfolio-details-21.html" tabindex="-1" aria-hidden="true"><picture><source srcset="/assets/img_webp/portfolio/automation/automation.webp" type="image/webp"><img src="/assets/img/portfolio/automation/automation.jpg" alt="Industrial Automation Projects" loading="lazy" decoding="async" sizes="(max-width: 40rem) 100vw, 20rem"></picture></a>
+  <div class="work-card-body">
+    <p class="meta">2019</p>
+    <h3><a href="/projects/portfolio-details-21.html">Industrial Automation Projects</a></h3>
+    <p>Industrial automation systems and control projects</p>
+    <ul class="tag-list"><li><span class="tag">PLC</span></li><li><span class="tag">Automation</span></li><li><span class="tag">Control Systems</span></li></ul>
+    
+  </div>
+</article></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Mohammad Albarham</h2>
+        <p>Computer vision and AI engineer in Gothenburg, Sweden. Autonomous
+           systems, multi-modal models and Arabic NLP.</p>
+        <p><a href="mailto:mohammad.albarham.work@gmail.com">mohammad.albarham.work@gmail.com</a></p>
+        <ul class="social"><li><a href="https://www.linkedin.com/in/albarham/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin" aria-hidden="true"></i></a></li><li><a href="https://github.com/mohammad-albarham" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i></a></li><li><a href="https://scholar.google.com/citations?user=3znRUJoAAAAJ&amp;hl=en" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9zM6 13.2V17c0 2.2 2.7 4 6 4s6-1.8 6-4v-3.8l-6 3.3z"/></svg></a></li><li><a href="https://huggingface.co/pain" aria-label="Hugging Face" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="4.1" cy="15.9" rx="2.4" ry="3" transform="rotate(-28 4.1 15.9)"/><ellipse cx="19.9" cy="15.9" rx="2.4" ry="3" transform="rotate(28 19.9 15.9)"/><path fill-rule="evenodd" d="M12 3a7.6 7.6 0 1 0 0 15.2A7.6 7.6 0 0 0 12 3zM9 9.9a1.4 1.8 0 1 0 0 3.6 1.4 1.8 0 0 0 0-3.6zM15 9.9a1.4 1.8 0 1 0 0 3.6 1.4 1.8 0 0 0 0-3.6zM8.4 13.6h7.2a3.6 3.6 0 0 1-7.2 0z"/></svg></a></li></ul>
+      </div>
+      <div>
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/research/">Research</a></li>
+          <li><a href="/about/">About &amp; CV</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Sections</h2>
+        <ul>
+          <li><a href="/#resume">Experience</a></li>
+          <li><a href="/#publications">Publications</a></li>
+          <li><a href="/#competitions">Competitions</a></li>
+          <li><a href="/#volunteering">Volunteering</a></li>
+          <li><a href="/#travel">Travel</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Mohammad Albarham</span>
+      <span>Built as a static site, hosted on GitHub Pages</span>
+      <span><a href="/sitemap.xml">Sitemap</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+
+</body>
+
+</html>

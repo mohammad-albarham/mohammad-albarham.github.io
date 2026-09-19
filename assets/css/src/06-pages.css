@@ -159,6 +159,124 @@
 .course-list .meta { display: inline; margin-right: 0.35rem; }
 @media (max-width: 44rem) { .course-list { columns: 1; } }
 
-/* On the research page every publication is expanded, so the rhythm needs a
-   little more air than the compact homepage list. */
-.section-title + .pub { margin-top: 0.5rem; }
+/* Research ---------------------------------------------------------------- */
+
+/* The numbers that frame the page before any paper is read. */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  background: var(--border);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-tile);
+  overflow: hidden;
+}
+.stat-row > div { padding: 1.1rem 1.25rem; background: var(--surface); }
+.stat-row dt {
+  margin: 0 0 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--faint);
+  text-transform: lowercase;
+}
+.stat-row dd {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--accent-indigo);
+}
+
+@media (max-width: 44rem) {
+  .stat-row > div { padding: 0.9rem 1rem; }
+  .stat-row dd { font-size: 1.3rem; }
+}
+
+.section-note { max-width: 60ch; margin: -1.25rem 0 1.5rem; color: var(--body); }
+.title-icon-featured { background: var(--accent-amber-tint); color: var(--accent-amber); }
+.title-icon-research { background: var(--accent-indigo-tint); color: var(--accent-indigo); }
+.title-icon-competitions { background: var(--accent-amber-tint); color: var(--accent-amber); }
+
+/* The four papers worth reading first, as cards rather than list rows. */
+.pub-featured-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+@media (max-width: 52rem) { .pub-featured-strip { grid-template-columns: 1fr; } }
+.pub-compact {
+  display: flex;
+  flex-direction: column;
+  padding: 1.35rem 1.4rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-left: 5px solid var(--accent-amber);
+  border-radius: var(--radius-tile);
+}
+.pub-compact h3 { font-size: 1.05rem; }
+.pub-compact .pub-links { margin-top: auto; padding-top: 0.75rem; }
+
+/* A year is a heading with a rule that runs to the edge of the column. */
+.year-group { margin-top: 2.75rem; }
+.year-group:first-child { margin-top: 0; }
+.year-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0 0 0.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent-indigo);
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.year-head .meta { margin-left: auto; }
+.year-group.is-hidden, .pub.is-hidden { display: none; }
+
+/* Every paper carries an indigo edge — the accent that means research here. */
+#all-publications .pub {
+  padding: 1.35rem 1.4rem;
+  margin-top: 1rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-left: 5px solid var(--accent-indigo);
+  border-radius: var(--radius-tile);
+}
+#all-publications .pub:first-of-type { border-top: 2px solid var(--border); }
+
+.pub-featured {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--accent-amber-tint);
+  color: var(--accent-amber);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* Links are the point of a paper's card, so they read as buttons. */
+.pub-links { gap: 0.4rem; }
+.pub-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--body);
+  font-size: 0.8rem;
+  transition: border-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+.pub-links a:hover {
+  border-color: var(--accent-indigo);
+  color: var(--accent-indigo);
+  text-decoration: none;
+}
+.pub .tag-list { margin-top: 0.75rem; }

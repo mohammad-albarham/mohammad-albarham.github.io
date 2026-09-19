@@ -1,5 +1,8 @@
-/* Technology filter for the project grids. Progressive enhancement: with no
-   JavaScript every project is already in the HTML and visible. */
+/* Chip filters for the project grid and the publication list. Progressive
+   enhancement: with no JavaScript every card is already in the HTML and
+   visible. A group may name the noun it counts and, when its cards sit inside
+   headed sections, the selector for those sections so an emptied one hides
+   with its heading. */
 (function () {
   'use strict';
 
@@ -9,13 +12,18 @@
     var status = document.getElementById(group.getAttribute('data-filter-status'));
     if (!grid) return;
 
+    var noun = group.getAttribute('data-filter-noun') || 'projects';
+    var sectionSelector = group.getAttribute('data-filter-section');
     var cards = Array.prototype.slice.call(grid.querySelectorAll('[data-tech]'));
+    var sections = sectionSelector
+      ? Array.prototype.slice.call(grid.querySelectorAll(sectionSelector))
+      : [];
 
     function announce(shown, label) {
       if (!status) return;
       status.textContent = label === 'all'
-        ? 'Showing all ' + cards.length + ' projects'
-        : 'Showing ' + shown + ' of ' + cards.length + ' projects tagged ' + label;
+        ? 'Showing all ' + cards.length + ' ' + noun
+        : 'Showing ' + shown + ' of ' + cards.length + ' ' + noun + ' tagged ' + label;
     }
 
     function select(chip) {
@@ -27,6 +35,11 @@
         var match = value === 'all' || techs.indexOf(value) !== -1;
         card.classList.toggle('is-hidden', !match);
         if (match) shown++;
+      });
+
+      sections.forEach(function (section) {
+        section.classList.toggle(
+          'is-hidden', !section.querySelector('[data-tech]:not(.is-hidden)'));
       });
 
       chips.forEach(function (other) {

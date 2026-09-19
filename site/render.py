@@ -110,6 +110,13 @@ def tags(items, limit: int | None = None) -> str:
 
 LINK_LABELS = {
     "github": ("bi-github", "Code"),
+    "pdf": ("bi-file-earmark-pdf", "PDF"),
+    "doi": ("bi-link-45deg", "DOI"),
+    "dataset": ("bi-database", "Dataset"),
+    "ieeeDataport": ("bi-database", "IEEE DataPort"),
+    "languageModel": ("bi-boxes", "Language model"),
+    "asrModel": ("bi-mic", "ASR model"),
+    "twitterDataset": ("bi-database", "Tweets dataset"),
     "demo": ("bi-play-circle", "Demo"),
     "paper": ("bi-file-earmark-text", "Paper"),
     "report": ("bi-file-earmark-text", "Report"),
@@ -372,29 +379,40 @@ def filter_block(projects: list, grid_id: str) -> tuple[str, str]:
     return controls, grid
 
 
-def publication(pub: dict, *, full: bool) -> str:
-    authors = ", ".join(
+# Everything a paper can point at, in the order the buttons should read.
+PUB_LINKS = ["url", "pdfUrl", "doi", "github", "huggingface", "kaggle", "roboflow",
+             "ieeeDataport", "languageModel", "asrModel", "twitterDataset"]
+PUB_LINK_KEYS = {"url": "paper", "pdfUrl": "pdf", "huggingface": "huggingface"}
+TYPE_LABELS = {"journal": "Journal", "conference": "Conference",
+               "workshop": "Workshop", "preprint": "Preprint"}
+
+
+def pub_authors(pub: dict) -> str:
+    return ", ".join(
         f'<span class="me">{e(a["name"])}</span>' if a.get("isMe") else e(a["name"])
         for a in pub.get("authors") or []
     )
-    links = {}
-    if pub.get("url"):
-        links["paper"] = pub["url"]
-    if pub.get("pdfUrl"):
-        links["pdf"] = pub["pdfUrl"]
-    if pub.get("doi"):
-        links["doi"] = pub["doi"]
-    if pub.get("huggingface"):
-        links["huggingface"] = pub["huggingface"]
-    link_html = "".join(
-        f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label.upper() if label in ("doi", "pdf") else label.capitalize())}</a>'
-        for label, url in links.items()
-    )
+
+
+def pub_where(pub: dict) -> str:
     where = pub.get("venue") or ""
     if pub.get("volume"):
         where += f", vol. {pub['volume']}"
     if pub.get("pages"):
         where += f", p. {pub['pages']}"
+    return where
+
+
+def publication(pub: dict, *, full: bool) -> str:
+    """One paper. `full` adds the abstract, the keywords and the BibTeX; the
+    compact form is for the featured strip, where the same paper appears
+    again further down the page."""
+    links = {PUB_LINK_KEYS.get(key, key): pub[key] for key in PUB_LINKS if pub.get(key)}
+    star = ('<span class="pub-featured"><i class="bi bi-star-fill" aria-hidden="true"></i> Featured</span>'
+            if pub.get("featured") else "")
+    title = e(pub["title"])
+    if pub.get("url"):
+        title = f'<a href="{e(pub["url"])}" target="_blank" rel="noopener noreferrer">{title}</a>'
 
     extra = ""
     if full:
@@ -407,17 +425,19 @@ def publication(pub: dict, *, full: bool) -> str:
   <pre id="{bib_id}">{e(pub['bibtex'])}</pre>
   <button type="button" class="btn btn-sm copy-bibtex" data-bibtex-for="{bib_id}">Copy BibTeX</button>
 </details>"""
-        extra = abstract + bibtex
+        extra = abstract + tags(pub.get("keywords")) + bibtex
 
-    return f"""<article class="pub" data-type="{e(pub.get('type'))}" data-year="{e(pub.get('year'))}">
+    cls = "pub" if full else "pub pub-compact"
+    return f"""<article class="{cls}" data-tech="{e(pub.get('type'))}" data-year="{e(pub.get('year'))}">
   <div class="pub-head">
     <span class="meta">{e(pub.get('year'))}</span>
     <span class="pub-badge">{e(pub.get('venueShort') or pub.get('type'))}</span>
+    {star}
   </div>
-  <h3>{e(pub['title'])}</h3>
-  <p class="pub-authors">{authors}</p>
-  <p class="pub-venue">{e(where)}</p>
-  <div class="pub-links">{link_html}</div>
+  <h3>{title}</h3>
+  <p class="pub-authors">{pub_authors(pub)}</p>
+  <p class="pub-venue">{e(pub_where(pub))}</p>
+  {link_row(links, cls="pub-links")}
   {extra}
 </article>"""
 
@@ -810,19 +830,59 @@ def render_projects(d) -> str:
     )
 
 
+def pub_filters(pubs: list) -> str:
+    """One chip per publication type, plus All. The count rides on the chip so
+    you know what a filter costs before you press it."""
+    counts: dict[str, int] = {}
+    for pub in pubs:
+        counts[pub["type"]] = counts.get(pub["type"], 0) + 1
+    order = [t for t in TYPE_LABELS if t in counts] + sorted(set(counts) - set(TYPE_LABELS))
+    chips = ['<li><button type="button" class="filter-chip" data-tech-value="all" '
+             'aria-pressed="true">All papers</button></li>']
+    chips += [f'<li><button type="button" class="filter-chip" data-tech-value="{e(t)}" '
+              f'aria-pressed="false">{e(TYPE_LABELS.get(t, t.capitalize()))} '
+              f'<span aria-hidden="true">{counts[t]}</span></button></li>'
+              for t in order]
+    return f"""<div data-filter-group="all-publications" data-filter-status="publications-status"
+     data-filter-noun="papers" data-filter-section=".year-group">
+  <ul class="filters" role="group" aria-label="Filter publications by type">{''.join(chips)}</ul>
+</div>
+<p class="filter-status" id="publications-status" role="status" aria-live="polite"></p>"""
+
+
 def render_research(d) -> str:
     pubs = sorted(d["publications"], key=lambda p: (-p["year"], p["title"]))
     comps = sorted(d["competitions"], key=lambda c: c.get("date") or "", reverse=True)
+    featured = [p for p in pubs if p.get("featured")]
+    venues = len({p.get("venueShort") or p.get("venue") for p in pubs})
+
     by_year: dict[int, list] = {}
     for pub in pubs:
         by_year.setdefault(pub["year"], []).append(pub)
     groups = "".join(
-        f'<h2 class="section-title" style="margin-top:2.5rem">{year}</h2>'
+        f'<section class="year-group"><h2 class="year-head">{year}'
+        f'<span class="meta">{len(items)} paper{"" if len(items) == 1 else "s"}</span></h2>'
         + "".join(publication(p, full=True) for p in items)
+        + "</section>"
         for year, items in sorted(by_year.items(), reverse=True)
     )
+
+    featured_block = ""
+    if featured:
+        featured_block = f"""
+<section id="featured" class="section">
+  <div class="wrap">
+    <h2 class="section-title title-with-icon">
+      <span class="title-icon title-icon-featured"><i class="bi bi-star-fill" aria-hidden="true"></i></span>
+      Featured</h2>
+    <p class="section-note">The {len(featured)} I would hand someone first. Each one appears
+       again below with its abstract and BibTeX.</p>
+    <div class="pub-featured-strip">{''.join(publication(p, full=False) for p in featured)}</div>
+  </div>
+</section>"""
+
     body = f"""
-<section id="publications" class="section">
+<section class="section">
   <div class="wrap">
     <div class="section-head">
       <h1 class="page-title">Research</h1>
@@ -830,14 +890,32 @@ def render_research(d) -> str:
          sign language recognition and Arabic NLP &mdash; with abstracts, DOIs and BibTeX
          for each. Competition results follow below.</p>
     </div>
-    {groups}
+    <dl class="stat-row">
+      <div><dt>Publications</dt><dd>{len(pubs)}</dd></div>
+      <div><dt>Venues</dt><dd>{venues}</dd></div>
+      <div><dt>Years</dt><dd>{min(by_year)}&ndash;{max(by_year)}</dd></div>
+      <div><dt>Competitions</dt><dd>{len(comps)}</dd></div>
+    </dl>
+  </div>
+</section>
+{featured_block}
+
+<section id="publications" class="section">
+  <div class="wrap">
+    <h2 class="section-title title-with-icon">
+      <span class="title-icon title-icon-research"><i class="bi bi-journal-text" aria-hidden="true"></i></span>
+      Publications</h2>
+    {pub_filters(pubs)}
+    <div id="all-publications">{groups}</div>
   </div>
 </section>
 
 <section id="competitions" class="section">
   <div class="wrap">
     <div class="section-head">
-      <h2 class="section-title">Competitions</h2>
+      <h2 class="section-title title-with-icon">
+        <span class="title-icon title-icon-competitions"><i class="bi bi-trophy-fill" aria-hidden="true"></i></span>
+        Competitions</h2>
       <p>{len(comps)} contests, with the full write-ups on their own pages.</p>
     </div>
     <div class="card-grid">{''.join(award(c) for c in comps)}</div>

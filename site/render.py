@@ -866,6 +866,7 @@ def render_projects(d) -> str:
          built from scratch. Cards with a title link lead to a full write-up.</p>
     </div>
     {controls}
+    <h2 class="visually-hidden">All projects</h2>
     {grid}
   </div>
 </section>
@@ -1189,6 +1190,7 @@ def render_volunteering(d) -> str:
       <p class="lead">IEEE has been the constant since my student branch days &mdash;
          {len(vols)} roles across a student branch, two sections and Region 8.</p>
     </div>
+    <h2 class="visually-hidden">IEEE roles</h2>
     {''.join(service_row(v) for v in vols)}
     <p style="margin-top:2rem"><a class="btn" href="/volunteering/volunteering_ieee.html">
       <i class="bi bi-images" aria-hidden="true"></i> IEEE photo gallery</a></p>

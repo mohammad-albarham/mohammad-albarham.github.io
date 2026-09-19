@@ -99,7 +99,7 @@ gtag('config', 'G-VJHNQN2HWX');
     <!-- Project Hero -->
     <section class="project-hero">
       <div class="container">
-        <h1>AraCLIP: Arabic Image Retrieval</h1>
+        <h2>AraCLIP: Arabic Image Retrieval</h2>
         <p class="lead">Cross-lingual learning model for effective Arabic text-to-image retrieval using knowledge distillation from CLIP</p>
       </div>
     </section>
@@ -134,14 +134,23 @@ gtag('config', 'G-VJHNQN2HWX');
 
         <!-- Project Links -->
         <div class="project-links">
-          <a href="https://huggingface.co/Arabic-Clip" class="project-link-btn" target="_blank" rel="noopener noreferrer">
-            🤗 HuggingFace Model
+          <a href="https://arabic-clip.github.io/Arabic-CLIP/" class="project-link-btn" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-globe"></i> Project Page
           </a>
           <a href="https://aclanthology.org/2024.arabicnlp-1.9/" class="project-link-btn secondary" target="_blank" rel="noopener noreferrer">
             <i class="bi bi-file-text"></i> Read Paper
           </a>
           <a href="https://github.com/mohammad-albarham/AraCLIP" class="project-link-btn secondary" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-github"></i> GitHub
+            <i class="bi bi-github"></i> GitHub (Personal Repo)
+          </a>
+          <a href="https://github.com/Arabic-Clip" class="project-link-btn secondary" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-github"></i> GitHub Org (Training &amp; Eval)
+          </a>
+          <a href="https://huggingface.co/Arabic-Clip" class="project-link-btn secondary" target="_blank" rel="noopener noreferrer">
+            🤗 HuggingFace
+          </a>
+          <a href="https://huggingface.co/spaces/Arabic-Clip/AraCLIP" class="project-link-btn secondary" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-play-circle"></i> Demo Space
           </a>
         </div>
 
@@ -151,11 +160,11 @@ gtag('config', 'G-VJHNQN2HWX');
           <p>
             AraCLIP extends the CLIP architecture for Arabic image retrieval tasks. It leverages Knowledge Distillation 
             to transfer cross-modal knowledge from English to Arabic, enhancing its ability to understand Arabic text 
-            and retrieve relevant images.
+            and retrieve relevant images. This work was published at the Second Arabic Natural Language Processing Conference (ArabicNLP 2024) co-located with ACL.
           </p>
           <p>
             The model outperforms state-of-the-art multilingual models by approximately <strong>10%</strong> across 
-            various evaluation metrics including recall@1, recall@5, and mean reciprocal rank.
+            various evaluation metrics including recall@1, recall@5, and mean reciprocal rank. Training and evaluation codes are hosted under the <a href="https://github.com/Arabic-Clip" target="_blank" rel="noopener noreferrer">Arabic-Clip organization</a> on GitHub, with datasets and checkpoints available on <a href="https://huggingface.co/Arabic-Clip" target="_blank" rel="noopener noreferrer">HuggingFace</a>.
           </p>
         </div>
 
@@ -164,19 +173,19 @@ gtag('config', 'G-VJHNQN2HWX');
           <h2>Key Features</h2>
           <div class="feature-grid">
             <div class="feature-card">
-              <h4><i class="bi bi-lightning-charge-fill"></i> Knowledge Distillation</h4>
+              <h3><i class="bi bi-lightning-charge-fill"></i> Knowledge Distillation</h3>
               <p>Transfers cross-modal knowledge from English CLIP to Arabic, preserving semantic relationships.</p>
             </div>
             <div class="feature-card">
-              <h4><i class="bi bi-translate"></i> Arabic-First Design</h4>
+              <h3><i class="bi bi-translate"></i> Arabic-First Design</h3>
               <p>Specifically optimized for Arabic text understanding, not just multilingual adaptation.</p>
             </div>
             <div class="feature-card">
-              <h4><i class="bi bi-graph-up-arrow"></i> Superior Performance</h4>
+              <h3><i class="bi bi-graph-up-arrow"></i> Superior Performance</h3>
               <p>10% improvement over state-of-the-art multilingual vision-language models.</p>
             </div>
             <div class="feature-card">
-              <h4><i class="bi bi-hdd"></i> Open Source</h4>
+              <h3><i class="bi bi-hdd"></i> Open Source</h3>
               <p>Model weights and training code available on HuggingFace and GitHub.</p>
             </div>
           </div>

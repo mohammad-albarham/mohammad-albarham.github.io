@@ -1052,6 +1052,7 @@ a.band-row:hover {
 .detail-body > .container > section:first-child h2 { margin-top: 0; }
 .detail-body p, .detail-body li { max-width: 74ch; }
 .detail-body img { border-radius: var(--radius-tile); }
+:root[data-theme="dark"] .detail-body img { background: #ffffff; }
 .detail-body iframe { max-width: 100%; border-radius: var(--radius-tile); }
 
 /* Grid primitives the legacy markup relies on --------------------------- */
@@ -1119,7 +1120,7 @@ a.band-row:hover {
   border: var(--rule);
   border-radius: var(--radius-tile);
 }
-.portfolio-info h3, .project-info-card h3 { margin-top: 0; font-size: 1.05rem; }
+.portfolio-info h2, .portfolio-info h3, .project-info-card h2, .project-info-card h3 { margin-top: 0; font-size: 1.05rem; }
 .portfolio-info ul, .project-info-card ul { margin-bottom: 0; padding-left: 1.1rem; }
 .portfolio-info li strong { color: var(--ink); }
 
@@ -1133,7 +1134,7 @@ a.band-row:hover {
   padding: 0;
   list-style: none;
 }
-.feature-card h4 { margin-top: 0; }
+.feature-card h3, .feature-card h4 { margin-top: 0; font-size: 1.05rem; }
 
 .section-divider { height: 1px; margin: 2.5rem 0; background: var(--border); border: 0; }
 

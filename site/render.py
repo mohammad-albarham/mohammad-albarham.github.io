@@ -149,6 +149,7 @@ SOCIAL = [
 ]
 
 NAV = [
+    ("/", "Home", "home"),
     ("/projects/", "Projects", "projects"),
     ("/research/", "Research", "research"),
     ("/about/", "About & CV", "about"),
@@ -806,6 +807,7 @@ def render_home(d) -> str:
                      "research in cross-lingual retrieval and Arabic NLP."),
         canonical="/",
         body=body,
+        current="home",
         head_extra=f'<script type="application/ld+json">{ld}</script>',
     )
 

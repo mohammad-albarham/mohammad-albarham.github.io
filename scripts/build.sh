@@ -38,7 +38,7 @@ TRAVEL_FILES=(
   assets/js/worldmap.js
 )
 
-GENERATED_PAGES=(index.html projects/index.html research/index.html about/index.html sitemap.xml)
+GENERATED_PAGES=(index.html about/index.html resume/index.html projects/index.html research/index.html volunteering/index.html contact/index.html sitemap.xml)
 
 bundle() {
   local dir="$1"

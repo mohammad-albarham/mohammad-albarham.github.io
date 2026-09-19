@@ -70,9 +70,12 @@ def run(browser) -> None:
 
     routes = [
         ("/", "home"),
+        ("/about/", "about"),
+        ("/resume/", "resume"),
         ("/projects/", "projects"),
         ("/research/", "research"),
-        ("/about/", "about"),
+        ("/volunteering/", "volunteering"),
+        ("/contact/", "contact"),
         ("/projects/latest-projects-5.html", "detail-project"),
         ("/competitions/competition-details-1.html", "detail-competition"),
         ("/experience/phi-pair.html", "detail-experience"),
@@ -106,6 +109,16 @@ def run(browser) -> None:
     missing = [a for a in anchors if page.locator(f"#{a}").count() == 0]
     check(not missing, f"all {len(anchors)} legacy homepage anchors present"
                        + (f" (missing: {missing})" if missing else ""))
+
+    # Each of those sections now lives on its own page, so an old deep link has
+    # to land there rather than on a homepage that no longer holds the content.
+    for anchor, target in [("travel", "/volunteering/#travel"),
+                           ("competitions", "/research/#competitions"),
+                           ("contact", "/contact/")]:
+        page.goto(BASE + "/", wait_until="domcontentloaded")
+        page.evaluate("hash => { location.hash = hash; }", anchor)
+        page.wait_for_url(f"**{target}", timeout=5000, wait_until="domcontentloaded")
+        check(page.url.endswith(target), f"/#{anchor} forwards to {target} (got {page.url})")
 
     # --- theme toggle -------------------------------------------------------
     page.evaluate("localStorage.removeItem('ma-theme')")
@@ -150,15 +163,15 @@ def run(browser) -> None:
           f"copy button reports what happened ('{button.inner_text()}')")
 
     # --- contact ------------------------------------------------------------
-    page.goto(BASE + "/", wait_until="networkidle")
+    page.goto(BASE + "/contact/", wait_until="networkidle")
     mailto = page.locator('a[href^="mailto:"]')
-    check(mailto.count() >= 1, f"{mailto.count()} mailto: links on the homepage")
+    check(mailto.count() >= 1, f"{mailto.count()} mailto: links on the contact page")
     check(mailto.first.get_attribute("href") == "mailto:mohammad.albarham.work@gmail.com",
           "mailto: points at the real address")
     check(page.locator("form").count() == 0, "no contact form pretending to send anything")
 
     # --- travel map ---------------------------------------------------------
-    page.goto(BASE + "/#travel", wait_until="networkidle")
+    page.goto(BASE + "/volunteering/#travel", wait_until="networkidle")
     page.wait_for_timeout(1500)
     check(page.locator("#travel-map svg").count() == 1, "travel map renders after lazy load")
     check(page.locator(".country-list li").count() == 24,
@@ -191,6 +204,8 @@ def run(browser) -> None:
     # No horizontal overflow anywhere on a phone.
     for route, name in [("/", "mobile-home"), ("/projects/", "mobile-projects"),
                         ("/research/", "mobile-research"), ("/about/", "mobile-about"),
+                        ("/resume/", "mobile-resume"), ("/volunteering/", "mobile-volunteering"),
+                        ("/contact/", "mobile-contact"),
                         ("/projects/latest-projects-5.html", "mobile-detail")]:
         page.goto(BASE + route, wait_until="networkidle")
         overflow = page.evaluate(

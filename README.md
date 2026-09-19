@@ -70,7 +70,8 @@ page logs a console error. Screenshots are written to `tests/screenshots/`.
 ```
 data/                  content, as JSON — the single source of truth
 site/
-  render.py            data -> index.html, projects/, research/, about/, sitemap.xml
+  render.py            data -> index.html, about/, resume/, projects/, research/,
+                       volunteering/, contact/, sitemap.xml
   restyle_legacy.py    re-shells the 32 hand-written detail pages
 assets/
   css/src/*.css        design tokens, base, chrome, home, legacy, pages
@@ -81,6 +82,7 @@ assets/
 scripts/
   build.sh             build + --check
   check_site.py        structural checks
+  sync-legacy-chrome.py  re-point the detail pages' nav and footer links
 tests/e2e.py           Playwright checks and screenshots
 projects/ competitions/ experience/ volunteering/
                        hand-written detail pages (see below)
@@ -93,6 +95,7 @@ Everything on the generated pages comes from `data/`:
 | File | Holds |
 |---|---|
 | `bio.json` | name, title, location, summary, social links |
+| `news.json` | homepage news entries: `date`, `title`, optional `body` and `url` |
 | `education.json` | degrees, coursework, graduation projects |
 | `experience.json` | roles, responsibilities, technologies |
 | `projects.json` | projects, tags, links, `detailsPage` |

@@ -262,7 +262,7 @@ with the verb that happens; never append an arrow glyph.
 
 ```html
 <a href="#projects" class="ds-btn ds-btn--primary">View projects</a>
-<a href="#contact" class="ds-btn">Get in touch</a>
+<a href="/contact/" class="ds-btn">Get in touch</a>
 <button type="button" class="ds-btn ds-btn--ghost ds-btn--sm">Reset filters</button>
 
 <div class="ds-btn-row"> … several buttons … </div>

@@ -6,11 +6,17 @@ through scripts/build.sh rather than directly, so the CSS/JS bundles and the
 sitemap stay in step with the pages.
 
 Pages produced:
-    index.html          the whole story on one page; every legacy #anchor lives here
-    projects/index.html every project, with a technology filter
-    research/index.html every publication and competition, in full
-    about/index.html    the long-form CV: education, courses, roles, service
-    sitemap.xml         generated from the routes that actually exist on disk
+    index.html              the front door: who I am, news, and a card per section
+    about/index.html        the bio, what I work on, and the language breakdown
+    resume/index.html       education and experience, in full
+    projects/index.html     every project, with a technology filter
+    research/index.html     every publication and competition, in full
+    volunteering/index.html IEEE service and the travel map
+    contact/index.html      how to reach me
+    sitemap.xml             generated from the routes that actually exist on disk
+
+One section, one page. The homepage keeps every legacy `#anchor` as a link to
+the page that section now lives on, and LEGACY_HASHES forwards old deep links.
 
 The 32 hand-written detail pages under projects/, competitions/, experience/
 and volunteering/ are NOT generated here — their galleries and write-ups are
@@ -150,10 +156,12 @@ SOCIAL = [
 
 NAV = [
     ("/", "Home", "home"),
+    ("/about/", "About", "about"),
+    ("/resume/", "Resume", "resume"),
     ("/projects/", "Projects", "projects"),
     ("/research/", "Research", "research"),
-    ("/about/", "About & CV", "about"),
-    ("/#contact", "Contact", "contact"),
+    ("/volunteering/", "Volunteering", "volunteering"),
+    ("/contact/", "Contact", "contact"),
 ]
 
 EMAIL = "mohammad.albarham.work@gmail.com"
@@ -273,19 +281,22 @@ gtag('config', 'G-VJHNQN2HWX');
         <h2>Pages</h2>
         <ul>
           <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/resume/">Resume</a></li>
           <li><a href="/projects/">Projects</a></li>
           <li><a href="/research/">Research</a></li>
-          <li><a href="/about/">About &amp; CV</a></li>
+          <li><a href="/volunteering/">Volunteering</a></li>
+          <li><a href="/contact/">Contact</a></li>
         </ul>
       </div>
       <div>
         <h2>Sections</h2>
         <ul>
-          <li><a href="/#resume">Experience</a></li>
-          <li><a href="/#publications">Publications</a></li>
-          <li><a href="/#competitions">Competitions</a></li>
-          <li><a href="/#volunteering">Volunteering</a></li>
-          <li><a href="/#travel">Travel</a></li>
+          <li><a href="/resume/#experience">Experience</a></li>
+          <li><a href="/research/#publications">Publications</a></li>
+          <li><a href="/research/#competitions">Competitions</a></li>
+          <li><a href="/about/#programming-languages">Programming languages</a></li>
+          <li><a href="/volunteering/#travel">Travel</a></li>
         </ul>
       </div>
     </div>
@@ -594,28 +605,49 @@ def band_row(*, when: str, who: str, what: str, href: str | None = None,
 
 # --- pages -----------------------------------------------------------------
 
+def news_block(items: list) -> str:
+    """The news feed. Empty until data/news.json has entries — an honest empty
+    state beats a fake placeholder post."""
+    if not items:
+        return """<p class="news-empty">No news yet. New papers, releases and talks
+       will be posted here.</p>"""
+    entries = []
+    for item in items:
+        link = item.get("url")
+        title = e(item["title"])
+        if link:
+            external = link.startswith("http")
+            rel = ' target="_blank" rel="noopener noreferrer"' if external else ""
+            title = f'<a href="{e(link)}"{rel}>{title}</a>'
+        body = f'<p>{e(item["body"])}</p>' if item.get("body") else ""
+        entries.append(f"""<li class="news-item">
+  <p class="meta"><time datetime="{e(item['date'])}">{month(item['date'], '')}</time></p>
+  <h3>{title}</h3>
+  {body}
+</li>""")
+    return f'<ul class="news-list">{"".join(entries)}</ul>'
+
+
+# Old deep links (/#travel and friends) used to land on a section of the one-page
+# homepage. Each section now has a page of its own, so the homepage forwards them
+# instead of leaving a visitor on a page that no longer holds that content.
+LEGACY_HASHES = {
+    "about": "/about/",
+    "programming-languages": "/about/#programming-languages",
+    "resume": "/resume/",
+    "projects": "/projects/",
+    "publications": "/research/",
+    "competitions": "/research/#competitions",
+    "volunteering": "/volunteering/",
+    "travel": "/volunteering/#travel",
+    "contact": "/contact/",
+}
+
+
 def render_home(d) -> str:
     bio, projects, pubs, comps, vols = d["bio"], d["projects"], d["publications"], d["competitions"], d["volunteering"]
     featured = [p for p in projects if p.get("featured")]
-    featured_pubs = [p for p in pubs if p.get("featured")]
-
-    experience_rows = "".join(
-        band_row(when=span(job.get("startDate"), job.get("endDate")),
-                 who=e(job["company"]),
-                 what=e(job["position"]),
-                 href=details_href(job),
-                 extra=f' <span class="meta">{e(job["location"])}</span>')
-        for job in experience_sorted(d["experience"])
-    )
-    education_rows = "".join(
-        band_row(when=span(s.get("startDate"), s.get("endDate")),
-                 who=e(s["institution"]),
-                 what=e(s["degree"]))
-        for s in d["education"]
-    )
-
-    keywords = tags(bio.get("keywords"))
-    controls, grid = filter_block(featured, "featured-projects")
+    unique_countries = len({c for codes in d["travel"]["visited"].values() for c in codes})
 
     body = f"""
 <section id="hero" class="hero">
@@ -637,148 +669,55 @@ def render_home(d) -> str:
       {picture('assets/img/profile-img-hero.jpg', 'Mohammad Albarham', width=768, height=960, eager=True, sizes='(max-width: 60rem) 100vw, 24rem')}
     </div>
   </div>
+</section>
 
+<section id="news" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">News</h2>
+    </div>
+    {news_block(d['news'])}
+  </div>
+</section>
+
+<section class="section">
   <div class="wrap">
     <div class="doorways">
-      <a class="doorway doorway-work rise rise-2" href="/projects/">
+      <a class="doorway doorway-about rise rise-2" id="about" href="/about/">
+        <h2>About <span class="arrow" aria-hidden="true">&rarr;</span></h2>
+        <p>Who I am, what I work on, and the languages my public repositories are written in.</p>
+        <p class="meta">{len(bio.get('keywords') or [])} topics &middot; language breakdown</p>
+      </a>
+      <a class="doorway doorway-cv rise rise-2" id="resume" href="/resume/">
+        <h2>Resume <span class="arrow" aria-hidden="true">&rarr;</span></h2>
+        <p>Degrees, coursework, roles and responsibilities, from a mechatronics bench in Amman to vision systems in Gothenburg.</p>
+        <p class="meta">{len(d['experience'])} roles &middot; {len(d['education'])} degrees</p>
+      </a>
+      <a class="doorway doorway-work rise rise-2" id="projects" href="/projects/">
         <h2>Projects <span class="arrow" aria-hidden="true">&rarr;</span></h2>
         <p>Computer vision, Arabic NLP, embedded systems and the tools built along the way.</p>
         <p class="meta">{len(projects)} projects &middot; {len(featured)} featured</p>
       </a>
-      <a class="doorway doorway-research rise rise-3" href="/research/">
+      <a class="doorway doorway-research rise rise-3" id="publications" href="/research/">
         <h2>Research <span class="arrow" aria-hidden="true">&rarr;</span></h2>
         <p>Peer-reviewed papers on cross-lingual retrieval and Arabic sign language, plus competition results.</p>
         <p class="meta">{len(pubs)} publications &middot; {len(comps)} competitions</p>
       </a>
-      <a class="doorway doorway-cv rise rise-3" href="/about/">
-        <h2>About &amp; CV <span class="arrow" aria-hidden="true">&rarr;</span></h2>
-        <p>The full record: degrees, coursework, roles, responsibilities and IEEE service.</p>
-        <p class="meta">{len(d['experience'])} roles &middot; {len(d['education'])} degrees &middot; {len(vols)} volunteer posts</p>
+      <a class="doorway doorway-service rise rise-3" id="volunteering" href="/volunteering/">
+        <h2>Volunteering <span class="arrow" aria-hidden="true">&rarr;</span></h2>
+        <p>IEEE service across a student branch, two sections and Region 8 &mdash; and the countries it took me to.</p>
+        <p class="meta">{len(vols)} posts &middot; {unique_countries} countries</p>
+      </a>
+      <a class="doorway doorway-contact rise rise-3" id="contact" href="/contact/">
+        <h2>Contact <span class="arrow" aria-hidden="true">&rarr;</span></h2>
+        <p>Email, where I am, and every profile worth following.</p>
+        <p class="meta">{len(SOCIAL)} profiles &middot; no contact form</p>
       </a>
     </div>
-  </div>
-</section>
-
-<section id="about" class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title">About</h2>
-    </div>
-    <div class="about-body">
-      <p class="lead">{e(bio['summary'])}</p>
-      <p>{e(bio['currentRole'])}</p>
-      {keywords}
-    </div>
-  </div>
-</section>
-
-<section id="resume" class="band">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title">Where I have worked and studied</h2>
-      <p>Nine years from a mechatronics bench in Amman to vision systems for advanced
-         safety in Gothenburg.</p>
-    </div>
-    <h3>Experience</h3>
-    {experience_rows}
-    <h3 style="margin-top:2.5rem">Education</h3>
-    {education_rows}
-    <p class="band-foot"><a href="/about/">Full CV, coursework and responsibilities &rarr;</a></p>
-  </div>
-</section>
-
-<section id="projects" class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title">Selected work</h2>
-      <p>Eight projects that show the range: segmentation and retrieval models,
-         Arabic language and sign-language datasets, and the hardware that started it.</p>
-    </div>
-    {controls}
-    {grid}
-    <p style="margin-top:2rem"><a class="btn" href="/projects/">All {len(projects)} projects</a></p>
-  </div>
-</section>
-
-<section id="publications" class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title">Research</h2>
-      <p>Cross-lingual image retrieval, Arabic sign language recognition and Arabic NLP,
-         published with collaborators in Sharjah, Jordan and beyond.</p>
-    </div>
-    {''.join(publication(p, full=False) for p in featured_pubs)}
-    <p style="margin-top:2rem"><a class="btn" href="/research/">All {len(pubs)} publications, with abstracts and BibTeX</a></p>
-  </div>
-</section>
-
-<section id="competitions" class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title">Competitions</h2>
-      <p>Hackathons, Kaggle days and robotics contests, from firefighting robots to
-         logistics forecasting.</p>
-    </div>
-    <div class="card-grid">{''.join(award(c) for c in comps)}</div>
-  </div>
-</section>
-
-<section id="programming-languages" class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title">Programming languages</h2>
-      <p>Not a self-assessment &mdash; this is measured from what is actually in my
-         public repositories.</p>
-    </div>
-    {language_chart(d['languages'])}
-  </div>
-</section>
-
-<section id="volunteering" class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title">Volunteering</h2>
-      <p>IEEE has been the constant since my student branch days &mdash; seven roles
-         across a student branch, two sections and Region 8.</p>
-    </div>
-    {''.join(service_row(v) for v in vols)}
-    <p style="margin-top:2rem"><a class="btn" href="/volunteering/volunteering_ieee.html">
-      <i class="bi bi-images" aria-hidden="true"></i> IEEE photo gallery</a></p>
-  </div>
-</section>
-
-<section id="travel" class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title">Travel</h2>
-    </div>
-    {travel_block(d['travel'])}
-    <p style="margin-top:1.5rem"><a href="/volunteering/visited_countries.html">The older map page &rarr;</a></p>
-  </div>
-</section>
-
-<section id="contact" class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title">Get in touch</h2>
-      <p>Email is the reliable way to reach me. There is no contact form here on
-         purpose: this site is static, so a form would have nowhere to send your
-         message and no honest way to tell you it arrived.</p>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h3>Email</h3>
-        <p class="contact-email"><a href="mailto:{e(EMAIL)}">{e(EMAIL)}</a></p>
-      </div>
-      <div class="contact-card">
-        <h3>Location</h3>
-        <p>{e(bio['location']['city'])}, {e(bio['location']['country'])}</p>
-      </div>
-      <div class="contact-card">
-        <h3>Elsewhere</h3>
-        {social_list()}
-      </div>
-    </div>
+    <p class="doorway-more">Also here:
+      <a id="programming-languages" href="/about/#programming-languages">programming languages</a> &middot;
+      <a id="competitions" href="/research/#competitions">competitions</a> &middot;
+      <a id="travel" href="/volunteering/#travel">travel</a></p>
   </div>
 </section>
 """
@@ -809,6 +748,19 @@ def render_home(d) -> str:
         body=body,
         current="home",
         head_extra=f'<script type="application/ld+json">{ld}</script>',
+        body_end=('<script>\n'
+                  '// Forward the one-page site\'s old section links to the page that\n'
+                  '// section now lives on, on load and on a later hash change.\n'
+                  '(function () {\n'
+                  f'  var moved = {json.dumps(LEGACY_HASHES, separators=(",", ":"))};\n'
+                  '  function go() {\n'
+                  '    var to = moved[location.hash.slice(1)];\n'
+                  '    if (to) location.replace(to);\n'
+                  '  }\n'
+                  '  go();\n'
+                  '  window.addEventListener(\'hashchange\', go);\n'
+                  '})();\n'
+                  '</script>'),
     )
 
 
@@ -855,7 +807,7 @@ def render_research(d) -> str:
         for year, items in sorted(by_year.items(), reverse=True)
     )
     body = f"""
-<section class="section">
+<section id="publications" class="section">
   <div class="wrap">
     <div class="section-head">
       <h1 class="page-title">Research</h1>
@@ -923,7 +875,47 @@ def course_list(school: dict) -> str:
 
 def render_about(d) -> str:
     bio = d["bio"]
+    body = f"""
+<section id="about" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h1 class="page-title">About</h1>
+    </div>
+    <div class="cv-intro">
+      {picture('assets/img/profile-img-1200.jpg', 'Mohammad Albarham', cls='cv-portrait', width=1200, height=1200, sizes='(max-width: 48rem) 100vw, 16rem')}
+      <div>
+        <p class="lead">{e(bio['summary'])}</p>
+        <p>{e(bio['currentRole'])}</p>
+        <p>{e(bio['tagline'])}</p>
+        {tags(bio.get('keywords'))}
+        <p><a class="btn" href="/resume/">Education and experience &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section id="programming-languages" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Programming languages</h2>
+      <p>Not a self-assessment &mdash; this is measured from what is actually in my
+         public repositories.</p>
+    </div>
+    {language_chart(d['languages'])}
+  </div>
+</section>
+"""
+    return shell(
+        title="About — Mohammad Albarham",
+        description=("Mohammad Albarham: computer vision and AI engineer in Gothenburg, "
+                     "working on autonomous systems, multi-modal models and Arabic NLP."),
+        canonical="/about/",
+        body=body,
+        current="about",
+    )
+
+
+def render_resume(d) -> str:
     schools = []
     for school in d["education"]:
         facts = []
@@ -990,19 +982,13 @@ def render_about(d) -> str:
 </article>""")
 
     body = f"""
-<section class="section">
+<section id="resume" class="section">
   <div class="wrap">
     <div class="section-head">
-      <h1 class="page-title">About &amp; CV</h1>
-    </div>
-    <div class="cv-intro">
-      {picture('assets/img/profile-img-1200.jpg', 'Mohammad Albarham', cls='cv-portrait', width=1200, height=1200, sizes='(max-width: 48rem) 100vw, 16rem')}
-      <div>
-        <p class="lead">{e(bio['summary'])}</p>
-        <p>{e(bio['tagline'])}</p>
-        <p><a href="mailto:{e(EMAIL)}">{e(EMAIL)}</a> &middot; {e(bio['location']['city'])}, {e(bio['location']['country'])}</p>
-        {social_list()}
-      </div>
+      <h1 class="page-title">Resume</h1>
+      <p class="lead">Nine years from a mechatronics bench in Amman to vision systems
+         for advanced safety in Gothenburg: {len(d['education'])} degrees and
+         {len(d['experience'])} roles, with the coursework and responsibilities behind them.</p>
     </div>
   </div>
 </section>
@@ -1020,43 +1006,95 @@ def render_about(d) -> str:
     {''.join(roles)}
   </div>
 </section>
+"""
+    return shell(
+        title="Resume — Mohammad Albarham",
+        description=("The full CV of Mohammad Albarham: MSc from Chalmers, BSc from the "
+                     "University of Jordan, and eight engineering and research roles."),
+        canonical="/resume/",
+        body=body,
+        current="resume",
+    )
 
-<section id="service" class="section">
+
+def render_volunteering(d) -> str:
+    vols = d["volunteering"]
+    body = f"""
+<section id="volunteering" class="section">
   <div class="wrap">
     <div class="section-head">
-      <h2 class="section-title">Volunteering &amp; service</h2>
-      <p>Every IEEE role, from the University of Jordan student branch through to the
-         Sweden Section and Region 8.</p>
+      <h1 class="page-title">Volunteering</h1>
+      <p class="lead">IEEE has been the constant since my student branch days &mdash;
+         {len(vols)} roles across a student branch, two sections and Region 8.</p>
     </div>
-    {''.join(service_row(v) for v in d['volunteering'])}
+    {''.join(service_row(v) for v in vols)}
     <p style="margin-top:2rem"><a class="btn" href="/volunteering/volunteering_ieee.html">
       <i class="bi bi-images" aria-hidden="true"></i> IEEE photo gallery</a></p>
   </div>
 </section>
 
-<section id="languages" class="section">
+<section id="travel" class="section">
   <div class="wrap">
     <div class="section-head">
-      <h2 class="section-title">Programming languages</h2>
+      <h2 class="section-title">Travel</h2>
     </div>
-    {language_chart(d['languages'])}
+    {travel_block(d['travel'])}
+    <p style="margin-top:1.5rem"><a href="/volunteering/visited_countries.html">The older map page &rarr;</a></p>
   </div>
 </section>
 """
     return shell(
-        title="About & CV — Mohammad Albarham",
-        description=("The full CV of Mohammad Albarham: MSc from Chalmers, BSc from the "
-                     "University of Jordan, eight engineering and research roles, and "
-                     "seven IEEE volunteer posts."),
-        canonical="/about/",
+        title="Volunteering & travel — Mohammad Albarham",
+        description=(f"{len(vols)} IEEE volunteer roles held by Mohammad Albarham, from a "
+                     "student branch through to Region 8 — and the countries visited along the way."),
+        canonical="/volunteering/",
         body=body,
-        current="about",
+        current="volunteering",
+    )
+
+
+def render_contact(d) -> str:
+    bio = d["bio"]
+    body = f"""
+<section id="contact" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h1 class="page-title">Get in touch</h1>
+      <p class="lead">Email is the reliable way to reach me. There is no contact form here on
+         purpose: this site is static, so a form would have nowhere to send your
+         message and no honest way to tell you it arrived.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h2>Email</h2>
+        <p class="contact-email"><a href="mailto:{e(EMAIL)}">{e(EMAIL)}</a></p>
+      </div>
+      <div class="contact-card">
+        <h2>Location</h2>
+        <p>{e(bio['location']['city'])}, {e(bio['location']['country'])}</p>
+      </div>
+      <div class="contact-card">
+        <h2>Elsewhere</h2>
+        {social_list()}
+      </div>
+    </div>
+  </div>
+</section>
+"""
+    return shell(
+        title="Contact — Mohammad Albarham",
+        description=("How to reach Mohammad Albarham: email, location in Gothenburg, "
+                     "and every profile worth following."),
+        canonical="/contact/",
+        body=body,
+        current="contact",
     )
 
 
 # --- sitemap ---------------------------------------------------------------
 
-GENERATED = ["index.html", "projects/index.html", "research/index.html", "about/index.html"]
+GENERATED = ["index.html", "about/index.html", "resume/index.html", "projects/index.html",
+             "research/index.html", "volunteering/index.html", "contact/index.html"]
 LEGACY_DIRS = ["projects", "competitions", "experience", "volunteering"]
 NOT_INDEXED = {"googleebff4c42c46c6acf.html"}
 
@@ -1099,6 +1137,7 @@ def build(out: Path | None = None) -> list[str]:
     out = out or ROOT
     d = {
         "bio": load("bio"),
+        "news": load("news"),
         "projects": load("projects"),
         "experience": load("experience"),
         "education": load("education"),
@@ -1110,9 +1149,12 @@ def build(out: Path | None = None) -> list[str]:
     }
     pages = {
         "index.html": render_home(d),
+        "about/index.html": render_about(d),
+        "resume/index.html": render_resume(d),
         "projects/index.html": render_projects(d),
         "research/index.html": render_research(d),
-        "about/index.html": render_about(d),
+        "volunteering/index.html": render_volunteering(d),
+        "contact/index.html": render_contact(d),
         "sitemap.xml": render_sitemap(),
     }
     written = []

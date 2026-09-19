@@ -6,6 +6,16 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://mohammad-albarham.github.io/about/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mohammad-albarham.github.io/resume/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://mohammad-albarham.github.io/projects/</loc>
     <lastmod>2026-09-19</lastmod>
     <priority>0.8</priority>
@@ -16,7 +26,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mohammad-albarham.github.io/about/</loc>
+    <loc>https://mohammad-albarham.github.io/volunteering/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mohammad-albarham.github.io/contact/</loc>
     <lastmod>2026-09-19</lastmod>
     <priority>0.8</priority>
   </url>

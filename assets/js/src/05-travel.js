@@ -30,8 +30,8 @@
     window.removeEventListener('resize', maybeLoad);
 
     try {
-      if (!window.jQuery) await loadScript('assets/js/jquery.js');
-      await loadScript('assets/js/travel-map.js');
+      if (!window.jQuery) await loadScript('/assets/js/jquery.js');
+      await loadScript('/assets/js/travel-map.js');
       window.jQuery(host).vectorMap({
         map: 'world_mill_en',
         backgroundColor: 'transparent',

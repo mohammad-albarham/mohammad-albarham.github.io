@@ -14,6 +14,7 @@ cd "$(dirname "$0")/.."
 
 # Order matters: later files override earlier ones in the CSS cascade.
 CSS_FILES=(
+  tokens.css
   assets/css/jquery-jvectormap-1.2.2.css
   assets/css/style.css
   assets/css/modern-portfolio.css
@@ -37,10 +38,8 @@ JS_FILES=(
   assets/js/theme.js
   assets/js/publications.js
   assets/js/language-chart.js
-  assets/js/animations.js
   assets/js/neural-banner.js
   assets/js/site-enhancements.js
-  assets/js/particles-config.js
   assets/js/main.js
 )
 

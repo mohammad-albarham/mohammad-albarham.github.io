@@ -1,13 +1,13 @@
 /**
  * Enhanced Button & Interactive Element Styles
- * Works with GSAP for micro-animations
+ * Native CSS micro-interactions
  */
 
 /* ====== Base Button Enhancements ====== */
 .btn {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
   transform-origin: center;
   will-change: transform;
 }
@@ -44,7 +44,7 @@
 /* ====== Social Link Animations ====== */
 .social-links a {
   position: relative;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
   transform-origin: center;
   will-change: transform;
 }
@@ -67,7 +67,7 @@
 /* ====== Navigation Link Effects ====== */
 .nav-menu a {
   position: relative;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .nav-menu a::before {
@@ -89,7 +89,7 @@
 /* ====== Card Hover States ====== */
 .highlight-item,
 .portfolio-item {
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
   will-change: transform, box-shadow;
 }
 
@@ -111,7 +111,7 @@
   left: 0;
   height: 3px;
   background: linear-gradient(90deg, #149ddd, #0563bb, #4fc3f7);
-  z-index: 9999;
+  z-index: var(--layer-overlay, 40);
   transform-origin: left;
 }
 
@@ -161,7 +161,7 @@ button:hover .bx {
 /* ====== Form Input Focus Effects ====== */
 .form-control,
 .form-select {
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
   border: 2px solid transparent;
 }
 
@@ -173,7 +173,7 @@ button:hover .bx {
 
 /* ====== Back to Top Button ====== */
 .back-to-top {
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .back-to-top:hover {
@@ -258,7 +258,7 @@ button:hover .bx {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 99999;
+  z-index: var(--layer-toast, 50);
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
@@ -332,7 +332,7 @@ button:hover .bx {
   position: fixed;
   inset: 0;
   background: #040b14;
-  z-index: 99998;
+  z-index: var(--layer-overlay, 40);
   transform: translateY(100%);
   transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
@@ -371,14 +371,14 @@ body.page-loaded .page-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   font-size: 24px;
   text-decoration: none;
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: 9996;
+  transition: color var(--duration-normal) var(--ease-standard), background-color var(--duration-normal) var(--ease-standard), border-color var(--duration-normal) var(--ease-standard), box-shadow var(--duration-normal) var(--ease-standard), opacity var(--duration-normal) var(--ease-standard), transform var(--duration-normal) var(--ease-standard);
+  z-index: var(--layer-floating, 30);
   box-shadow: 0 4px 15px rgba(20, 157, 221, 0.3);
   overflow: hidden;
 }
@@ -393,7 +393,7 @@ body.page-loaded .page-content {
   background: linear-gradient(135deg, #0d7ab5 0%, #149ddd 100%);
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(20, 157, 221, 0.4);
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
 }
 
 /* Progress ring */
@@ -413,7 +413,7 @@ body.page-loaded .page-content {
 }
 
 .back-to-top .progress-ring .progress-value {
-  stroke: #fff;
+  stroke: var(--color-on-dark, #f4f8fc);
   stroke-dasharray: 157;
   stroke-dashoffset: 157;
   transform: rotate(-90deg);
@@ -462,7 +462,7 @@ body.page-loaded .page-content {
 }
 
 .section-divider.to-white path {
-  fill: #fff;
+  fill: var(--color-surface-raised, #f8fbff);
 }
 
 /* Animated wave */
@@ -570,7 +570,7 @@ body.page-loaded .page-content {
   top: 12px;
   color: #6c757d;
   font-size: 0.95rem;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
   background: transparent;
   padding: 0 5px;
@@ -580,8 +580,8 @@ body.page-loaded .page-content {
   padding: 12px 15px;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
-  transition: all 0.3s ease;
-  background: #fff;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  background: var(--color-surface-raised, #f8fbff);
 }
 
 .php-email-form .form-control:focus {
@@ -597,7 +597,7 @@ body.page-loaded .page-content {
   left: 10px;
   font-size: 0.8rem;
   color: #149ddd;
-  background: #fff;
+  background: var(--color-surface-raised, #f8fbff);
 }
 
 /* Input validation states */
@@ -622,7 +622,7 @@ body.page-loaded .page-content {
   padding: 12px 35px;
   border-radius: 30px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .php-email-form button[type="submit"]::before {
@@ -640,7 +640,7 @@ body.page-loaded .page-content {
 
 /* Success message animation */
 .form-success-message {
-  animation: successPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation: successPop var(--duration-slow) var(--ease-standard);
 }
 
 @keyframes successPop {
@@ -668,7 +668,7 @@ body.page-loaded .page-content {
   background: transparent;
   border: 2px solid transparent;
   border-radius: 25px;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
   position: relative;
   overflow: hidden;
 }
@@ -690,7 +690,7 @@ body.page-loaded .page-content {
 }
 
 .portfolio-filters li.filter-active {
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   border-color: transparent;
 }
 
@@ -700,7 +700,7 @@ body.page-loaded .page-content {
 
 /* Portfolio items transition */
 .portfolio-item {
-  transition: all 0.4s ease;
+  transition: color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
 }
 
 .portfolio-item.filtering {
@@ -739,8 +739,8 @@ body.page-loaded .page-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9997;
-  transition: all 0.3s ease;
+  z-index: var(--layer-sticky, 20);
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
   backdrop-filter: blur(10px);
 }
 
@@ -866,7 +866,7 @@ body.page-loaded .page-content {
     right: auto;
     width: 40px;
     height: 40px;
-    z-index: 9996;  /* Below mobile nav toggle to avoid conflicts */
+    z-index: var(--layer-floating, 30);  /* Below mobile nav toggle. */
   }
   
   .section-divider {
@@ -904,8 +904,8 @@ body.page-loaded .page-content {
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
-  color: #fff;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  color: var(--color-on-dark, #f4f8fc);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
@@ -930,7 +930,7 @@ body.page-loaded .page-content {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   text-decoration: none;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
 }
 
 .sponsor-btn:active {
@@ -969,7 +969,7 @@ body.page-loaded .page-content {
   background: linear-gradient(135deg, rgba(5, 99, 187, 0.05) 0%, rgba(234, 74, 170, 0.05) 100%);
   border-radius: 12px;
   border: 2px solid rgba(5, 99, 187, 0.1);
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .support-section:hover {
@@ -998,8 +998,8 @@ body.page-loaded .page-content {
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
-  color: #fff;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  color: var(--color-on-dark, #f4f8fc);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
@@ -1025,7 +1025,7 @@ body.page-loaded .page-content {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   text-decoration: none;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
 }
 
 .btn-support:active {
@@ -1103,7 +1103,7 @@ body.page-loaded .page-content {
 }
 
 [data-theme="dark"] .support-section h4 {
-  color: #ffffff !important;
+  color: var(--color-on-dark, #f4f8fc) !important;
   font-weight: 700;
 }
 
@@ -1130,7 +1130,7 @@ body.dark-mode .support-section:hover {
 }
 
 body.dark-mode .support-section h4 {
-  color: #ffffff !important;
+  color: var(--color-on-dark, #f4f8fc) !important;
   font-weight: 700;
 }
 

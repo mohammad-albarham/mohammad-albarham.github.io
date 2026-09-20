@@ -148,7 +148,7 @@ class PortfolioRenderer {
     if (!container || !education) return;
 
     const html = education.map(edu => `
-      <div class="timeline-item ${edu.current ? 'current' : ''}" data-aos="fade-up">
+      <div class="timeline-item ${edu.current ? 'current' : ''}">
         <div class="timeline-content">
           <div class="timeline-header">
             ${this.picture(edu.logo, edu.institution, {className: 'timeline-logo', width: 48, height: 48})}
@@ -217,7 +217,7 @@ class PortfolioRenderer {
     if (!container || !experience) return;
 
     const html = experience.map(exp => `
-      <div class="timeline-item ${exp.current ? 'current' : ''}" data-aos="fade-up">
+      <div class="timeline-item ${exp.current ? 'current' : ''}">
         <div class="timeline-content">
           <div class="timeline-header">
             ${this.picture(exp.logo, exp.company, {className: 'timeline-logo', width: 48, height: 48})}
@@ -277,7 +277,7 @@ class PortfolioRenderer {
     if (!container || !volunteering) return;
 
     const html = volunteering.map(vol => `
-      <div class="timeline-item ${vol.current ? 'current' : ''}" data-aos="fade-up">
+      <div class="timeline-item ${vol.current ? 'current' : ''}">
         <div class="timeline-content">
           <div class="timeline-header">
             ${this.picture(vol.logo, vol.organization, {className: 'timeline-logo', width: 48, height: 48})}
@@ -342,7 +342,7 @@ class PortfolioRenderer {
     if (!container || !competitions) return;
 
     const html = competitions.map(comp => `
-      <div class="project-card" data-aos="fade-up"
+      <div class="project-card"
            data-tech="${(comp.technologies || []).join('|')}">
         <div class="project-image">
           ${this.picture(comp.image, comp.title)}
@@ -405,7 +405,7 @@ class PortfolioRenderer {
     if (!projects) return;
 
     const renderProjectCard = (project) => `
-      <div class="project-card ${project.featured ? 'featured' : ''}" data-aos="fade-up"
+      <div class="project-card ${project.featured ? 'featured' : ''}"
            data-tech="${(project.technologies || []).join('|')}">
         <div class="project-image">
           ${this.picture(project.image, project.title)}

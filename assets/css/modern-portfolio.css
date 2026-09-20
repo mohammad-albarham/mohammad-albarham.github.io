@@ -5,25 +5,25 @@
 
 :root {
   /* Color Palette */
-  --primary-color: #0563bb;
-  --primary-dark: #044a96;
-  --primary-light: #1976d2;
-  --secondary-color: #45505b;
-  --text-primary: #272829;
-  --text-secondary: #626970;
-  --text-muted: #8b949e;
-  --bg-primary: #ffffff;
-  --bg-secondary: #f5f8fd;
-  --bg-accent: #f8f9fa;
-  --border-color: #dee2e6;
+  --primary-color: var(--color-accent, #0563bb);
+  --primary-dark: var(--color-accent-strong, #044a96);
+  --primary-light: var(--color-accent-bright, #1976d2);
+  --secondary-color: var(--color-muted, #45505b);
+  --text-primary: var(--color-ink, #272829);
+  --text-secondary: var(--color-muted, #626970);
+  --text-muted: var(--color-muted, #8b949e);
+  --bg-primary: var(--color-paper, #f8fbff);
+  --bg-secondary: var(--color-surface, #f5f8fd);
+  --bg-accent: var(--color-surface-raised, #f8f9fa);
+  --border-color: var(--color-border, #dee2e6);
   --shadow-sm: rgba(0, 0, 0, 0.05);
   --shadow-md: rgba(0, 0, 0, 0.1);
   --shadow-lg: rgba(0, 0, 0, 0.15);
   
   /* Typography */
-  --font-primary: "Open Sans", sans-serif;
-  --font-headings: "Raleway", sans-serif;
-  --font-monospace: "Fira Code", "Courier New", monospace;
+  --font-primary: var(--font-body, sans-serif);
+  --font-headings: var(--font-display, serif);
+  --font-monospace: var(--font-mono, monospace);
   
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -40,9 +40,9 @@
   --border-radius-lg: 12px;
   
   /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  --transition-fast: var(--duration-fast, 160ms) var(--ease-standard, ease);
+  --transition-normal: var(--duration-normal, 260ms) var(--ease-standard, ease);
+  --transition-slow: var(--duration-slow, 480ms) var(--ease-standard, ease);
 }
 
 [data-theme="dark"] {
@@ -113,7 +113,7 @@
   border: 3px solid var(--primary-color);
   box-shadow: 0 0 0 4px var(--bg-primary),
               0 0 0 6px rgba(var(--primary-color-rgb, 5, 99, 187), 0.1);
-  transition: all var(--transition-normal);
+  transition: color var(--transition-normal), background-color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal), opacity var(--transition-normal), transform var(--transition-normal);
   z-index: 2;
 }
 
@@ -145,7 +145,7 @@
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-lg);
   box-shadow: 0 2px 8px var(--shadow-sm);
-  transition: all var(--transition-normal);
+  transition: color var(--transition-normal), background-color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal), opacity var(--transition-normal), transform var(--transition-normal);
 }
 
 .timeline-item:hover .timeline-content {
@@ -232,7 +232,7 @@
   gap: 0.25rem;
   padding: 0.25rem 0.75rem;
   background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-  color: white;
+  color: var(--color-on-dark, #f4f8fc);
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -288,12 +288,12 @@
   font-size: 0.75rem;
   color: var(--text-secondary);
   font-weight: 500;
-  transition: all var(--transition-fast);
+  transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
 }
 
 .timeline-tag:hover {
   background: var(--primary-color);
-  color: white;
+  color: var(--color-on-dark, #f4f8fc);
   border-color: var(--primary-color);
 }
 
@@ -355,7 +355,7 @@
 .course-project-link:hover,
 .course-project-link:focus-visible {
   background: var(--primary-color);
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   box-shadow: 0 4px 12px rgba(5, 99, 187, 0.18);
   transform: translateX(2px);
 }
@@ -389,7 +389,7 @@
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
   box-shadow: 0 2px 8px var(--shadow-sm);
-  transition: all var(--transition-normal);
+  transition: color var(--transition-normal), background-color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal), opacity var(--transition-normal), transform var(--transition-normal);
   opacity: 0;
   transform: translateY(20px);
 }
@@ -498,19 +498,19 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 0.875rem;
-  transition: all var(--transition-fast);
+  transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
 }
 
 .project-link:hover {
   background: var(--primary-color);
-  color: white;
+  color: var(--color-on-dark, #f4f8fc);
   border-color: var(--primary-color);
   transform: translateY(-2px);
 }
 
 .project-link.primary {
   background: var(--primary-color);
-  color: white;
+  color: var(--color-on-dark, #f4f8fc);
   border-color: var(--primary-color);
 }
 
@@ -526,13 +526,13 @@
 }
 
 .project-card.featured::before {
-  content: '⭐ Featured';
+  content: 'Featured';
   position: absolute;
   top: var(--spacing-md);
   right: var(--spacing-md);
   padding: 0.25rem 0.75rem;
   background: var(--primary-color);
-  color: white;
+  color: var(--color-on-dark, #f4f8fc);
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -705,7 +705,7 @@ img[loading="lazy"].loaded {
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
-  z-index: 9998;
+  z-index: var(--layer-overlay, 40);
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition-normal), visibility var(--transition-normal);
@@ -728,7 +728,7 @@ img[loading="lazy"].loaded {
   background: var(--bg-primary);
   border-radius: var(--border-radius-lg);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
+  z-index: var(--layer-overlay, 40);
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition-normal), 
@@ -846,14 +846,14 @@ img[loading="lazy"].loaded {
   font-size: 0.9rem;
   font-weight: 500;
   border-radius: var(--border-radius);
-  transition: all var(--transition-fast);
+  transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
   border: 1px solid transparent;
   cursor: pointer;
 }
 
 .bibtex-copy-btn {
   background: var(--primary-color);
-  color: white;
+  color: var(--color-on-dark, #f4f8fc);
 }
 
 .bibtex-copy-btn:hover {

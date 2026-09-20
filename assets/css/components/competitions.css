@@ -23,7 +23,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   line-height: 1.4;
-  color: #ffffff;
+  color: var(--color-on-dark, #f4f8fc);
   background: var(--primary-color, #0563bb);
 }
 

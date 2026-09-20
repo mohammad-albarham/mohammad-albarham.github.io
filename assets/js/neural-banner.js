@@ -29,26 +29,26 @@
     
     // Colors
     colors: {
-      background: '#040b14',
+      background: 'var(--color-sidebar)',
       node: {
-        stroke: '#149ddd',
-        fill: 'rgba(20, 157, 221, 0.08)',
-        active: 'rgba(79, 195, 247, 0.7)',
-        activeStroke: '#4fc3f7'
+        stroke: 'var(--color-accent)',
+        fill: 'color-mix(in oklab, var(--color-accent) 8%, transparent)',
+        active: 'color-mix(in oklab, var(--color-accent-bright) 70%, transparent)',
+        activeStroke: 'var(--color-accent-bright)'
       },
       connection: {
-        default: 'rgba(79, 195, 247, 0.08)',
-        positive: '#4fc3f7',
-        negative: '#ff6b6b',
-        signal: '#ffc107'
+        default: 'color-mix(in oklab, var(--color-accent-bright) 8%, transparent)',
+        positive: 'var(--color-accent-bright)',
+        negative: 'var(--color-error)',
+        signal: 'var(--color-warning)'
       },
       input: {
-        empty: 'rgba(100, 120, 150, 0.15)',
-        filled: '#ffffff'
+        empty: 'transparent',
+        filled: 'var(--color-on-dark)'
       },
       output: {
-        prediction: '#4caf50',
-        text: '#fff'
+        prediction: 'var(--color-success)',
+        text: 'var(--color-on-dark)'
       }
     },
     
@@ -144,8 +144,12 @@
         const digit = parseInt(btn.getAttribute('data-digit'), 10);
         
         // Update active state
-        buttons.forEach(b => b.classList.remove('active'));
+        buttons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
         
         // Update visualization
         setPrediction(digit);
@@ -238,8 +242,8 @@
         rect.setAttribute('width', inputCellSize);
         rect.setAttribute('height', inputCellSize);
         rect.setAttribute('rx', '2');  // Slight rounding
-        // Filled pixels = white, empty pixels = invisible
-        rect.setAttribute('fill', intensity === 1 ? '#ffffff' : '#000000');
+        // Filled pixels use the shared on-dark token; empty pixels are hidden.
+        rect.setAttribute('fill', intensity === 1 ? colors.input.filled : colors.input.empty);
         rect.setAttribute('fill-opacity', intensity === 1 ? '1' : '0');
         rect.setAttribute('class', 'nn-input-cell');
         rect.setAttribute('data-row', row);
@@ -554,7 +558,7 @@
                       nodeIdx * timing.nodeStagger;
         
         setTimeout(() => {
-          node.element.style.transition = 'opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          node.element.style.transition = 'opacity 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.7, 0.3, 1)';
           node.element.style.opacity = '1';
           node.element.style.transform = 'scale(1)';
         }, delay);
@@ -768,13 +772,13 @@
       cell.intensity = intensity;
       
       if (intensity === 1) {
-        // FILLED PIXEL - bright white, full opacity
-        cell.element.setAttribute('fill', '#ffffff');
+        // FILLED PIXEL - bright paper token, full opacity
+        cell.element.setAttribute('fill', CONFIG.colors.input.filled);
         cell.element.setAttribute('fill-opacity', '1');
         cell.element.style.opacity = '1';  // Override animation styles
       } else {
         // EMPTY PIXEL - completely invisible
-        cell.element.setAttribute('fill', '#000000');
+        cell.element.setAttribute('fill', CONFIG.colors.input.empty);
         cell.element.setAttribute('fill-opacity', '0');
         cell.element.style.opacity = '0';  // Override animation styles
       }
@@ -850,5 +854,3 @@
   setupIntersectionObserver();
 
 })();
-
-

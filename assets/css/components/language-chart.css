@@ -28,7 +28,7 @@
   --lang-12: #9e9d96;
   --lang-13: #adaca5;
 
-  --lang-surface: var(--bg-primary, #ffffff);
+  --lang-surface: var(--bg-primary, #f8fbff);
 }
 
 .lang-chart-svg {
@@ -100,7 +100,7 @@
   padding: 0.35rem 0.6rem;
   border-radius: 6px;
   background: var(--text-primary, #272829);
-  color: var(--bg-primary, #ffffff);
+  color: var(--bg-primary, #f8fbff);
   font-size: 0.85rem;
   white-space: nowrap;
   pointer-events: none;

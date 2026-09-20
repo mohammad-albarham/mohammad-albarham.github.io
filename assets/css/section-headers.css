@@ -228,7 +228,7 @@ section .col-12 {
    Dark Mode Support
    ==================================== */
 [data-theme="dark"] .section-title h2 {
-  color: #ffffff;
+  color: var(--color-on-dark, #f4f8fc);
 }
 
 [data-theme="dark"] .section-title p {
@@ -238,7 +238,7 @@ section .col-12 {
 [data-theme="dark"] .resume-title,
 [data-theme="dark"] h3.resume-title,
 [data-theme="dark"] .section h3 {
-  color: #ffffff;
+  color: var(--color-on-dark, #f4f8fc);
   border-bottom-color: #149ddd;
 }
 

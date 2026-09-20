@@ -313,7 +313,7 @@ class PublicationsManager {
     html += '<div class="publications-by-year">';
     sortedYears.forEach(year => {
       html += `
-        <div class="year-group" data-aos="fade-up">
+        <div class="year-group">
           <h3 class="year-header">${year}</h3>
           <div class="publications-list">
             ${grouped[year].map(pub => DataRenderer.createPublicationCard(pub)).join('')}

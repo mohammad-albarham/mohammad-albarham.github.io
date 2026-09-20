@@ -10,7 +10,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: var(--font-body, sans-serif);
   color: #272829;
 }
 
@@ -30,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-display, serif);
 }
 
 /*--------------------------------------------------------------
@@ -42,23 +42,23 @@ h6 {
   opacity: 0;
   right: 15px;
   bottom: 15px;
-  z-index: 996;
+  z-index: var(--layer-floating, 30);
   background: #149ddd;
   width: 40px;
   height: 40px;
   border-radius: 50px;
-  transition: all 0.4s;
+  transition: color 0.4s, background-color 0.4s, border-color 0.4s, box-shadow 0.4s, opacity 0.4s, transform 0.4s;
 }
 
 .back-to-top i {
   font-size: 28px;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   line-height: 0;
 }
 
 .back-to-top:hover {
   background: #2eafec;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
 }
 
 .back-to-top.active {
@@ -75,9 +75,9 @@ h6 {
   left: 0;
   bottom: 0;
   width: 300px;
-  transition: all ease-in-out 0.5s;
-  z-index: 9997;
-  transition: all 0.5s;
+  transition: color ease-in-out 0.5s, background-color ease-in-out 0.5s, border-color ease-in-out 0.5s, box-shadow ease-in-out 0.5s, opacity ease-in-out 0.5s, transform ease-in-out 0.5s;
+  z-index: var(--layer-sticky, 20);
+  transition: color 0.5s, background-color 0.5s, border-color 0.5s, box-shadow 0.5s, opacity 0.5s, transform 0.5s;
   padding: 0 15px;
   background: #202020;
   overflow-y: auto;
@@ -97,12 +97,12 @@ h6 {
   font-weight: 600;
   -moz-text-align-last: center;
   text-align-last: center;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-display, serif);
 }
 
 #header .profile h1 a,
 #header .profile h1 a:hover {
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   text-decoration: none;
 }
 
@@ -110,7 +110,7 @@ h6 {
   font-size: 18px;
   display: inline-block;
   background: #212431;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   line-height: 1;
   padding: 8px 0;
   margin-right: 4px;
@@ -123,7 +123,7 @@ h6 {
 
 #header .profile .social-links a:hover {
   background: #149ddd;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   text-decoration: none;
 }
 
@@ -153,25 +153,6 @@ h6 {
   }
 }
 
-
-/* Add animation */
-
-
-#particles-js {
-  position: absolute;
-  width: 100%;  /* Cover full header width */
-  height: 100vh; /* Cover full header height */
-  top: 0;
-  left: 0;
-  z-index: -1;  /* Ensure it stays behind the content */
-}
-
-.pheader {
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  z-index: -1;
-}
 
 /* Fix huggingface logo issue */
 
@@ -221,7 +202,7 @@ object {
 .nav-menu .active:focus,
 .nav-menu li:hover>a {
   text-decoration: none;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
 }
 
 .nav-menu a:hover i,
@@ -236,13 +217,13 @@ object {
   position: fixed;
   right: 15px;
   top: 15px;
-  z-index: 9998;
+  z-index: var(--layer-overlay, 40);
   border: 0;
   font-size: 24px;
-  transition: all 0.4s;
+  transition: color 0.4s, background-color 0.4s, border-color 0.4s, box-shadow 0.4s, opacity 0.4s, transform 0.4s;
   outline: none !important;
   background-color: #149ddd;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   width: 40px;
   height: 40px;
   display: inline-flex;
@@ -293,18 +274,18 @@ object {
   font-size: 64px;
   font-weight: 700;
   line-height: 56px;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
 }
 
 #hero p {
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   margin-bottom: 50px;
   font-size: 26px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-display, serif);
 }
 
 #hero p span {
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   padding-bottom: 4px;
   letter-spacing: 1px;
   border-bottom: 3px solid #149ddd;
@@ -437,7 +418,7 @@ section {
 .facts .count-box p {
   padding: 15px 0 0 0;
   margin: 0 0 0 60px;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-display, serif);
   font-size: 14px;
   color: #122f57;
 }
@@ -448,7 +429,7 @@ section {
   margin-top: 20px;
   color: #122f57;
   font-size: 15px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-display, serif);
   transition: ease-in-out 0.3s;
 }
 
@@ -472,7 +453,7 @@ section {
   text-transform: uppercase;
   display: block;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-display, serif);
   color: #050d18;
 }
 
@@ -516,7 +497,7 @@ section {
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-display, serif);
   color: #050d18;
   margin-bottom: 10px;
 }
@@ -550,7 +531,7 @@ section {
   border-radius: 50px;
   left: -9px;
   top: 0;
-  background: #fff;
+  background: var(--color-surface-raised, #f8fbff);
   border: 2px solid #1f5297;
 }
 
@@ -585,7 +566,7 @@ section {
   margin: 0 auto 35px auto;
   list-style: none;
   text-align: center;
-  background: #fff;
+  background: var(--color-surface-raised, #f8fbff);
   border-radius: 50px;
   padding: 2px 15px;
 }
@@ -600,7 +581,7 @@ section {
   text-transform: uppercase;
   color: #272829;
   margin-bottom: 5px;
-  transition: all 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .portfolio #portfolio-flters li:hover,
@@ -627,7 +608,7 @@ section {
   right: 0;
   top: 0;
   bottom: 0;
-  transition: all ease-in-out 0.3s;
+  transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s, border-color ease-in-out 0.3s, box-shadow ease-in-out 0.3s, opacity ease-in-out 0.3s, transform ease-in-out 0.3s;
   z-index: 2;
   opacity: 0;
 }
@@ -639,13 +620,13 @@ section {
   bottom: -60px;
   z-index: 3;
   position: absolute;
-  transition: all ease-in-out 0.3s;
+  transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s, border-color ease-in-out 0.3s, box-shadow ease-in-out 0.3s, opacity ease-in-out 0.3s, transform ease-in-out 0.3s;
   display: flex;
   justify-content: center;
 }
 
 .portfolio .portfolio-wrap .portfolio-links a {
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   font-size: 28px;
   text-align: center;
   background: rgba(20, 157, 221, 0.75);
@@ -693,7 +674,7 @@ section {
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background-color: #fff;
+  background-color: var(--color-on-dark, #f4f8fc);
   opacity: 1;
   border: 1px solid #149ddd;
 }
@@ -771,13 +752,13 @@ section {
 }
 
 .services .icon i {
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   font-size: 24px;
   line-height: 0;
 }
 
 .services .icon-box:hover .icon {
-  background: #fff;
+  background: var(--color-surface-raised, #f8fbff);
 }
 
 .services .icon-box:hover .icon i {
@@ -861,7 +842,7 @@ section {
   font-style: italic;
   margin: 0 15px 15px 15px;
   padding: 20px;
-  background: #fff;
+  background: var(--color-surface-raised, #f8fbff);
   position: relative;
   margin-bottom: 35px;
   border-radius: 6px;
@@ -872,7 +853,7 @@ section {
   content: "";
   width: 0;
   height: 0;
-  border-top: 20px solid #fff;
+  border-top: 20px solid var(--color-surface-raised, #f8fbff);
   border-right: 20px solid transparent;
   border-left: 20px solid transparent;
   position: absolute;
@@ -888,7 +869,7 @@ section {
 .testimonials .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background-color: #fff;
+  background-color: var(--color-on-dark, #f4f8fc);
   opacity: 1;
   border: 1px solid #149ddd;
 }
@@ -906,7 +887,7 @@ section {
 
 .contact .info {
   padding: 30px;
-  background: #fff;
+  background: var(--color-surface-raised, #f8fbff);
   width: 100%;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
@@ -922,7 +903,7 @@ section {
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  transition: all 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .contact .info h4 {
@@ -952,7 +933,7 @@ section {
   font-size: 18px;
   display: inline-block;
   background: #333;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   line-height: 1;
   padding: 8px 0;
   border-radius: 50%;
@@ -965,20 +946,20 @@ section {
 
 .contact .info .social-links a:hover {
   background: #149ddd;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
 }
 
 .contact .info .email:hover i,
 .contact .info .address:hover i,
 .contact .info .phone:hover i {
   background: #149ddd;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
 }
 
 .contact .php-email-form {
   width: 100%;
   padding: 30px;
-  background: #fff;
+  background: var(--color-surface-raised, #f8fbff);
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -996,7 +977,7 @@ section {
 
 .contact .php-email-form .error-message {
   display: none;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   background: #ed3c0d;
   text-align: left;
   padding: 15px;
@@ -1009,7 +990,7 @@ section {
 
 .contact .php-email-form .sent-message {
   display: none;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   background: #18d26e;
   text-align: center;
   padding: 15px;
@@ -1018,7 +999,7 @@ section {
 
 .contact .php-email-form .loading {
   display: none;
-  background: #fff;
+  background: var(--color-surface-raised, #f8fbff);
   text-align: center;
   padding: 15px;
 }
@@ -1062,7 +1043,7 @@ section {
   background: #149ddd;
   border: 0;
   padding: 10px 24px;
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   transition: 0.4s;
   border-radius: 4px;
 }
@@ -1139,7 +1120,7 @@ section {
   left: 0;
   bottom: 0;
   width: 300px;
-  z-index: 9999;
+  z-index: var(--layer-overlay, 40);
   background: #202020;
 }
 
@@ -1211,7 +1192,7 @@ section {
   font-weight: 600;
   color: #173b6c;
   margin-bottom: 30px;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-display, serif);
 }
 
 .project-badge {
@@ -1219,7 +1200,7 @@ section {
   top: 10px;
   right: 10px;
   background: #149ddd;
-  color: white;
+  color: var(--color-on-dark, #f4f8fc);
   padding: 5px 12px;
   border-radius: 20px;
   font-size: 12px;

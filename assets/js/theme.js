@@ -45,7 +45,8 @@ class ThemeManager {
     // Update meta theme-color for mobile browsers
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', theme === 'dark' ? '#18191a' : '#ffffff');
+      const paper = getComputedStyle(document.documentElement).getPropertyValue('--color-paper').trim();
+      metaThemeColor.setAttribute('content', paper);
     }
   }
 
@@ -119,4 +120,3 @@ document.addEventListener('DOMContentLoaded', () => {
   const theme = storedTheme || 'light';
   document.documentElement.setAttribute('data-theme', theme);
 })();
-

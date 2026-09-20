@@ -6,17 +6,17 @@
 /* ====== CSS Custom Properties for Theming ====== */
 :root {
   /* Light theme (default) */
-  --primary: #149ddd;
-  --primary-hover: #37b3ed;
-  --primary-dark: #0d6efd;
-  --text-primary: #272829;
-  --text-secondary: #6c757d;
-  --text-muted: #858585;
-  --bg-primary: #ffffff;
-  --bg-secondary: #f5f8fb;
-  --bg-card: #ffffff;
-  --bg-sidebar: #040b14;
-  --border-color: #dee2e6;
+  --primary: var(--color-accent, #149ddd);
+  --primary-hover: var(--color-accent-strong, #117daa);
+  --primary-dark: var(--color-accent-strong, #0d6efd);
+  --text-primary: var(--color-ink, #272829);
+  --text-secondary: var(--color-muted, #6c757d);
+  --text-muted: var(--color-muted, #858585);
+  --bg-primary: var(--color-paper, #f8fbff);
+  --bg-secondary: var(--color-surface, #f5f8fb);
+  --bg-card: var(--color-surface-raised, #f8fbff);
+  --bg-sidebar: var(--color-sidebar, #040b14);
+  --border-color: var(--color-border, #dee2e6);
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
@@ -24,16 +24,16 @@
 
 [data-theme="dark"] {
   /* Dark theme */
-  --primary: #149ddd;
-  --primary-hover: #37b3ed;
-  --text-primary: #e4e6eb;
-  --text-secondary: #b0b3b8;
-  --text-muted: #8a8d91;
-  --bg-primary: #18191a;
-  --bg-secondary: #242526;
-  --bg-card: #242526;
-  --bg-sidebar: #040b14;
-  --border-color: #3a3b3c;
+  --primary: var(--color-accent);
+  --primary-hover: var(--color-accent-strong);
+  --text-primary: var(--color-ink);
+  --text-secondary: var(--color-muted);
+  --text-muted: var(--color-muted);
+  --bg-primary: var(--color-paper);
+  --bg-secondary: var(--color-surface);
+  --bg-card: var(--color-surface-raised);
+  --bg-sidebar: var(--color-sidebar);
+  --border-color: var(--color-border);
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
@@ -48,15 +48,15 @@
   height: 40px;
   border-radius: 50%;
   background: var(--primary);
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow-md);
-  z-index: 996;
-  transition: all 0.3s ease;
+  z-index: var(--layer-floating, 30);
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .theme-toggle:hover {
@@ -163,7 +163,7 @@
 }
 
 [data-theme="dark"] .portfolio-wrap .portfolio-info h4 {
-  color: #fff;
+  color: var(--color-on-dark, #f4f8fc);
 }
 
 [data-theme="dark"] .portfolio-wrap .portfolio-info p {

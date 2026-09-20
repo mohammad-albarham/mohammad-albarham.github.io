@@ -262,20 +262,6 @@
   }
 
   /**
-   * Animation on scroll
-   */
-  window.addEventListener('load', () => {
-    if (typeof AOS !== 'undefined') {
-      AOS.init({
-        duration: 1000,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-      })
-    }
-  });
-
-  /**
    * Initiate Pure Counter
    */
   if (typeof PureCounter !== 'undefined') {

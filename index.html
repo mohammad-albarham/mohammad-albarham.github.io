@@ -14,7 +14,7 @@
   <meta name="author" content="Mohammad Albarham">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://mohammad-albarham.github.io/">
-  <meta name="theme-color" content="#0563bb">
+  <meta name="theme-color" content="#f6f9fc">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -71,13 +71,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Google Fonts - Optimized -->
+  <!-- Editorial display + technical body families -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-
-  <!-- Academicons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -101,9 +98,9 @@
   <style>
     /* Inline critical CSS for faster initial render */
     body {
-      font-family: "Open Sans", sans-serif;
-      color: #272829;
-      background: #fff;
+      font-family: var(--font-body);
+      color: var(--color-ink);
+      background: var(--color-paper);
     }
     
     #header {
@@ -112,11 +109,10 @@
       left: 0;
       bottom: 0;
       width: 300px;
-      transition: all ease-in-out 0.5s;
-      z-index: 9997;
-      transition: all 0.5s;
+      transition: left var(--duration-slow) var(--ease-standard);
+      z-index: var(--layer-sticky);
       padding: 0 15px;
-      background: #040b14;
+      background: var(--color-sidebar);
       overflow-y: auto;
     }
     
@@ -124,13 +120,13 @@
       margin: 15px auto;
       display: block;
       width: 120px;
-      border: 8px solid #2c2f3f;
+      border: 8px solid var(--color-sidebar-soft);
       border-radius: 50%;
     }
 
     /* Loading state */
     .loading-skeleton {
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background: linear-gradient(90deg, var(--color-surface) 25%, var(--color-border) 50%, var(--color-surface) 75%);
       background-size: 200% 100%;
       animation: loading 1.5s infinite;
     }
@@ -175,7 +171,6 @@
   <!-- ======= Header / Sidebar ======= -->
   <header id="header">
     <div class="pheader">
-      <div id="particles-js"></div>
     </div>
 
     <div class="d-flex flex-column">
@@ -199,7 +194,11 @@
           </a>
           <a href="https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en" aria-label="Google Scholar"
             rel="noopener noreferrer" target="_blank">
-            <i class="ai ai-google-scholar-square ai-1x" aria-hidden="true"></i>
+            <svg class="brand-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M2.5 8.25 12 3l9.5 5.25L12 13.5 2.5 8.25Z" fill="currentColor"/>
+              <path d="M6.25 11.1v4.65c1.45 1.5 3.42 2.25 5.75 2.25s4.3-.75 5.75-2.25V11.1L12 14.25 6.25 11.1Z" fill="currentColor" opacity=".72"/>
+              <path d="M21.5 8.25v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
           </a>
           <a href="https://huggingface.co/pain" aria-label="Hugging Face profile" rel="noopener noreferrer" target="_blank">
             <svg class="hf-icon" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -265,16 +264,16 @@
         <div class="nn-digit-selector">
           <span class="nn-selector-label">Select a digit:</span>
           <div class="nn-digit-buttons">
-            <button class="nn-digit-btn" data-digit="0">0</button>
-            <button class="nn-digit-btn" data-digit="1">1</button>
-            <button class="nn-digit-btn" data-digit="2">2</button>
-            <button class="nn-digit-btn" data-digit="3">3</button>
-            <button class="nn-digit-btn" data-digit="4">4</button>
-            <button class="nn-digit-btn" data-digit="5">5</button>
-            <button class="nn-digit-btn" data-digit="6">6</button>
-            <button class="nn-digit-btn active" data-digit="7">7</button>
-            <button class="nn-digit-btn" data-digit="8">8</button>
-            <button class="nn-digit-btn" data-digit="9">9</button>
+            <button type="button" class="nn-digit-btn" data-digit="0" aria-pressed="false">0</button>
+            <button type="button" class="nn-digit-btn" data-digit="1" aria-pressed="false">1</button>
+            <button type="button" class="nn-digit-btn" data-digit="2" aria-pressed="false">2</button>
+            <button type="button" class="nn-digit-btn" data-digit="3" aria-pressed="false">3</button>
+            <button type="button" class="nn-digit-btn" data-digit="4" aria-pressed="false">4</button>
+            <button type="button" class="nn-digit-btn" data-digit="5" aria-pressed="false">5</button>
+            <button type="button" class="nn-digit-btn" data-digit="6" aria-pressed="false">6</button>
+            <button type="button" class="nn-digit-btn active" data-digit="7" aria-pressed="true">7</button>
+            <button type="button" class="nn-digit-btn" data-digit="8" aria-pressed="false">8</button>
+            <button type="button" class="nn-digit-btn" data-digit="9" aria-pressed="false">9</button>
           </div>
         </div>
 
@@ -307,7 +306,7 @@
           <p>Computer vision, AI, and the occasional detour into Arabic NLP</p>
         </div>
 
-        <div id="about-container" data-aos="fade-up">
+        <div id="about-container">
           <!-- Loaded dynamically from data/bio.json -->
           <div class="loading-skeleton" style="height: 180px; border-radius: 12px;"></div>
         </div>
@@ -323,7 +322,7 @@
           <p>What I actually write, measured from my public repositories</p>
         </div>
 
-        <div id="programming-languages-container" data-aos="fade-up">
+        <div id="programming-languages-container">
           <!-- Loaded dynamically from data/programming-languages.json -->
           <div class="loading-skeleton" style="height: 380px; border-radius: 12px;"></div>
         </div>
@@ -341,7 +340,7 @@
 
         <div class="row">
           <!-- Education -->
-          <div class="col-12" data-aos="fade-up">
+          <div class="col-12">
             <h3 class="resume-title mb-4"><i class="bi bi-mortarboard-fill"></i> Education</h3>
             <div id="education-container">
               <!-- Loaded dynamically -->
@@ -350,7 +349,7 @@
           </div>
 
           <!-- Experience -->
-          <div class="col-12 mt-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-12 mt-5">
             <h3 class="resume-title mb-4"><i class="bi bi-briefcase-fill"></i> Professional Experience</h3>
             <div id="experience-container">
               <!-- Loaded dynamically -->
@@ -371,7 +370,7 @@
         </div>
 
         <!-- Featured Projects -->
-        <div class="mb-5" data-aos="fade-up">
+        <div class="mb-5">
           <h3 class="section-subtitle mb-4"><i class="bi bi-star-fill text-warning"></i> Featured Projects</h3>
           <div id="featured-projects-container">
             <!-- Loaded dynamically -->
@@ -380,7 +379,7 @@
         </div>
 
         <!-- All Projects -->
-        <div class="mt-5" data-aos="fade-up">
+        <div class="mt-5">
           <h3 class="section-subtitle mb-4">All Projects</h3>
 
           <!-- Technology filter, built from data/projects.json -->
@@ -405,7 +404,7 @@
           <p>Hackathons, challenges, and contests I've taken part in</p>
         </div>
 
-        <div id="competitions-container" data-aos="fade-up">
+        <div id="competitions-container">
           <!-- Loaded dynamically -->
           <div class="loading-skeleton" style="height: 200px; border-radius: 12px;"></div>
         </div>
@@ -421,7 +420,7 @@
           <p>My research contributions in AI, Computer Vision, and Arabic NLP</p>
         </div>
 
-        <div id="publications-container" data-aos="fade-up">
+        <div id="publications-container">
           <!-- Loaded dynamically by publications.js -->
           <div class="text-center py-5">
             <div class="spinner-border text-primary" role="status">
@@ -445,7 +444,7 @@
         </div>
 
         <div class="row">
-          <div class="col-12" data-aos="fade-up">
+          <div class="col-12">
             <h3 class="mb-4"><i class="bi bi-lightning-charge-fill"></i> IEEE Volunteering</h3>
             <p class="mb-4">
               I have extensive experience with IEEE, starting from my student years and continuing as an active
@@ -457,7 +456,7 @@
           </div>
         </div>
 
-        <div class="col-12" data-aos="fade-up">
+        <div class="col-12">
           <div id="volunteering-container">
             <!-- Loaded dynamically -->
             <div class="loading-skeleton" style="height: 200px; border-radius: 12px;"></div>
@@ -475,7 +474,7 @@
           <p>Exploring the world and experiencing different cultures</p>
         </div>
 
-        <article data-aos="fade-up">
+        <article>
           <p class="lead">
             I've visited <strong><span id="num-countries">0</span> countries</strong> across
             <strong><span id="num-continents">0</span> continents</strong>:
@@ -505,7 +504,7 @@
           <p>Feel free to reach out for collaboration, research opportunities, or just to say hello!</p>
         </div>
 
-        <div class="contact-content" data-aos="fade-up">
+        <div class="contact-content">
           <!-- Contact Info Cards -->
           <div class="contact-info-row">
             <div class="contact-info-card">
@@ -562,7 +561,7 @@
                   <input type="text" 
                          name="entry.1312125580" 
                          id="contact-name" 
-                         placeholder="John Doe"
+                         placeholder="Amina Haddad"
                          required 
                          aria-required="true"
                          autocomplete="name">
@@ -577,7 +576,7 @@
                   <input type="email" 
                          name="entry.906047473" 
                          id="contact-email" 
-                         placeholder="john@example.com"
+                         placeholder="amina@example.com"
                          required 
                          aria-required="true"
                          autocomplete="email">
@@ -607,7 +606,7 @@
                 <textarea name="entry.845402219" 
                           id="contact-message" 
                           rows="5" 
-                          placeholder="Tell me about your project, idea, or inquiry..."
+                          placeholder="Tell me about your project, idea, or inquiry…"
                           required 
                           aria-required="true"></textarea>
                 <span class="field-error" aria-live="polite"></span>
@@ -620,7 +619,7 @@
                 </span>
                 <span class="btn-loading">
                   <span class="spinner"></span>
-                  Sending...
+                  Sending…
                 </span>
               </button>
             </form>
@@ -629,7 +628,7 @@
           </div>
 
           <!-- Map -->
-          <div class="contact-map-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="contact-map-card">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2754.568435536346!2d11.97158677755629!3d57.68980037386219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff36b628efec3%3A0xc148ed83d6f0a03!2sChalmers%20University%20of%20Technology!5e1!3m2!1sen!2sse!4v1738448346101!5m2!1sen!2sse"
               width="100%" height="280" style="border:0;" allowfullscreen loading="lazy"
@@ -651,7 +650,7 @@
         &copy; <span id="footer-year">2025</span> Mohammad Albarham. All Rights Reserved.
       </div>
       <div class="credits">
-        Built with <span style="color: #e25555;">♥</span> for open science
+        Built with <span class="footer-heart">♥</span> for open science
       </div>
       <div class="copyright">
         <p>Last updated: <span id="current-date"></span></p>
@@ -669,12 +668,6 @@
   <!-- Vendor JS Files -->
   <!-- jQuery is only needed by the travel map, so it is loaded on demand (see below). -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
-
-  <!-- External JS CDNs -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js" defer></script>
-  <!-- typed.js removed: no page contains a .typed element for it to drive. -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
   <!-- Bundled JS File -->
   <script src="assets/js/bundle.js" defer></script>

@@ -223,7 +223,8 @@
       // Update meta theme-color
       const metaTheme = document.querySelector('meta[name="theme-color"]');
       if (metaTheme) {
-        metaTheme.setAttribute('content', theme === 'dark' ? '#0a192f' : '#0563bb');
+        const paper = getComputedStyle(document.documentElement).getPropertyValue('--color-paper').trim();
+        metaTheme.setAttribute('content', paper);
       }
     }
   };

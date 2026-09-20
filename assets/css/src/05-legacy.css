@@ -138,7 +138,7 @@
 .tech-tag {
   display: inline-block;
   padding: 0.2rem 0.65rem;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-tag);
   background: var(--brand-tint);
   color: var(--brand-deep);
   font-family: var(--font-mono);
@@ -150,23 +150,31 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.5rem 1rem;
-  border: 2px solid var(--ink);
-  border-radius: var(--radius-pill);
+  padding: 0.45rem 0.95rem;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-btn);
   color: var(--ink);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.875rem;
-  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
+  line-height: 1.2;
+  box-shadow: var(--shadow-sm);
+  transition: transform 150ms ease-out, background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out, box-shadow 150ms ease-out;
 }
 .project-link:hover, .project-link-btn:hover, .repository-link:hover,
 .course-detail-link:hover, .btn-outline-primary:hover {
   color: var(--ink);
+  background: var(--surface-muted);
+  border-color: var(--ink);
   text-decoration: none;
-  transform: translate(-2px, -2px);
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: var(--shadow-border-hover);
 }
-.btn-lg { padding: 0.7rem 1.35rem; font-size: 1rem; }
+.project-link:active, .project-link-btn:active, .repository-link:active,
+.course-detail-link:active, .btn-outline-primary:active {
+  transform: scale(0.96);
+  box-shadow: var(--shadow-sm);
+}
+.btn-lg { padding: 0.65rem 1.35rem; font-size: 1rem; }
 .secondary { border-color: var(--border-strong); color: var(--body); }
 
 .competition-award {
@@ -174,7 +182,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.4rem 0.95rem;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-badge);
   background: var(--accent-amber-tint);
   color: var(--accent-amber);
   font-family: var(--font-heading);

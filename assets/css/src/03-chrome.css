@@ -62,12 +62,15 @@
   font-weight: 600;
   font-size: 0.9375rem;
   white-space: nowrap;
-  transition: background 0.18s var(--ease), color 0.18s var(--ease);
+  transition: background-color 150ms ease-out, color 150ms ease-out, transform 150ms ease-out;
 }
 .nav-pills a:hover {
   background: var(--brand-tint);
   color: var(--brand-deep);
   text-decoration: none;
+}
+.nav-pills a:active {
+  transform: scale(0.96);
 }
 .nav-pills a[aria-current="page"] {
   background: var(--ink);
@@ -77,20 +80,30 @@
 .topbar-actions { display: flex; align-items: center; gap: 0.5rem; }
 
 .icon-btn {
-  display: grid;
+  display: inline-grid;
   place-items: center;
-  width: 2.55rem;
-  height: 2.55rem;
+  width: 2.5rem;
+  height: 2.5rem;
   padding: 0;
   background: var(--surface-muted);
   border: var(--rule);
   border-radius: 50%;
   color: var(--ink);
   font-size: 1.05rem;
+  line-height: 1;
   cursor: pointer;
-  transition: background 0.18s var(--ease), border-color 0.18s var(--ease);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out, transform 150ms ease-out, box-shadow 150ms ease-out;
 }
-.icon-btn:hover { background: var(--brand-tint); border-color: var(--brand-tint-strong); }
+.icon-btn:hover {
+  background: var(--brand-tint);
+  border-color: var(--brand-tint-strong);
+  color: var(--brand-deep);
+  box-shadow: var(--shadow-border-hover);
+}
+.icon-btn:active {
+  transform: scale(0.96);
+}
 
 .theme-toggle .bi-sun { display: none; }
 :root[data-theme="dark"] .theme-toggle .bi-sun { display: block; }
@@ -99,7 +112,7 @@
 .nav-toggle { display: none; }
 
 @media (max-width: 60rem) {
-  .nav-toggle { display: grid; }
+  .nav-toggle { display: inline-grid; }
   .nav-pills {
     position: absolute;
     left: var(--gutter);
@@ -108,10 +121,10 @@
     flex-direction: column;
     align-items: stretch;
     gap: 0.15rem;
-    padding: 0.6rem;
+    padding: 0.5rem;
     background: var(--surface);
     border-radius: var(--radius-tile);
-    box-shadow: 0 18px 40px rgb(0 0 0 / 0.14);
+    box-shadow: 0 12px 32px rgb(0 0 0 / 0.12);
   }
   .nav-pills[hidden] { display: none; }
   .nav-pills a { padding: 0.7rem 0.9rem; border-radius: 10px; }
@@ -122,32 +135,75 @@
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.7rem 1.25rem;
-  border: 2px solid var(--ink);
-  border-radius: var(--radius-pill);
+  min-height: 2.65rem;
+  padding: 0.6rem 1.25rem;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-btn);
   background: var(--surface);
   color: var(--ink);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.9375rem;
+  line-height: 1.2;
   cursor: pointer;
-  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
+  box-shadow: var(--shadow-sm);
+  transition: transform 150ms ease-out, background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out, box-shadow 150ms ease-out;
 }
-.btn:hover { color: var(--ink); text-decoration: none; transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--ink); }
-.btn:active { transform: none; box-shadow: none; }
-.btn-primary { background: var(--brand); border-color: var(--brand-deep); color: #fff; }
-.btn-primary:hover { color: #fff; box-shadow: 3px 3px 0 var(--brand-deep); }
-:root[data-theme="dark"] .btn-primary { color: #06211d; }
-:root[data-theme="dark"] .btn-primary:hover { color: #06211d; }
-.btn-sm { padding: 0.4rem 0.85rem; font-size: 0.85rem; border-width: 1.5px; }
+.btn:hover {
+  background: var(--surface-muted);
+  border-color: var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: var(--shadow-border-hover);
+}
+.btn:active {
+  transform: scale(0.96);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #ffffff;
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--brand-deep) 35%, transparent);
+}
+.btn-primary:hover {
+  background: var(--brand-deep);
+  border-color: var(--brand-deep);
+  color: #ffffff;
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--brand-deep) 40%, transparent);
+}
+.btn-primary:active {
+  transform: scale(0.96);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--brand-deep) 30%, transparent);
+}
+:root[data-theme="dark"] .btn-primary {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #06211d;
+  box-shadow: var(--shadow-sm);
+}
+:root[data-theme="dark"] .btn-primary:hover {
+  background: var(--brand-deep);
+  border-color: var(--brand-deep);
+  color: #06211d;
+  box-shadow: var(--shadow-border-hover);
+}
+.btn-sm {
+  min-height: 2.1rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
+  border-width: 1.5px;
+  border-radius: 8px;
+}
 
 /* Chips / tags ----------------------------------------------------------- */
 
 .tag {
   display: inline-block;
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-pill);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-tag);
   background: var(--surface-sunk);
   color: var(--body);
   font-family: var(--font-mono);
@@ -162,7 +218,7 @@
 
 .site-footer {
   margin-top: var(--section-gap);
-  padding-block: 3.5rem 2.5rem;
+  padding-block: 2.5rem 2rem;
   border-top: var(--rule);
   background: var(--surface-muted);
 }
@@ -182,8 +238,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.5rem;
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
   border-top: var(--rule);
   font-size: 0.875rem;
   color: var(--faint);
@@ -201,22 +257,27 @@
 }
 .social li { margin: 0; }
 .social a {
-  display: grid;
+  display: inline-grid;
   place-items: center;
-  width: 2.6rem;
-  height: 2.6rem;
-  border: 2px solid var(--ink);
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1.5px solid var(--border);
   border-radius: 50%;
   background: var(--surface);
   color: var(--ink);
-  font-size: 1.1rem;
-  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease), background 0.15s var(--ease);
+  font-size: 1.05rem;
+  line-height: 1;
+  box-shadow: var(--shadow-sm);
+  transition: transform 150ms ease-out, background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out, box-shadow 150ms ease-out;
 }
 .social a:hover {
   background: var(--brand-tint);
+  border-color: var(--brand-tint-strong);
   color: var(--brand-deep);
   text-decoration: none;
-  transform: translate(-2px, -2px);
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: var(--shadow-border-hover);
+}
+.social a:active {
+  transform: scale(0.96);
 }
 .social svg { width: 1.05em; height: 1.05em; fill: currentColor; }

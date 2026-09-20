@@ -32,7 +32,7 @@
   object-fit: cover;
   border: 3px solid var(--ink);
   border-radius: var(--radius-card);
-  box-shadow: 8px 8px 0 var(--brand);
+  box-shadow: 6px 6px 0 var(--brand);
 }
 
 /* A section title can carry a glyph that says what kind of section it is —
@@ -91,19 +91,18 @@
   border-radius: 50%;
   background: var(--surface);
   border: 3px solid var(--rail);
-  transition: transform 0.15s var(--ease);
 }
 .cv-item.is-current::before { background: var(--rail); }
-.cv-item:hover::before { transform: scale(1.18); }
 
 .cv-entry {
   padding: 1.35rem 1.4rem;
   background: var(--surface);
-  border: 2px solid var(--border);
+  border: 1.5px solid var(--border);
   border-radius: var(--radius-tile);
-  transition: border-color 0.15s var(--ease);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 150ms ease-out, box-shadow 150ms ease-out;
 }
-.cv-entry:hover { border-color: var(--rail); }
+.cv-entry:hover { border-color: var(--rail); box-shadow: var(--shadow-border-hover); }
 .cv-item.is-current .cv-entry { border-left: 5px solid var(--rail); }
 .cv-entry-head {
   display: grid;
@@ -134,7 +133,7 @@
 }
 .cv-now {
   padding: 0.15rem 0.6rem;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-badge);
   background: var(--brand-tint);
   color: var(--brand-deep);
   font-family: var(--font-mono);
@@ -250,18 +249,19 @@
   padding: 1.35rem 1.4rem;
   margin-top: 1rem;
   background: var(--surface);
-  border: 2px solid var(--border);
+  border: 1.5px solid var(--border);
   border-left: 5px solid var(--accent-indigo);
   border-radius: var(--radius-tile);
+  box-shadow: var(--shadow-sm);
 }
-#all-publications .pub:first-of-type { border-top: 2px solid var(--border); }
+#all-publications .pub:first-of-type { border-top: 1.5px solid var(--border); }
 
 .pub-featured {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
   padding: 0.15rem 0.6rem;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-badge);
   background: var(--accent-amber-tint);
   color: var(--accent-amber);
   font-family: var(--font-mono);
@@ -277,14 +277,20 @@
   gap: 0.35rem;
   padding: 0.3rem 0.7rem;
   border: 1.5px solid var(--border);
-  border-radius: var(--radius-pill);
+  border-radius: 8px;
   color: var(--body);
   font-size: 0.8rem;
-  transition: border-color 0.15s var(--ease), color 0.15s var(--ease);
+  box-shadow: var(--shadow-sm);
+  transition: transform 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out, background-color 150ms ease-out, box-shadow 150ms ease-out;
 }
 .pub-links a:hover {
   border-color: var(--accent-indigo);
   color: var(--accent-indigo);
+  background: var(--surface-muted);
   text-decoration: none;
+  box-shadow: var(--shadow-border-hover);
+}
+.pub-links a:active {
+  transform: scale(0.96);
 }
 .pub .tag-list { margin-top: 0.75rem; }

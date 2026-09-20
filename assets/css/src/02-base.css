@@ -48,7 +48,12 @@ a:hover {
   text-underline-offset: 3px;
 }
 
-img { max-width: 100%; height: auto; }
+img {
+  max-width: 100%;
+  height: auto;
+  outline: var(--img-outline);
+  outline-offset: -1px;
+}
 /* NOT display:contents — that promotes both <source> and <img> to grid/flex
    items and the <source> then eats a track. Keep <picture> as the single box. */
 picture { display: block; min-width: 0; }
@@ -111,7 +116,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .section { padding-block: var(--section-gap) 0; }
 .section:last-of-type { padding-bottom: var(--section-gap); }
 
-.section-head { max-width: 60ch; margin-bottom: 2.5rem; }
+.section-head { max-width: 60ch; margin-bottom: 1.75rem; }
 .section-head p { color: var(--body); font-weight: 300; font-size: 1.0625rem; }
 
 .skip-link {

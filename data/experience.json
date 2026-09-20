@@ -1,24 +1,58 @@
 [
   {
-    "id": "aptiv-2025",
+    "id": "aptiv-2026",
     "company": "Aptiv",
-    "position": "Advanced Safety System Student Engineer",
+    "position": "Perception and AI Engineer",
     "type": "full-time",
-    "startDate": "2025-03",
+    "startDate": "2026-06",
     "endDate": null,
     "current": true,
     "location": "Gothenburg, Sweden",
     "logo": "assets/img/aptiv-logo.png",
     "url": "https://www.aptiv.com/en",
-    "description": "Working on saving more lives through Advanced Safety Systems, specifically on the Vision System of vehicles.",
+    "description": "Building perception tooling and AI for advanced safety products, from sensor fusion and ground truth to the pipelines and GUIs the engineering teams run on.",
     "responsibilities": [
-      "Analyze the events and cases related to AEB (Automatic Emergency Braking)",
-      "Automate the software processes and make them efficient",
-      "Fuse sensors such as camera and LiDAR",
-      "Test the advanced safety systems in real-life scenarios",
-      "Work on internal tools development"
+      "Developing tools and algorithms for camera-LiDAR visualization, ground-truth systems and fusion",
+      "Automating and managing ISP pipelines, from raw images to fully processed video, for advanced safety products",
+      "Building scalable GUIs and software wrappers that speed up workflows for the engineering team",
+      "Supporting pre-production vehicle testing and ADAS data annotation"
     ],
-    "technologies": ["Computer Vision", "LiDAR", "Sensor Fusion", "Python", "C++"]
+    "technologies": [
+      "Computer Vision",
+      "LiDAR",
+      "Sensor Fusion",
+      "ISP Pipelines",
+      "Python",
+      "C++"
+    ]
+  },
+  {
+    "id": "aptiv-2025",
+    "company": "Aptiv",
+    "position": "Student Engineer, Vision Systems in Advanced Safety",
+    "type": "full-time",
+    "startDate": "2025-03",
+    "endDate": "2026-05",
+    "current": false,
+    "location": "Gothenburg, Sweden",
+    "logo": "assets/img/aptiv-logo.png",
+    "url": "https://www.aptiv.com/en",
+    "description": "Worked on the vision system behind advanced safety functions: fusing camera and LiDAR, validating AEB on the track, and building the internal tools the team uses every day.",
+    "responsibilities": [
+      "Fused camera and LiDAR data to improve the perception stack, building scripts and pipelines with the AI Core and Algorithms teams for vision based systems",
+      "Analyzed Automatic Emergency Braking (AEB) events and validated safety functions in real-world track tests at the AstaZero proving ground",
+      "Built Aspera Turbo, a tool that automates complex server workflows and cuts run time from hours to minutes",
+      "Built Cheetah Visualizer, a real-time signal decoding pipeline that runs live in the vehicle and offline on recorded logs",
+      "Completed the master's thesis with Aptiv (January - June 2026); see Education"
+    ],
+    "technologies": [
+      "Computer Vision",
+      "LiDAR",
+      "Sensor Fusion",
+      "AEB",
+      "Python",
+      "C++"
+    ]
   },
   {
     "id": "rise-uos-2022",
@@ -48,7 +82,14 @@
         "url": "https://www.sharjah.ac.ae/Academics/Faculty-And-Staff/Imad-Afyouni"
       }
     ],
-    "technologies": ["PyTorch", "Transformers", "Arabic NLP", "Computer Vision", "RASA", "Docker"]
+    "technologies": [
+      "PyTorch",
+      "Transformers",
+      "Arabic NLP",
+      "Computer Vision",
+      "RASA",
+      "Docker"
+    ]
   },
   {
     "id": "appswave-2022",
@@ -69,7 +110,12 @@
       "Managing and prioritizing the product backlog",
       "Managing the repositories in Bitbucket"
     ],
-    "technologies": ["Agile", "Scrum", "Bitbucket", "JIRA"]
+    "technologies": [
+      "Agile",
+      "Scrum",
+      "Bitbucket",
+      "JIRA"
+    ]
   },
   {
     "id": "kenda-ai-2022",
@@ -87,7 +133,12 @@
       "Co-founded Kenda AI and contributed to building AI-powered solutions focused on Arabic language learning and handwriting recognition using Computer Vision",
       "Supported the development and deployment of AI models, ensuring smooth integration into production systems"
     ],
-    "technologies": ["Computer Vision", "PyTorch", "Arabic Handwriting Recognition", "Flask"]
+    "technologies": [
+      "Computer Vision",
+      "PyTorch",
+      "Arabic Handwriting Recognition",
+      "Flask"
+    ]
   },
   {
     "id": "xina-ai-2020",
@@ -109,7 +160,13 @@
       "Learned data annotation for ASR, NER, POS tagging",
       "Built NLU and Rule-Based chatbots"
     ],
-    "technologies": ["PyTorch", "Python", "NLP", "CNN", "RNN"]
+    "technologies": [
+      "PyTorch",
+      "Python",
+      "NLP",
+      "CNN",
+      "RNN"
+    ]
   },
   {
     "id": "nanolab-gju-2019",
@@ -128,7 +185,12 @@
       "Developed software for semi-automated blood grouping apparatus using microfluidic disc technology",
       "Implemented centrifugal force-based blood sample movement through microfluidic channels"
     ],
-    "technologies": ["ARM", "C", "Embedded Systems", "Microcontrollers"]
+    "technologies": [
+      "ARM",
+      "C",
+      "Embedded Systems",
+      "Microcontrollers"
+    ]
   },
   {
     "id": "ebtikar-2019",
@@ -147,7 +209,12 @@
       "Collaborated with Albaqa's association for Humanitarian helping funded by UNICEF",
       "Used Arduino microcontroller to create practical applications"
     ],
-    "technologies": ["Arduino", "Electronics", "Embedded Systems", "Teaching"]
+    "technologies": [
+      "Arduino",
+      "Electronics",
+      "Embedded Systems",
+      "Teaching"
+    ]
   },
   {
     "id": "phi-science-2019",
@@ -168,6 +235,15 @@
       "Built the go-to-market strategy: competitive analysis, positioning, messaging and pricing for a hardware product",
       "Fabricated the working prototype using 3D printing, CNC, laser cutting and moulding, presented to industry professionals"
     ],
-    "technologies": ["Applied Research", "Product Design", "Delft Design Approach", "Market Research", "Go-To-Market Strategy", "Digital Fabrication", "3D Printing", "CNC and Laser Cutting"]
+    "technologies": [
+      "Applied Research",
+      "Product Design",
+      "Delft Design Approach",
+      "Market Research",
+      "Go-To-Market Strategy",
+      "Digital Fabrication",
+      "3D Printing",
+      "CNC and Laser Cutting"
+    ]
   }
 ]

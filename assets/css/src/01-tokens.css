@@ -63,17 +63,31 @@
   --font-body: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* Shape */
+  /* Shape. Pill shape is reserved for things you can press; static metadata
+     carries --radius-chip so the difference is legible without a label.
+     --radius-inset is for a surface nested inside a --radius-tile card, where
+     matching the parent's radius reads as a mistake. */
   --radius-card: 26px;
   --radius-tile: 16px;
+  --radius-inset: 10px;
+  --radius-chip: 8px;
   --radius-pill: 999px;
   --rule: 1px solid var(--border);
   --outline: 2px solid var(--ink);
 
+  /* One height for every control, so a button, an icon button and a social
+     link line up and all three clear the 44px touch target. */
+  --control-h: 2.75rem;
+  --control-h-sm: 2.25rem;
+
+  /* The image edge is a neutral separator: pure black on light, pure white on
+     dark. A tinted near-black picks up the surface and reads as dirt. */
+  --img-edge: oklch(0 0 0 / 0.1);
+
   /* Rhythm */
   --wrap: 74rem;
   --gutter: clamp(1.25rem, 4vw, 2.5rem);
-  --section-gap: clamp(4.5rem, 9vw, 7.5rem);
+  --section-gap: clamp(3.5rem, 6vw, 6rem);
 
   /* The dark band's ground. Near-black against the white page; in dark mode it
      has to go lighter than the page instead, or the band stops being a band. */
@@ -81,6 +95,11 @@
 
   /* Motion */
   --ease: cubic-bezier(0.2, 0.85, 0.25, 1);
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  /* Press feedback: one scale, one duration, everywhere. */
+  --press: 0.96;
+  --dur-press: 150ms;
+  --dur-icon: 300ms;
 }
 
 /* Dark theme. Only tokens change; no component restates a colour. */
@@ -130,4 +149,5 @@
   --border: #2b3236;
   --border-strong: #48525a;
   --band-bg: #1d2327;
+  --img-edge: oklch(1 0 0 / 0.1);
 }

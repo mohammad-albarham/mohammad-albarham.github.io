@@ -319,7 +319,6 @@ gtag('config', 'G-VJHNQN2HWX');
     </div>
     <div class="footer-bottom">
       <span>&copy; {year} Mohammad Albarham</span>
-      <span>Built as a static site, hosted on GitHub Pages</span>
       <span><a href="/sitemap.xml">Sitemap</a></span>
     </div>
   </div>

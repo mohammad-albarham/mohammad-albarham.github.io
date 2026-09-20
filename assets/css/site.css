@@ -1375,10 +1375,18 @@ a.band-row:hover {
   .cv-entry { padding: 1.1rem 1.1rem; }
 }
 
-.course-list { columns: 2; column-gap: 2.5rem; max-width: none; }
-.course-list li { break-inside: avoid; margin-bottom: 0.5rem; }
+.cv-facts { margin: 0.35rem 0 0.9rem; }
+.cv-facts li { margin-bottom: 0.25rem; }
+
+.course-list { max-width: none; }
+.course-list li { margin-bottom: 0.5rem; }
 .course-list .meta { display: inline; margin-right: 0.35rem; }
-@media (max-width: 44rem) { .course-list { columns: 1; } }
+.course-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0.9rem;
+}
 
 /* Research ---------------------------------------------------------------- */
 

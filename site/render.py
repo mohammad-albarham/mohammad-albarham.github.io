@@ -1020,10 +1020,10 @@ def course_list(school: dict) -> str:
             label = f'<a href="{e(course["url"])}" target="_blank" rel="noopener noreferrer">{label}</a>'
         extras = []
         if course.get("projectUrl"):
-            extras.append(f'<a href="/{e(course["projectUrl"].lstrip("/"))}">project write-up</a>')
+            extras.append(f'<a class="btn btn-sm" href="/{e(course["projectUrl"].lstrip("/"))}">View related project</a>')
         for link in course.get("links") or []:
-            extras.append(f'<a href="{e(link["url"])}" target="_blank" rel="noopener noreferrer">{e(link["label"])}</a>')
-        suffix = f' <span class="meta">({" · ".join(extras)})</span>' if extras else ""
+            extras.append(f'<a class="btn btn-sm" href="{e(link["url"])}" target="_blank" rel="noopener noreferrer">{e(link["label"])}</a>')
+        suffix = f'<p class="course-links">{"".join(extras)}</p>' if extras else ""
         code = f'<span class="meta">{e(course["code"])}</span> ' if course.get("code") else ""
         items.append(f"<li>{code}{label}{suffix}</li>")
     return f'<h4>Coursework</h4><ul class="course-list">{"".join(items)}</ul>'
@@ -1083,6 +1083,12 @@ def render_resume(d) -> str:
             facts.append(e(school["accreditation"]))
         if school.get("scholarship"):
             facts.append(e(school["scholarship"]))
+        if len(facts) > 1:
+            facts_html = f'<ul class="cv-facts meta">{"".join(f"<li>{f}</li>" for f in facts)}</ul>'
+        elif facts:
+            facts_html = f'<p class="meta">{facts[0]}</p>'
+        else:
+            facts_html = ""
         project = ""
         if school.get("graduationProject"):
             gp = school["graduationProject"]
@@ -1100,7 +1106,7 @@ def render_resume(d) -> str:
       </div>
     </div>
     <p>{e(school.get('focus') or '')}</p>
-    {f'<p class="meta">{" · ".join(facts)}</p>' if facts else ''}
+    {facts_html}
     {project}
     {course_list(school)}
   </article>

@@ -32,7 +32,9 @@
   object-fit: cover;
   border: 3px solid var(--ink);
   border-radius: var(--radius-card);
-  box-shadow: 8px 8px 0 var(--brand);
+  box-shadow: 6px 6px 0 var(--brand);
+  outline: 1px solid var(--img-edge);
+  outline-offset: -1px;
 }
 
 /* A section title can carry a glyph that says what kind of section it is —
@@ -49,7 +51,7 @@
   flex: none;
   width: 1.35em;
   height: 1.35em;
-  border-radius: var(--radius-tile);
+  border-radius: var(--radius-chip);
   background: var(--brand-tint);
   color: var(--brand);
   font-size: 0.62em;
@@ -94,7 +96,7 @@
   transition: transform 0.15s var(--ease);
 }
 .cv-item.is-current::before { background: var(--rail); }
-.cv-item:hover::before { transform: scale(1.18); }
+.cv-item:hover::before { transform: scale(1.12); }
 
 .cv-entry {
   padding: 1.35rem 1.4rem;
@@ -116,9 +118,11 @@
   width: 3.5rem;
   height: 3.5rem;
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--surface-muted);
   padding: 4px;
+  outline: 1px solid var(--img-edge);
+  outline-offset: -1px;
 }
 .cv-entry h3 { margin: 0 0 0.2rem; font-size: 1.2rem; }
 .cv-org { margin: 0 0 0.35rem; font-size: 0.98rem; }
@@ -205,7 +209,7 @@
   .stat-row dd { font-size: 1.3rem; }
 }
 
-.section-note { max-width: 60ch; margin: -1.25rem 0 1.5rem; color: var(--body); }
+.section-note { max-width: 60ch; margin: -1rem 0 1.5rem; color: var(--body); }
 .title-icon-featured { background: var(--accent-amber-tint); color: var(--accent-amber); }
 .title-icon-research { background: var(--accent-indigo-tint); color: var(--accent-indigo); }
 .title-icon-competitions { background: var(--accent-amber-tint); color: var(--accent-amber); }
@@ -214,7 +218,7 @@
 .pub-featured-strip {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
+  gap: 1rem;
 }
 @media (max-width: 52rem) { .pub-featured-strip { grid-template-columns: 1fr; } }
 .pub-compact {
@@ -230,7 +234,7 @@
 .pub-compact .pub-links { margin-top: auto; padding-top: 0.75rem; }
 
 /* A year is a heading with a rule that runs to the edge of the column. */
-.year-group { margin-top: 2.75rem; }
+.year-group { margin-top: 2.25rem; }
 .year-group:first-child { margin-top: 0; }
 .year-head {
   display: flex;
@@ -275,16 +279,19 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.3rem 0.7rem;
+  padding: 0.3rem 0.7rem 0.3rem 0.575rem;
   border: 1.5px solid var(--border);
   border-radius: var(--radius-pill);
   color: var(--body);
   font-size: 0.8rem;
-  transition: border-color 0.15s var(--ease), color 0.15s var(--ease);
+  transition-property: border-color, color, scale;
+  transition-duration: var(--dur-press);
+  transition-timing-function: ease-out;
 }
 .pub-links a:hover {
   border-color: var(--accent-indigo);
   color: var(--accent-indigo);
   text-decoration: none;
 }
+.pub-links a:active { scale: var(--press); }
 .pub .tag-list { margin-top: 0.75rem; }

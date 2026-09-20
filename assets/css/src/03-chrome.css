@@ -9,7 +9,7 @@
   background: color-mix(in srgb, var(--surface) 88%, transparent);
   backdrop-filter: saturate(1.4) blur(12px);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.2s var(--ease);
+  transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease);
 }
 .topbar.is-stuck { border-bottom-color: var(--border); }
 
@@ -79,8 +79,8 @@
 .icon-btn {
   display: grid;
   place-items: center;
-  width: 2.55rem;
-  height: 2.55rem;
+  width: var(--control-h);
+  height: var(--control-h);
   padding: 0;
   background: var(--surface-muted);
   border: var(--rule);
@@ -88,13 +88,34 @@
   color: var(--ink);
   font-size: 1.05rem;
   cursor: pointer;
-  transition: background 0.18s var(--ease), border-color 0.18s var(--ease);
+  transition-property: background-color, border-color, scale;
+  transition-duration: var(--dur-press);
+  transition-timing-function: ease-out;
 }
 .icon-btn:hover { background: var(--brand-tint); border-color: var(--brand-tint-strong); }
+.icon-btn:active { scale: var(--press); }
 
-.theme-toggle .bi-sun { display: none; }
-:root[data-theme="dark"] .theme-toggle .bi-sun { display: block; }
-:root[data-theme="dark"] .theme-toggle .bi-moon { display: none; }
+/* Moon and sun are both in the DOM. Stack them in one grid cell and cross-fade
+   on the theme flip rather than swapping display, so the icon changes state
+   instead of blinking. Both glyphs occupy the same cell, so neither moves. */
+.theme-toggle .bi {
+  grid-area: 1 / 1;
+  transition: opacity var(--dur-icon) var(--ease-out),
+              scale var(--dur-icon) var(--ease-out),
+              filter var(--dur-icon) var(--ease-out);
+}
+.theme-toggle .bi-sun,
+:root[data-theme="dark"] .theme-toggle .bi-moon {
+  opacity: 0;
+  scale: 0.25;
+  filter: blur(4px);
+}
+.theme-toggle .bi-moon,
+:root[data-theme="dark"] .theme-toggle .bi-sun {
+  opacity: 1;
+  scale: 1;
+  filter: blur(0);
+}
 
 .nav-toggle { display: none; }
 
@@ -114,7 +135,7 @@
     box-shadow: 0 18px 40px rgb(0 0 0 / 0.14);
   }
   .nav-pills[hidden] { display: none; }
-  .nav-pills a { padding: 0.7rem 0.9rem; border-radius: 10px; }
+  .nav-pills a { padding: 0.7rem 0.9rem; border-radius: 6px; }
 }
 
 /* Buttons ---------------------------------------------------------------- */
@@ -122,8 +143,10 @@
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.7rem 1.25rem;
+  min-height: var(--control-h);
+  padding: 0.55rem 1.25rem;
   border: 2px solid var(--ink);
   border-radius: var(--radius-pill);
   background: var(--surface);
@@ -131,23 +154,29 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.9375rem;
+  line-height: 1.2;
   cursor: pointer;
-  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
+  transition-property: transform, box-shadow, scale, background-color, border-color, color;
+  transition-duration: var(--dur-press);
+  transition-timing-function: ease-out;
 }
-.btn:hover { color: var(--ink); text-decoration: none; transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--ink); }
-.btn:active { transform: none; box-shadow: none; }
+.btn:hover { color: var(--ink); text-decoration: none; transform: translate(-1px, -1px); box-shadow: 2px 2px 0 var(--ink); }
+/* Press settles the button flat against the page and compresses it, so the
+   click is answered rather than just undoing the hover. */
+.btn:active { transform: none; box-shadow: none; scale: var(--press); }
 .btn-primary { background: var(--brand); border-color: var(--brand-deep); color: #fff; }
-.btn-primary:hover { color: #fff; box-shadow: 3px 3px 0 var(--brand-deep); }
+.btn-primary:hover { color: #fff; box-shadow: 2px 2px 0 var(--brand-deep); }
 :root[data-theme="dark"] .btn-primary { color: #06211d; }
 :root[data-theme="dark"] .btn-primary:hover { color: #06211d; }
-.btn-sm { padding: 0.4rem 0.85rem; font-size: 0.85rem; border-width: 1.5px; }
+.btn-sm { min-height: var(--control-h-sm); padding: 0.35rem 0.85rem; font-size: 0.85rem; border-width: 1.5px; }
+.btn-sm:hover { box-shadow: 2px 2px 0 var(--ink); }
 
 /* Chips / tags ----------------------------------------------------------- */
 
 .tag {
   display: inline-block;
   padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-chip);
   background: var(--surface-sunk);
   color: var(--body);
   font-family: var(--font-mono);
@@ -182,7 +211,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.5rem;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: var(--rule);
   font-size: 0.875rem;
@@ -203,20 +232,23 @@
 .social a {
   display: grid;
   place-items: center;
-  width: 2.6rem;
-  height: 2.6rem;
-  border: 2px solid var(--ink);
+  width: var(--control-h);
+  height: var(--control-h);
+  border: 2px solid var(--border-strong);
   border-radius: 50%;
   background: var(--surface);
   color: var(--ink);
   font-size: 1.1rem;
-  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease), background 0.15s var(--ease);
+  transition-property: transform, box-shadow, scale, background-color, color;
+  transition-duration: var(--dur-press);
+  transition-timing-function: ease-out;
 }
 .social a:hover {
   background: var(--brand-tint);
   color: var(--brand-deep);
   text-decoration: none;
-  transform: translate(-2px, -2px);
-  box-shadow: 3px 3px 0 var(--ink);
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 var(--border-strong);
 }
+.social a:active { transform: none; box-shadow: none; scale: var(--press); }
 .social svg { width: 1.05em; height: 1.05em; fill: currentColor; }

@@ -32,12 +32,16 @@
 .breadcrumb a { color: var(--body); font-weight: 500; }
 
 .detail-body { padding-block: 2.5rem 0; }
-.detail-body h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-top: 2.5rem; }
-.detail-body h3 { font-size: 1.25rem; margin-top: 2rem; }
-.detail-body h4 { font-size: 1.05rem; margin-top: 1.5rem; }
+.detail-body h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-top: 2.25rem; }
+.detail-body h3 { font-size: 1.25rem; margin-top: 1.75rem; }
+.detail-body h4 { font-size: 1.05rem; margin-top: 1.25rem; }
 .detail-body > .container > section:first-child h2 { margin-top: 0; }
 .detail-body p, .detail-body li { max-width: 74ch; }
-.detail-body img { border-radius: var(--radius-tile); }
+.detail-body img {
+  border-radius: var(--radius-tile);
+  outline: 1px solid var(--img-edge);
+  outline-offset: -1px;
+}
 :root[data-theme="dark"] .detail-body img { background: #ffffff; }
 .detail-body iframe { max-width: 100%; border-radius: var(--radius-tile); }
 
@@ -90,9 +94,10 @@
 .swiper-slide img, .gallery-grid img, .main-image img, .project-image-main img {
   display: block;
   width: 100%;
-  border: 2px solid var(--border);
   border-radius: var(--radius-tile);
   background: var(--surface-muted);
+  outline: 1px solid var(--img-edge);
+  outline-offset: -1px;
 }
 /* No carousel script, so the pagination dots would be decoration only. */
 .swiper-pagination { display: none; }
@@ -122,7 +127,7 @@
 }
 .feature-card h3, .feature-card h4 { margin-top: 0; font-size: 1.05rem; }
 
-.section-divider { height: 1px; margin: 2.5rem 0; background: var(--border); border: 0; }
+.section-divider { height: 1px; margin: 2rem 0; background: var(--border); border: 0; }
 
 /* Meta, tags, links ------------------------------------------------------ */
 
@@ -138,7 +143,7 @@
 .tech-tag {
   display: inline-block;
   padding: 0.2rem 0.65rem;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-chip);
   background: var(--brand-tint);
   color: var(--brand-deep);
   font-family: var(--font-mono);
@@ -150,23 +155,33 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.5rem 1rem;
+  min-height: var(--control-h-sm);
+  padding: 0.4rem 1rem 0.4rem 0.875rem;
   border: 2px solid var(--ink);
   border-radius: var(--radius-pill);
   color: var(--ink);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.875rem;
-  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
+  line-height: 1.2;
+  transition-property: transform, box-shadow, scale, background-color, border-color, color;
+  transition-duration: var(--dur-press);
+  transition-timing-function: ease-out;
 }
 .project-link:hover, .project-link-btn:hover, .repository-link:hover,
 .course-detail-link:hover, .btn-outline-primary:hover {
   color: var(--ink);
   text-decoration: none;
-  transform: translate(-2px, -2px);
-  box-shadow: 3px 3px 0 var(--ink);
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 var(--ink);
 }
-.btn-lg { padding: 0.7rem 1.35rem; font-size: 1rem; }
+.project-link:active, .project-link-btn:active, .repository-link:active,
+.course-detail-link:active, .btn-outline-primary:active {
+  transform: none;
+  box-shadow: none;
+  scale: var(--press);
+}
+.btn-lg { min-height: var(--control-h); padding: 0.6rem 1.35rem; font-size: 1rem; }
 .secondary { border-color: var(--border-strong); color: var(--body); }
 
 .competition-award {

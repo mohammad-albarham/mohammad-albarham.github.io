@@ -4,7 +4,7 @@
 
 /* Hero ------------------------------------------------------------------- */
 
-.hero { padding-block: clamp(3rem, 7vw, 5.5rem) 0; }
+.hero { padding-block: clamp(2.5rem, 5vw, 4rem) 0; }
 .hero-grid {
   display: grid;
   gap: clamp(2rem, 5vw, 4rem);
@@ -31,7 +31,7 @@
   font-size: 0.78rem;
   font-weight: 500;
 }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
 
 /* The portrait is the biggest single object on the page: a real photograph,
    large, framed hard, offset against a flat teal plate. */
@@ -63,10 +63,10 @@
 
 .doorways {
   display: grid;
-  gap: 1.75rem;
+  gap: 1.25rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-@media (max-width: 56rem) { .doorways { grid-template-columns: 1fr; gap: 1.5rem; } }
+@media (max-width: 56rem) { .doorways { grid-template-columns: 1fr; gap: 1rem; } }
 
 .doorway {
   display: flex;
@@ -83,14 +83,20 @@
   font-weight: 400;
   /* The hard offset shadow is the site's one loud gesture. Its colour is the
      category accent, so the shadow carries meaning, not just style. */
-  box-shadow: 9px 9px 0 var(--doorway-accent, var(--brand));
-  transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease);
+  box-shadow: 6px 6px 0 var(--doorway-accent, var(--brand));
+  transition-property: transform, box-shadow;
+  transition-duration: var(--dur-press);
+  transition-timing-function: ease-out;
 }
 .doorway:hover {
   color: var(--body);
   text-decoration: none;
-  transform: translate(4px, 4px);
-  box-shadow: 4px 4px 0 var(--doorway-accent, var(--brand));
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--doorway-accent, var(--brand));
+}
+.doorway:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0 0 0 var(--doorway-accent, var(--brand));
 }
 .doorway h2 {
   display: flex;
@@ -112,15 +118,15 @@
 
 /* The three sections that do not get a card of their own still need a way in,
    and the homepage still needs to carry their legacy anchor ids. */
-.doorway-more { margin-top: 2rem; color: var(--muted); font-size: 0.98rem; }
+.doorway-more { margin-top: 1.5rem; color: var(--body); font-size: 0.98rem; }
 
 /* News ------------------------------------------------------------------- */
 
-.news-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.75rem; }
+.news-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.25rem; }
 .news-item { border-left: 3px solid var(--brand); padding-left: 1.1rem; }
 .news-item h3 { margin: 0.15rem 0 0.4rem; font-size: 1.25rem; }
 .news-item p:last-child { margin-bottom: 0; }
-.news-empty { color: var(--muted); max-width: 46ch; }
+.news-empty { color: var(--faint); max-width: 46ch; }
 
 /* Dark experience band --------------------------------------------------- */
 
@@ -147,11 +153,10 @@
   border-bottom: 1px solid rgb(255 255 255 / 0.14);
   color: inherit;
   font-weight: 400;
-  transition: padding-left 0.2s var(--ease), background 0.2s var(--ease);
+  transition: background-color var(--dur-press) ease-out;
 }
 a.band-row:hover {
-  padding-left: 1.1rem;
-  background: rgb(255 255 255 / 0.05);
+  background: rgb(255 255 255 / 0.06);
   color: inherit;
   text-decoration: none;
 }
@@ -175,7 +180,7 @@ a.band-row:hover {
 
 .card-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.25rem;
   grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
 }
 
@@ -186,9 +191,11 @@ a.band-row:hover {
   background: var(--surface);
   border: 2px solid var(--border);
   border-radius: var(--radius-tile);
-  transition: border-color 0.18s var(--ease), transform 0.18s var(--ease);
+  transition-property: border-color, box-shadow;
+  transition-duration: var(--dur-press);
+  transition-timing-function: ease-out;
 }
-.work-card:hover { border-color: var(--ink); transform: translateY(-3px); }
+.work-card:hover { border-color: var(--ink); box-shadow: 0 2px 8px -2px rgb(0 0 0 / 0.12); }
 .work-card img {
   display: block;
   width: 100%;
@@ -196,6 +203,8 @@ a.band-row:hover {
   object-fit: cover;
   background: var(--surface-sunk);
   border-bottom: 2px solid var(--border);
+  outline: 1px solid var(--img-edge);
+  outline-offset: -1px;
 }
 .work-card-body { display: flex; flex-direction: column; gap: 0.6rem; padding: 1.15rem 1.25rem 1.3rem; }
 .work-card h3 { margin: 0; font-size: 1.15rem; }
@@ -219,6 +228,9 @@ a.band-row:hover {
 }
 .filters li { margin: 0; }
 .filter-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--control-h-sm);
   padding: 0.35rem 0.85rem;
   border: 1.5px solid var(--border);
   border-radius: var(--radius-pill);
@@ -228,9 +240,12 @@ a.band-row:hover {
   font-size: 0.78rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.15s var(--ease);
+  transition-property: background-color, border-color, color, scale;
+  transition-duration: var(--dur-press);
+  transition-timing-function: ease-out;
 }
 .filter-chip:hover { border-color: var(--ink); color: var(--ink); }
+.filter-chip:active { scale: var(--press); }
 .filter-chip[aria-pressed="true"] {
   background: var(--ink);
   border-color: var(--ink);
@@ -277,7 +292,7 @@ a.band-row:hover {
   padding: 0.9rem 1rem;
   overflow-x: auto;
   background: var(--surface-sunk);
-  border-radius: var(--radius-tile);
+  border-radius: var(--radius-inset);
   font-size: 0.78rem;
   line-height: 1.5;
 }
@@ -285,7 +300,7 @@ a.band-row:hover {
 
 /* Competitions ----------------------------------------------------------- */
 
-.stat-row + .card-grid { margin-top: 1.75rem; }
+.stat-row + .card-grid { margin-top: 1.5rem; }
 
 .award-card {
   /* The placing colours the card. Silver and bronze carry their own ink; an
@@ -301,12 +316,14 @@ a.band-row:hover {
   border: 2px solid var(--border);
   border-left: 5px solid var(--medal);
   border-radius: var(--radius-tile);
-  transition: border-color 0.18s var(--ease), transform 0.18s var(--ease);
+  transition-property: border-color, box-shadow;
+  transition-duration: var(--dur-press);
+  transition-timing-function: ease-out;
 }
 .award-card:hover {
   border-color: var(--ink);
   border-left-color: var(--medal);
-  transform: translateY(-3px);
+  box-shadow: 0 2px 8px -2px rgb(0 0 0 / 0.12);
 }
 .award-silver {
   --medal: var(--medal-silver);
@@ -325,6 +342,8 @@ a.band-row:hover {
   object-fit: cover;
   background: var(--surface-sunk);
   border-bottom: 2px solid var(--border);
+  outline: 1px solid var(--img-edge);
+  outline-offset: -1px;
 }
 .award-body { display: flex; flex: 1; flex-direction: column; gap: 0.6rem; padding: 1.15rem 1.25rem 1.3rem; }
 .award-head { display: flex; align-items: center; gap: 0.7rem; }
@@ -346,7 +365,7 @@ a.band-row:hover {
   margin: 0;
   padding: 0.18rem 0.6rem;
   border: 1.5px solid var(--medal);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-chip);
   background: var(--medal-tint);
   color: var(--ink);
   font-family: var(--font-mono);
@@ -399,6 +418,8 @@ a.band-row:hover {
   object-fit: contain;
   border-radius: 8px;
   background: var(--surface-muted);
+  outline: 1px solid var(--img-edge);
+  outline-offset: -1px;
 }
 .service-row h3 { margin: 0 0 0.1rem; font-size: 1.02rem; }
 .service-row .service-org { margin: 0; font-size: 0.94rem; }
@@ -415,7 +436,7 @@ a.band-row:hover {
    room for them. Slice colours are the --lang-* ramp; both themes get it from
    the tokens file, so nothing here restates a colour. */
 
-.lang-chart { margin-bottom: 1.75rem; }
+.lang-chart { margin-bottom: 1.5rem; }
 .lang-pie { display: block; width: 100%; height: auto; margin-inline: auto; }
 .lang-pie--wide { max-width: 55rem; }
 .lang-pie--compact { display: none; max-width: 19rem; }
@@ -465,7 +486,7 @@ a.band-row:hover {
 
 #travel-map {
   height: 26rem;
-  margin: 1.75rem 0;
+  margin: 1.5rem 0;
   border: 2px solid var(--border);
   border-radius: var(--radius-tile);
   overflow: hidden;
@@ -476,7 +497,7 @@ a.band-row:hover {
   margin: 0;
   padding: 0.3rem 0.7rem;
   border: var(--rule);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-chip);
   font-size: 0.875rem;
 }
 
@@ -484,7 +505,7 @@ a.band-row:hover {
 
 .contact-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.25rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 .contact-card {
@@ -498,7 +519,9 @@ a.band-row:hover {
   font-family: var(--font-mono);
   font-size: 1.05rem;
   font-weight: 500;
-  word-break: break-all;
+  /* anywhere, not break-all: it still shrinks to the box so nothing overflows,
+     but it takes the break at the dot or the @ rather than mid-syllable. */
+  overflow-wrap: anywhere;
 }
 
 .map-fallback { display: grid; place-items: center; height: 100%; margin: 0; padding: 1.5rem; text-align: center; color: var(--faint); }

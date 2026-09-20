@@ -65,7 +65,6 @@ hr { height: 1px; margin: 2rem 0; border: 0; background: var(--border); }
 :focus-visible {
   outline: 3px solid var(--brand);
   outline-offset: 3px;
-  border-radius: 4px;
 }
 
 button, input, select, textarea { font: inherit; color: inherit; }
@@ -109,9 +108,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
   padding-inline: var(--gutter);
 }
 .section { padding-block: var(--section-gap) 0; }
-.section:last-of-type { padding-bottom: var(--section-gap); }
 
-.section-head { max-width: 60ch; margin-bottom: 2.5rem; }
+.section-head { max-width: 60ch; margin-bottom: 2rem; }
 .section-head p { color: var(--body); font-weight: 300; font-size: 1.0625rem; }
 
 .skip-link {
@@ -147,6 +145,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  /* Every press state reads --press, so neutralising the token is enough. */
+  :root { --press: 1; }
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;

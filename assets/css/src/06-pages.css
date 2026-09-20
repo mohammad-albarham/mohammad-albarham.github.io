@@ -22,6 +22,7 @@
   grid-template-columns: 16rem minmax(0, 1fr);
   align-items: start;
 }
+.cv-intro-actions { margin-top: 1rem; }
 @media (max-width: 48rem) {
   .cv-intro { grid-template-columns: 1fr; }
   .cv-portrait { width: min(16rem, 60%); }
@@ -127,6 +128,7 @@
 .cv-entry h3 { margin: 0 0 0.2rem; font-size: 1.2rem; }
 .cv-org { margin: 0 0 0.35rem; font-size: 0.98rem; }
 .cv-entry .tag-list { margin-top: 1rem; }
+.cv-entry-actions { margin-top: 1rem; }
 .cv-entry ul { max-width: 74ch; }
 
 .cv-when {

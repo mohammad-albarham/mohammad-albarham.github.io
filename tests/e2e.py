@@ -151,7 +151,7 @@ def run(browser) -> None:
 
     # --- BibTeX -------------------------------------------------------------
     page.goto(BASE + "/research/", wait_until="networkidle")
-    check(page.locator(".pub").count() == 8, "research page lists all 8 publications")
+    check(page.locator("#all-publications .pub").count() == 8, "research page lists all 8 publications")
     details = page.locator("details").first
     details.locator("summary").click()
     check(details.locator("pre").is_visible(), "BibTeX opens")

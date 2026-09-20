@@ -212,7 +212,57 @@ a.band-row:hover {
 .work-card h3 a:hover { color: var(--brand); text-decoration: none; }
 .work-card p { font-size: 0.95rem; color: var(--body); }
 .work-card .tag-list { margin-top: auto; padding-top: 0.35rem; }
-.work-card-links { display: flex; flex-wrap: wrap; gap: 0.75rem; font-size: 0.875rem; }
+.work-card .tag { border: 1px solid var(--border); }
+.work-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding-top: 0.25rem;
+}
+.work-card-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: var(--control-h-sm);
+  padding: 0.35rem 0.85rem 0.35rem 0.75rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.825rem;
+  line-height: 1.2;
+  transition-property: transform, box-shadow, scale, background-color, border-color, color;
+  transition-duration: var(--dur-press);
+  transition-timing-function: ease-out;
+}
+.work-card-links a i {
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.work-card-links a:hover {
+  background: var(--brand);
+  border-color: var(--brand-deep);
+  color: #fff;
+  text-decoration: none;
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 var(--brand-deep);
+}
+.work-card-links a:hover i {
+  color: #fff;
+}
+:root[data-theme="dark"] .work-card-links a:hover {
+  color: #06211d;
+}
+:root[data-theme="dark"] .work-card-links a:hover i {
+  color: #06211d;
+}
+.work-card-links a:active {
+  transform: none;
+  box-shadow: none;
+  scale: var(--press);
+}
 
 .work-card.is-hidden { display: none; }
 
@@ -394,10 +444,53 @@ a.band-row:hover {
 .award-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.45rem;
   margin-top: auto;
   padding-top: 0.35rem;
-  font-size: 0.875rem;
+}
+.award-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: var(--control-h-sm);
+  padding: 0.35rem 0.85rem 0.35rem 0.75rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.825rem;
+  line-height: 1.2;
+  transition-property: transform, box-shadow, scale, background-color, border-color, color;
+  transition-duration: var(--dur-press);
+  transition-timing-function: ease-out;
+}
+.award-links a i {
+  color: var(--accent-amber);
+  font-size: 0.9rem;
+}
+.award-links a:hover {
+  background: var(--accent-amber);
+  border-color: var(--accent-amber);
+  color: #fff;
+  text-decoration: none;
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.award-links a:hover i {
+  color: #fff;
+}
+:root[data-theme="dark"] .award-links a:hover {
+  color: #211300;
+}
+:root[data-theme="dark"] .award-links a:hover i {
+  color: #211300;
+}
+.award-links a:active {
+  transform: none;
+  box-shadow: none;
+  scale: var(--press);
 }
 
 /* Volunteering ----------------------------------------------------------- */

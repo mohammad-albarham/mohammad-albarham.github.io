@@ -2,21 +2,6 @@
 
 ## Role Definitions & Boundaries
 
-1. **Orchestrator (Coordinator & Reviewer Only)**
-   - The orchestrator role is held by one agent at a time (initially Codex, currently Claude Code).
-   - The orchestrator only orchestrates, manages, reviews, validates, and integrates work across tasks.
-   - **Strict Rule:** The orchestrator NEVER implements website code directly. Editing coordination docs (AGENTS.md, briefs) and integrating/merging worker output is orchestration, not implementation.
-   - Responsible for issue breakdown, verification, diff review, merge management, and multi-agent coordination.
-
-2. **Implementation Agents (Claude Code Opus 5 Medium & agy Gemini 3.8 Flash Medium)**
-   - All website implementation work is assigned exclusively to:
-     - Claude Code Opus 5 Medium
-     - agy Gemini 3.8 Flash Medium
-   - Must execute in **visible Orca tabs**.
-   - Concurrency limits: Maximum **2 concurrent agents per provider**.
-   - Worktree isolation: Each writer agent must operate in its **own dedicated git worktree**.
-   - **No hidden or built-in subagents** are permitted; all agents must be explicitly orchestrated and visible.
-
 ## Core Directives & Quality Safeguards
 
 - **Content Authenticity:** Preserve Mohammad's authentic voice, personal profile details, experience, volunteering records, competition records, and project content.

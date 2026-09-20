@@ -124,7 +124,7 @@ LINK_LABELS = {
     "huggingface": ("bi-box", "Hugging Face"),
     "kaggle": ("bi-bar-chart", "Kaggle"),
     "roboflow": ("bi-bounding-box", "Roboflow"),
-    "details": ("bi-arrow-right-circle", "Full write-up"),
+    "details": ("bi-arrow-right-circle", "Learn More"),
 }
 
 
@@ -155,6 +155,8 @@ def details_href(record: dict) -> str | None:
 SOCIAL = [
     ("https://www.linkedin.com/in/albarham/", "LinkedIn", '<i class="bi bi-linkedin" aria-hidden="true"></i>'),
     ("https://github.com/mohammad-albarham", "GitHub", '<i class="bi bi-github" aria-hidden="true"></i>'),
+    ("https://x.com/m_albarham", "X (Twitter)",
+     '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>'),
     ("https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en", "Google Scholar",
      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9zM6 13.2V17c0 2.2 2.7 4 6 4s6-1.8 6-4v-3.8l-6 3.3z"/></svg>'),
     ("https://huggingface.co/pain", "Hugging Face",
@@ -345,6 +347,9 @@ def work_card(project: dict) -> str:
             image = f'<a href="{e(href)}" tabindex="-1" aria-hidden="true">{image}</a>'
     techs = "|".join(project.get("technologies") or [])
     year = project.get("year")
+    links = dict(project.get("links") or {})
+    if not links and project.get("detailsPage"):
+        links["details"] = project["detailsPage"]
     return f"""<article class="work-card" data-tech="{e(techs)}">
   {image}
   <div class="work-card-body">
@@ -352,7 +357,7 @@ def work_card(project: dict) -> str:
     <h3>{heading}</h3>
     <p>{e(project.get('shortDescription') or project.get('description') or '')}</p>
     {tags(project.get('technologies'), limit=4)}
-    {link_row(project.get('links'))}
+    {link_row(links)}
   </div>
 </article>"""
 
@@ -1043,7 +1048,7 @@ def render_about(d) -> str:
         <p>{e(bio['currentRole'])}</p>
         <p>{e(bio['tagline'])}</p>
         {tags(bio.get('keywords'))}
-        <p><a class="btn" href="/resume/">Education and experience &rarr;</a></p>
+        <p class="cv-intro-actions"><a class="btn" href="/resume/">Education and experience &rarr;</a></p>
       </div>
     </div>
   </div>
@@ -1123,7 +1128,7 @@ def render_resume(d) -> str:
             supervisors = f'<p class="meta">Supervised by {names}</p>'
         more = ""
         if details_href(job):
-            more = f'<p><a class="btn btn-sm" href="{e(details_href(job))}">Read the full write-up</a></p>'
+            more = f'<p class="cv-entry-actions"><a class="btn btn-sm" href="{e(details_href(job))}">Read the full write-up</a></p>'
         org = e(job["company"])
         if job.get("url"):
             org = f'<a href="{e(job["url"])}" target="_blank" rel="noopener noreferrer">{org}</a>'

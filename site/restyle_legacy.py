@@ -65,6 +65,9 @@ def records() -> dict[str, dict]:
             page = record.get("detailsPage")
             if page:
                 found[page.lstrip("/")] = record
+    # Legacy alias route for AraCLIP
+    if "projects/araclip.html" in found and "projects/latest-projects-1.html" not in found:
+        found["projects/latest-projects-1.html"] = found["projects/araclip.html"]
     return found
 
 
@@ -108,7 +111,7 @@ def meta_for(route: str, source: str, record: dict | None) -> tuple[str, str]:
         return STANDALONE[route]
     existing = re.search(r"<title>(.*?)</title>", source, re.S)
     title = html.unescape(existing.group(1).strip()) if existing else route
-    title = re.sub(r"\s*[-–|]\s*Mohammad Al-?[Bb]arham.*$", "", title).strip()
+    title = re.sub(r"\s*[-–—|]\s*Mohammad Al-?[Bb]arham.*$", "", title).strip()
     described = re.search(r'<meta[^>]*name="description"[^>]*content="([^"]*)"', source)
     return title, html.unescape(described.group(1)) if described else title
 

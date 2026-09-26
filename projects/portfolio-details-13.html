@@ -110,9 +110,11 @@ gtag('config', 'G-VJHNQN2HWX');
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
 
-                <!-- <div class="swiper-slide"> -->
-                <div>
-                  <img src="../assets/img/portfolio/CPPND/chatbot_demo.gif" alt="Demonstration of the C++ MemBot chat interface running alongside the VS Code source code">
+                <div class="swiper-slide">
+                  <picture>
+                    <source srcset="/assets/img_webp/portfolio/CPPND/chatbot_demo.webp" type="image/webp">
+                    <img src="/assets/img/portfolio/CPPND/chatbot_demo.gif" alt="Demonstration of the C++ MemBot chat interface running alongside the VS Code source code" loading="lazy" decoding="async">
+                  </picture>
                 </div>
 
             </div>
@@ -123,20 +125,14 @@ gtag('config', 'G-VJHNQN2HWX');
             <div class="portfolio-info">
               <h2>Project information</h2>
               <ul>
-                <li><strong>Project URL</strong>: <a href="https://github.com/mohammad-albarham/CppND-Memory-Management-Chatbot">Github Link</a></li>
+                <li><strong>Project URL</strong>: <a href="https://github.com/mohammad-albarham/CppND-Memory-Management-Chatbot" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
               </ul>
             </div>
             <div class="portfolio-description">
               <h2>About this project</h2>
               <p>
-                CPPND: Memory Management Chatbot
+                The ChatBot creates an interactive dialogue where users can ask questions regarding memory management in C++. The chatbot loads its knowledge base from a text file and constructs an in-memory knowledge graph representation where answers are graph nodes and queries are graph edges. Upon receiving a query, Levenshtein distance matching identifies the most probable answer. This project focuses on C++ memory management principles, modernizing raw pointers into smart pointers (unique and shared pointers) and applying RAII concepts throughout the codebase.
               </p>
-
-                <p>
-                The ChatBot code creates a dialogue where users can ask questions about some aspects of memory management in C++. After the knowledge base of the chatbot has been loaded from a text file, a knowledge graph representation is created in computer memory, where chatbot answers represent the graph nodes and user queries represent the graph edges. After a user query has been sent to the chatbot, the Levenshtein distance is used to identify the most probable answer. The code is fully functional as-is and uses raw pointers to represent the knowledge graph and interconnections between objects throughout the project.
-                </p>
-
-
             </div>
           </div>
 

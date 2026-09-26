@@ -14,11 +14,12 @@ and the generated HTML is committed. GitHub Pages serves the repository as-is.
 git clone https://github.com/mohammad-albarham/mohammad-albarham.github.io.git
 cd mohammad-albarham.github.io
 
-python3 -m http.server 8765        # preview at http://localhost:8765
+python3 scripts/serve.py 8765      # preview at http://localhost:8765 (supports clean URLs)
 ```
 
-Use a server rather than opening `index.html` from the filesystem: links and
-assets are root-relative (`/assets/...`), so `file://` will not resolve them.
+Use `scripts/serve.py` (or `python3 -m http.server 8765`) rather than opening `index.html`
+from the filesystem: links and assets are root-relative (`/assets/...`), and `serve.py`
+emulates GitHub Pages' clean URLs (e.g. `/projects/latest-projects-5`).
 
 ## Build
 

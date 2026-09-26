@@ -1224,8 +1224,15 @@ a.band-row:hover {
   outline: 1px solid var(--img-edge);
   outline-offset: -1px;
 }
-:root[data-theme="dark"] .detail-body img { background: #ffffff; }
-.detail-body iframe { max-width: 100%; border-radius: var(--radius-tile); }
+.detail-body iframe {
+  width: 100%;
+  max-width: 56rem;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: var(--radius-tile);
+  border: 0;
+  display: block;
+}
 
 /* Grid primitives the legacy markup relies on --------------------------- */
 
@@ -1234,7 +1241,7 @@ a.band-row:hover {
 
 .row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.75rem; }
 .gy-4 { row-gap: 1.75rem; }
-.row > [class*="col-"] { grid-column: span 12; min-width: 0; }
+.row > * { grid-column: span 12; min-width: 0; }
 @media (min-width: 62rem) {
   .col-lg-4 { grid-column: span 5; }
   .col-lg-8 { grid-column: span 7; }

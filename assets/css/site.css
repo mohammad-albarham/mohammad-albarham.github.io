@@ -1291,6 +1291,10 @@ a.band-row:hover {
 /* No carousel script, so the pagination dots would be decoration only. */
 .swiper-pagination { display: none; }
 .main-image, .project-image-main { margin-bottom: 1.25rem; }
+/* Photos and scanned certificates come in every shape; uniform cropped
+   thumbnails keep the grid even. Each links to the full image. */
+.project-gallery .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); }
+.project-gallery .gallery-grid img { aspect-ratio: 4 / 3; height: auto; object-fit: cover; }
 
 /* Info panels ------------------------------------------------------------ */
 
@@ -1307,7 +1311,7 @@ a.band-row:hover {
 .portfolio-description, .project-description, .section-content { margin-top: 1.5rem; }
 .portfolio-description h2, .project-description h2 { margin-top: 0; }
 
-.feature-grid, .project-features {
+.feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 1rem;

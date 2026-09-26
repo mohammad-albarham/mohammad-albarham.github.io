@@ -1183,7 +1183,7 @@ def render_resume(d) -> str:
     return shell(
         title="Resume — Mohammad Albarham",
         description=("The full CV of Mohammad Albarham: MSc from Chalmers, BSc from the "
-                     "University of Jordan, and eight engineering and research roles."),
+                     "University of Jordan, and nine engineering and research roles."),
         canonical="/resume/",
         body=body,
         current="resume",

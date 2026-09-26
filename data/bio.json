@@ -19,6 +19,10 @@
       "url": "https://github.com/mohammad-albarham",
       "icon": "bx bxl-github"
     },
+    "twitter": {
+      "url": "https://x.com/m_albarham",
+      "icon": "bx bxl-twitter"
+    },
     "googleScholar": {
       "url": "https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en",
       "icon": "ai ai-google-scholar-square"

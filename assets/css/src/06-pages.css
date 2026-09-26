@@ -1,0 +1,299 @@
+/* ==========================================================================
+   Inner pages: /projects/, /research/, /about/
+   ========================================================================== */
+
+.hero-role {
+  margin: -0.35rem 0 1.1rem;
+  color: var(--brand);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  letter-spacing: -0.015em;
+}
+
+.about-body { max-width: 68ch; }
+.about-body .tag-list { margin-top: 1.5rem; }
+
+/* CV --------------------------------------------------------------------- */
+
+.cv-intro {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 16rem minmax(0, 1fr);
+  align-items: start;
+}
+.cv-intro-actions { margin-top: 1rem; }
+@media (max-width: 48rem) {
+  .cv-intro { grid-template-columns: 1fr; }
+  .cv-portrait { width: min(16rem, 60%); }
+}
+.cv-portrait {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-card);
+  box-shadow: 6px 6px 0 var(--brand);
+  outline: 1px solid var(--img-edge);
+  outline-offset: -1px;
+}
+
+/* A section title can carry a glyph that says what kind of section it is —
+   the same accent the timeline's rail uses. */
+
+.title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.title-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 1.35em;
+  height: 1.35em;
+  border-radius: var(--radius-chip);
+  background: var(--brand-tint);
+  color: var(--brand);
+  font-size: 0.62em;
+}
+.title-icon-education { background: var(--accent-amber-tint); color: var(--accent-amber); }
+
+/* Education and experience read as one line through time: a rail down the
+   left, a marker per entry, the entry itself a card. The rail's accent says
+   which kind of thing it is — amber for study, brand teal for work. */
+
+.cv-timeline {
+  --rail: var(--brand);
+  --rail-x: 0.5rem;
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 2.25rem;
+  list-style: none;
+}
+.cv-timeline-education { --rail: var(--accent-amber); }
+.cv-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: calc(var(--rail-x) - 1px);
+  width: 2px;
+  background: linear-gradient(to bottom, var(--rail), var(--border));
+}
+
+.cv-item { position: relative; margin-bottom: 1.25rem; }
+.cv-item:last-child { margin-bottom: 0; }
+.cv-item::before {
+  content: "";
+  position: absolute;
+  top: 1.7rem;
+  left: calc(var(--rail-x) - 2.25rem - 0.5rem);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 3px solid var(--rail);
+  transition: transform 0.15s var(--ease);
+}
+.cv-item.is-current::before { background: var(--rail); }
+.cv-item:hover::before { transform: scale(1.12); }
+
+.cv-entry {
+  padding: 1.35rem 1.4rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-tile);
+  transition: border-color 0.15s var(--ease);
+}
+.cv-entry:hover { border-color: var(--rail); }
+.cv-item.is-current .cv-entry { border-left: 5px solid var(--rail); }
+.cv-entry-head {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 1.1rem;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+.cv-entry-head img {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--surface-muted);
+  padding: 4px;
+  outline: 1px solid var(--img-edge);
+  outline-offset: -1px;
+}
+.cv-entry h3 { margin: 0 0 0.2rem; font-size: 1.2rem; }
+.cv-org { margin: 0 0 0.35rem; font-size: 0.98rem; }
+.cv-entry .tag-list { margin-top: 1rem; }
+.cv-entry-actions { margin-top: 1rem; }
+.cv-entry ul { max-width: 74ch; }
+
+.cv-when {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.9rem;
+  margin: 0;
+}
+.cv-now {
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--brand-tint);
+  color: var(--brand-deep);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+@media (max-width: 44rem) {
+  .cv-timeline { --rail-x: 0.375rem; padding-left: 1.4rem; }
+  .cv-item::before {
+    top: 1.5rem;
+    left: calc(var(--rail-x) - 1.4rem - 0.375rem);
+    width: 0.75rem;
+    height: 0.75rem;
+    border-width: 2px;
+  }
+  .cv-entry { padding: 1.1rem 1.1rem; }
+}
+
+.cv-facts { margin: 0.35rem 0 0.9rem; }
+.cv-facts li { margin-bottom: 0.25rem; }
+
+.course-list { max-width: none; }
+.course-list li { margin-bottom: 0.5rem; }
+.course-list .meta { display: inline; margin-right: 0.35rem; }
+.course-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0.9rem;
+}
+
+/* Research ---------------------------------------------------------------- */
+
+/* The numbers that frame the page before any paper is read. */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  background: var(--border);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-tile);
+  overflow: hidden;
+}
+.stat-row > div { padding: 1.1rem 1.25rem; background: var(--surface); }
+.stat-row dt {
+  margin: 0 0 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--faint);
+  text-transform: lowercase;
+}
+.stat-row dd {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--accent-indigo);
+}
+
+@media (max-width: 44rem) {
+  .stat-row > div { padding: 0.9rem 1rem; }
+  .stat-row dd { font-size: 1.3rem; }
+}
+
+.section-note { max-width: 60ch; margin: -1rem 0 1.5rem; color: var(--body); }
+.title-icon-featured { background: var(--accent-amber-tint); color: var(--accent-amber); }
+.title-icon-research { background: var(--accent-indigo-tint); color: var(--accent-indigo); }
+.title-icon-competitions { background: var(--accent-amber-tint); color: var(--accent-amber); }
+
+/* The four papers worth reading first, as cards rather than list rows. */
+.pub-featured-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 52rem) { .pub-featured-strip { grid-template-columns: 1fr; } }
+.pub-compact {
+  display: flex;
+  flex-direction: column;
+  padding: 1.35rem 1.4rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-left: 5px solid var(--accent-amber);
+  border-radius: var(--radius-tile);
+}
+.pub-compact h3 { font-size: 1.05rem; }
+.pub-compact .pub-links { margin-top: auto; padding-top: 0.75rem; }
+
+/* A year is a heading with a rule that runs to the edge of the column. */
+.year-group { margin-top: 2.25rem; }
+.year-group:first-child { margin-top: 0; }
+.year-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0 0 0.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent-indigo);
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.year-head .meta { margin-left: auto; }
+.year-group.is-hidden, .pub.is-hidden { display: none; }
+
+/* Every paper carries an indigo edge — the accent that means research here. */
+#all-publications .pub {
+  padding: 1.35rem 1.4rem;
+  margin-top: 1rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-left: 5px solid var(--accent-indigo);
+  border-radius: var(--radius-tile);
+}
+#all-publications .pub:first-of-type { border-top: 2px solid var(--border); }
+
+.pub-featured {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--accent-amber-tint);
+  color: var(--accent-amber);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* Links are the point of a paper's card, so they read as buttons. */
+.pub-links { gap: 0.4rem; }
+.pub-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem 0.3rem 0.575rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--body);
+  font-size: 0.8rem;
+  transition-property: border-color, color, scale;
+  transition-duration: var(--dur-press);
+  transition-timing-function: ease-out;
+}
+.pub-links a:hover {
+  border-color: var(--accent-indigo);
+  color: var(--accent-indigo);
+  text-decoration: none;
+}
+.pub-links a:active { scale: var(--press); }
+.pub .tag-list { margin-top: 0.75rem; }

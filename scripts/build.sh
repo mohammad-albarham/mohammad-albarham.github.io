@@ -1,80 +1,84 @@
 #!/bin/bash
-# Build assets/css/bundle.css and assets/js/bundle.js from their source files.
+# Build the site.
 #
-# index.html loads only the bundles, so any edit to a source file below requires
-# re-running this script to take effect.
+#   scripts/build.sh          render pages + bundle CSS/JS
+#   scripts/build.sh --check  rebuild into a temp dir and diff against what is
+#                             committed; exits non-zero if anything is stale
 #
-# Usage:
-#   scripts/build.sh          build the bundles
-#   scripts/build.sh --check  build to a temp dir and diff against the committed
-#                             bundles without overwriting them
+# The --check mode covers BOTH the bundles and the generated HTML, so a commit
+# that edits assets/css/src/*.css or data/*.json without rebuilding fails.
+# Legacy detail pages are re-shelled by site/restyle_legacy.py, which is a
+# one-shot migration and deliberately not part of this build.
 
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-# Order matters: later files override earlier ones in the CSS cascade.
+# Order matters: later files win in the cascade.
 CSS_FILES=(
-  assets/css/jquery-jvectormap-1.2.2.css
-  assets/css/style.css
-  assets/css/modern-portfolio.css
-  assets/css/optimized-sidebar.css
-  assets/css/hero.css
-  assets/css/responsive-images.css
-  assets/css/section-headers.css
-  assets/css/components/publications.css
-  assets/css/components/competitions.css
-  assets/css/components/language-chart.css
-  assets/css/neural-network.css
-  assets/css/dark-mode.css
-  assets/css/buttons.css
-  assets/css/enhancements.css
+  assets/css/src/01-tokens.css
+  assets/css/src/02-base.css
+  assets/css/src/03-chrome.css
+  assets/css/src/04-home.css
+  assets/css/src/05-legacy.css
+  assets/css/src/06-pages.css
 )
 
 JS_FILES=(
-  assets/js/utils.js
-  assets/js/data-loader.js
-  assets/js/portfolio-renderer.js
-  assets/js/theme.js
-  assets/js/publications.js
-  assets/js/language-chart.js
-  assets/js/animations.js
-  assets/js/neural-banner.js
-  assets/js/site-enhancements.js
-  assets/js/particles-config.js
-  assets/js/main.js
+  assets/js/src/01-nav.js
+  assets/js/src/02-theme.js
+  assets/js/src/03-filters.js
+  assets/js/src/04-bibtex.js
+  assets/js/src/05-travel.js
 )
 
-# jVectorMap and the world map data are loaded on demand by the travel section
-# (see the lazy loader in index.html), not shipped in the main bundle.
+# jVectorMap + the world map data are loaded on demand by the travel section,
+# never in the main bundle.
 TRAVEL_FILES=(
   assets/js/jquery-jvectormap-1.2.2.min.js
   assets/js/worldmap.js
 )
 
+GENERATED_PAGES=(index.html about/index.html resume/index.html projects/index.html research/index.html volunteering/index.html contact/index.html sitemap.xml)
+
+bundle() {
+  local dir="$1"
+  mkdir -p "$dir/assets/css" "$dir/assets/js"
+  cat "${CSS_FILES[@]}"    > "$dir/assets/css/site.css"
+  cat "${JS_FILES[@]}"     > "$dir/assets/js/site.js"
+  cat "${TRAVEL_FILES[@]}" > "$dir/assets/js/travel-map.js"
+}
+
 if [[ "${1:-}" == "--check" ]]; then
-  out=".bundle-check"
-  rm -rf "$out"; mkdir -p "$out"
-  cat "${CSS_FILES[@]}" > "$out/bundle.css"
-  cat "${JS_FILES[@]}"  > "$out/bundle.js"
-  cat "${TRAVEL_FILES[@]}" > "$out/travel-map.js"
+  out="$(mktemp -d)"
+  trap 'rm -rf "$out"' EXIT
+
+  bundle "$out"
+  python3 site/render.py --out "$out" > /dev/null
+
   status=0
-  for f in bundle.css:assets/css/bundle.css bundle.js:assets/js/bundle.js travel-map.js:assets/js/travel-map.js; do
-    built="$out/${f%%:*}"; committed="${f##*:}"
-    if cmp -s "$built" "$committed"; then
-      echo "  ok        $committed"
+  check() {
+    if cmp -s "$out/$1" "$1"; then
+      printf '  ok        %s\n' "$1"
     else
-      echo "  DIFFERS   $committed ($(wc -c < "$built") built vs $(wc -c < "$committed") committed)"
+      printf '  STALE     %s\n' "$1"
       status=1
     fi
-  done
-  rm -rf "$out"
+  }
+  check assets/css/site.css
+  check assets/js/site.js
+  check assets/js/travel-map.js
+  for page in "${GENERATED_PAGES[@]}"; do check "$page"; done
+
+  if [[ $status -ne 0 ]]; then
+    echo
+    echo "Committed output does not match its sources. Run: scripts/build.sh"
+  fi
   exit $status
 fi
 
-cat "${CSS_FILES[@]}"    > assets/css/bundle.css
-cat "${JS_FILES[@]}"     > assets/js/bundle.js
-cat "${TRAVEL_FILES[@]}" > assets/js/travel-map.js
+bundle .
+python3 site/render.py
 
-printf '  bundle.css     %8s bytes\n' "$(wc -c < assets/css/bundle.css | tr -d ' ')"
-printf '  bundle.js      %8s bytes\n' "$(wc -c < assets/js/bundle.js | tr -d ' ')"
+printf '  site.css       %8s bytes\n' "$(wc -c < assets/css/site.css | tr -d ' ')"
+printf '  site.js        %8s bytes\n' "$(wc -c < assets/js/site.js | tr -d ' ')"
 printf '  travel-map.js  %8s bytes (lazy-loaded)\n' "$(wc -c < assets/js/travel-map.js | tr -d ' ')"

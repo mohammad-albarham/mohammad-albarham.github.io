@@ -1,5 +1,21 @@
 [
   {
+    "id": "falcon-mdf",
+    "title": "falcon_mdf: Fast ASAM MDF Reader in Rust",
+    "category": "tools",
+    "tags": ["Rust", "WebAssembly", "Automotive", "Performance"],
+    "featured": true,
+    "image": "assets/img/portfolio/falcon_mdf.png",
+    "shortDescription": "Rust reader for ASAM MDF automotive measurement files, about 4× faster than asammdf, with an in-browser WebAssembly playground",
+    "description": "falcon_mdf is a fast, reliable Rust reader for ASAM MDF (v4 and v3), the standard format for automotive and industrial measurement data. It decodes values exactly as recorded, decodes CAN/LIN bus logs against DBC, ARXML or LDF databases, and ships as a Rust crate, Python bindings and an in-browser WebAssembly playground. It runs about 4× faster than asammdf, with zero crashes across 1,200 corrupted test files.",
+    "technologies": ["Rust", "WebAssembly", "Python Bindings", "ASAM MDF", "CAN / LIN"],
+    "links": {
+      "demo": "https://mohammad-albarham.github.io/falcon_mdf/",
+      "github": "https://github.com/mohammad-albarham/falcon_mdf"
+    },
+    "year": 2026
+  },
+  {
     "id": "dinov3-mask2former",
     "title": "DINOv3-Mask2Former: Urban Instance Segmentation",
     "category": "ai",

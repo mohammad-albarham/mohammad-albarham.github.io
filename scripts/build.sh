@@ -25,7 +25,6 @@ CSS_FILES=(
 
 JS_FILES=(
   assets/js/src/01-nav.js
-  assets/js/src/02-theme.js
   assets/js/src/03-filters.js
   assets/js/src/04-bibtex.js
   assets/js/src/05-travel.js
@@ -38,7 +37,7 @@ TRAVEL_FILES=(
   assets/js/worldmap.js
 )
 
-GENERATED_PAGES=(index.html about/index.html resume/index.html projects/index.html research/index.html volunteering/index.html contact/index.html sitemap.xml)
+GENERATED_PAGES=(index.html about/index.html experience/index.html education/index.html resume/index.html projects/index.html research/index.html competitions/index.html contests/index.html volunteering/index.html contact/index.html sitemap.xml)
 
 bundle() {
   local dir="$1"

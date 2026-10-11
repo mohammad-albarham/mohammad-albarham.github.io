@@ -99,57 +99,6 @@
   /* Press feedback: one scale, one duration, everywhere. */
   --press: 0.96;
   --dur-press: 150ms;
-  --dur-icon: 300ms;
-}
-
-/* Dark theme. Only tokens change; no component restates a colour. */
-:root[data-theme="dark"] {
-  color-scheme: dark;
-
-  --ink: #f2f4f5;
-  --body: #b6bdc4;
-  --faint: #7f878f;
-
-  --brand: #4ec3b2;
-  --brand-deep: #7ad6c7;
-  --brand-tint: #10312d;
-  --brand-tint-strong: #16443d;
-
-  --accent-indigo: #99a0f5;
-  --accent-indigo-tint: #1e2145;
-  --accent-amber: #f0b555;
-  --accent-amber-tint: #3a2c11;
-  --accent-rose: #ee87a8;
-  --accent-rose-tint: #3d1a26;
-
-  --medal-silver: #b3bfcb;
-  --medal-silver-tint: #242b32;
-  --medal-bronze: #d98b57;
-  --medal-bronze-tint: #352115;
-
-  /* The language ramp inverts: bright teal first, deepening to a slate-teal
-     that still separates from --surface. */
-  --lang-1: #7fe3d2;
-  --lang-2: #6ed9ca;
-  --lang-3: #5ccfc2;
-  --lang-4: #4ec3b2;
-  --lang-5: #43b6ab;
-  --lang-6: #39a9a4;
-  --lang-7: #319c9d;
-  --lang-8: #2b8f96;
-  --lang-9: #2b8390;
-  --lang-10: #2d7789;
-  --lang-11: #326d85;
-  --lang-12: #386382;
-  --lang-13: #3e5a7e;
-
-  --surface: #0f1214;
-  --surface-muted: #171b1e;
-  --surface-sunk: #1f2427;
-  --border: #2b3236;
-  --border-strong: #48525a;
-  --band-bg: #1d2327;
-  --img-edge: oklch(1 0 0 / 0.1);
 }
 /* ==========================================================================
    Base: reset, typography, links, focus
@@ -338,14 +287,18 @@ button, input, select, textarea { font: inherit; color: inherit; }
   font-weight: 800;
   font-size: 1.0625rem;
   letter-spacing: -0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .brand:hover { color: var(--ink); text-decoration: none; }
+.brand picture { display: inline-flex; flex-shrink: 0; }
 .brand img {
   width: 34px;
   height: 34px;
   border-radius: 50%;
   border: 2px solid var(--ink);
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 /* The pill nav ----------------------------------------------------------- */
@@ -382,6 +335,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
   color: var(--surface);
 }
 
+@media (max-width: 74rem) and (min-width: 60.001rem) {
+  .nav-pills a {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.875rem;
+  }
+}
+
 .topbar-actions { display: flex; align-items: center; gap: 0.5rem; }
 
 .icon-btn {
@@ -402,28 +362,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .icon-btn:hover { background: var(--brand-tint); border-color: var(--brand-tint-strong); }
 .icon-btn:active { scale: var(--press); }
-
-/* Moon and sun are both in the DOM. Stack them in one grid cell and cross-fade
-   on the theme flip rather than swapping display, so the icon changes state
-   instead of blinking. Both glyphs occupy the same cell, so neither moves. */
-.theme-toggle .bi {
-  grid-area: 1 / 1;
-  transition: opacity var(--dur-icon) var(--ease-out),
-              scale var(--dur-icon) var(--ease-out),
-              filter var(--dur-icon) var(--ease-out);
-}
-.theme-toggle .bi-sun,
-:root[data-theme="dark"] .theme-toggle .bi-moon {
-  opacity: 0;
-  scale: 0.25;
-  filter: blur(4px);
-}
-.theme-toggle .bi-moon,
-:root[data-theme="dark"] .theme-toggle .bi-sun {
-  opacity: 1;
-  scale: 1;
-  filter: blur(0);
-}
 
 .nav-toggle { display: none; }
 
@@ -474,8 +412,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .btn:active { transform: none; box-shadow: none; scale: var(--press); }
 .btn-primary { background: var(--brand); border-color: var(--brand-deep); color: #fff; }
 .btn-primary:hover { color: #fff; box-shadow: 2px 2px 0 var(--brand-deep); }
-:root[data-theme="dark"] .btn-primary { color: #06211d; }
-:root[data-theme="dark"] .btn-primary:hover { color: #06211d; }
 .btn-sm { min-height: var(--control-h-sm); padding: 0.35rem 0.85rem; font-size: 0.85rem; border-width: 1.5px; }
 .btn-sm:hover { box-shadow: 2px 2px 0 var(--ink); }
 
@@ -814,12 +750,6 @@ a.band-row:hover {
 .work-card-links a:hover i {
   color: #fff;
 }
-:root[data-theme="dark"] .work-card-links a:hover {
-  color: #06211d;
-}
-:root[data-theme="dark"] .work-card-links a:hover i {
-  color: #06211d;
-}
 .work-card-links a:active {
   transform: none;
   box-shadow: none;
@@ -1042,12 +972,6 @@ a.band-row:hover {
 }
 .award-links a:hover i {
   color: #fff;
-}
-:root[data-theme="dark"] .award-links a:hover {
-  color: #211300;
-}
-:root[data-theme="dark"] .award-links a:hover i {
-  color: #211300;
 }
 .award-links a:active {
   transform: none;

@@ -32,17 +32,6 @@
 <link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
 <link rel="stylesheet" href="/assets/css/site.css">
 
-<script>
-// Apply the saved theme before first paint so the page never flashes.
-(function () {
-  try {
-    var saved = localStorage.getItem('ma-theme');
-    var dark = saved ? saved === 'dark'
-      : window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (dark) document.documentElement.setAttribute('data-theme', 'dark');
-  } catch (e) {}
-})();
-</script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJHNQN2HWX"></script>
 <script>
@@ -63,12 +52,9 @@ gtag('config', 'G-VJHNQN2HWX');
       <span>Mohammad Albarham</span>
     </a>
     <nav aria-label="Primary">
-      <ul class="nav-pills" id="nav-pills"><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/resume/">Resume</a></li><li><a href="/projects/">Projects</a></li><li><a href="/research/" aria-current="page">Research</a></li><li><a href="/volunteering/">Volunteering</a></li><li><a href="/contact/">Contact</a></li></ul>
+      <ul class="nav-pills" id="nav-pills"><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/experience/">Experience</a></li><li><a href="/education/">Education</a></li><li><a href="/projects/">Projects</a></li><li><a href="/research/">Research</a></li><li><a href="/competitions/" aria-current="page">Competitions</a></li><li><a href="/volunteering/">Volunteering</a></li><li><a href="/contact/">Contact</a></li></ul>
     </nav>
     <div class="topbar-actions">
-      <button class="icon-btn theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
-        <i class="bi bi-moon" aria-hidden="true"></i><i class="bi bi-sun" aria-hidden="true"></i>
-      </button>
       <button class="icon-btn nav-toggle" type="button" aria-expanded="false"
               aria-controls="nav-pills" aria-label="Open navigation">
         <i class="bi bi-list" aria-hidden="true"></i>
@@ -84,7 +70,7 @@ gtag('config', 'G-VJHNQN2HWX');
     <nav aria-label="Breadcrumb">
       <ol class="breadcrumb">
         <li><a href="/">Home</a></li>
-        <li><a href="/research/#competitions">Research</a></li>
+        <li><a href="/competitions/">Competitions</a></li>
         <li aria-current="page">ICPC — JU Competitive Programming Contest (JUCPC)</li>
       </ol>
     </nav>
@@ -270,7 +256,7 @@ gtag('config', 'G-VJHNQN2HWX');
 
 <section class="section">
   <div class="wrap">
-    <p><a class="btn" href="/research/#competitions"><i class="bi bi-arrow-left" aria-hidden="true"></i> Back to Research</a></p>
+    <p><a class="btn" href="/competitions/"><i class="bi bi-arrow-left" aria-hidden="true"></i> Back to Competitions</a></p>
   </div>
 </section>
 
@@ -291,9 +277,11 @@ gtag('config', 'G-VJHNQN2HWX');
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about/">About</a></li>
-          <li><a href="/resume/">Resume</a></li>
+          <li><a href="/experience/">Experience</a></li>
+          <li><a href="/education/">Education</a></li>
           <li><a href="/projects/">Projects</a></li>
           <li><a href="/research/">Research</a></li>
+          <li><a href="/competitions/">Competitions</a></li>
           <li><a href="/volunteering/">Volunteering</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
@@ -301,9 +289,10 @@ gtag('config', 'G-VJHNQN2HWX');
       <div>
         <h2>Sections</h2>
         <ul>
-          <li><a href="/resume/#experience">Experience</a></li>
+          <li><a href="/experience/">Experience</a></li>
+          <li><a href="/education/">Education</a></li>
           <li><a href="/research/#publications">Publications</a></li>
-          <li><a href="/research/#competitions">Competitions</a></li>
+          <li><a href="/competitions/">Competitions</a></li>
           <li><a href="/about/#programming-languages">Programming languages</a></li>
           <li><a href="/volunteering/#travel">Travel</a></li>
         </ul>

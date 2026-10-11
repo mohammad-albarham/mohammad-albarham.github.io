@@ -23,8 +23,8 @@
 <meta name="twitter:description" content="Mohammad Albarham is a computer vision and AI engineer in Gothenburg: advanced safety systems at Aptiv, an MSc from Chalmers, and published research in cross-lingual retrieval and Arabic NLP.">
 <meta name="twitter:image" content="https://mohammad-albarham.github.io/assets/img/profile-img-1200.jpg">
 
-<link rel="icon" href="/assets/img/favicon.png">
-<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="icon" href="/assets/img/favicon.png?v=2">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=2">
 
 <link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/nunito-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -32,17 +32,6 @@
 <link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
 <link rel="stylesheet" href="/assets/css/site.css">
 
-<script>
-// Apply the saved theme before first paint so the page never flashes.
-(function () {
-  try {
-    var saved = localStorage.getItem('ma-theme');
-    var dark = saved ? saved === 'dark'
-      : window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (dark) document.documentElement.setAttribute('data-theme', 'dark');
-  } catch (e) {}
-})();
-</script>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Person",
@@ -92,12 +81,9 @@ gtag('config', 'G-VJHNQN2HWX');
       <span>Mohammad Albarham</span>
     </a>
     <nav aria-label="Primary">
-      <ul class="nav-pills" id="nav-pills"><li><a href="/" aria-current="page">Home</a></li><li><a href="/about/">About</a></li><li><a href="/resume/">Resume</a></li><li><a href="/projects/">Projects</a></li><li><a href="/research/">Research</a></li><li><a href="/volunteering/">Volunteering</a></li><li><a href="/contact/">Contact</a></li></ul>
+      <ul class="nav-pills" id="nav-pills"><li><a href="/" aria-current="page">Home</a></li><li><a href="/about/">About</a></li><li><a href="/experience/">Experience</a></li><li><a href="/education/">Education</a></li><li><a href="/projects/">Projects</a></li><li><a href="/research/">Research</a></li><li><a href="/competitions/">Competitions</a></li><li><a href="/volunteering/">Volunteering</a></li><li><a href="/contact/">Contact</a></li></ul>
     </nav>
     <div class="topbar-actions">
-      <button class="icon-btn theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
-        <i class="bi bi-moon" aria-hidden="true"></i><i class="bi bi-sun" aria-hidden="true"></i>
-      </button>
       <button class="icon-btn nav-toggle" type="button" aria-expanded="false"
               aria-controls="nav-pills" aria-label="Open navigation">
         <i class="bi bi-list" aria-hidden="true"></i>
@@ -117,10 +103,6 @@ gtag('config', 'G-VJHNQN2HWX');
       <p class="lead">Advanced Safety &amp; User Experience engineer in vision systems at Aptiv,
          MSc from Chalmers. I work on autonomous systems, multi-modal systems and open
          source projects &mdash; and I publish what I learn.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="/projects/">See the projects</a>
-        <a class="btn" href="/research/">Read the research</a>
-      </div>
       <ul class="social"><li><a href="https://www.linkedin.com/in/albarham/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin" aria-hidden="true"></i></a></li><li><a href="https://github.com/mohammad-albarham" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i></a></li><li><a href="https://x.com/m_albarham" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li><li><a href="https://scholar.google.com/citations?user=3znRUJoAAAAJ&amp;hl=en" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9zM6 13.2V17c0 2.2 2.7 4 6 4s6-1.8 6-4v-3.8l-6 3.3z"/></svg></a></li><li><a href="https://huggingface.co/pain" aria-label="Hugging Face" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="4.1" cy="15.9" rx="2.4" ry="3" transform="rotate(-28 4.1 15.9)"/><ellipse cx="19.9" cy="15.9" rx="2.4" ry="3" transform="rotate(28 19.9 15.9)"/><path fill-rule="evenodd" d="M12 3a7.6 7.6 0 1 0 0 15.2A7.6 7.6 0 0 0 12 3zM9 9.9a1.4 1.8 0 1 0 0 3.6 1.4 1.8 0 0 0 0-3.6zM15 9.9a1.4 1.8 0 1 0 0 3.6 1.4 1.8 0 0 0 0-3.6zM8.4 13.6h7.2a3.6 3.6 0 0 1-7.2 0z"/></svg></a></li></ul>
     </div>
     <div class="hero-portrait rise rise-2">
@@ -150,10 +132,11 @@ gtag('config', 'G-VJHNQN2HWX');
         <p>Who I am, what I work on, and the languages my public repositories are written in.</p>
         <p class="meta">8 topics &middot; language breakdown</p>
       </a>
-      <a class="doorway doorway-cv rise rise-2" id="resume" href="/resume/">
-        <h2>Resume <span class="arrow" aria-hidden="true">&rarr;</span></h2>
-        <p>Degrees, coursework, roles and responsibilities, from a mechatronics bench in Amman to vision systems in Gothenburg.</p>
-        <p class="meta">9 roles &middot; 2 degrees</p>
+      <a class="doorway doorway-cv rise rise-2" id="resume" href="/experience/">
+        <span id="experience" hidden></span>
+        <h2>Experience <span class="arrow" aria-hidden="true">&rarr;</span></h2>
+        <p>Roles and responsibilities from a mechatronics bench in Amman to vision systems in Gothenburg.</p>
+        <p class="meta">9 roles &middot; Aptiv, RISE, Kenda AI</p>
       </a>
       <a class="doorway doorway-work rise rise-2" id="projects" href="/projects/">
         <h2>Projects <span class="arrow" aria-hidden="true">&rarr;</span></h2>
@@ -162,8 +145,8 @@ gtag('config', 'G-VJHNQN2HWX');
       </a>
       <a class="doorway doorway-research rise rise-3" id="publications" href="/research/">
         <h2>Research <span class="arrow" aria-hidden="true">&rarr;</span></h2>
-        <p>Peer-reviewed papers on cross-lingual retrieval and Arabic sign language, plus competition results.</p>
-        <p class="meta">8 publications &middot; 5 competitions</p>
+        <p>Peer-reviewed papers on cross-lingual retrieval, Arabic sign language and Arabic NLP.</p>
+        <p class="meta">8 publications &middot; 6 venues</p>
       </a>
       <a class="doorway doorway-service rise rise-3" id="volunteering" href="/volunteering/">
         <h2>Volunteering <span class="arrow" aria-hidden="true">&rarr;</span></h2>
@@ -177,8 +160,9 @@ gtag('config', 'G-VJHNQN2HWX');
       </a>
     </div>
     <p class="doorway-more">Also here:
+      <a id="education" href="/education/">education</a> &middot;
       <a id="programming-languages" href="/about/#programming-languages">programming languages</a> &middot;
-      <a id="competitions" href="/research/#competitions">competitions</a> &middot;
+      <a id="competitions" href="/competitions/">competitions</a> &middot;
       <a id="travel" href="/volunteering/#travel">travel</a></p>
   </div>
 </section>
@@ -200,9 +184,11 @@ gtag('config', 'G-VJHNQN2HWX');
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about/">About</a></li>
-          <li><a href="/resume/">Resume</a></li>
+          <li><a href="/experience/">Experience</a></li>
+          <li><a href="/education/">Education</a></li>
           <li><a href="/projects/">Projects</a></li>
           <li><a href="/research/">Research</a></li>
+          <li><a href="/competitions/">Competitions</a></li>
           <li><a href="/volunteering/">Volunteering</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
@@ -210,9 +196,10 @@ gtag('config', 'G-VJHNQN2HWX');
       <div>
         <h2>Sections</h2>
         <ul>
-          <li><a href="/resume/#experience">Experience</a></li>
+          <li><a href="/experience/">Experience</a></li>
+          <li><a href="/education/">Education</a></li>
           <li><a href="/research/#publications">Publications</a></li>
-          <li><a href="/research/#competitions">Competitions</a></li>
+          <li><a href="/competitions/">Competitions</a></li>
           <li><a href="/about/#programming-languages">Programming languages</a></li>
           <li><a href="/volunteering/#travel">Travel</a></li>
         </ul>
@@ -230,7 +217,7 @@ gtag('config', 'G-VJHNQN2HWX');
 // Forward the one-page site's old section links to the page that
 // section now lives on, on load and on a later hash change.
 (function () {
-  var moved = {"about":"/about/","programming-languages":"/about/#programming-languages","resume":"/resume/","projects":"/projects/","publications":"/research/","competitions":"/research/#competitions","volunteering":"/volunteering/","travel":"/volunteering/#travel","contact":"/contact/"};
+  var moved = {"about":"/about/","programming-languages":"/about/#programming-languages","resume":"/experience/","experience":"/experience/","education":"/education/","projects":"/projects/","publications":"/research/","competitions":"/competitions/","volunteering":"/volunteering/","travel":"/volunteering/#travel","contact":"/contact/"};
   function go() {
     var to = moved[location.hash.slice(1)];
     if (to) location.replace(to);

@@ -71,9 +71,11 @@ def run(browser) -> None:
     routes = [
         ("/", "home"),
         ("/about/", "about"),
-        ("/resume/", "resume"),
+        ("/experience/", "experience"),
+        ("/education/", "education"),
         ("/projects/", "projects"),
         ("/research/", "research"),
+        ("/competitions/", "competitions"),
         ("/volunteering/", "volunteering"),
         ("/contact/", "contact"),
         ("/projects/latest-projects-5.html", "detail-project"),
@@ -86,6 +88,11 @@ def run(browser) -> None:
         check(response is not None and response.ok, f"GET {route} -> {response.status if response else 'no response'}")
         check(page.locator("h1").count() >= 1, f"{route} has an <h1>")
         shoot(page, f"desktop-{name}")
+
+    # --- resume redirect --------------------------------------------------
+    response = page.goto(BASE + "/resume/", wait_until="networkidle")
+    check(response is not None and response.ok, "GET /resume/ -> 200")
+    check(page.url.endswith("/experience/"), f"/resume/ forwards to /experience/ (got {page.url})")
 
     # --- legacy routes all answer -----------------------------------------
     legacy = [f"/projects/portfolio-details-{n}.html" for n in
@@ -113,25 +120,12 @@ def run(browser) -> None:
     # Each of those sections now lives on its own page, so an old deep link has
     # to land there rather than on a homepage that no longer holds the content.
     for anchor, target in [("travel", "/volunteering/#travel"),
-                           ("competitions", "/research/#competitions"),
+                           ("competitions", "/competitions/"),
                            ("contact", "/contact/")]:
         page.goto(BASE + "/", wait_until="domcontentloaded")
         page.evaluate("hash => { location.hash = hash; }", anchor)
         page.wait_for_url(f"**{target}", timeout=5000, wait_until="domcontentloaded")
         check(page.url.endswith(target), f"/#{anchor} forwards to {target} (got {page.url})")
-
-    # --- theme toggle -------------------------------------------------------
-    page.evaluate("localStorage.removeItem('ma-theme')")
-    page.emulate_media(color_scheme="light")
-    page.reload(wait_until="networkidle")
-    check(page.locator("html").get_attribute("data-theme") is None, "theme starts light")
-    page.click(".theme-toggle")
-    check(page.locator("html").get_attribute("data-theme") == "dark", "theme toggle switches to dark")
-    shoot(page, "desktop-home-dark")
-    page.reload(wait_until="networkidle")
-    check(page.locator("html").get_attribute("data-theme") == "dark", "dark theme survives a reload")
-    page.click(".theme-toggle")
-    check(page.locator("html").get_attribute("data-theme") is None, "theme toggle switches back to light")
 
     # --- project filter -----------------------------------------------------
     page.goto(BASE + "/projects/", wait_until="networkidle")
@@ -149,9 +143,11 @@ def run(browser) -> None:
           "'All projects' restores the full grid")
     shoot(page, "desktop-projects-filtered")
 
-    # --- BibTeX -------------------------------------------------------------
+    # --- BibTeX & Research (no competitions on research page) ---------------
     page.goto(BASE + "/research/", wait_until="networkidle")
     check(page.locator("#all-publications .pub").count() == 8, "research page lists all 8 publications")
+    check(page.locator("#competitions").count() == 0, "research page no longer contains #competitions section")
+    check(page.locator(".award-card").count() == 0, "research page no longer contains award cards")
     details = page.locator("details").first
     details.locator("summary").click()
     check(details.locator("pre").is_visible(), "BibTeX opens")
@@ -161,6 +157,11 @@ def run(browser) -> None:
     page.wait_for_timeout(250)
     check(button.inner_text() != "Copy BibTeX",
           f"copy button reports what happened ('{button.inner_text()}')")
+
+    # --- Competitions page --------------------------------------------------
+    page.goto(BASE + "/competitions/", wait_until="networkidle")
+    check(page.locator(".award-card").count() == 5, "competitions page lists all 5 competitions")
+    check(page.locator("#competitions").count() >= 1, "competitions page has #competitions section")
 
     # --- contact ------------------------------------------------------------
     page.goto(BASE + "/contact/", wait_until="networkidle")
@@ -203,8 +204,10 @@ def run(browser) -> None:
 
     # No horizontal overflow anywhere on a phone.
     for route, name in [("/", "mobile-home"), ("/projects/", "mobile-projects"),
-                        ("/research/", "mobile-research"), ("/about/", "mobile-about"),
-                        ("/resume/", "mobile-resume"), ("/volunteering/", "mobile-volunteering"),
+                        ("/research/", "mobile-research"), ("/competitions/", "mobile-competitions"),
+                        ("/about/", "mobile-about"),
+                        ("/experience/", "mobile-experience"), ("/education/", "mobile-education"),
+                        ("/volunteering/", "mobile-volunteering"),
                         ("/contact/", "mobile-contact"),
                         ("/projects/latest-projects-5.html", "mobile-detail")]:
         page.goto(BASE + route, wait_until="networkidle")

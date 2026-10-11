@@ -8,9 +8,12 @@ sitemap stay in step with the pages.
 Pages produced:
     index.html              the front door: who I am, news, and a card per section
     about/index.html        the bio, what I work on, and the language breakdown
-    resume/index.html       education and experience, in full
+    experience/index.html   professional experience, in full
+    education/index.html    education and coursework, in full
+    resume/index.html       redirect to experience / education
     projects/index.html     every project, with a technology filter
-    research/index.html     every publication and competition, in full
+    research/index.html     every publication, in full
+    competitions/index.html every competition and contest result, with write-ups
     volunteering/index.html IEEE service and the travel map
     contact/index.html      how to reach me
     sitemap.xml             generated from the routes that actually exist on disk
@@ -176,9 +179,11 @@ SOCIAL = [
 NAV = [
     ("/", "Home", "home"),
     ("/about/", "About", "about"),
-    ("/resume/", "Resume", "resume"),
+    ("/experience/", "Experience", "experience"),
+    ("/education/", "Education", "education"),
     ("/projects/", "Projects", "projects"),
     ("/research/", "Research", "research"),
+    ("/competitions/", "Competitions", "competitions"),
     ("/volunteering/", "Volunteering", "volunteering"),
     ("/contact/", "Contact", "contact"),
 ]
@@ -228,8 +233,8 @@ def shell(*, title: str, description: str, canonical: str, body: str,
 <meta name="twitter:description" content="{e(description)}">
 <meta name="twitter:image" content="{e(SITE_URL + og_image)}">
 
-<link rel="icon" href="/assets/img/favicon.png">
-<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="icon" href="/assets/img/favicon.png?v=2">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=2">
 
 <link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/nunito-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -237,17 +242,6 @@ def shell(*, title: str, description: str, canonical: str, body: str,
 <link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
 <link rel="stylesheet" href="/assets/css/site.css">
 
-<script>
-// Apply the saved theme before first paint so the page never flashes.
-(function () {{
-  try {{
-    var saved = localStorage.getItem('ma-theme');
-    var dark = saved ? saved === 'dark'
-      : window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (dark) document.documentElement.setAttribute('data-theme', 'dark');
-  }} catch (e) {{}}
-}})();
-</script>
 {head_extra}
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJHNQN2HWX"></script>
 <script>
@@ -271,9 +265,6 @@ gtag('config', 'G-VJHNQN2HWX');
       <ul class="nav-pills" id="nav-pills">{pills}</ul>
     </nav>
     <div class="topbar-actions">
-      <button class="icon-btn theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
-        <i class="bi bi-moon" aria-hidden="true"></i><i class="bi bi-sun" aria-hidden="true"></i>
-      </button>
       <button class="icon-btn nav-toggle" type="button" aria-expanded="false"
               aria-controls="nav-pills" aria-label="Open navigation">
         <i class="bi bi-list" aria-hidden="true"></i>
@@ -301,9 +292,11 @@ gtag('config', 'G-VJHNQN2HWX');
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about/">About</a></li>
-          <li><a href="/resume/">Resume</a></li>
+          <li><a href="/experience/">Experience</a></li>
+          <li><a href="/education/">Education</a></li>
           <li><a href="/projects/">Projects</a></li>
           <li><a href="/research/">Research</a></li>
+          <li><a href="/competitions/">Competitions</a></li>
           <li><a href="/volunteering/">Volunteering</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
@@ -311,9 +304,10 @@ gtag('config', 'G-VJHNQN2HWX');
       <div>
         <h2>Sections</h2>
         <ul>
-          <li><a href="/resume/#experience">Experience</a></li>
+          <li><a href="/experience/">Experience</a></li>
+          <li><a href="/education/">Education</a></li>
           <li><a href="/research/#publications">Publications</a></li>
-          <li><a href="/research/#competitions">Competitions</a></li>
+          <li><a href="/competitions/">Competitions</a></li>
           <li><a href="/about/#programming-languages">Programming languages</a></li>
           <li><a href="/volunteering/#travel">Travel</a></li>
         </ul>
@@ -723,10 +717,12 @@ def news_block(items: list) -> str:
 LEGACY_HASHES = {
     "about": "/about/",
     "programming-languages": "/about/#programming-languages",
-    "resume": "/resume/",
+    "resume": "/experience/",
+    "experience": "/experience/",
+    "education": "/education/",
     "projects": "/projects/",
     "publications": "/research/",
-    "competitions": "/research/#competitions",
+    "competitions": "/competitions/",
     "volunteering": "/volunteering/",
     "travel": "/volunteering/#travel",
     "contact": "/contact/",
@@ -737,6 +733,7 @@ def render_home(d) -> str:
     bio, projects, pubs, comps, vols = d["bio"], d["projects"], d["publications"], d["competitions"], d["volunteering"]
     featured = [p for p in projects if p.get("featured")]
     unique_countries = len({c for codes in d["travel"]["visited"].values() for c in codes})
+    venues = len({p.get("venueShort") or p.get("venue") for p in pubs})
 
     body = f"""
 <section id="hero" class="hero">
@@ -748,10 +745,6 @@ def render_home(d) -> str:
       <p class="lead">Advanced Safety &amp; User Experience engineer in vision systems at Aptiv,
          MSc from Chalmers. I work on autonomous systems, multi-modal systems and open
          source projects &mdash; and I publish what I learn.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="/projects/">See the projects</a>
-        <a class="btn" href="/research/">Read the research</a>
-      </div>
       {social_list()}
     </div>
     <div class="hero-portrait rise rise-2">
@@ -777,10 +770,11 @@ def render_home(d) -> str:
         <p>Who I am, what I work on, and the languages my public repositories are written in.</p>
         <p class="meta">{len(bio.get('keywords') or [])} topics &middot; language breakdown</p>
       </a>
-      <a class="doorway doorway-cv rise rise-2" id="resume" href="/resume/">
-        <h2>Resume <span class="arrow" aria-hidden="true">&rarr;</span></h2>
-        <p>Degrees, coursework, roles and responsibilities, from a mechatronics bench in Amman to vision systems in Gothenburg.</p>
-        <p class="meta">{len(d['experience'])} roles &middot; {len(d['education'])} degrees</p>
+      <a class="doorway doorway-cv rise rise-2" id="resume" href="/experience/">
+        <span id="experience" hidden></span>
+        <h2>Experience <span class="arrow" aria-hidden="true">&rarr;</span></h2>
+        <p>Roles and responsibilities from a mechatronics bench in Amman to vision systems in Gothenburg.</p>
+        <p class="meta">{len(d['experience'])} roles &middot; Aptiv, RISE, Kenda AI</p>
       </a>
       <a class="doorway doorway-work rise rise-2" id="projects" href="/projects/">
         <h2>Projects <span class="arrow" aria-hidden="true">&rarr;</span></h2>
@@ -789,8 +783,8 @@ def render_home(d) -> str:
       </a>
       <a class="doorway doorway-research rise rise-3" id="publications" href="/research/">
         <h2>Research <span class="arrow" aria-hidden="true">&rarr;</span></h2>
-        <p>Peer-reviewed papers on cross-lingual retrieval and Arabic sign language, plus competition results.</p>
-        <p class="meta">{len(pubs)} publications &middot; {len(comps)} competitions</p>
+        <p>Peer-reviewed papers on cross-lingual retrieval, Arabic sign language and Arabic NLP.</p>
+        <p class="meta">{len(pubs)} publications &middot; {venues} venues</p>
       </a>
       <a class="doorway doorway-service rise rise-3" id="volunteering" href="/volunteering/">
         <h2>Volunteering <span class="arrow" aria-hidden="true">&rarr;</span></h2>
@@ -804,8 +798,9 @@ def render_home(d) -> str:
       </a>
     </div>
     <p class="doorway-more">Also here:
+      <a id="education" href="/education/">education</a> &middot;
       <a id="programming-languages" href="/about/#programming-languages">programming languages</a> &middot;
-      <a id="competitions" href="/research/#competitions">competitions</a> &middot;
+      <a id="competitions" href="/competitions/">competitions</a> &middot;
       <a id="travel" href="/volunteering/#travel">travel</a></p>
   </div>
 </section>
@@ -907,14 +902,8 @@ def pub_filters(pubs: list) -> str:
 
 def render_research(d) -> str:
     pubs = sorted(d["publications"], key=lambda p: (-p["year"], p["title"]))
-    comps = sorted(d["competitions"], key=lambda c: c.get("date") or "", reverse=True)
     featured = [p for p in pubs if p.get("featured")]
     venues = len({p.get("venueShort") or p.get("venue") for p in pubs})
-
-    podiums = sum(1 for c in comps if (c.get("rank") or 99) <= 3)
-    distinctions = sum(len(prizes(c)) for c in comps)
-    comp_years = sorted((c["date"] or "")[:4] for c in comps if c.get("date"))
-    comp_years = f"{comp_years[0]}&ndash;{comp_years[-1]}" if comp_years else ""
 
     by_year: dict[int, list] = {}
     for pub in pubs:
@@ -948,13 +937,14 @@ def render_research(d) -> str:
       <h1 class="page-title">Research</h1>
       <p class="lead">{len(pubs)} publications on cross-lingual image retrieval, Arabic
          sign language recognition and Arabic NLP &mdash; with abstracts, DOIs and BibTeX
-         for each. Competition results follow below.</p>
+         for each.</p>
+      <p class="section-note" style="margin-top:0.75rem">Looking for competition and contest results? <a href="/competitions/">See Competitions &rarr;</a></p>
     </div>
     <dl class="stat-row">
       <div><dt>Publications</dt><dd>{len(pubs)}</dd></div>
       <div><dt>Venues</dt><dd>{venues}</dd></div>
       <div><dt>Years</dt><dd>{min(by_year)}&ndash;{max(by_year)}</dd></div>
-      <div><dt>Competitions</dt><dd>{len(comps)}</dd></div>
+      <div><dt>Featured</dt><dd>{len(featured)}</dd></div>
     </dl>
   </div>
 </section>
@@ -967,25 +957,6 @@ def render_research(d) -> str:
       Publications</h2>
     {pub_filters(pubs)}
     <div id="all-publications">{groups}</div>
-  </div>
-</section>
-
-<section id="competitions" class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title title-with-icon">
-        <span class="title-icon title-icon-competitions"><i class="bi bi-trophy-fill" aria-hidden="true"></i></span>
-        Competitions</h2>
-      <p class="lead">Kaggle leaderboards, ICPC problem sets and firefighting robot
-         arenas. Each card opens its full write-up, with the photos.</p>
-    </div>
-    <dl class="stat-row">
-      <div><dt>Contests</dt><dd>{len(comps)}</dd></div>
-      <div><dt>Podium finishes</dt><dd>{podiums}</dd></div>
-      <div><dt>Distinctions</dt><dd>{distinctions}</dd></div>
-      <div><dt>Years</dt><dd>{comp_years}</dd></div>
-    </dl>
-    <div class="card-grid">{''.join(award(c) for c in comps)}</div>
   </div>
 </section>
 """
@@ -1004,13 +975,79 @@ def render_research(d) -> str:
     }, indent=2)
     return shell(
         title="Research — Mohammad Albarham",
-        description=(f"{len(pubs)} peer-reviewed publications and {len(comps)} competition "
-                     "results from Mohammad Albarham, with abstracts and BibTeX."),
+        description=(f"{len(pubs)} peer-reviewed publications from Mohammad Albarham on "
+                     "cross-lingual image retrieval and Arabic NLP, with abstracts and BibTeX."),
         canonical="/research/",
         body=body,
         current="research",
         head_extra=f'<script type="application/ld+json">{ld}</script>',
+        body_end=('<script>\n'
+                  'if (location.hash === "#competitions" || location.hash === "#contests") {\n'
+                  '  location.replace("/competitions/");\n'
+                  '}\n'
+                  '</script>'),
     )
+
+
+def render_competitions(d) -> str:
+    comps = sorted(d["competitions"], key=lambda c: c.get("date") or "", reverse=True)
+    podiums = sum(1 for c in comps if (c.get("rank") or 99) <= 3)
+    distinctions = sum(len(prizes(c)) for c in comps)
+    comp_years = sorted((c["date"] or "")[:4] for c in comps if c.get("date"))
+    comp_years = f"{comp_years[0]}&ndash;{comp_years[-1]}" if comp_years else ""
+
+    body = f"""
+<section id="competitions" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h1 class="page-title">Competitions</h1>
+      <p class="lead">Kaggle leaderboards, ICPC problem sets and firefighting robot
+         arenas &mdash; {len(comps)} competitive engineering challenges, with full write-ups and photos.</p>
+    </div>
+    <dl class="stat-row">
+      <div><dt>Contests</dt><dd>{len(comps)}</dd></div>
+      <div><dt>Podium finishes</dt><dd>{podiums}</dd></div>
+      <div><dt>Distinctions</dt><dd>{distinctions}</dd></div>
+      <div><dt>Years</dt><dd>{comp_years}</dd></div>
+    </dl>
+    <div class="card-grid">{''.join(award(c) for c in comps)}</div>
+  </div>
+</section>
+"""
+    ld = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Competitions — Mohammad Albarham",
+        "url": SITE_URL + "/competitions/",
+        "description": (f"{len(comps)} competition results from Mohammad Albarham across "
+                        "Kaggle, robotics and algorithmic challenges."),
+    }, indent=2)
+    return shell(
+        title="Competitions — Mohammad Albarham",
+        description=(f"{len(comps)} competition and contest results from Mohammad Albarham, "
+                     f"with {podiums} podium finishes across Kaggle, robotics and algorithmic contests."),
+        canonical="/competitions/",
+        body=body,
+        current="competitions",
+        head_extra=f'<script type="application/ld+json">{ld}</script>',
+    )
+
+
+def render_contests_redirect() -> str:
+    return """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Competitions — Mohammad Albarham</title>
+<link rel="canonical" href="https://mohammad-albarham.github.io/competitions/">
+<meta http-equiv="refresh" content="0; url=/competitions/">
+<script>location.replace("/competitions/");</script>
+</head>
+<body>
+<p>Redirecting to <a href="/competitions/">Competitions</a>...</p>
+</body>
+</html>
+"""
 
 
 def course_list(school: dict) -> str:
@@ -1048,7 +1085,10 @@ def render_about(d) -> str:
         <p>{e(bio['currentRole'])}</p>
         <p>{e(bio['tagline'])}</p>
         {tags(bio.get('keywords'))}
-        <p class="cv-intro-actions"><a class="btn" href="/resume/">Education and experience &rarr;</a></p>
+        <p class="cv-intro-actions">
+          <a class="btn" href="/experience/">Experience &rarr;</a>
+          <a class="btn" href="/education/">Education &rarr;</a>
+        </p>
       </div>
     </div>
   </div>
@@ -1075,7 +1115,7 @@ def render_about(d) -> str:
     )
 
 
-def render_resume(d) -> str:
+def render_education(d) -> str:
     schools = []
     for school in d["education"]:
         facts = []
@@ -1116,6 +1156,29 @@ def render_resume(d) -> str:
   </article>
 </li>""")
 
+    body = f"""
+<section id="education" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h1 class="page-title title-with-icon">
+        <span class="title-icon title-icon-education"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i></span>
+        Education</h1>
+    </div>
+    <ol class="cv-timeline cv-timeline-education">{''.join(schools)}</ol>
+  </div>
+</section>
+"""
+    return shell(
+        title="Education — Mohammad Albarham",
+        description=("Academic background and coursework of Mohammad Albarham: MSc in Systems, Control "
+                     "and Mechatronics from Chalmers, BSc in Mechatronics Engineering from the University of Jordan."),
+        canonical="/education/",
+        body=body,
+        current="education",
+    )
+
+
+def render_experience(d) -> str:
     roles = []
     for job in experience_sorted(d["experience"]):
         logo = picture(job["logo"], job["company"], width=56, height=56) if job.get("logo") else ""
@@ -1151,43 +1214,51 @@ def render_resume(d) -> str:
 </li>""")
 
     body = f"""
-<section id="resume" class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h1 class="page-title">Resume</h1>
-      <p class="lead">Nine years from a mechatronics bench in Amman to vision systems
-         for advanced safety in Gothenburg: {len(d['education'])} degrees and
-         {len(d['experience'])} roles, with the coursework and responsibilities behind them.</p>
-    </div>
-  </div>
-</section>
-
-<section id="education" class="section">
-  <div class="wrap">
-    <h2 class="section-title title-with-icon">
-      <span class="title-icon title-icon-education"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i></span>
-      Education</h2>
-    <ol class="cv-timeline cv-timeline-education">{''.join(schools)}</ol>
-  </div>
-</section>
-
 <section id="experience" class="section">
   <div class="wrap">
-    <h2 class="section-title title-with-icon">
-      <span class="title-icon"><i class="bi bi-briefcase-fill" aria-hidden="true"></i></span>
-      Experience</h2>
+    <div class="section-head">
+      <h1 class="page-title title-with-icon">
+        <span class="title-icon"><i class="bi bi-briefcase-fill" aria-hidden="true"></i></span>
+        Experience</h1>
+    </div>
     <ol class="cv-timeline">{''.join(roles)}</ol>
   </div>
 </section>
 """
     return shell(
-        title="Resume — Mohammad Albarham",
-        description=("The full CV of Mohammad Albarham: MSc from Chalmers, BSc from the "
-                     "University of Jordan, and nine engineering and research roles."),
-        canonical="/resume/",
+        title="Experience — Mohammad Albarham",
+        description=(f"Professional experience of Mohammad Albarham: {len(d['experience'])} engineering and "
+                     "research roles across Aptiv, University of Sharjah, Kenda AI, and more."),
+        canonical="/experience/",
         body=body,
-        current="resume",
+        current="experience",
     )
+
+
+def render_resume_redirect() -> str:
+    return """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume — Mohammad Albarham</title>
+<link rel="canonical" href="https://mohammad-albarham.github.io/experience/">
+<meta http-equiv="refresh" content="0; url=/experience/">
+<script>
+if (window.location.hash === '#education') {
+  window.location.replace("/education/");
+} else {
+  window.location.replace("/experience/");
+}
+</script>
+</head>
+<body>
+<div id="resume" hidden></div>
+<div id="education" hidden></div>
+<div id="experience" hidden></div>
+<p>Redirecting to <a href="/experience/">Experience</a> or <a href="/education/">Education</a>...</p>
+</body>
+</html>
+"""
 
 
 def render_volunteering(d) -> str:
@@ -1267,8 +1338,9 @@ def render_contact(d) -> str:
 
 # --- sitemap ---------------------------------------------------------------
 
-GENERATED = ["index.html", "about/index.html", "resume/index.html", "projects/index.html",
-             "research/index.html", "volunteering/index.html", "contact/index.html"]
+GENERATED = ["index.html", "about/index.html", "experience/index.html", "education/index.html",
+             "projects/index.html", "research/index.html", "competitions/index.html",
+             "volunteering/index.html", "contact/index.html"]
 LEGACY_DIRS = ["projects", "competitions", "experience", "volunteering"]
 NOT_INDEXED = {"googleebff4c42c46c6acf.html"}
 
@@ -1324,9 +1396,13 @@ def build(out: Path | None = None) -> list[str]:
     pages = {
         "index.html": render_home(d),
         "about/index.html": render_about(d),
-        "resume/index.html": render_resume(d),
+        "experience/index.html": render_experience(d),
+        "education/index.html": render_education(d),
+        "resume/index.html": render_resume_redirect(),
         "projects/index.html": render_projects(d),
         "research/index.html": render_research(d),
+        "competitions/index.html": render_competitions(d),
+        "contests/index.html": render_contests_redirect(),
         "volunteering/index.html": render_volunteering(d),
         "contact/index.html": render_contact(d),
         "sitemap.xml": render_sitemap(),

@@ -26,8 +26,8 @@ LEGACY_DIRS = ["projects", "competitions", "experience", "volunteering"]
 # Which nav pill a detail page belongs under.
 CURRENT_BY_DIR = {
     "projects": "projects",
-    "competitions": "research",
-    "experience": "resume",
+    "competitions": "competitions",
+    "experience": "experience",
     "volunteering": "volunteering",
 }
 
@@ -35,18 +35,21 @@ FOOTER_PAGES = """<h2>Pages</h2>
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about/">About</a></li>
-          <li><a href="/resume/">Resume</a></li>
+          <li><a href="/experience/">Experience</a></li>
+          <li><a href="/education/">Education</a></li>
           <li><a href="/projects/">Projects</a></li>
           <li><a href="/research/">Research</a></li>
+          <li><a href="/competitions/">Competitions</a></li>
           <li><a href="/volunteering/">Volunteering</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>"""
 
 FOOTER_SECTIONS = """<h2>Sections</h2>
         <ul>
-          <li><a href="/resume/#experience">Experience</a></li>
+          <li><a href="/experience/">Experience</a></li>
+          <li><a href="/education/">Education</a></li>
           <li><a href="/research/#publications">Publications</a></li>
-          <li><a href="/research/#competitions">Competitions</a></li>
+          <li><a href="/competitions/">Competitions</a></li>
           <li><a href="/about/#programming-languages">Programming languages</a></li>
           <li><a href="/volunteering/#travel">Travel</a></li>
         </ul>"""

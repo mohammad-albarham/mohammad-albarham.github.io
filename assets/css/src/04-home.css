@@ -252,12 +252,6 @@ a.band-row:hover {
 .work-card-links a:hover i {
   color: #fff;
 }
-:root[data-theme="dark"] .work-card-links a:hover {
-  color: #06211d;
-}
-:root[data-theme="dark"] .work-card-links a:hover i {
-  color: #06211d;
-}
 .work-card-links a:active {
   transform: none;
   box-shadow: none;
@@ -480,12 +474,6 @@ a.band-row:hover {
 }
 .award-links a:hover i {
   color: #fff;
-}
-:root[data-theme="dark"] .award-links a:hover {
-  color: #211300;
-}
-:root[data-theme="dark"] .award-links a:hover i {
-  color: #211300;
 }
 .award-links a:active {
   transform: none;

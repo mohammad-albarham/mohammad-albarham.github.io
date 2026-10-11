@@ -23,8 +23,8 @@
 <meta name="twitter:description" content="Mohammad Albarham: computer vision and AI engineer in Gothenburg, working on autonomous systems, multi-modal models and Arabic NLP.">
 <meta name="twitter:image" content="https://mohammad-albarham.github.io/assets/img/profile-img-1200.jpg">
 
-<link rel="icon" href="/assets/img/favicon.png">
-<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="icon" href="/assets/img/favicon.png?v=2">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=2">
 
 <link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/nunito-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -32,17 +32,6 @@
 <link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
 <link rel="stylesheet" href="/assets/css/site.css">
 
-<script>
-// Apply the saved theme before first paint so the page never flashes.
-(function () {
-  try {
-    var saved = localStorage.getItem('ma-theme');
-    var dark = saved ? saved === 'dark'
-      : window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (dark) document.documentElement.setAttribute('data-theme', 'dark');
-  } catch (e) {}
-})();
-</script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJHNQN2HWX"></script>
 <script>
@@ -63,12 +52,9 @@ gtag('config', 'G-VJHNQN2HWX');
       <span>Mohammad Albarham</span>
     </a>
     <nav aria-label="Primary">
-      <ul class="nav-pills" id="nav-pills"><li><a href="/">Home</a></li><li><a href="/about/" aria-current="page">About</a></li><li><a href="/resume/">Resume</a></li><li><a href="/projects/">Projects</a></li><li><a href="/research/">Research</a></li><li><a href="/volunteering/">Volunteering</a></li><li><a href="/contact/">Contact</a></li></ul>
+      <ul class="nav-pills" id="nav-pills"><li><a href="/">Home</a></li><li><a href="/about/" aria-current="page">About</a></li><li><a href="/experience/">Experience</a></li><li><a href="/education/">Education</a></li><li><a href="/projects/">Projects</a></li><li><a href="/research/">Research</a></li><li><a href="/competitions/">Competitions</a></li><li><a href="/volunteering/">Volunteering</a></li><li><a href="/contact/">Contact</a></li></ul>
     </nav>
     <div class="topbar-actions">
-      <button class="icon-btn theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
-        <i class="bi bi-moon" aria-hidden="true"></i><i class="bi bi-sun" aria-hidden="true"></i>
-      </button>
       <button class="icon-btn nav-toggle" type="button" aria-expanded="false"
               aria-controls="nav-pills" aria-label="Open navigation">
         <i class="bi bi-list" aria-hidden="true"></i>
@@ -91,7 +77,10 @@ gtag('config', 'G-VJHNQN2HWX');
         <p>Perception &amp; Vision Engineer at Aptiv | MSc, Chalmers University of Technology</p>
         <p>Problem solver passionate about AI, computer vision, and autonomous systems</p>
         <ul class="tag-list"><li><span class="tag">computer vision</span></li><li><span class="tag">AI</span></li><li><span class="tag">machine learning</span></li><li><span class="tag">Arabic NLP</span></li><li><span class="tag">image retrieval</span></li><li><span class="tag">robotics</span></li><li><span class="tag">autonomous systems</span></li><li><span class="tag">deep learning</span></li></ul>
-        <p class="cv-intro-actions"><a class="btn" href="/resume/">Education and experience &rarr;</a></p>
+        <p class="cv-intro-actions">
+          <a class="btn" href="/experience/">Experience &rarr;</a>
+          <a class="btn" href="/education/">Education &rarr;</a>
+        </p>
       </div>
     </div>
   </div>
@@ -254,9 +243,11 @@ repositories and 179 notebooks
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about/">About</a></li>
-          <li><a href="/resume/">Resume</a></li>
+          <li><a href="/experience/">Experience</a></li>
+          <li><a href="/education/">Education</a></li>
           <li><a href="/projects/">Projects</a></li>
           <li><a href="/research/">Research</a></li>
+          <li><a href="/competitions/">Competitions</a></li>
           <li><a href="/volunteering/">Volunteering</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
@@ -264,9 +255,10 @@ repositories and 179 notebooks
       <div>
         <h2>Sections</h2>
         <ul>
-          <li><a href="/resume/#experience">Experience</a></li>
+          <li><a href="/experience/">Experience</a></li>
+          <li><a href="/education/">Education</a></li>
           <li><a href="/research/#publications">Publications</a></li>
-          <li><a href="/research/#competitions">Competitions</a></li>
+          <li><a href="/competitions/">Competitions</a></li>
           <li><a href="/about/#programming-languages">Programming languages</a></li>
           <li><a href="/volunteering/#travel">Travel</a></li>
         </ul>

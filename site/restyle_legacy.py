@@ -32,8 +32,8 @@ from render import ROOT, DATA, e, picture, shell  # noqa: E402
 
 SECTIONS = {
     "projects": ("Projects", "/projects/", "projects"),
-    "competitions": ("Research", "/research/#competitions", "research"),
-    "experience": ("About & CV", "/about/#experience", "about"),
+    "competitions": ("Competitions", "/competitions/", "competitions"),
+    "experience": ("Experience", "/experience/", "experience"),
     "volunteering": ("About & CV", "/about/#service", "about"),
 }
 

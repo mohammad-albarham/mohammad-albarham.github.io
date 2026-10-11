@@ -30,14 +30,18 @@
   font-weight: 800;
   font-size: 1.0625rem;
   letter-spacing: -0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .brand:hover { color: var(--ink); text-decoration: none; }
+.brand picture { display: inline-flex; flex-shrink: 0; }
 .brand img {
   width: 34px;
   height: 34px;
   border-radius: 50%;
   border: 2px solid var(--ink);
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 /* The pill nav ----------------------------------------------------------- */
@@ -74,6 +78,13 @@
   color: var(--surface);
 }
 
+@media (max-width: 74rem) and (min-width: 60.001rem) {
+  .nav-pills a {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.875rem;
+  }
+}
+
 .topbar-actions { display: flex; align-items: center; gap: 0.5rem; }
 
 .icon-btn {
@@ -94,28 +105,6 @@
 }
 .icon-btn:hover { background: var(--brand-tint); border-color: var(--brand-tint-strong); }
 .icon-btn:active { scale: var(--press); }
-
-/* Moon and sun are both in the DOM. Stack them in one grid cell and cross-fade
-   on the theme flip rather than swapping display, so the icon changes state
-   instead of blinking. Both glyphs occupy the same cell, so neither moves. */
-.theme-toggle .bi {
-  grid-area: 1 / 1;
-  transition: opacity var(--dur-icon) var(--ease-out),
-              scale var(--dur-icon) var(--ease-out),
-              filter var(--dur-icon) var(--ease-out);
-}
-.theme-toggle .bi-sun,
-:root[data-theme="dark"] .theme-toggle .bi-moon {
-  opacity: 0;
-  scale: 0.25;
-  filter: blur(4px);
-}
-.theme-toggle .bi-moon,
-:root[data-theme="dark"] .theme-toggle .bi-sun {
-  opacity: 1;
-  scale: 1;
-  filter: blur(0);
-}
 
 .nav-toggle { display: none; }
 
@@ -166,8 +155,6 @@
 .btn:active { transform: none; box-shadow: none; scale: var(--press); }
 .btn-primary { background: var(--brand); border-color: var(--brand-deep); color: #fff; }
 .btn-primary:hover { color: #fff; box-shadow: 2px 2px 0 var(--brand-deep); }
-:root[data-theme="dark"] .btn-primary { color: #06211d; }
-:root[data-theme="dark"] .btn-primary:hover { color: #06211d; }
 .btn-sm { min-height: var(--control-h-sm); padding: 0.35rem 0.85rem; font-size: 0.85rem; border-width: 1.5px; }
 .btn-sm:hover { box-shadow: 2px 2px 0 var(--ink); }
 

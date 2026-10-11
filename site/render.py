@@ -824,7 +824,7 @@ def render_home(d) -> str:
     }, indent=2)
 
     return shell(
-        title="Mohammad Albarham — Computer Vision & AI Engineer",
+        title="Mohammad Albarham",
         description=("Mohammad Albarham is a computer vision and AI engineer in Gothenburg: "
                      "advanced safety systems at Aptiv, an MSc from Chalmers, and published "
                      "research in cross-lingual retrieval and Arabic NLP."),

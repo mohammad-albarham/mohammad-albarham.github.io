@@ -1,5 +1,22 @@
 [
   {
+    "id": "falcon-mdf",
+    "title": "falcon_mdf: Fast ASAM MDF Reader in Rust",
+    "category": "tools",
+    "tags": ["Rust", "WebAssembly", "Python Bindings", "ASAM MDF", "CAN / LIN"],
+    "featured": true,
+    "openSource": true,
+    "image": "assets/img/portfolio/falcon_mdf.png",
+    "shortDescription": "Fast, reliable Rust reader for ASAM MDF (v4 and v3) measurement data, with CAN/LIN bus decoding, Python bindings and a WebAssembly playground",
+    "description": "falcon_mdf is a fast, reliable Rust reader for ASAM MDF (v4 and v3), the standard format for automotive and industrial measurement data. It decodes values exactly as recorded, decodes CAN/LIN bus logs against DBC, ARXML or LDF databases, and ships as a Rust crate, Python bindings and an in-browser WebAssembly playground. It runs about 4× faster than asammdf, with zero crashes across 1,200 corrupted test files.",
+    "technologies": ["Rust", "WebAssembly", "Python Bindings", "ASAM MDF", "CAN / LIN"],
+    "links": {
+      "demo": "https://mohammad-albarham.github.io/falcon_mdf/",
+      "github": "https://github.com/mohammad-albarham/falcon_mdf"
+    },
+    "year": 2026
+  },
+  {
     "id": "dinov3-mask2former",
     "title": "DINOv3-Mask2Former: Urban Instance Segmentation",
     "category": "ai",
@@ -23,6 +40,7 @@
     "category": "tools",
     "tags": ["Rust", "Terminal UI", "CLI", "Performance"],
     "featured": true,
+    "openSource": true,
     "image": "assets/img/portfolio/fast-rich.png",
     "shortDescription": "High-performance Rust library for rendering rich text and complex terminal user interfaces",
     "description": "Fast-Rich is a high-performance Rust library for rendering rich text and complex terminal user interfaces. Inspired by Python's Rich library, it provides a powerful and easy-to-use API for building beautiful CLI applications.",
@@ -39,6 +57,7 @@
     "category": "application",
     "tags": ["Rust", "TUI", "Chat", "Ratatui"],
     "featured": true,
+    "openSource": true,
     "image": "assets/img/portfolio/ratatalk.png",
     "shortDescription": "Terminal-based chat client built with Rust and Ratatui",
     "description": "RataTalk is a terminal-based chat client built with Rust and Ratatui. It offers a secure, fast, and lightweight way to communicate directly from your terminal, featuring a modern TUI interface.",

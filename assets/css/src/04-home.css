@@ -532,7 +532,6 @@ a.band-row:hover {
 
 .lang-legend { display: none; }
 
-.lang-note { font-size: 0.9rem; color: var(--faint); max-width: 62ch; }
 
 @media (max-width: 40rem) {
   .lang-pie--wide { display: none; }
@@ -566,12 +565,10 @@ a.band-row:hover {
 /* Travel ----------------------------------------------------------------- */
 
 #travel-map {
-  height: 26rem;
+  position: relative;
+  height: 400px;
   margin: 1.5rem 0;
-  border: 2px solid var(--border);
-  border-radius: var(--radius-tile);
-  overflow: hidden;
-  background: var(--surface-muted);
+  background: white;
 }
 .country-list { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0; list-style: none; }
 .country-list li {

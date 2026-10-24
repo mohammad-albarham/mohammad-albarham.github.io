@@ -21,6 +21,13 @@
     });
   }
 
+  function loadStyle(href) {
+    var l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = href;
+    document.head.appendChild(l);
+  }
+
   var started = false;
 
   async function load() {
@@ -30,15 +37,16 @@
     window.removeEventListener('resize', maybeLoad);
 
     try {
+      loadStyle('/assets/css/jquery-jvectormap-1.2.2.css');
       if (!window.jQuery) await loadScript('/assets/js/jquery.js');
       await loadScript('/assets/js/travel-map.js');
       window.jQuery(host).vectorMap({
         map: 'world_mill_en',
-        backgroundColor: 'transparent',
+        backgroundColor: 'white',
         zoomMax: 6,
         regionStyle: {
-          initial: { fill: '#d3dadd', 'fill-opacity': 1, stroke: 'none', 'stroke-width': 0 },
-          hover: { 'fill-opacity': 0.85 }
+          initial: { fill: '#aaa', 'fill-opacity': 0.9, stroke: 'none', 'stroke-width': 0, 'stroke-opacity': 1 },
+          hover: { 'fill-opacity': 1.0 }
         },
         series: { regions: regions }
       });

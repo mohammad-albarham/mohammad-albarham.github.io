@@ -473,29 +473,41 @@ button, input, select, textarea { font: inherit; color: inherit; }
   list-style: none;
 }
 .social li { margin: 0; }
+/* Each button wears its network's own colours: --social-bg is the brand
+   fill, --social-fg the mark on it, --social-shadow a darker shade of the
+   fill for the offset shadow behind the button. */
 .social a {
+  --social-bg: var(--surface);
+  --social-fg: var(--ink);
+  --social-shadow: var(--border-strong);
   display: grid;
   place-items: center;
   width: var(--control-h);
   height: var(--control-h);
   border: 2px solid var(--border-strong);
   border-radius: 50%;
-  background: var(--surface);
-  color: var(--ink);
+  background: var(--social-bg);
+  color: var(--social-fg);
   font-size: 1.1rem;
-  transition-property: transform, box-shadow, scale, background-color, color;
+  box-shadow: 2px 2px 0 var(--social-shadow);
+  transition-property: transform, box-shadow, scale;
   transition-duration: var(--dur-press);
   transition-timing-function: ease-out;
 }
+.social a.social-linkedin    { --social-bg: #0a66c2; --social-fg: #fff; --social-shadow: #004182; }
+.social a.social-github      { --social-bg: #181717; --social-fg: #fff; --social-shadow: #57606a; }
+.social a.social-x           { --social-bg: #000;    --social-fg: #fff; --social-shadow: #536471; }
+.social a.social-scholar     { --social-bg: #4285f4; --social-fg: #fff; --social-shadow: #1a5ac8; }
+.social a.social-huggingface { --social-bg: #ffd21e; --social-fg: #3a3b45; --social-shadow: #ff9d0b; }
 .social a:hover {
-  background: var(--brand-tint);
-  color: var(--brand-deep);
+  color: var(--social-fg);
   text-decoration: none;
   transform: translate(-1px, -1px);
-  box-shadow: 2px 2px 0 var(--border-strong);
+  box-shadow: 4px 4px 0 var(--social-shadow);
 }
 .social a:active { transform: none; box-shadow: none; scale: var(--press); }
 .social svg { width: 1.05em; height: 1.05em; fill: currentColor; }
+.social svg.social-color { width: 1.3em; height: 1.3em; }
 /* ==========================================================================
    Home: hero, doorway cards, dark experience band, work, research
    ========================================================================== */
@@ -1030,7 +1042,6 @@ a.band-row:hover {
 
 .lang-legend { display: none; }
 
-.lang-note { font-size: 0.9rem; color: var(--faint); max-width: 62ch; }
 
 @media (max-width: 40rem) {
   .lang-pie--wide { display: none; }
@@ -1064,12 +1075,10 @@ a.band-row:hover {
 /* Travel ----------------------------------------------------------------- */
 
 #travel-map {
-  height: 26rem;
+  position: relative;
+  height: 400px;
   margin: 1.5rem 0;
-  border: 2px solid var(--border);
-  border-radius: var(--radius-tile);
-  overflow: hidden;
-  background: var(--surface-muted);
+  background: white;
 }
 .country-list { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0; list-style: none; }
 .country-list li {
@@ -1502,7 +1511,7 @@ a.band-row:hover {
 .cv-facts { margin: 0.35rem 0 0.9rem; }
 .cv-facts li { margin-bottom: 0.25rem; }
 
-.course-list { max-width: none; }
+.cv-entry .course-list { max-width: none; }
 .course-list li { margin-bottom: 0.5rem; }
 .course-list .meta { display: inline; margin-right: 0.35rem; }
 .course-links {

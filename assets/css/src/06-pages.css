@@ -163,7 +163,7 @@
 .cv-facts { margin: 0.35rem 0 0.9rem; }
 .cv-facts li { margin-bottom: 0.25rem; }
 
-.course-list { max-width: none; }
+.cv-entry .course-list { max-width: none; }
 .course-list li { margin-bottom: 0.5rem; }
 .course-list .meta { display: inline; margin-right: 0.35rem; }
 .course-links {

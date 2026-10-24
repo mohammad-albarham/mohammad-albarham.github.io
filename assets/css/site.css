@@ -1092,17 +1092,21 @@ a.band-row:hover {
 /* Contact ---------------------------------------------------------------- */
 
 .contact-grid {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 .contact-card {
+  flex: 1 1 15rem;
   padding: 1.5rem;
   background: var(--surface-muted);
   border: var(--rule);
   border-radius: var(--radius-tile);
 }
 .contact-card :is(h2, h3) { font-size: 1rem; margin-bottom: 0.35rem; }
+/* Size the email card to the unwrapped address so it sits on one line; it
+   still shrinks (and wraps) once the viewport is narrower than the address. */
+.contact-card:has(.contact-email) { flex-basis: auto; }
 .contact-email {
   font-family: var(--font-mono);
   font-size: 1.05rem;

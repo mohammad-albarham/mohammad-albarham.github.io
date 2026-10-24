@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Smartphone Orientation Estimation with an EKF - Mohammad Al-Barham</title>
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mohammad-albarham.github.io/projects/latest-projects-6.html">
+
+  <meta content="Orientation estimation using smartphone sensors with an Extended Kalman Filter - Sensor Fusion and Nonlinear Filtering course project at Chalmers University" name="description">
+  <meta content="sensor fusion, extended kalman filter, EKF, orientation estimation, quaternion, IMU, gyroscope, accelerometer, magnetometer, smartphone" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJHNQN2HWX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VJHNQN2HWX');
+  </script>
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Code highlighting -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css" />
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+      <!-- Main CSS Files -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/modern-portfolio.css" rel="stylesheet">
+  <link href="../assets/css/subpage.css" rel="stylesheet">
+  <link href="../assets/css/responsive-images.css" rel="stylesheet">
+  <link href="../assets/css/dark-mode.css" rel="stylesheet">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "Orientation Estimation Using Smartphone Sensors",
+      "author": {
+        "@type": "Person",
+        "name": "Mohammad Albarham"
+      },
+      "applicationCategory": "Research Project"
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+    <!-- ======= Header / Sidebar ======= -->
+    <!-- ======= Header / Sidebar ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+      <div class="profile">
+        <picture>
+          <source srcset="../assets/img_webp/profile-img-240.webp" type="image/webp">
+          <img src="../assets/img/profile-img-240.jpg" alt="Mohammad Albarham" class="img-fluid rounded-circle"
+            width="120" height="120" decoding="async" fetchpriority="high">
+        </picture>
+        <h1 class="text-light"><a href="../index.html">MOHAMMAD ALBARHAM</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="https://www.linkedin.com/in/albarham/" class="linkedin" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://github.com/mohammad-albarham" class="github" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <i class="bx bxl-github"></i>
+          </a>
+          <a href="https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer">
+            <i class="ai ai-google-scholar-square ai-1x"></i>
+          </a>
+          <a href="https://huggingface.co/pain" aria-label="Hugging Face" target="_blank" rel="noopener noreferrer">
+            <object data="../assets/img/hf-logo.svg" width="17" height="17" aria-hidden="true"></object>
+          </a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="../index.html#hero" class="nav-link"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="../index.html#about" class="nav-link"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="../index.html#resume" class="nav-link"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+          <li><a href="../index.html#projects" class="nav-link active"><i class="bx bx-folder"></i> <span>Projects</span></a></li>
+          <li><a href="../index.html#publications" class="nav-link"><i class="bx bx-book-content"></i> <span>Publications</span></a></li>
+          <li><a href="../index.html#volunteering" class="nav-link"><i class="bx bx-heart"></i> <span>Volunteering</span></a></li>
+          <li><a href="../index.html#travel" class="nav-link"><i class="bx bx-globe"></i> <span>Travel</span></a></li>
+          <li><a href="../index.html#contact" class="nav-link"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header -->
+
+    <main id="main">
+
+      <!-- ======= Breadcrumbs ======= -->
+      <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Portfolio Details</h2>
+            <ol>
+              <li><a href="../index.html">Home</a></li>
+              <li>Portfolio Details</li>
+            </ol>
+          </div>
+
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+      <!-- ======= Portfolio Details Section ======= -->
+      <section id="portfolio-details" class="portfolio-details">
+        <div class="container">
+
+          <div class="row gy-4 align-items-start">
+
+            <div class="col-lg-8">
+              <div class="portfolio-details-slider swiper">
+                <div class="swiper-wrapper align-items-center">
+
+                  <!-- Project image -->
+                  <div class="swiper-slide">
+                    <img
+                      src="../assets/img/portfolio/sensor_fusion_orientation.jpg"
+                      alt="Our EKF orientation estimate (left) next to the Google orientation estimate (right), with the magnetic disturbance flag raised">
+                  </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="portfolio-info">
+                <h3>Project information</h3>
+                <ul>
+                  <li>
+                    <strong>Project name</strong>
+                    <span>: Orientation Estimation Using Smartphone Sensors</span>
+                  </li>
+                  <li>
+                    <strong>Course</strong>
+                    <span>
+                      : SSY345 – Sensor Fusion and Nonlinear Filtering (Chalmers University)
+                      <a class="course-detail-link"
+                         href="https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY345/"
+                         target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-book-half" aria-hidden="true"></i> View course details
+                      </a>
+                    </span>
+                  </li>
+                  <li>
+                    <strong>Authors</strong>
+                    <span>: Mohammad Albarham, Yibo Zhou</span>
+                  </li>
+                  <li>
+                    <strong>Year</strong>
+                    <span>: 2025</span>
+                  </li>
+                  <li>
+                    <strong>Report</strong>
+                    <span>:
+                      <a href="../assets/docs/SSY345_Project_report.pdf"
+                         target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-file-earmark-pdf"></i> Project Report (PDF)
+                      </a>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="row gy-4 mt-1">
+            <div class="col-12">
+              <div class="portfolio-description">
+                <h2>Project overview</h2>
+                <p>
+                  This project implements an <strong>Extended Kalman Filter (EKF)</strong>
+                  that estimates the orientation of a smartphone in real time by fusing its
+                  <strong>gyroscope</strong>, <strong>accelerometer</strong>, and
+                  <strong>magnetometer</strong> measurements. It was developed as part of the
+                  <strong>SSY345 – Sensor Fusion and Nonlinear Filtering</strong> course at
+                  <a href="https://www.chalmers.se/" target="_blank" rel="noopener noreferrer">Chalmers University of Technology</a>.
+                  Sensor data was streamed from an Android phone (Samsung Galaxy S22 Ultra) over
+                  Wi-Fi with the Sensor Fusion app, and the filter output was compared against
+                  the phone's built-in orientation estimate from the Google API.
+                </p>
+
+                <h3>Approach</h3>
+                <ul>
+                  <li><strong>State</strong>: Orientation represented as a unit <strong>quaternion</strong>, avoiding the gimbal lock and discontinuities of Euler angles.</li>
+                  <li><strong>Time update</strong>: Gyroscope angular rates drive the quaternion dynamics as an input, keeping the state small.</li>
+                  <li><strong>Accelerometer update</strong>: Uses the gravity direction to correct roll and pitch.</li>
+                  <li><strong>Magnetometer update</strong>: Uses the Earth's magnetic field to correct yaw (heading).</li>
+                  <li><strong>Outlier rejection</strong>: Skips accelerometer updates under strong body acceleration, and magnetometer updates under magnetic disturbance, using an adaptive expected field magnitude.</li>
+                </ul>
+
+                <h3>Sensor characterisation</h3>
+                <p>
+                  The phone was first left still for 60 seconds to record each sensor.
+                  Means, covariances, time series, and histograms were used to estimate
+                  biases and noise levels, which set the process and measurement noise
+                  covariances of the filter and the reference gravity and magnetic field vectors.
+                </p>
+
+                <h3>Results</h3>
+                <div class="text-center mb-3">
+                  <img src="../assets/img/portfolio/sensor_fusion_euler_comparison.png"
+                       alt="Roll, pitch and yaw estimated by the EKF compared with the Google benchmark under magnetic disturbance"
+                       class="img-fluid rounded shadow-sm"
+                       style="max-width: 100%;">
+                  <p class="text-muted mt-2" style="font-size: 0.9em;"><em>Figure 1: EKF roll, pitch, and yaw against the Google benchmark, with magnetic disturbance and outlier rejection enabled.</em></p>
+                </div>
+                <ul>
+                  <li>Gyroscope only: tracks fast rotations but drifts over time.</li>
+                  <li>Adding the accelerometer: roll and pitch converge to the true values, but yaw stays unobservable.</li>
+                  <li>Adding the magnetometer: yaw aligns with the benchmark even from an unknown initial heading.</li>
+                  <li>With outlier rejection, the filter stays aligned with the benchmark during shaking and near magnetic disturbances.</li>
+                  <li>Without the gyroscope, accelerometer and magnetometer alone cannot follow fast or small orientation changes.</li>
+                </ul>
+
+                <h3>Live demo</h3>
+                <div class="text-center mb-3">
+                  <video src="../assets/video/sensor_fusion_demo.mp4"
+                         poster="../assets/img/portfolio/sensor_fusion_orientation.jpg"
+                         class="img-fluid rounded shadow-sm"
+                         controls muted playsinline preload="none"
+                         style="max-width: 100%;"></video>
+                  <p class="text-muted mt-2" style="font-size: 0.9em;"><em>Our EKF estimate (left) next to the Google estimate (right). The flags show when magnetometer or accelerometer updates are rejected.</em></p>
+                </div>
+
+                <h3>Technologies</h3>
+                <ul>
+                  <li>MATLAB</li>
+                  <li>Extended Kalman Filter</li>
+                  <li>Quaternions</li>
+                  <li>Android Sensor Fusion app (IMU streaming)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section><!-- End Portfolio Details Section -->
+
+    </main><!-- End #main -->
+
+        <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; <span id="footer-year">2024</span> <strong><span>Mohammad Albarham</span></strong>. All Rights Reserved.
+      </div>
+      <div class="credits">
+        Designed with <i class="bi bi-heart-fill" style="color: #e74c3c;"></i>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+      <!-- Vendor JS Files -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+
+  <!-- Main JS Files -->
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/image-optimizer.js" defer></script>
+  <script src="../assets/js/theme.js" type="module"></script>
+
+  <script>
+    // Update footer year
+    document.addEventListener('DOMContentLoaded', function() {
+      const yearEl = document.getElementById('footer-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+
+</html>

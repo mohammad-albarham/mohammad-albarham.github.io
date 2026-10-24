@@ -435,7 +435,7 @@ class PortfolioRenderer {
             }
             ${project.links?.demo ? 
               `<a href="${project.links.demo}" class="project-link primary" target="_blank" rel="noopener">
-                <i class="bi bi-play-circle"></i> Live Demo
+                <i class="bi bi-arrow-right-circle"></i> Learn More
               </a>` : ''
             }
             ${project.links?.paper ? 

@@ -35,6 +35,22 @@
     "detailsPage": "projects/latest-projects-5.html"
   },
   {
+    "id": "smartphone-orientation-ekf",
+    "title": "Orientation Estimation Using Smartphone Sensors",
+    "category": "sensor-fusion",
+    "tags": ["Sensor Fusion", "Kalman Filter", "IMU", "State Estimation"],
+    "featured": true,
+    "image": "assets/img/portfolio/sensor_fusion_orientation.jpg",
+    "shortDescription": "Extended Kalman Filter fusing smartphone gyroscope, accelerometer and magnetometer data to estimate orientation in real time",
+    "description": "An Extended Kalman Filter that estimates a smartphone's orientation in real time, represented as a quaternion, by fusing gyroscope, accelerometer and magnetometer measurements streamed from an Android phone. Outlier rejection handles strong body acceleration and magnetic disturbances, and the estimate tracks the phone's built-in Google orientation closely. Developed as part of SSY345 – Sensor Fusion and Nonlinear Filtering at Chalmers University.",
+    "technologies": ["MATLAB", "Extended Kalman Filter", "Quaternions", "IMU"],
+    "links": {
+      "report": "assets/docs/SSY345_Project_report.pdf"
+    },
+    "year": 2025,
+    "detailsPage": "projects/latest-projects-6.html"
+  },
+  {
     "id": "fast-rich",
     "title": "Fast-Rich: High-Performance Terminal UI",
     "category": "tools",

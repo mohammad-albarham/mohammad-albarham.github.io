@@ -14,7 +14,7 @@ Pages produced:
     projects/index.html     every project, with a technology filter
     research/index.html     every publication, in full
     competitions/index.html every competition and contest result, with write-ups
-    volunteering/index.html IEEE service and the travel map
+    volunteering/index.html IEEE service
     contact/index.html      how to reach me
     sitemap.xml             generated from the routes that actually exist on disk
 
@@ -306,7 +306,7 @@ gtag('config', 'G-VJHNQN2HWX');
           <li><a href="/research/#publications">Publications</a></li>
           <li><a href="/competitions/">Competitions</a></li>
           <li><a href="/about/#programming-languages">Programming languages</a></li>
-          <li><a href="/volunteering/#travel">Travel</a></li>
+          <li><a href="/about/#travel">Travel</a></li>
         </ul>
       </div>
     </div>
@@ -365,7 +365,7 @@ def filter_block(projects: list, grid_id: str) -> tuple[str, str]:
     chips = ['<li><button type="button" class="filter-chip" data-tech-value="all" '
              'aria-pressed="true">All projects</button></li>']
     chips += [f'<li><button type="button" class="filter-chip" data-tech-value="{e(t)}" '
-              f'aria-pressed="false">{e(t)} <span aria-hidden="true">{counts[t]}</span></button></li>'
+              f'aria-pressed="false">{e(t)}</button></li>'
               for t in common]
     controls = f"""<div data-filter-group="{grid_id}" data-filter-status="{grid_id}-status">
   <ul class="filters" role="group" aria-label="Filter projects by technology">{''.join(chips)}</ul>
@@ -718,16 +718,13 @@ LEGACY_HASHES = {
     "publications": "/research/",
     "competitions": "/competitions/",
     "volunteering": "/volunteering/",
-    "travel": "/volunteering/#travel",
+    "travel": "/about/#travel",
     "contact": "/contact/",
 }
 
 
 def render_home(d) -> str:
-    bio, projects, pubs, comps, vols = d["bio"], d["projects"], d["publications"], d["competitions"], d["volunteering"]
-    featured = [p for p in projects if p.get("featured")]
-    unique_countries = len({c for codes in d["travel"]["visited"].values() for c in codes})
-    venues = len({p.get("venueShort") or p.get("venue") for p in pubs})
+    bio = d["bio"]
 
     body = f"""
 <section id="hero" class="hero">
@@ -761,41 +758,35 @@ def render_home(d) -> str:
     <div class="doorways">
       <a class="doorway doorway-about rise rise-2" id="about" href="/about/">
         <h2>About <span class="arrow" aria-hidden="true">&rarr;</span></h2>
-        <p>Who I am, what I work on, and the languages my public repositories are written in.</p>
-        <p class="meta">language breakdown</p>
+        <p>Who I am, what I work on, the languages my public repositories are written in, and where I have travelled.</p>
       </a>
       <a class="doorway doorway-cv rise rise-2" id="resume" href="/experience/">
         <span id="experience" hidden></span>
         <h2>Experience <span class="arrow" aria-hidden="true">&rarr;</span></h2>
         <p>Roles and responsibilities from a mechatronics bench in Amman to vision systems in Gothenburg.</p>
-        <p class="meta">{len(d['experience'])} roles &middot; Aptiv, RISE, Kenda AI</p>
       </a>
       <a class="doorway doorway-work rise rise-2" id="projects" href="/projects/">
         <h2>Projects <span class="arrow" aria-hidden="true">&rarr;</span></h2>
         <p>Computer vision, Arabic NLP, embedded systems and the tools built along the way.</p>
-        <p class="meta">{len(projects)} projects &middot; {len(featured)} featured</p>
       </a>
       <a class="doorway doorway-research rise rise-3" id="publications" href="/research/">
         <h2>Research <span class="arrow" aria-hidden="true">&rarr;</span></h2>
         <p>Peer-reviewed papers on cross-lingual retrieval, Arabic sign language and Arabic NLP.</p>
-        <p class="meta">{len(pubs)} publications &middot; {venues} venues</p>
       </a>
       <a class="doorway doorway-service rise rise-3" id="volunteering" href="/volunteering/">
         <h2>Volunteering <span class="arrow" aria-hidden="true">&rarr;</span></h2>
-        <p>IEEE service across a student branch, two sections and Region 8 &mdash; and the countries it took me to.</p>
-        <p class="meta">{len(vols)} posts &middot; {unique_countries} countries</p>
+        <p>IEEE service across a student branch, two sections and Region 8.</p>
       </a>
       <a class="doorway doorway-contact rise rise-3" id="contact" href="/contact/">
         <h2>Contact <span class="arrow" aria-hidden="true">&rarr;</span></h2>
         <p>Email, where I am, and every profile worth following.</p>
-        <p class="meta">{len(SOCIAL)} profiles &middot; no contact form</p>
       </a>
     </div>
     <p class="doorway-more">Also here:
       <a id="education" href="/education/">education</a> &middot;
       <a id="programming-languages" href="/about/#programming-languages">programming languages</a> &middot;
       <a id="competitions" href="/competitions/">competitions</a> &middot;
-      <a id="travel" href="/volunteering/#travel">travel</a></p>
+      <a id="travel" href="/about/#travel">travel</a></p>
   </div>
 </section>
 """
@@ -1100,6 +1091,15 @@ def render_about(d) -> str:
     {language_chart(d['languages'])}
   </div>
 </section>
+
+<section id="travel" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Travel</h2>
+    </div>
+    {travel_block(d['travel'])}
+  </div>
+</section>
 """
     return shell(
         title="About — Mohammad Albarham",
@@ -1273,21 +1273,11 @@ def render_volunteering(d) -> str:
       <i class="bi bi-images" aria-hidden="true"></i> IEEE photo gallery</a></p>
   </div>
 </section>
-
-<section id="travel" class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title">Travel</h2>
-    </div>
-    {travel_block(d['travel'])}
-    <p style="margin-top:1.5rem"><a href="/volunteering/visited_countries.html">The older map page &rarr;</a></p>
-  </div>
-</section>
 """
     return shell(
-        title="Volunteering & travel — Mohammad Albarham",
+        title="Volunteering — Mohammad Albarham",
         description=(f"{len(vols)} IEEE volunteer roles held by Mohammad Albarham, from a "
-                     "student branch through to Region 8 — and the countries visited along the way."),
+                     "student branch through to Region 8."),
         canonical="/volunteering/",
         body=body,
         current="volunteering",

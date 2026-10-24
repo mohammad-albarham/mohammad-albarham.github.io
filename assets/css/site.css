@@ -618,7 +618,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .doorway h2 .arrow { color: var(--doorway-accent, var(--brand)); font-size: 1.15rem; }
 .doorway p { font-size: 0.98rem; }
-.doorway .meta { margin-top: auto; padding-top: 0.5rem; }
 .doorway-work { --doorway-accent: var(--brand); }
 .doorway-research { --doorway-accent: var(--accent-indigo); }
 .doorway-cv { --doorway-accent: var(--accent-amber); }
@@ -1088,6 +1087,7 @@ a.band-row:hover {
   border-radius: var(--radius-chip);
   font-size: 0.875rem;
 }
+.country-list + .meta { margin-top: 1.5rem; }
 
 /* Contact ---------------------------------------------------------------- */
 

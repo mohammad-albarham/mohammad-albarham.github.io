@@ -49,10 +49,6 @@ STANDALONE = {
         "Photographs from Mohammad Albarham's IEEE volunteering, from the "
         "University of Jordan student branch to Region 8.",
     ),
-    "volunteering/visited_countries.html": (
-        "Visited countries",
-        "The countries Mohammad Albarham has visited, on a world map.",
-    ),
 }
 
 

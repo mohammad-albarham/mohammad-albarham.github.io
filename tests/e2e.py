@@ -99,8 +99,8 @@ def run(browser) -> None:
               [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21]]
     legacy += [f"/projects/latest-projects-{n}.html" for n in range(1, 6)]
     legacy += [f"/competitions/competition-details-{n}.html" for n in range(1, 6)]
-    legacy += ["/projects/araclip.html", "/volunteering/visited_countries.html",
-               "/experience/phi-pair.html", "/volunteering/volunteering_ieee.html"]
+    legacy += ["/projects/araclip.html", "/experience/phi-pair.html",
+               "/volunteering/volunteering_ieee.html"]
     bad = []
     for route in legacy:
         response = page.goto(BASE + route, wait_until="domcontentloaded")
@@ -119,7 +119,7 @@ def run(browser) -> None:
 
     # Each of those sections now lives on its own page, so an old deep link has
     # to land there rather than on a homepage that no longer holds the content.
-    for anchor, target in [("travel", "/volunteering/#travel"),
+    for anchor, target in [("travel", "/about/#travel"),
                            ("competitions", "/competitions/"),
                            ("contact", "/contact/")]:
         page.goto(BASE + "/", wait_until="domcontentloaded")
@@ -172,7 +172,7 @@ def run(browser) -> None:
     check(page.locator("form").count() == 0, "no contact form pretending to send anything")
 
     # --- travel map ---------------------------------------------------------
-    page.goto(BASE + "/volunteering/#travel", wait_until="networkidle")
+    page.goto(BASE + "/about/#travel", wait_until="networkidle")
     page.wait_for_timeout(1500)
     check(page.locator("#travel-map svg").count() == 1, "travel map renders after lazy load")
     check(page.locator(".country-list li").count() == 24,

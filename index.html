@@ -133,41 +133,35 @@ gtag('config', 'G-VJHNQN2HWX');
     <div class="doorways">
       <a class="doorway doorway-about rise rise-2" id="about" href="/about/">
         <h2>About <span class="arrow" aria-hidden="true">&rarr;</span></h2>
-        <p>Who I am, what I work on, and the languages my public repositories are written in.</p>
-        <p class="meta">language breakdown</p>
+        <p>Who I am, what I work on, the languages my public repositories are written in, and where I have travelled.</p>
       </a>
       <a class="doorway doorway-cv rise rise-2" id="resume" href="/experience/">
         <span id="experience" hidden></span>
         <h2>Experience <span class="arrow" aria-hidden="true">&rarr;</span></h2>
         <p>Roles and responsibilities from a mechatronics bench in Amman to vision systems in Gothenburg.</p>
-        <p class="meta">9 roles &middot; Aptiv, RISE, Kenda AI</p>
       </a>
       <a class="doorway doorway-work rise rise-2" id="projects" href="/projects/">
         <h2>Projects <span class="arrow" aria-hidden="true">&rarr;</span></h2>
         <p>Computer vision, Arabic NLP, embedded systems and the tools built along the way.</p>
-        <p class="meta">26 projects &middot; 9 featured</p>
       </a>
       <a class="doorway doorway-research rise rise-3" id="publications" href="/research/">
         <h2>Research <span class="arrow" aria-hidden="true">&rarr;</span></h2>
         <p>Peer-reviewed papers on cross-lingual retrieval, Arabic sign language and Arabic NLP.</p>
-        <p class="meta">8 publications &middot; 6 venues</p>
       </a>
       <a class="doorway doorway-service rise rise-3" id="volunteering" href="/volunteering/">
         <h2>Volunteering <span class="arrow" aria-hidden="true">&rarr;</span></h2>
-        <p>IEEE service across a student branch, two sections and Region 8 &mdash; and the countries it took me to.</p>
-        <p class="meta">7 posts &middot; 24 countries</p>
+        <p>IEEE service across a student branch, two sections and Region 8.</p>
       </a>
       <a class="doorway doorway-contact rise rise-3" id="contact" href="/contact/">
         <h2>Contact <span class="arrow" aria-hidden="true">&rarr;</span></h2>
         <p>Email, where I am, and every profile worth following.</p>
-        <p class="meta">5 profiles &middot; no contact form</p>
       </a>
     </div>
     <p class="doorway-more">Also here:
       <a id="education" href="/education/">education</a> &middot;
       <a id="programming-languages" href="/about/#programming-languages">programming languages</a> &middot;
       <a id="competitions" href="/competitions/">competitions</a> &middot;
-      <a id="travel" href="/volunteering/#travel">travel</a></p>
+      <a id="travel" href="/about/#travel">travel</a></p>
   </div>
 </section>
 
@@ -205,7 +199,7 @@ gtag('config', 'G-VJHNQN2HWX');
           <li><a href="/research/#publications">Publications</a></li>
           <li><a href="/competitions/">Competitions</a></li>
           <li><a href="/about/#programming-languages">Programming languages</a></li>
-          <li><a href="/volunteering/#travel">Travel</a></li>
+          <li><a href="/about/#travel">Travel</a></li>
         </ul>
       </div>
     </div>
@@ -221,7 +215,7 @@ gtag('config', 'G-VJHNQN2HWX');
 // Forward the one-page site's old section links to the page that
 // section now lives on, on load and on a later hash change.
 (function () {
-  var moved = {"about":"/about/","programming-languages":"/about/#programming-languages","resume":"/experience/","experience":"/experience/","education":"/education/","projects":"/projects/","publications":"/research/","competitions":"/competitions/","volunteering":"/volunteering/","travel":"/volunteering/#travel","contact":"/contact/"};
+  var moved = {"about":"/about/","programming-languages":"/about/#programming-languages","resume":"/experience/","experience":"/experience/","education":"/education/","projects":"/projects/","publications":"/research/","competitions":"/competitions/","volunteering":"/volunteering/","travel":"/about/#travel","contact":"/contact/"};
   function go() {
     var to = moved[location.hash.slice(1)];
     if (to) location.replace(to);

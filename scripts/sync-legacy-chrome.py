@@ -51,7 +51,7 @@ FOOTER_SECTIONS = """<h2>Sections</h2>
           <li><a href="/research/#publications">Publications</a></li>
           <li><a href="/competitions/">Competitions</a></li>
           <li><a href="/about/#programming-languages">Programming languages</a></li>
-          <li><a href="/volunteering/#travel">Travel</a></li>
+          <li><a href="/about/#travel">Travel</a></li>
         </ul>"""
 
 

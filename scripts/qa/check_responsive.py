@@ -46,7 +46,6 @@ KEY_PAGES = [
     "projects/araclip.html",
     "competitions/competition-details-1.html",
     "volunteering/volunteering_ieee.html",
-    "volunteering/visited_countries.html",
 ]
 
 

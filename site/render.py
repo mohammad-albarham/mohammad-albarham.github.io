@@ -518,7 +518,7 @@ def service_row(role: dict) -> str:
     <h3>{e(role['position'])}</h3>
     <p class="service-org">{org}</p>
   </div>
-  <p class="meta">{span(role.get('startDate'), role.get('endDate'))}</p>
+  {f'<p class="meta">{span(role.get("startDate"), role.get("endDate"))}</p>' if role.get('startDate') else ''}
 </div>"""
 
 
@@ -1258,17 +1258,18 @@ if (window.location.hash === '#education') {
 
 
 def render_volunteering(d) -> str:
-    vols = d["volunteering"]
+    vols = [v for v in d["volunteering"] if v["category"] == "ieee"]
+    community = [v for v in d["volunteering"] if v["category"] == "community"]
     body = f"""
 <section id="volunteering" class="section">
   <div class="wrap">
     <div class="section-head">
       <h1 class="page-title">Volunteering</h1>
-      <p class="lead">IEEE has been the constant since my student branch days &mdash;
-         {len(vols)} roles across a student branch, two sections and Region 8.</p>
     </div>
-    <h2 class="visually-hidden">IEEE roles</h2>
-    {''.join(service_row(v) for v in vols)}
+    <h2>Open-source communities</h2>
+    <div>{''.join(service_row(v) for v in community)}</div>
+    <h2 style="margin-top:2.5rem">IEEE</h2>
+    <div>{''.join(service_row(v) for v in vols)}</div>
     <p style="margin-top:2rem"><a class="btn" href="/volunteering/volunteering_ieee.html">
       <i class="bi bi-images" aria-hidden="true"></i> IEEE photo gallery</a></p>
   </div>

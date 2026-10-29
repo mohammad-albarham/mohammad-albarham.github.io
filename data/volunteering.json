@@ -1,5 +1,18 @@
 [
   {
+    "id": "arbml-contributor",
+    "organization": "ARBML",
+    "position": "Contributor",
+    "startDate": null,
+    "endDate": null,
+    "current": false,
+    "logo": "assets/img/arbml-logo.png",
+    "url": "https://arbml.github.io/",
+    "description": "Contributor to ARBML, a community of 700+ researchers working on open Arabic NLP research and development.",
+    "category": "community",
+    "level": "community"
+  },
+  {
     "id": "ieee-sweden-sac",
     "organization": "IEEE Sweden Section",
     "position": "Student Activities Coordinator (SAC)",

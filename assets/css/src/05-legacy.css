@@ -1,0 +1,233 @@
+/* ==========================================================================
+   Legacy detail pages
+
+   The 32 detail pages under projects/, competitions/, experience/ and
+   volunteering/ keep their original hand-written markup — the galleries,
+   image sets, tables, PDF links and long-form write-ups are the point of
+   those pages and none of it is reproducible from data/*.json. Only the
+   surrounding shell was replaced.
+
+   That markup was authored against Bootstrap 5 + Swiper + GLightbox. Rather
+   than keep shipping 8.3 MB of vendor CSS for it, the handful of layout
+   classes it actually uses are reimplemented here (audited across all 32
+   pages). Swiper's carousel degrades to a plain responsive gallery and
+   GLightbox's links degrade to ordinary links to the full-size image, so
+   the pages need no JavaScript at all.
+   ========================================================================== */
+
+.detail-header { padding-block: clamp(2.5rem, 5vw, 3.75rem) 0; }
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.9rem;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--faint);
+}
+.breadcrumb li { margin: 0; }
+.breadcrumb li + li::before { content: "/"; margin-right: 0.4rem; color: var(--border-strong); }
+.breadcrumb a { color: var(--body); font-weight: 500; }
+
+.detail-body { padding-block: 2.5rem 0; }
+.detail-body h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-top: 2.25rem; }
+.detail-body h3 { font-size: 1.25rem; margin-top: 1.75rem; }
+.detail-body h4 { font-size: 1.05rem; margin-top: 1.25rem; }
+.detail-body > .container > section:first-child h2 { margin-top: 0; }
+.detail-body p, .detail-body li { max-width: 74ch; }
+.detail-body img {
+  border-radius: var(--radius-tile);
+  outline: 1px solid var(--img-edge);
+  outline-offset: -1px;
+}
+.detail-body iframe {
+  width: 100%;
+  max-width: 56rem;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: var(--radius-tile);
+  border: 0;
+  display: block;
+}
+
+/* Grid primitives the legacy markup relies on --------------------------- */
+
+.container { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.detail-body .container { padding-inline: 0; }
+
+.row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.75rem; }
+.gy-4 { row-gap: 1.75rem; }
+.row > * { grid-column: span 12; min-width: 0; }
+@media (min-width: 62rem) {
+  .col-lg-4 { grid-column: span 5; }
+  .col-lg-8 { grid-column: span 7; }
+  .order-lg-1 { order: 1; }
+  .order-lg-2 { order: 2; }
+}
+/* col-lg-16 and the empty col-lg- are authoring slips in the original
+   markup; both simply mean "full width" here. */
+.col-lg-16, .col-lg-, .col-12 { grid-column: span 12; }
+
+.d-flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.align-items-center { align-items: center; }
+.align-items-start { align-items: flex-start; }
+.justify-content-between { justify-content: space-between; }
+.text-center { text-align: center; }
+.text-muted { color: var(--faint); }
+.img-fluid { max-width: 100%; height: auto; }
+.rounded { border-radius: var(--radius-tile); }
+.shadow-sm { box-shadow: 0 2px 10px rgb(0 0 0 / 0.07); }
+.lead { font-size: 1.1875rem; font-weight: 300; }
+.mb-3 { margin-bottom: 1rem; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-5 { margin-top: 2.5rem; }
+
+/* Galleries (was Swiper) ------------------------------------------------- */
+
+.portfolio-details-slider, .custom-portfolio-slider { margin-bottom: 1.5rem; }
+.swiper-wrapper, .gallery-grid, .project-gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.swiper-wrapper > div, .swiper-slide, .gallery-grid > * { min-width: 0; }
+.swiper-slide img, .gallery-grid img, .main-image img, .project-image-main img {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-tile);
+  background: var(--surface-muted);
+  outline: 1px solid var(--img-edge);
+  outline-offset: -1px;
+}
+/* No carousel script, so the pagination dots would be decoration only. */
+.swiper-pagination { display: none; }
+.main-image, .project-image-main { margin-bottom: 1.25rem; }
+/* Photos and scanned certificates come in every shape; uniform cropped
+   thumbnails keep the grid even. Each links to the full image. */
+.project-gallery .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); }
+.project-gallery .gallery-grid img { aspect-ratio: 4 / 3; height: auto; object-fit: cover; }
+
+/* Info panels ------------------------------------------------------------ */
+
+.portfolio-info, .project-info-card, .feature-card, .code-block {
+  padding: 1.35rem 1.5rem;
+  background: var(--surface-muted);
+  border: var(--rule);
+  border-radius: var(--radius-tile);
+}
+.portfolio-info h2, .portfolio-info h3, .project-info-card h2, .project-info-card h3 { margin-top: 0; font-size: 1.05rem; }
+.portfolio-info ul, .project-info-card ul { margin-bottom: 0; padding-left: 1.1rem; }
+.portfolio-info li strong { color: var(--ink); }
+
+.portfolio-description, .project-description, .section-content { margin-top: 1.5rem; }
+.portfolio-description h2, .project-description h2 { margin-top: 0; }
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+.feature-card h3, .feature-card h4 { margin-top: 0; font-size: 1.05rem; }
+
+.section-divider { height: 1px; margin: 2rem 0; background: var(--border); border: 0; }
+
+/* Meta, tags, links ------------------------------------------------------ */
+
+.tech-tags, .project-meta, .project-links, .project-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+  align-items: center;
+  padding: 0;
+  margin: 1rem 0 0;
+  list-style: none;
+}
+.tech-tag {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-chip);
+  background: var(--brand-tint);
+  color: var(--brand-deep);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+.meta-item { display: inline-flex; align-items: center; gap: 0.35rem; font-family: var(--font-mono); font-size: 0.78rem; color: var(--faint); }
+.project-link, .project-link-btn, .repository-link, .course-detail-link, .btn-outline-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: var(--control-h-sm);
+  padding: 0.4rem 1rem 0.4rem 0.875rem;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-pill);
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  transition-property: transform, box-shadow, scale, background-color, border-color, color;
+  transition-duration: var(--dur-press);
+  transition-timing-function: ease-out;
+}
+.project-link:hover, .project-link-btn:hover, .repository-link:hover,
+.course-detail-link:hover, .btn-outline-primary:hover {
+  color: var(--ink);
+  text-decoration: none;
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.project-link:active, .project-link-btn:active, .repository-link:active,
+.course-detail-link:active, .btn-outline-primary:active {
+  transform: none;
+  box-shadow: none;
+  scale: var(--press);
+}
+.btn-lg { min-height: var(--control-h); padding: 0.6rem 1.35rem; font-size: 1rem; }
+.secondary { border-color: var(--border-strong); color: var(--body); }
+
+.competition-award {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: var(--accent-amber-tint);
+  color: var(--accent-amber);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.rank-2 { background: var(--surface-sunk); color: var(--body); }
+.rank-3 { background: var(--accent-rose-tint); color: var(--accent-rose); }
+.rank-4 { background: var(--brand-tint); color: var(--brand-deep); }
+
+/* Tables ----------------------------------------------------------------- */
+
+.detail-body table, .table {
+  width: 100%;
+  margin: 1.25rem 0;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+.detail-body th, .detail-body td, .table th, .table td {
+  padding: 0.6rem 0.8rem;
+  border-bottom: var(--rule);
+  text-align: left;
+}
+.detail-body th, .table th { color: var(--ink); font-family: var(--font-heading); font-weight: 700; }
+.table-striped tbody tr:nth-child(odd) { background: var(--surface-muted); }
+
+.code-block { overflow-x: auto; font-family: var(--font-mono); font-size: 0.85rem; }
+
+/* Legacy anchors that no longer have a matching component --------------- */
+.back-to-top { display: none; }

@@ -1,0 +1,235 @@
+/* ==========================================================================
+   Design tokens — Mohammad Albarham
+   --------------------------------------------------------------------------
+   Every value the system is allowed to use lives here. Components reference
+   tokens only; no component file may hard-code a colour, size or duration.
+
+   Accent tokens are indirect: --ds-accent* resolve per section via the
+   [data-accent] attribute (see "Accent scopes" at the end of this file), so a
+   single card rule paints itself in whichever accent its section owns.
+   ========================================================================== */
+
+:root {
+  /* ---- Surfaces & ink --------------------------------------------------- */
+  --ds-paper:            #ffffff;   /* default page ground                    */
+  --ds-paper-alt:        #f2f5fb;   /* alternating section ground             */
+  --ds-paper-sunk:       #e7ecf7;   /* wells, inputs, code                    */
+  --ds-ink:              #141b2e;   /* body text, card outlines   17.1:1 / paper */
+  --ds-ink-muted:        #4c5670;   /* secondary text              7.3:1 / paper */
+  --ds-rule:             #d9dfec;   /* hairlines between quiet things         */
+
+  /* ---- Accents ----------------------------------------------------------
+     Three accents, each with a text-safe ink, a fill and a wash.
+     Measured against --ds-paper and --ds-paper-alt; all pass WCAG AA.       */
+  --ds-cobalt:           #1746c4;   /* 7.75:1 on paper  — default accent      */
+  --ds-cobalt-ink:       #12379b;
+  --ds-cobalt-wash:      #dbe4fb;
+
+  --ds-amber:            #f5c451;   /* fill only; pair with --ds-amber-ink    */
+  --ds-amber-ink:        #7a4a06;   /* 7.47:1 on paper                        */
+  --ds-amber-wash:       #fdf0d2;
+
+  --ds-rose:             #b02a5b;   /* 6.31:1 on paper                        */
+  --ds-rose-ink:         #8f1f49;
+  --ds-rose-wash:        #fbdde8;
+
+  /* ---- Status ----------------------------------------------------------- */
+  --ds-positive:         #16704a;
+  --ds-positive-wash:    #d7f0e4;
+
+  /* ---- Resolved accent (overridden by [data-accent]) --------------------- */
+  --ds-accent:           var(--ds-cobalt);
+  --ds-accent-ink:       var(--ds-cobalt-ink);
+  --ds-accent-wash:      var(--ds-cobalt-wash);
+  --ds-accent-on-fill:   var(--ds-paper);  /* text colour when accent is a fill */
+
+  /* ---- Typefaces --------------------------------------------------------
+     Two families, deliberately distinct in texture: a drawn-with-a-compass
+     grotesque for display, a humanist workhorse for reading. No monospace. */
+  --ds-font-display: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --ds-font-body:    "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* ---- Type scale — 17px base, 1.25 (major third) ------------------------ */
+  --ds-text-xs:    0.79rem;   /* 12.6px — captions, counts               */
+  --ds-text-sm:    0.889rem;  /* 14.2px — meta, tags                     */
+  --ds-text-base:  1rem;      /* 16px   — UI default                     */
+  --ds-text-body:  1.0625rem; /* 17px   — running prose                  */
+  --ds-text-md:    1.25rem;   /* 20px   — lead paragraphs                */
+  --ds-text-lg:    1.563rem;  /* 25px   — card titles, h4                */
+  --ds-text-xl:    1.953rem;  /* 31px   — h3                             */
+  --ds-text-2xl:   2.441rem;  /* 39px   — section headings, h2           */
+  --ds-text-3xl:   3.052rem;  /* 49px   — hero name, small screens       */
+  --ds-text-4xl:   3.815rem;  /* 61px   — hero name, large screens       */
+
+  --ds-weight-regular:  400;
+  --ds-weight-medium:   500;
+  --ds-weight-semibold: 600;
+  --ds-weight-bold:     700;
+
+  --ds-leading-tight: 1.06;   /* display sizes                            */
+  --ds-leading-snug:  1.25;   /* headings, card titles                    */
+  --ds-leading-body:  1.65;   /* running prose                            */
+
+  --ds-tracking-tight:  -0.02em;  /* large display type only              */
+  --ds-tracking-normal:  0;
+
+  --ds-measure:        68ch;  /* prose line length, under 80 characters   */
+  --ds-measure-narrow: 54ch;
+
+  /* ---- Spacing — 4px base ------------------------------------------------ */
+  --ds-space-1:  0.25rem;   /*   4px */
+  --ds-space-2:  0.5rem;    /*   8px */
+  --ds-space-3:  0.75rem;   /*  12px */
+  --ds-space-4:  1rem;      /*  16px */
+  --ds-space-5:  1.5rem;    /*  24px */
+  --ds-space-6:  2rem;      /*  32px */
+  --ds-space-7:  3rem;      /*  48px */
+  --ds-space-8:  4rem;      /*  64px */
+  --ds-space-9:  6rem;      /*  96px */
+  --ds-space-10: 8rem;      /* 128px */
+
+  /* ---- Radii ------------------------------------------------------------- */
+  --ds-radius-sm:   6px;
+  --ds-radius-md:   12px;
+  --ds-radius-lg:   20px;
+  --ds-radius-pill: 999px;
+
+  /* ---- Borders ----------------------------------------------------------- */
+  --ds-border-hairline: 1px;
+  --ds-border-solid:    2px;   /* the outline on every card and pill        */
+
+  /* ---- Shadows ----------------------------------------------------------
+     The house signature is a hard, unblurred displacement in the section's
+     accent — a stereo disparity, not a drop shadow. --ds-shadow-soft exists
+     only for floating UI (menus, the theme toggle) that must not read as a
+     card.                                                                  */
+  --ds-shadow-hard-sm: 3px 3px 0 0 var(--ds-accent);
+  --ds-shadow-hard:    6px 6px 0 0 var(--ds-accent);
+  --ds-shadow-hard-lg: 10px 10px 0 0 var(--ds-accent);
+  --ds-shadow-soft:    0 1px 2px rgba(20, 27, 46, 0.06),
+                       0 8px 24px -12px rgba(20, 27, 46, 0.28);
+
+  /* ---- Focus ------------------------------------------------------------
+     Two rings: a paper-coloured spacer so the accent ring stays visible on
+     top of any surface, then the accent itself.                            */
+  --ds-focus-width:  3px;
+  --ds-focus-offset: 2px;
+  --ds-focus-color:  var(--ds-cobalt);
+  --ds-focus-ring:   0 0 0 var(--ds-focus-offset) var(--ds-paper),
+                     0 0 0 calc(var(--ds-focus-offset) + var(--ds-focus-width)) var(--ds-focus-color);
+
+  /* ---- Motion ------------------------------------------------------------ */
+  --ds-duration-fast: 120ms;
+  --ds-duration:      180ms;
+  --ds-ease:          cubic-bezier(0.2, 0.7, 0.3, 1);
+
+  /* ---- Layout ------------------------------------------------------------ */
+  --ds-container:        1120px;
+  --ds-container-narrow: 760px;
+  --ds-gutter:           var(--ds-space-5);
+  --ds-nav-height:       64px;  /* sticky pill nav; sections clear this */
+
+  /* ---- Breakpoints -------------------------------------------------------
+     CSS cannot use custom properties inside @media, so these are the single
+     written record of the values every file hard-codes. Do not invent others.
+       --ds-bp-sm  480px   large phone
+       --ds-bp-md  768px   tablet / two-column threshold
+       --ds-bp-lg  1024px  laptop / nav shows full labels
+       --ds-bp-xl  1280px  wide desktop                                     */
+  --ds-bp-sm: 480px;
+  --ds-bp-md: 768px;
+  --ds-bp-lg: 1024px;
+  --ds-bp-xl: 1280px;
+
+  --ds-z-nav:     900;
+  --ds-z-float:   950;
+  --ds-z-overlay: 1000;
+}
+
+/* ==========================================================================
+   Dark theme
+   theme.js writes data-theme onto <html>, so these must key off :root.
+   Surfaces darken, accents lighten; every pair re-measured for AA.
+   ========================================================================== */
+:root[data-theme="dark"] {
+  --ds-paper:         #0f1420;
+  --ds-paper-alt:     #161d2e;
+  --ds-paper-sunk:    #1e2740;
+  --ds-ink:           #eef1f8;   /* 16.3:1 on paper */
+  --ds-ink-muted:     #a3adc4;   /*  8.2:1 on paper */
+  --ds-rule:          #2c3651;
+
+  --ds-cobalt:        #8fb0ff;   /*  8.6:1 on paper */
+  --ds-cobalt-ink:    #b6cbff;
+  --ds-cobalt-wash:   #1c2749;
+
+  --ds-amber:         #f7cf7a;   /* 12.4:1 on paper */
+  --ds-amber-ink:     #f7cf7a;
+  --ds-amber-wash:    #35291018;
+
+  --ds-rose:          #ff9ac0;   /*  9.3:1 on paper */
+  --ds-rose-ink:      #ffb9d3;
+  --ds-rose-wash:     #3a1d2c;
+
+  --ds-positive:      #6fd6a6;
+  --ds-positive-wash: #14301f;
+
+  --ds-accent-on-fill: #0f1420;  /* dark ink sits on the lightened accents */
+
+  --ds-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.5),
+                    0 8px 24px -12px rgba(0, 0, 0, 0.8);
+}
+
+/* A var() nested inside a custom property is substituted where that property
+   is DECLARED, not where it is used — so --ds-shadow-* declared once on :root
+   would freeze the accent at cobalt for the whole page. Each accent scope
+   therefore redeclares the three shadows so they re-resolve. */
+
+/* ==========================================================================
+   Accent scopes
+   Put data-accent on a <section> (or any wrapper) and everything inside it —
+   cards, tags, buttons, rules, the section heading — repaints. The three
+   scopes encode what the content IS, so colour carries information:
+     (default) cobalt — who he is, where he studied, how to reach him
+     build     amber  — things he made: projects, competitions
+     write     rose   — things he wrote or gave: publications, volunteering
+   ========================================================================== */
+[data-accent="build"] {
+  --ds-shadow-hard-sm: 3px 3px 0 0 var(--ds-accent);
+  --ds-shadow-hard:    6px 6px 0 0 var(--ds-accent);
+  --ds-shadow-hard-lg: 10px 10px 0 0 var(--ds-accent);
+
+  --ds-accent:         var(--ds-amber);
+  --ds-accent-ink:     var(--ds-amber-ink);
+  --ds-accent-wash:    var(--ds-amber-wash);
+  --ds-accent-on-fill: var(--ds-ink);
+}
+
+[data-accent="write"] {
+  --ds-shadow-hard-sm: 3px 3px 0 0 var(--ds-accent);
+  --ds-shadow-hard:    6px 6px 0 0 var(--ds-accent);
+  --ds-shadow-hard-lg: 10px 10px 0 0 var(--ds-accent);
+
+  --ds-accent:         var(--ds-rose);
+  --ds-accent-ink:     var(--ds-rose-ink);
+  --ds-accent-wash:    var(--ds-rose-wash);
+}
+
+[data-accent="base"] {
+  --ds-shadow-hard-sm: 3px 3px 0 0 var(--ds-accent);
+  --ds-shadow-hard:    6px 6px 0 0 var(--ds-accent);
+  --ds-shadow-hard-lg: 10px 10px 0 0 var(--ds-accent);
+
+  --ds-accent:         var(--ds-cobalt);
+  --ds-accent-ink:     var(--ds-cobalt-ink);
+  --ds-accent-wash:    var(--ds-cobalt-wash);
+}
+
+/* Dark theme lightens the amber fill enough that dark ink is the readable
+   pairing there too; keep the override explicit rather than inherited. */
+:root[data-theme="dark"] [data-accent="build"] {
+  --ds-accent-on-fill: var(--ds-paper);
+}
+:root[data-theme="dark"] [data-accent="write"] {
+  --ds-accent-on-fill: var(--ds-paper);
+}

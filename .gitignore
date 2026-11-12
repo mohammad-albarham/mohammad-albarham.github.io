@@ -1,6 +1,9 @@
 .DS_Store
-.DS_Store
-.DS_Store
-
 .venv/*
 .bundle-check/
+.venv/
+scripts/qa/screenshots/
+screenshots/
+TASK.md
+REVIEW*.md
+node_modules/

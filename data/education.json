@@ -72,8 +72,10 @@
       },
       {
         "code": "SSY226",
-        "name": "Design project in systems",
-        "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY226/?acYear=2025%2F2026"
+        "name": "Design project in systems, control and mechatronics",
+        "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY226/?acYear=2025%2F2026",
+        "projectTitle": "Gaussian splatting models for training multi-view machine-learning based vision models",
+        "projectUrl": "projects/latest-projects-7.html"
       },
       {
         "code": "Master Thesis",

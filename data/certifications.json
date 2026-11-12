@@ -1,0 +1,52 @@
+[
+  {
+    "group": "AI & machine learning",
+    "items": [
+      {"name": "Mathematics for Machine Learning: Linear Algebra", "issuer": "Imperial College London · Coursera", "date": "2019-10", "url": "https://www.coursera.org/account/accomplishments/verify/DT3DF7BZZT6C"},
+      {"name": "Linear Algebra for Machine Learning and Data Science", "issuer": "DeepLearning.AI · Coursera", "date": "2023-06", "url": "https://www.coursera.org/verify/4P5768CC8XX6"},
+      {"name": "Natural Language Processing with Classification and Vector Spaces", "issuer": "DeepLearning.AI · Coursera", "date": "2020-11", "url": "https://coursera.org/verify/NC4N82SHLN2N"},
+      {"name": "How Diffusion Models Work", "issuer": "DeepLearning.AI", "date": "2024-05", "url": "https://learn.deeplearning.ai/accomplishments/13e85440-4f73-47cf-b871-e4ec638cea05"},
+      {"name": "Machine Learning Scientist with Python Track", "issuer": "DataCamp", "date": "2020-06"},
+      {"name": "Supervised Learning with scikit-learn", "issuer": "DataCamp", "date": "2020-03", "url": "https://www.datacamp.com/statement-of-accomplishment/course/2d051d0c831bed364ed3b0672c9763cb7a7bd578"},
+      {"name": "Rasa Developer Certification", "issuer": "Rasa", "date": "2021-10"},
+      {"name": "Rasa Certification Workshop", "issuer": "Udemy", "date": "2021-02", "url": "https://www.udemy.com/certificate/UC-56179aae-1ce1-449e-83ff-97eb3fa9277f/"}
+    ]
+  },
+  {
+    "group": "Autonomous driving",
+    "items": [
+      {"name": "Intro to Self-Driving Cars Nanodegree", "issuer": "Udacity", "date": "2020-05", "url": "https://www.udacity.com/certificate/e/ad00089a-824b-11ea-9735-93299f61ce04"},
+      {"name": "IDEA League Summer School: Analysis and Modelling of Road-User Behaviour", "issuer": "IDEA League", "date": "2025-08"}
+    ]
+  },
+  {
+    "group": "Engineering & maths",
+    "items": [
+      {"name": "MATLAB Onramp", "issuer": "MathWorks", "date": "2024-09"},
+      {"name": "Arduino Course", "issuer": "TeraCourses", "date": "2019-01", "url": "https://teracourses.com/ar/certificate/43583"},
+      {"name": "ReACT.1x: ReACT Hub Math Exam", "issuer": "MITx · edX", "date": "2020-09", "url": "https://courses.edx.org/certificates/27f6fda58de04891a16b2f77dbb20b69"}
+    ]
+  },
+  {
+    "group": "Software development",
+    "items": [
+      {"name": "Full-Stack Development Track", "issuer": "Udacity", "date": "2020-08", "url": "https://www.udacity.com/certificate/e/03e006be-63d5-11ea-94af-1732fdf8922f"},
+      {"name": "Data Analysis Track", "issuer": "Udacity", "date": "2023-08", "url": "https://www.udacity.com/certificate/e/6fd87ec0-6707-11ea-9011-6fd62f184cf7"},
+      {"name": "Intro to JavaScript", "issuer": "Udacity", "date": "2022-07", "url": "https://www.udacity.com/course/intro-to-javascript--ud803"},
+      {"name": "Designing RESTful APIs", "issuer": "Udacity", "date": "2022-08", "url": "https://www.udacity.com/course/designing-restful-apis--ud388"},
+      {"name": "Python Programming Track", "issuer": "DataCamp", "date": "2020-06", "url": "https://www.datacamp.com/statement-of-accomplishment/track/edcb606a099560ced909daab78a4a68426c044e9"},
+      {"name": "Object-Oriented Programming in Python", "issuer": "DataCamp", "date": "2020-09", "url": "https://www.datacamp.com/statement-of-accomplishment/course/02d32b45d7058c594c9fcde1b7c6dfb6e74c8ecf"},
+      {"name": "Introduction to Git", "issuer": "DataCamp", "date": "2020-03", "url": "https://www.datacamp.com/statement-of-accomplishment/course/509aed18ac536b9fe8af0c42307c730ae570b608"},
+      {"name": "Programming for Everybody (Getting Started with Python)", "issuer": "University of Michigan · Coursera", "date": "2020-01", "url": "https://www.coursera.org/account/accomplishments/certificate/KCK99GVK6MZX"},
+      {"name": "Python Data Structures", "issuer": "University of Michigan · Coursera", "date": "2020-01", "url": "https://www.coursera.org/account/accomplishments/verify/4QSXADJCGC9W"}
+    ]
+  },
+  {
+    "group": "Research, languages & leadership",
+    "items": [
+      {"name": "Understanding Research Methods", "issuer": "University of London · Coursera", "date": "2020-04", "url": "https://www.coursera.org/account/accomplishments/certificate/H8FGW6EFJJKD"},
+      {"name": "Introduction to the French Language", "issuer": "University of Sharjah", "date": "2023-05"},
+      {"name": "Diploma: The Self-Leadership Programme", "issuer": "Swedish Institute (Svenska institutet)", "date": "2024-01"}
+    ]
+  }
+]

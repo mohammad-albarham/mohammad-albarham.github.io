@@ -135,7 +135,7 @@
     "doi": null,
     "url": "https://arxiv.org/abs/2301.11932",
     "pdfUrl": "https://arxiv.org/pdf/2301.11932.pdf",
-    "kaggle": "https://www.kaggle.com/datasets/59761a7132888de252ded8443ced1c7fb21ad28be5598f1f6ca4btn3c663c32b40b",
+    "kaggle": "https://www.kaggle.com/datasets/59761a7132888de252ded8443ced1c7fb21ad28be5598f1f6ca43c663c32b40b",
     "huggingface": "https://huggingface.co/datasets/pain/AASL",
     "roboflow": "https://universe.roboflow.com/rgb-arsl/rgb-arabic-alphabet-sign-language-aasl-dataset",
     "abstract": "This paper presents a comprehensive RGB dataset for Arabic Alphabets Sign Language recognition.",

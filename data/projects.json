@@ -3,10 +3,11 @@
     "id": "falcon-mdf",
     "title": "falcon_mdf: Fast ASAM MDF Reader in Rust",
     "category": "tools",
-    "tags": ["Rust", "WebAssembly", "Automotive", "Performance"],
+    "tags": ["Rust", "WebAssembly", "Python Bindings", "ASAM MDF", "CAN / LIN"],
     "featured": true,
+    "openSource": true,
     "image": "assets/img/portfolio/falcon_mdf.png",
-    "shortDescription": "Rust reader for ASAM MDF automotive measurement files, about 4× faster than asammdf, with an in-browser WebAssembly playground",
+    "shortDescription": "Fast, reliable Rust reader for ASAM MDF (v4 and v3) measurement data, with CAN/LIN bus decoding, Python bindings and a WebAssembly playground",
     "description": "falcon_mdf is a fast, reliable Rust reader for ASAM MDF (v4 and v3), the standard format for automotive and industrial measurement data. It decodes values exactly as recorded, decodes CAN/LIN bus logs against DBC, ARXML or LDF databases, and ships as a Rust crate, Python bindings and an in-browser WebAssembly playground. It runs about 4× faster than asammdf, with zero crashes across 1,200 corrupted test files.",
     "technologies": ["Rust", "WebAssembly", "Python Bindings", "ASAM MDF", "CAN / LIN"],
     "links": {
@@ -50,11 +51,28 @@
     "detailsPage": "projects/latest-projects-6.html"
   },
   {
+    "id": "ssy226-bev-synthetic-data",
+    "title": "Synthetic Data Generation for Multi-view BEV Segmentation",
+    "category": "computer-vision",
+    "tags": ["Computer Vision", "Gaussian Splatting", "Synthetic Data", "BEV Segmentation"],
+    "featured": true,
+    "image": "assets/img/portfolio/ssy226_system_diagram.jpg",
+    "shortDescription": "Synthetic multi-view factory data from Unreal Engine 5 and Gaussian Splatting, used to train a multi-view bird's-eye-view segmentation model",
+    "description": "An automated pipeline that builds photorealistic factory scenes in Unreal Engine 5 from a Gaussian Splatting capture of a real factory, renders synchronized views from 10 cameras with pixel-level semantic masks and BEV ground truth, and trains a multi-view model (ResNet-50 backbone, spatial cross-attention, DETR-style head) to predict bird's-eye-view segmentation directly. Developed as part of SSY226 – Design project in systems, control and mechatronics at Chalmers University.",
+    "technologies": ["Unreal Engine 5", "Gaussian Splatting", "PyTorch", "ResNet-50", "Transformers"],
+    "links": {
+      "poster": "assets/docs/SSY226_Project_Poster.pdf"
+    },
+    "year": 2025,
+    "detailsPage": "projects/latest-projects-7.html"
+  },
+  {
     "id": "fast-rich",
     "title": "Fast-Rich: High-Performance Terminal UI",
     "category": "tools",
     "tags": ["Rust", "Terminal UI", "CLI", "Performance"],
     "featured": true,
+    "openSource": true,
     "image": "assets/img/portfolio/fast-rich.png",
     "shortDescription": "High-performance Rust library for rendering rich text and complex terminal user interfaces",
     "description": "Fast-Rich is a high-performance Rust library for rendering rich text and complex terminal user interfaces. Inspired by Python's Rich library, it provides a powerful and easy-to-use API for building beautiful CLI applications.",
@@ -71,6 +89,7 @@
     "category": "application",
     "tags": ["Rust", "TUI", "Chat", "Ratatui"],
     "featured": true,
+    "openSource": true,
     "image": "assets/img/portfolio/ratatalk.png",
     "shortDescription": "Terminal-based chat client built with Rust and Ratatui",
     "description": "RataTalk is a terminal-based chat client built with Rust and Ratatui. It offers a secure, fast, and lightweight way to communicate directly from your terminal, featuring a modern TUI interface.",
@@ -95,7 +114,7 @@
       "paper": "https://aclanthology.org/2024.arabicnlp-1.9/"
     },
     "year": 2024,
-    "detailsPage": "projects/latest-projects-1.html"
+    "detailsPage": "projects/araclip.html"
   },
   {
     "id": "sfm-project",
@@ -228,7 +247,7 @@
     "description": "A comprehensive RGB dataset for Arabic Alphabets Sign Language recognition, containing diverse samples for training and evaluation of sign language recognition models.",
     "technologies": ["Dataset Creation", "Computer Vision", "Arabic Sign Language"],
     "links": {
-      "kaggle": "https://www.kaggle.com/datasets/...",
+      "kaggle": "https://www.kaggle.com/datasets/59761a7132888de252ded8443ced1c7fb21ad28be5598f1f6ca43c663c32b40b",
       "huggingface": "https://huggingface.co/datasets/pain/AASL",
       "roboflow": "https://universe.roboflow.com/rgb-arsl/rgb-arabic-alphabet-sign-language-aasl-dataset",
       "paper": "https://arxiv.org/abs/2301.11932"

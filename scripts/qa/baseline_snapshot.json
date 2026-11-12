@@ -1,0 +1,3766 @@
+{
+  "metadata": {
+    "baseline_path": "/Users/pain/orca/workspaces/mohammad-albarham.github.io/website-foundation",
+    "generated_at": "2026-09-07T00:04:00.317304",
+    "total_routes": 34,
+    "total_project_pages": 24,
+    "total_competitions": 5,
+    "total_education": 2,
+    "total_experience": 8,
+    "total_projects": 25,
+    "total_publications": 8,
+    "total_volunteering": 7
+  },
+  "routes": [
+    "competitions/competition-details-1.html",
+    "competitions/competition-details-2.html",
+    "competitions/competition-details-3.html",
+    "competitions/competition-details-4.html",
+    "competitions/competition-details-5.html",
+    "experience/phi-pair.html",
+    "googleebff4c42c46c6acf.html",
+    "index.html",
+    "projects/araclip.html",
+    "projects/latest-projects-1.html",
+    "projects/latest-projects-2.html",
+    "projects/latest-projects-3.html",
+    "projects/latest-projects-4.html",
+    "projects/latest-projects-5.html",
+    "projects/portfolio-details-1.html",
+    "projects/portfolio-details-10.html",
+    "projects/portfolio-details-11.html",
+    "projects/portfolio-details-12.html",
+    "projects/portfolio-details-13.html",
+    "projects/portfolio-details-14.html",
+    "projects/portfolio-details-15.html",
+    "projects/portfolio-details-16.html",
+    "projects/portfolio-details-19.html",
+    "projects/portfolio-details-2.html",
+    "projects/portfolio-details-20.html",
+    "projects/portfolio-details-21.html",
+    "projects/portfolio-details-3.html",
+    "projects/portfolio-details-4.html",
+    "projects/portfolio-details-6.html",
+    "projects/portfolio-details-7.html",
+    "projects/portfolio-details-8.html",
+    "projects/portfolio-details-9.html",
+    "volunteering/visited_countries.html",
+    "volunteering/volunteering_ieee.html"
+  ],
+  "homepage_anchors": {
+    "section_ids": [
+      "hero",
+      "about",
+      "programming-languages",
+      "resume",
+      "projects",
+      "competitions",
+      "publications",
+      "volunteering",
+      "travel",
+      "contact"
+    ],
+    "container_ids": [
+      "about-container",
+      "all-projects-container",
+      "competitions-container",
+      "country-flags",
+      "education-container",
+      "experience-container",
+      "featured-projects-container",
+      "map",
+      "particles-js",
+      "programming-languages-container",
+      "publications-container",
+      "volunteering-container"
+    ],
+    "structural_ids": [
+      "hero",
+      "about",
+      "programming-languages",
+      "resume",
+      "projects",
+      "competitions",
+      "publications",
+      "volunteering",
+      "travel",
+      "contact",
+      "main"
+    ],
+    "all_ids": [
+      "about",
+      "about-container",
+      "all-projects-container",
+      "competitions",
+      "competitions-container",
+      "contact",
+      "contact-email",
+      "contact-message",
+      "contact-name",
+      "contact-subject",
+      "country-flags",
+      "current-date",
+      "education-container",
+      "experience-container",
+      "featured-projects-container",
+      "footer",
+      "footer-year",
+      "gform",
+      "header",
+      "hero",
+      "hidden_iframe",
+      "main",
+      "map",
+      "messageContainer",
+      "navbar",
+      "num-continents",
+      "num-countries",
+      "particles-js",
+      "programming-languages",
+      "programming-languages-container",
+      "project-filter-status",
+      "project-filters",
+      "projects",
+      "publications",
+      "publications-container",
+      "resume",
+      "travel",
+      "volunteering",
+      "volunteering-container"
+    ]
+  },
+  "data_records": {
+    "bio": {
+      "name": "Mohammad Albarham",
+      "title": "Computer Vision & AI Engineer",
+      "tagline": "Problem solver passionate about AI, computer vision, and autonomous systems",
+      "currentRole": "Perception & Vision Engineer at Aptiv | MSc, Chalmers University of Technology",
+      "location": {
+        "city": "Gothenburg",
+        "country": "Sweden"
+      },
+      "email": "mohammad.albarham.work@gmail.com",
+      "photo": "assets/img/profile-img.jpg",
+      "summary": "Welcome to my personal portfolio, I am Mohammad Albarham, a problem solver with a passion for coding, solving problems and trying new things. I have fallen in love with computer vision and AI in general. I have recently completed my master's degree at Chalmers University of Technology. I am working as a full time perception and vision engineer at Aptiv during 2026 summer.",
+      "socialLinks": {
+        "linkedin": {
+          "url": "https://www.linkedin.com/in/albarham/",
+          "icon": "bx bxl-linkedin"
+        },
+        "github": {
+          "url": "https://github.com/mohammad-albarham",
+          "icon": "bx bxl-github"
+        },
+        "googleScholar": {
+          "url": "https://scholar.google.com/citations?user=3znRUJoAAAAJ&hl=en",
+          "icon": "ai ai-google-scholar-square"
+        },
+        "huggingface": {
+          "url": "https://huggingface.co/pain",
+          "icon": "custom-hf"
+        }
+      },
+      "highlights": [],
+      "keywords": [
+        "computer vision",
+        "AI",
+        "machine learning",
+        "Arabic NLP",
+        "image retrieval",
+        "robotics",
+        "autonomous systems",
+        "deep learning"
+      ]
+    },
+    "competitions": [
+      {
+        "id": "competition-1",
+        "title": "Asyad Global Logistics Challenge - Kaggle Competition",
+        "award": "2nd Place",
+        "rank": 2,
+        "date": "2021-11",
+        "organizer": "Asyad Group (Kaggle Days Meetup Dubai)",
+        "location": "Dubai, UAE",
+        "image": "assets/img/competitions/competition-1/1635950081679.jpeg",
+        "shortDescription": "Placed 2nd in a live Kaggle Days competition estimating future ship prices for Asyad Group.",
+        "description": "A live, in-person Kaggle competition held at the Kaggle Days Meetup in Dubai, sponsored by Asyad Group, a major logistics and maritime services provider in Oman. Teams competed to build a regression model estimating future ship prices from historical maritime and shipping data. Our team placed 2nd overall.",
+        "technologies": [
+          "Python",
+          "AI",
+          "Kaggle-Competitions",
+          "Data Science"
+        ],
+        "links": {
+          "Competition link": "https://www.kaggle.com/competitions/kaggle-days-meetup-dubai-competition/overview"
+        },
+        "highlights": [
+          "Finished 2nd on the final leaderboard as team \"ninja\" with a score of 0.06930, between the winning team at 0.06221 and third place at 0.07393.",
+          "Awarded a USD $1,500 gift certificate at the prize ceremony on 3 November 2021.",
+          "Built a regression model estimating future ship prices from historical maritime and shipping data, the challenge set by Asyad Group.",
+          "Competed live and on-site over the two-day event rather than as a remote, long-running Kaggle competition.",
+          "Held at the Dubai Exhibition Centre, Expo 2020 Dubai, on 2\u20133 November 2021.",
+          "Part of Kaggle Days Meetup Dubai, powered by Asyad Group together with Kaggle, LogicAI, and Hypermotion Dubai."
+        ],
+        "gallery": [
+          "assets/img/competitions/competition-1/252169070_1239676323167401_2116295815816253876_n copy.jpg",
+          "assets/img/competitions/competition-1/249340873_1237290123406021_8060094637034926188_n.jpg",
+          "assets/img/competitions/competition-1/250670445_1237859416682425_4471218178086061639_n.jpg",
+          "assets/img/competitions/competition-1/2.jpg",
+          "assets/img/competitions/competition-1/20211102_115321.jpg",
+          "assets/img/competitions/competition-1/20211102_191118.jpg",
+          "assets/img/competitions/competition-1/20211102_192716.jpg",
+          "assets/img/competitions/competition-1/20211102_192805.jpg",
+          "assets/img/competitions/competition-1/20211102_192856.jpg",
+          "assets/img/competitions/competition-1/20211102_193214.jpg",
+          "assets/img/competitions/competition-1/20211103_183313.jpg",
+          "assets/img/competitions/competition-1/image.png",
+          "assets/img/competitions/competition-1/Screenshot_20211102-200409_Messenger.jpg",
+          "assets/img/competitions/competition-1/Screenshot_20211102-200438_Chrome.jpg",
+          "assets/img/competitions/competition-1/Screenshot_20211102-200951_Chrome.jpg",
+          "assets/img/competitions/competition-1/Screenshot_20211104-012355_Instagram.jpg"
+        ],
+        "detailsPage": "competitions/competition-details-1.html"
+      },
+      {
+        "id": "competition-2",
+        "title": "Crown Prince Award for Best Government Service Application",
+        "award": "3rd Place",
+        "rank": 3,
+        "date": "2021-09",
+        "organizer": "Crown Prince Foundation & Ministry of Digital Economy and Entrepreneurship",
+        "location": "Amman, Jordan",
+        "image": "assets/img/competitions/competition-2/award-announcement.png",
+        "shortDescription": "Won 3rd place and a 20,000 JOD (about $28,200) team prize, competing against 122 projects from 25 Jordanian universities.",
+        "description": "The Crown Prince Award for Best Government Service Application is an annual award designed to stimulate and encourage university students to provide creative solutions via smartphone applications. The aim is to improve government services and provide simple around the clock government services that are easy, efficient, and transparent to exceed customer expectations. Our team entered Dawaie, a medical application making government health services easier to reach, into the 2nd edition of the award and placed 3rd.",
+        "technologies": [
+          "Mobile Development",
+          "Healthcare"
+        ],
+        "links": {
+          "Official award website": "https://cpgovappaward.jo/en",
+          "Award video": "https://www.youtube.com/watch?v=mVs_xDY97-w"
+        },
+        "highlights": [
+          "Placed 3rd in the 2nd edition of the Crown Prince Award for Best Government Service Application with the Dawaie app.",
+          "The team was awarded a 20,000 JOD (about $28,200) prize.",
+          "Competed against about 122 projects submitted by 25 universities across Jordan.",
+          "Led the four-student team from the University of Jordan as team leader: Mohammad Albarham, Mohammad Khaleel Al-Khawaldeh, Zaid Sameer Al-Khateeb, and Zuhair Raed Mahmoud.",
+          "Recognised by the University of Jordan's Innovation and Entrepreneurship Centre with a certificate of appreciation and a university shield on 1 September 2021.",
+          "Represented the team on Jordanian television to present the application after the award."
+        ],
+        "gallery": [
+          "assets/img/competitions/competition-2/award-ceremony-livestream.jpg",
+          "assets/img/competitions/competition-2/app-screenshot.png",
+          "assets/img/competitions/competition-2/crown-prince-award-site.png",
+          "assets/img/competitions/competition-2/tv-interview.jpg",
+          "assets/img/competitions/competition-2/certificate.jpg",
+          "assets/img/competitions/competition-2/certificate-and-shield.jpg"
+        ],
+        "detailsPage": "competitions/competition-details-2.html"
+      },
+      {
+        "id": "competition-3",
+        "title": "ICPC \u2014 JU Competitive Programming Contest (JUCPC)",
+        "award": [
+          "Extreme Programmers",
+          "First to Solve Problem A"
+        ],
+        "rank": null,
+        "date": "2019-06",
+        "organizer": "ICPC \u2014 International Competitive Programming Contest & the University of Jordan",
+        "location": "Amman, Jordan",
+        "image": "assets/img/competitions/competition-3/jucpc-2019-group-photo.jpg",
+        "shortDescription": "Competed in the 2018 and 2019 editions of the JU Competitive Programming Contest, earning the Extreme Programmers award and a First to Solve Problem A award in 2019.",
+        "description": "The JU Competitive Programming Contest (JUCPC) is the University of Jordan's qualifier within the ICPC, the International Competitive Programming Contest. Teams of three share a single machine and race to solve as many algorithmic problems as they can within a five-hour window, with a balloon delivered to the desk for every problem accepted. I competed in the 2018 edition on 6 April 2018 and again in the 2019 edition on 22 June 2019, where the contest was run under the ACPC, the Africa and Arab Collegiate Programming Championship, and I received two Certificates of Achievement.",
+        "technologies": [
+          "C++",
+          "Algorithms",
+          "Data Structures",
+          "Problem Solving"
+        ],
+        "links": {
+          "site": "https://icpc.global/"
+        },
+        "highlights": [
+          "Awarded the Extreme Programmers Certificate of Achievement at the 2019 JU Competitive Programming Contest on 22 June 2019.",
+          "Awarded a First to Solve Problem A Certificate of Achievement at the same contest, for being first in the field to get problem A accepted.",
+          "Both certificates were signed by William B. Poucher, ICPC Executive Director, and Ossama M. Ismail, ACPC Championship Director.",
+          "Also competed in JUCPC 2018 on 6 April 2018, receiving a Certificate of Participation signed by the Dean of the King Abdullah II School for Information Technology and the President of the Jordan Programmers Association.",
+          "Solved algorithmic problems in C++ under ICPC rules: three contestants to a team, one shared computer, five hours, penalty time for wrong submissions.",
+          "Organised by the University of Jordan with the Jordanian Programmers Association, the Students' Union, the Innovation and Entrepreneurship Center, and the ICPC Foundation."
+        ],
+        "gallery": [
+          "assets/img/competitions/competition-3/certificate-extreme-programmers.jpg",
+          "assets/img/competitions/competition-3/certificate-first-to-solve-problem-a.jpg",
+          "assets/img/competitions/competition-3/jucpc-2019-team.jpg",
+          "assets/img/competitions/competition-3/jucpc-2019-contestants.jpg",
+          "assets/img/competitions/competition-3/jucpc-2019-contest-hall.jpg",
+          "assets/img/competitions/competition-3/jucpc-2019-opening-ceremony.jpg",
+          "assets/img/competitions/competition-3/jucpc-2019-closing-ceremony.jpg",
+          "assets/img/competitions/competition-3/jucpc-2018-group-photo.jpg",
+          "assets/img/competitions/competition-3/jucpc-2018-team.jpg",
+          "assets/img/competitions/competition-3/jucpc-2018-team-selfie.jpg",
+          "assets/img/competitions/competition-3/jucpc-2018-certificate.jpg",
+          "assets/img/competitions/competition-3/jucpc-2018-campus-banner.jpg",
+          "assets/img/competitions/competition-3/jucpc-2018-balloons.jpg",
+          "assets/img/competitions/competition-3/icpc-logo.jpg"
+        ],
+        "detailsPage": "competitions/competition-details-3.html"
+      },
+      {
+        "id": "competition-4",
+        "title": "IEEE RAS Portal: FireFighting I",
+        "award": [
+          "4th Place",
+          "Best Design Award",
+          "Clean Sheet Award"
+        ],
+        "rank": 4,
+        "date": "2019-06",
+        "organizer": "IEEE RAS - University of Jordan Student Branch",
+        "location": "Amman, Jordan",
+        "image": "assets/img/competitions/competition-4/portal-2019-team-with-robots.jpg",
+        "shortDescription": "Placed 4th and took the Best Design and Clean Sheet awards with a self-built firefighting robot, as team Electrone X.",
+        "description": "Portal: FireFighting is the annual IEEE RAS robotics competition run by the IEEE RAS chapter at the University of Jordan Student Branch, giving Jordanian youth a local arena to design and build their own firefighting robot prototypes. Competing as team Electrone X with my colleague Abdullah Abu Dabaseh, we built our robots from scratch and finished 4th overall, and were also awarded the Best Design Award for the mechanical design and the Clean Sheet Award for faultless runs.",
+        "technologies": [
+          "Robotics",
+          "Embedded Systems",
+          "Mechanical Design",
+          "3D Printing"
+        ],
+        "links": {
+          "Competition event page": "https://web.facebook.com/events/384083625504106/"
+        },
+        "highlights": [
+          "Finished 4th overall in the IEEE RAS Portal: FireFighting competition, held on 29 June 2019 at the University of Jordan.",
+          "Won the Best Design Award for the mechanical design of the robot, and the Clean Sheet Award for completing the runs without faults.",
+          "Competed as team Electrone X with my colleague Abdullah Abu Dabaseh, each of us building and running a robot of our own design.",
+          "Built the robots from scratch on a custom four-wheel chassis, with microcontroller-driven motors and a servo, a motor-driven fan to put out the flame, and laser-cut acrylic and 3D-printed parts.",
+          "Certificates signed by Prof. Lutfi Al-Sharif, IEEE RAS Jordan Chapter Chairman, and Omar Turkmani, IEEE JU RAS Chairman.",
+          "Placed 3rd with the same colleague in the previous Portal: Firefighting competition, held in October 2018."
+        ],
+        "gallery": [
+          "assets/img/competitions/competition-4/portal-2019-robot-setup.jpg",
+          "assets/img/competitions/competition-4/portal-2019-event-banners.jpg",
+          "assets/img/competitions/competition-4/portal-2019-robot-prototype.jpg",
+          "assets/img/competitions/competition-4/portal-2019-robot-chassis.jpg",
+          "assets/img/competitions/competition-4/certificate-best-design.jpg",
+          "assets/img/competitions/competition-4/certificate-clean-sheet.jpg",
+          "assets/img/competitions/competition-4/certificate-participation.jpg"
+        ],
+        "detailsPage": "competitions/competition-details-4.html"
+      },
+      {
+        "id": "competition-5",
+        "title": "Portal: Firefighting Competition",
+        "award": "3rd Place",
+        "rank": 3,
+        "date": "2018-10",
+        "organizer": "IEEE RAS - University of Jordan Student Branch",
+        "location": "Amman, Jordan",
+        "image": "assets/img/competitions/competition-5/portal-2018-arena-run.jpg",
+        "shortDescription": "Placed 3rd with my colleague Abdullah Abu Dabaseh in the IEEE RAS Portal firefighting robot competition at the University of Jordan.",
+        "description": "Portal: Firefighting is the IEEE RAS robotics competition run by the IEEE RAS chapter at the University of Jordan Student Branch, where teams build their own robots and send them through a maze arena to find and put out a flame. Competing with my colleague Abdullah Abu Dabaseh, we placed 3rd in this edition, held on 6 October 2018. We entered again the following year, in IEEE RAS Portal: FireFighting I in June 2019, and finished 4th while taking the Best Design and Clean Sheet awards.",
+        "technologies": [
+          "Robotics",
+          "Embedded Systems",
+          "Mechanical Design"
+        ],
+        "links": {
+          "Competition event page": "https://web.facebook.com/events/960500750804137/"
+        },
+        "highlights": [
+          "Placed 3rd with my colleague Abdullah Abu Dabaseh, competing on 6 October 2018 at the University of Jordan.",
+          "Teams sent self-built robots through a plywood maze arena to reach a flame and extinguish it, with judges following each run around the arena.",
+          "Organised by the IEEE RAS chapter of the University of Jordan Student Branch, with the event carrying IEEE Day branding.",
+          "Returned the following year for IEEE RAS Portal: FireFighting I in June 2019, where we finished 4th and won the Best Design and Clean Sheet awards."
+        ],
+        "gallery": [
+          "assets/img/competitions/competition-5/portal-2018-opening-remarks.jpg",
+          "assets/img/competitions/competition-5/portal-2018-judging-run.jpg",
+          "assets/img/competitions/competition-5/portal-2018-robot-in-maze.jpg",
+          "assets/img/competitions/competition-5/portal-2018-teams-preparing.jpg",
+          "assets/img/competitions/competition-5/portal-2018-team-table.jpg",
+          "assets/img/competitions/competition-5/portal-2018-group-photo.jpg"
+        ],
+        "detailsPage": "competitions/competition-details-5.html"
+      }
+    ],
+    "education": [
+      {
+        "id": "chalmers-msc",
+        "institution": "Chalmers University of Technology",
+        "location": "Gothenburg, Sweden",
+        "degree": "MSc in Systems, Control and Mechatronics",
+        "focus": "Artificial Intelligence, Autonomous Systems & Control",
+        "startDate": "2024-09",
+        "endDate": "2026-06",
+        "current": false,
+        "logo": "assets/img/chalmers_logo.png",
+        "url": "https://www.chalmers.se/en/",
+        "scholarship": "SI Scholarship for Global Professionals",
+        "completedCourses": [
+          {
+            "code": "ESS101",
+            "name": "Modelling and simulation",
+            "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/ESS101/"
+          },
+          {
+            "code": "SSY165",
+            "name": "Logic, learning, and decision",
+            "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY165/"
+          },
+          {
+            "code": "EEN020",
+            "name": "Computer vision",
+            "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/EEN020/",
+            "projectUrl": "projects/latest-projects-2.html"
+          },
+          {
+            "code": "SSY285",
+            "name": "Linear control system design",
+            "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY285/"
+          },
+          {
+            "code": "TDA233",
+            "name": "Algorithms for machine learning and inference",
+            "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/TDA233/"
+          },
+          {
+            "code": "SSY156",
+            "name": "Modelling and control of mechatronic systems",
+            "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY156/"
+          },
+          {
+            "code": "SSY345",
+            "name": "Sensor fusion and nonlinear filtering",
+            "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY345/"
+          },
+          {
+            "code": "SUMMER",
+            "name": "Summer School (2025): Analysis and Modelling of Road-User Behaviour",
+            "url": "https://idealeague.org/analysis-and-modelling-road-user-behavior-2025/"
+          },
+          {
+            "code": "RRY025",
+            "name": "Image processing",
+            "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/RRY025/"
+          },
+          {
+            "code": "SSY340",
+            "name": "Deep machine learning",
+            "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY340/?acYear=2025%2F2026",
+            "projectUrl": "projects/latest-projects-5.html"
+          },
+          {
+            "code": "TRA220",
+            "name": "GPU-accelerated Computational Methods using Python and CUDA",
+            "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/TRA220/?acYear=2025%2F2026"
+          },
+          {
+            "code": "SSY226",
+            "name": "Design project in systems",
+            "url": "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY226/?acYear=2025%2F2026"
+          },
+          {
+            "code": "Master Thesis",
+            "name": "Scene Understanding and Query-Based Retrieval for Automotive Vision Systems in ADAS",
+            "links": [
+              {
+                "label": "Chalmers ODR",
+                "url": "https://odr.chalmers.se/items/d9204e49-d64d-40e7-9cc2-38bd4aefbd60"
+              },
+              {
+                "label": "Google Scholar",
+                "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3znRUJoAAAAJ&citation_for_view=3znRUJoAAAAJ:KlAtU1dfN6UC"
+              }
+            ]
+          }
+        ],
+        "currentCourses": []
+      },
+      {
+        "id": "uj-bsc",
+        "institution": "University of Jordan",
+        "location": "Amman, Jordan",
+        "degree": "BSc in Mechatronics Engineering",
+        "focus": "Robotics, Artificial Intelligence, Control, Automation, FPGA, Embedded Systems, and Mechatronics System Design",
+        "startDate": "2016-09",
+        "endDate": "2022-06",
+        "current": false,
+        "logo": "assets/img/University_of_Jordan_Logo.png",
+        "url": "https://www.ju.edu.jo/Home.aspx",
+        "gpa": "3.94/4.00",
+        "rank": "1st",
+        "accreditation": "ABET (Accreditation Board for Engineering and Technology)",
+        "scholarship": "Grant from Ministry of Higher Education and Scientific Research",
+        "graduationProject": {
+          "title": "Design of Arabic sign language recognition model",
+          "url": "https://arxiv.org/abs/2301.02693"
+        },
+        "completedCourses": [],
+        "currentCourses": []
+      }
+    ],
+    "experience": [
+      {
+        "id": "aptiv-2025",
+        "company": "Aptiv",
+        "position": "Advanced Safety System Student Engineer",
+        "type": "full-time",
+        "startDate": "2025-03",
+        "endDate": null,
+        "current": true,
+        "location": "Gothenburg, Sweden",
+        "logo": "assets/img/aptiv-logo.png",
+        "url": "https://www.aptiv.com/en",
+        "description": "Working on saving more lives through Advanced Safety Systems, specifically on the Vision System of vehicles.",
+        "responsibilities": [
+          "Analyze the events and cases related to AEB (Automatic Emergency Braking)",
+          "Automate the software processes and make them efficient",
+          "Fuse sensors such as camera and LiDAR",
+          "Test the advanced safety systems in real-life scenarios",
+          "Work on internal tools development"
+        ],
+        "technologies": [
+          "Computer Vision",
+          "LiDAR",
+          "Sensor Fusion",
+          "Python",
+          "C++"
+        ]
+      },
+      {
+        "id": "rise-uos-2022",
+        "company": "Research Institute of Sciences and Engineering (RISE) - University of Sharjah",
+        "position": "Machine Learning Scientist",
+        "type": "full-time",
+        "startDate": "2022-12",
+        "endDate": "2024-08",
+        "current": false,
+        "location": "Sharjah, UAE",
+        "logo": "assets/img/university_of_sharjah_logo.png",
+        "url": "https://www.sharjah.ac.ae/en/Research/RISE",
+        "description": "Worked on NLP and Computer Vision projects under the supervision of Prof. Ashraf Elnagar and Prof. Imad Afyouni.",
+        "responsibilities": [
+          "Responsible for working in NLP and CV projects",
+          "Developing a chatbot for the Arabic language and integrating it into other applications",
+          "Developing Arabic Sign Language projects using image classification and object detection",
+          "Deploying the models to be used in production (Prototypes and Demos)"
+        ],
+        "supervisors": [
+          {
+            "name": "Ashraf Elnagar",
+            "url": "https://www.sharjah.ac.ae/Academics/Faculty-And-Staff/Ashraf-Elnagar"
+          },
+          {
+            "name": "Imad Afyouni",
+            "url": "https://www.sharjah.ac.ae/Academics/Faculty-And-Staff/Imad-Afyouni"
+          }
+        ],
+        "technologies": [
+          "PyTorch",
+          "Transformers",
+          "Arabic NLP",
+          "Computer Vision",
+          "RASA",
+          "Docker"
+        ]
+      },
+      {
+        "id": "appswave-2022",
+        "company": "Appswave Information Technology",
+        "position": "Product Owner",
+        "type": "full-time",
+        "startDate": "2022-01",
+        "endDate": "2022-11",
+        "current": false,
+        "location": "Amman, Jordan",
+        "logo": "assets/img/appswave-logo.png",
+        "url": "https://appswave.io/en/home",
+        "description": "Led product development and managed cross-functional teams.",
+        "responsibilities": [
+          "Responsible for communicating with stakeholders across the board",
+          "Serving as a liaison between product and development",
+          "Maximizing the value of the products",
+          "Managing and prioritizing the product backlog",
+          "Managing the repositories in Bitbucket"
+        ],
+        "technologies": [
+          "Agile",
+          "Scrum",
+          "Bitbucket",
+          "JIRA"
+        ]
+      },
+      {
+        "id": "kenda-ai-2022",
+        "company": "Kenda AI",
+        "position": "AI Engineer and Co-founder",
+        "type": "full-time",
+        "startDate": "2022-02",
+        "endDate": "2022-07",
+        "current": false,
+        "location": "Remote",
+        "logo": "assets/img/kendaai_logo.jpeg",
+        "url": "https://kenda-ai.com/",
+        "description": "Co-founded Kenda AI and contributed to building AI-powered solutions.",
+        "responsibilities": [
+          "Co-founded Kenda AI and contributed to building AI-powered solutions focused on Arabic language learning and handwriting recognition using Computer Vision",
+          "Supported the development and deployment of AI models, ensuring smooth integration into production systems"
+        ],
+        "technologies": [
+          "Computer Vision",
+          "PyTorch",
+          "Arabic Handwriting Recognition",
+          "Flask"
+        ]
+      },
+      {
+        "id": "xina-ai-2020",
+        "company": "Xina AI",
+        "position": "Data Science Intern",
+        "type": "internship",
+        "startDate": "2020-09",
+        "endDate": "2020-12",
+        "current": false,
+        "location": "Amman, Jordan",
+        "logo": "assets/img/xina_ai_logo.png",
+        "url": null,
+        "description": "Learned and applied AI/ML fundamentals in practical projects.",
+        "responsibilities": [
+          "Mastered the fundamentals of Artificial Intelligence",
+          "Used PyTorch to build multi-layer neural networks and analyze real data",
+          "Built Convolutional Networks for image classification",
+          "Learned NLP basics and built Recurrent Networks for sentiment analysis",
+          "Learned data annotation for ASR, NER, POS tagging",
+          "Built NLU and Rule-Based chatbots"
+        ],
+        "technologies": [
+          "PyTorch",
+          "Python",
+          "NLP",
+          "CNN",
+          "RNN"
+        ]
+      },
+      {
+        "id": "nanolab-gju-2019",
+        "company": "Nano Lab - German Jordanian University",
+        "position": "Embedded Systems Intern",
+        "type": "internship",
+        "startDate": "2019-05",
+        "endDate": "2019-07",
+        "current": false,
+        "location": "Madaba, Jordan",
+        "logo": "assets/img/GJU_logo.png",
+        "url": "https://nanolab.gju.edu.jo/",
+        "description": "Worked on embedded systems programming for medical devices.",
+        "responsibilities": [
+          "Programmed ARM microcontroller using C-embedded language for blood type checking device",
+          "Developed software for semi-automated blood grouping apparatus using microfluidic disc technology",
+          "Implemented centrifugal force-based blood sample movement through microfluidic channels"
+        ],
+        "technologies": [
+          "ARM",
+          "C",
+          "Embedded Systems",
+          "Microcontrollers"
+        ]
+      },
+      {
+        "id": "ebtikar-2019",
+        "company": "Innovation for Creativity Development Association",
+        "position": "Trainer - Arduino Course",
+        "type": "part-time",
+        "startDate": "2019-05",
+        "endDate": "2019-07",
+        "current": false,
+        "location": "Amman, Jordan",
+        "logo": "assets/img/ebtikar_logo.png",
+        "url": "https://ebtikar-innov.org/",
+        "description": "Trained students aged 13-19 in electronics and microcontrollers.",
+        "responsibilities": [
+          "Trained electronics and microcontrollers practical lectures for students 13-19 years",
+          "Collaborated with Albaqa's association for Humanitarian helping funded by UNICEF",
+          "Used Arduino microcontroller to create practical applications"
+        ],
+        "technologies": [
+          "Arduino",
+          "Electronics",
+          "Embedded Systems",
+          "Teaching"
+        ]
+      },
+      {
+        "id": "phi-science-2019",
+        "company": "Phi Science Institute",
+        "position": "Applied Researcher",
+        "type": "part-time",
+        "startDate": "2019-02",
+        "endDate": "2020-02",
+        "current": false,
+        "location": "Amman, Jordan",
+        "logo": "assets/img/phiscience_logo.jpeg",
+        "url": "https://www.phi.science/",
+        "detailsPage": "/experience/phi-pair.html",
+        "description": "Selected as a top-10% innovator into PAIR, Phi's applied research and entrepreneurship program funded by the Embassy of the Netherlands in Jordan, taking a hardware product from problem statement to a fabricated prototype with a multidisciplinary team.",
+        "responsibilities": [
+          "Defined a scientific problem from qualitative market research and defended the research proposal before a scientific committee",
+          "Applied the Delft industrial design approach to turn the concept into a functional hardware product",
+          "Built the go-to-market strategy: competitive analysis, positioning, messaging and pricing for a hardware product",
+          "Fabricated the working prototype using 3D printing, CNC, laser cutting and moulding, presented to industry professionals"
+        ],
+        "technologies": [
+          "Applied Research",
+          "Product Design",
+          "Delft Design Approach",
+          "Market Research",
+          "Go-To-Market Strategy",
+          "Digital Fabrication",
+          "3D Printing",
+          "CNC and Laser Cutting"
+        ]
+      }
+    ],
+    "programming-languages": {
+      "source": "github.com/mohammad-albarham",
+      "method": "Hand-written code only, across public non-fork repositories. Notebook code cells count as their kernel language; notebook outputs, vendored libraries, datasets and media are excluded.",
+      "repositories": 57,
+      "notebooks": 179,
+      "totalBytes": 7343895,
+      "languages": [
+        {
+          "name": "Python",
+          "pct": 33,
+          "bytes": 2430143
+        },
+        {
+          "name": "Rust",
+          "pct": 17,
+          "bytes": 1234031
+        },
+        {
+          "name": "HTML & CSS",
+          "pct": 15,
+          "bytes": 1116360
+        },
+        {
+          "name": "JavaScript",
+          "pct": 9,
+          "bytes": 701548
+        },
+        {
+          "name": "TypeScript",
+          "pct": 8,
+          "bytes": 590708
+        },
+        {
+          "name": "C",
+          "pct": 7,
+          "bytes": 505096
+        },
+        {
+          "name": "Assembly",
+          "pct": 3,
+          "bytes": 201848
+        },
+        {
+          "name": "C++",
+          "pct": 2,
+          "bytes": 142096
+        },
+        {
+          "name": "Kotlin",
+          "pct": 2,
+          "bytes": 119777
+        },
+        {
+          "name": "Shell",
+          "pct": 1,
+          "bytes": 84366
+        },
+        {
+          "name": "Verilog",
+          "pct": 1,
+          "bytes": 71130
+        },
+        {
+          "name": "MATLAB",
+          "pct": 1,
+          "bytes": 53626
+        },
+        {
+          "name": "Arduino",
+          "pct": 1,
+          "bytes": 49037
+        }
+      ]
+    },
+    "projects": [
+      {
+        "id": "dinov3-mask2former",
+        "title": "DINOv3-Mask2Former: Urban Instance Segmentation",
+        "category": "ai",
+        "tags": [
+          "Computer Vision",
+          "Deep Learning",
+          "Instance Segmentation",
+          "Transformers"
+        ],
+        "featured": true,
+        "image": "assets/img/portfolio/dinov3_segmentation_result.jpg",
+        "shortDescription": "Unified instance segmentation framework combining self-supervised DINOv3 Vision Transformer with Mask2Former for urban streetscapes",
+        "description": "A unified instance segmentation framework (DINOv3-Mask2Former) for urban streetscapes, integrating a self-supervised Vision Transformer (DINOv3) backbone with a Mask2Former head via an enhanced ViT Adapter. Evaluated on the Mapillary Vistas dataset, demonstrating strong performance on large urban objects. Developed as part of SSY340 \u2013 Deep Machine Learning at Chalmers University.",
+        "technologies": [
+          "PyTorch",
+          "DINOv3",
+          "Mask2Former",
+          "ViT Adapter",
+          "HuggingFace Transformers"
+        ],
+        "links": {
+          "github": "https://github.com/mohammad-albarham/DINOv3-and-Mask2Former-for-Urban-Streetscapes-Instance-Segmentation",
+          "report": "assets/docs/SSY340_Project_report.pdf",
+          "poster": "assets/docs/SSY340_Project_Poster.pdf"
+        },
+        "year": 2025,
+        "detailsPage": "projects/latest-projects-5.html"
+      },
+      {
+        "id": "fast-rich",
+        "title": "Fast-Rich: High-Performance Terminal UI",
+        "category": "tools",
+        "tags": [
+          "Rust",
+          "Terminal UI",
+          "CLI",
+          "Performance"
+        ],
+        "featured": true,
+        "image": "assets/img/portfolio/fast-rich.png",
+        "shortDescription": "High-performance Rust library for rendering rich text and complex terminal user interfaces",
+        "description": "Fast-Rich is a high-performance Rust library for rendering rich text and complex terminal user interfaces. Inspired by Python's Rich library, it provides a powerful and easy-to-use API for building beautiful CLI applications.",
+        "technologies": [
+          "Rust",
+          "Terminal UI",
+          "CLI",
+          "Performance"
+        ],
+        "links": {
+          "demo": "https://mohammad-albarham.github.io/fast-rich/",
+          "github": "https://github.com/mohammad-albarham/fast-rich"
+        },
+        "year": 2025
+      },
+      {
+        "id": "ratatalk",
+        "title": "RataTalk: Terminal Chat Client",
+        "category": "application",
+        "tags": [
+          "Rust",
+          "TUI",
+          "Chat",
+          "Ratatui"
+        ],
+        "featured": true,
+        "image": "assets/img/portfolio/ratatalk.png",
+        "shortDescription": "Terminal-based chat client built with Rust and Ratatui",
+        "description": "RataTalk is a terminal-based chat client built with Rust and Ratatui. It offers a secure, fast, and lightweight way to communicate directly from your terminal, featuring a modern TUI interface.",
+        "technologies": [
+          "Rust",
+          "TUI",
+          "Ratatui",
+          "Chat"
+        ],
+        "links": {
+          "github": "https://github.com/mohammad-albarham/ratatalk"
+        },
+        "year": 2025
+      },
+      {
+        "id": "araclip-project",
+        "title": "AraCLIP: Cross-Lingual Arabic Image Retrieval",
+        "category": "ai",
+        "tags": [
+          "Computer Vision",
+          "NLP",
+          "Arabic",
+          "Deep Learning"
+        ],
+        "featured": true,
+        "image": "assets/img/portfolio/lp_photo_1.png",
+        "shortDescription": "Cross-lingual learning model for effective Arabic text-to-image retrieval using knowledge distillation from CLIP",
+        "description": "AraCLIP extends the CLIP architecture for Arabic image retrieval tasks. It leverages Knowledge Distillation to transfer cross-modal knowledge from English to Arabic, enhancing its ability to understand Arabic text and retrieve relevant images. The model outperforms state-of-the-art multilingual models by approximately 10% across various evaluation metrics.",
+        "technologies": [
+          "PyTorch",
+          "CLIP",
+          "Transformers",
+          "Knowledge Distillation",
+          "HuggingFace"
+        ],
+        "links": {
+          "huggingface": "https://huggingface.co/Arabic-Clip",
+          "paper": "https://aclanthology.org/2024.arabicnlp-1.9/"
+        },
+        "year": 2024,
+        "detailsPage": "projects/latest-projects-1.html"
+      },
+      {
+        "id": "sfm-project",
+        "title": "Structure from Motion Algorithm",
+        "category": "computer-vision",
+        "tags": [
+          "Computer Vision",
+          "3D Reconstruction",
+          "Python"
+        ],
+        "featured": true,
+        "image": "assets/img/portfolio/lp_photo_2.png",
+        "shortDescription": "Implementation of Structure from Motion algorithm for 3D reconstruction from multiple images",
+        "description": "Implementation of Structure from Motion (SfM) algorithm for reconstructing 3D scenes from multiple 2D images.",
+        "technologies": [
+          "Python",
+          "OpenCV",
+          "NumPy",
+          "Computer Vision"
+        ],
+        "links": {},
+        "year": 2024,
+        "detailsPage": "projects/latest-projects-2.html"
+      },
+      {
+        "id": "tts-arabic-poetry",
+        "title": "Text to Speech for Arabic Poetry",
+        "category": "ai",
+        "tags": [
+          "NLP",
+          "Arabic",
+          "Speech Synthesis",
+          "Deep Learning"
+        ],
+        "featured": true,
+        "image": "assets/img/portfolio/tts_image.jpeg",
+        "shortDescription": "Text-to-speech system specialized for Arabic poetry with proper pronunciation and rhythm",
+        "description": "A specialized text-to-speech system designed for Arabic poetry, focusing on proper pronunciation, rhythm, and intonation patterns unique to Arabic poetic forms.",
+        "technologies": [
+          "PyTorch",
+          "TTS",
+          "Arabic NLP"
+        ],
+        "links": {},
+        "year": 2024,
+        "detailsPage": "projects/latest-projects-3.html"
+      },
+      {
+        "id": "mapillary-visualizer",
+        "title": "Mapillary Vistas Dataset Visualizer",
+        "category": "tools",
+        "tags": [
+          "Computer Vision",
+          "Visualization",
+          "Dataset Tools"
+        ],
+        "featured": true,
+        "image": "assets/img/portfolio/lp_photo_4.jpg",
+        "shortDescription": "Interactive visualizer for the Mapillary Vistas semantic segmentation dataset",
+        "description": "An interactive visualization tool for exploring the Mapillary Vistas dataset, a large-scale street-level imagery dataset for semantic segmentation.",
+        "technologies": [
+          "Python",
+          "Visualization",
+          "Semantic Segmentation"
+        ],
+        "links": {
+          "github": "https://github.com/mohammad-albarham/mapillary_dataset_visualizer_InsSeg"
+        },
+        "year": 2024,
+        "detailsPage": "projects/latest-projects-4.html"
+      },
+      {
+        "id": "rasa-chatgpt",
+        "title": "RASA Chatbot with ChatGPT Integration",
+        "category": "ai",
+        "tags": [
+          "NLP",
+          "Chatbot",
+          "RASA",
+          "OpenAI"
+        ],
+        "featured": true,
+        "image": "assets/img/portfolio/p1.png",
+        "shortDescription": "Integration of RASA framework with ChatGPT for enhanced conversational AI",
+        "description": "This project integrates RASA with ChatGPT to create an enhanced conversational AI system. The chatbot was designed to act as a therapist and handles various conversations.",
+        "technologies": [
+          "RASA",
+          "OpenAI",
+          "Python",
+          "NLP"
+        ],
+        "links": {
+          "github": "https://github.com/ML-ALP-Research-Group/Rasa_chatbot_with_chatgpt"
+        },
+        "year": 2023,
+        "detailsPage": "projects/portfolio-details-1.html"
+      },
+      {
+        "id": "masc",
+        "title": "MASC: Massive Arabic Speech Corpus",
+        "category": "dataset",
+        "tags": [
+          "Arabic",
+          "Speech",
+          "Dataset",
+          "ASR"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/p2.gif",
+        "shortDescription": "Large-scale Arabic speech corpus for automatic speech recognition research",
+        "description": "MASC is a comprehensive Arabic speech corpus designed for automatic speech recognition research, containing diverse Arabic dialects and speech patterns.",
+        "technologies": [
+          "Speech Processing",
+          "Dataset Creation",
+          "Arabic NLP"
+        ],
+        "links": {
+          "huggingface": "https://huggingface.co/datasets/pain/MASC",
+          "github": "https://github.com/TRoboto/MASC",
+          "paper": "https://ieeexplore.ieee.org/document/10022652"
+        },
+        "year": 2023,
+        "detailsPage": "projects/portfolio-details-2.html"
+      },
+      {
+        "id": "maha-library",
+        "title": "Maha NLP Library",
+        "category": "tools",
+        "tags": [
+          "NLP",
+          "Arabic",
+          "Python Library"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/p3.png",
+        "shortDescription": "Arabic text processing library for NLP tasks",
+        "description": "Maha is a Python library for Arabic text processing, providing tools for text cleaning, normalization, and preprocessing for NLP applications.",
+        "technologies": [
+          "Python",
+          "Arabic NLP",
+          "Text Processing"
+        ],
+        "links": {},
+        "year": 2022,
+        "detailsPage": "projects/portfolio-details-3.html"
+      },
+      {
+        "id": "dwai-app",
+        "title": "Dwai Medical Application",
+        "category": "application",
+        "tags": [
+          "Healthcare",
+          "Mobile App",
+          "AI"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/p4.png",
+        "shortDescription": "Medical application for healthcare services",
+        "description": "A medical application designed to provide healthcare services and information to users.",
+        "technologies": [
+          "Mobile Development",
+          "Healthcare"
+        ],
+        "links": {},
+        "year": 2021,
+        "detailsPage": "projects/portfolio-details-4.html"
+      },
+      {
+        "id": "arsl-raspberry-pi",
+        "title": "Arabic Sign Language Recognition on Raspberry Pi",
+        "category": "embedded",
+        "tags": [
+          "Computer Vision",
+          "Embedded Systems",
+          "Sign Language"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/arsl_rasperrypi/ArSL_project.jpg",
+        "shortDescription": "Real-time Arabic sign language recognition system deployed on Raspberry Pi",
+        "description": "A compact Arabic Sign Language recognition system optimized for deployment on Raspberry Pi, enabling real-time sign language translation.",
+        "technologies": [
+          "Raspberry Pi",
+          "TensorFlow Lite",
+          "Computer Vision",
+          "Python"
+        ],
+        "links": {},
+        "year": 2022,
+        "detailsPage": "projects/portfolio-details-10.html"
+      },
+      {
+        "id": "rgb-arsl-dataset",
+        "title": "RGB Arabic Alphabets Sign Language Dataset",
+        "category": "dataset",
+        "tags": [
+          "Computer Vision",
+          "Dataset",
+          "Sign Language",
+          "Arabic"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/rgb_paper/dataset-cover.jpg",
+        "shortDescription": "Comprehensive RGB dataset for Arabic Alphabets Sign Language recognition",
+        "description": "A comprehensive RGB dataset for Arabic Alphabets Sign Language recognition, containing diverse samples for training and evaluation of sign language recognition models.",
+        "technologies": [
+          "Dataset Creation",
+          "Computer Vision",
+          "Arabic Sign Language"
+        ],
+        "links": {
+          "kaggle": "https://www.kaggle.com/datasets/...",
+          "huggingface": "https://huggingface.co/datasets/pain/AASL",
+          "roboflow": "https://universe.roboflow.com/rgb-arsl/rgb-arabic-alphabet-sign-language-aasl-dataset",
+          "paper": "https://arxiv.org/abs/2301.11932"
+        },
+        "year": 2023,
+        "detailsPage": "projects/portfolio-details-15.html"
+      },
+      {
+        "id": "gans-mnist",
+        "title": "GANs for MNIST Digit Generation",
+        "category": "ai",
+        "tags": [
+          "Deep Learning",
+          "GANs",
+          "Computer Vision"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/p11.png",
+        "shortDescription": "Generative Adversarial Networks implementation for MNIST digit generation",
+        "description": "Implementation of Generative Adversarial Networks (GANs) for generating realistic MNIST handwritten digits.",
+        "technologies": [
+          "PyTorch",
+          "GANs",
+          "Deep Learning"
+        ],
+        "links": {},
+        "year": 2020,
+        "detailsPage": "projects/portfolio-details-11.html"
+      },
+      {
+        "id": "sentiment-rnn",
+        "title": "Sentiment Analysis using RNN",
+        "category": "ai",
+        "tags": [
+          "NLP",
+          "Deep Learning",
+          "Sentiment Analysis"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/p9.png",
+        "shortDescription": "Recurrent Neural Network for sentiment analysis of text data",
+        "description": "Implementation of Recurrent Neural Networks for sentiment analysis, classifying text data into positive or negative sentiment categories.",
+        "technologies": [
+          "PyTorch",
+          "RNN",
+          "NLP"
+        ],
+        "links": {},
+        "year": 2020,
+        "detailsPage": "projects/portfolio-details-9.html"
+      },
+      {
+        "id": "word2vec",
+        "title": "Word2Vec Embeddings Implementation",
+        "category": "ai",
+        "tags": [
+          "NLP",
+          "Word Embeddings",
+          "Deep Learning"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/p6.png",
+        "shortDescription": "Implementation of Word2Vec algorithm using skip-gram architecture",
+        "description": "Implementation of the Word2Vec algorithm using skip-gram architecture for learning word embeddings from text corpora.",
+        "technologies": [
+          "PyTorch",
+          "NLP",
+          "Word Embeddings"
+        ],
+        "links": {},
+        "year": 2020,
+        "detailsPage": "projects/portfolio-details-6.html"
+      },
+      {
+        "id": "tv-script-generation",
+        "title": "TV Script Generation",
+        "category": "ai",
+        "tags": [
+          "NLP",
+          "Text Generation",
+          "Deep Learning"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/p8.png",
+        "shortDescription": "RNN-based TV script generation using deep learning",
+        "description": "Using Recurrent Neural Networks to generate TV scripts by learning patterns from existing scripts.",
+        "technologies": [
+          "PyTorch",
+          "RNN",
+          "Text Generation"
+        ],
+        "links": {},
+        "year": 2020,
+        "detailsPage": "projects/portfolio-details-8.html"
+      },
+      {
+        "id": "mnist-nn",
+        "title": "MNIST Prediction using Neural Network",
+        "category": "ai",
+        "tags": [
+          "Deep Learning",
+          "Computer Vision",
+          "Classification"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/p7.png",
+        "shortDescription": "Neural network for MNIST handwritten digit classification",
+        "description": "Implementation of a neural network for classifying MNIST handwritten digits with high accuracy.",
+        "technologies": [
+          "PyTorch",
+          "Neural Networks",
+          "Computer Vision"
+        ],
+        "links": {},
+        "year": 2020,
+        "detailsPage": "projects/portfolio-details-7.html"
+      },
+      {
+        "id": "bike-sharing",
+        "title": "Bike Sharing Demand Prediction",
+        "category": "ml",
+        "tags": [
+          "Machine Learning",
+          "Regression",
+          "Data Science"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/p12.png",
+        "shortDescription": "Machine learning model for predicting bike sharing demand",
+        "description": "A machine learning model for predicting bike sharing demand based on various features like weather, time, and seasonality.",
+        "technologies": [
+          "Python",
+          "Scikit-learn",
+          "Data Analysis"
+        ],
+        "links": {},
+        "year": 2020,
+        "detailsPage": "projects/portfolio-details-12.html"
+      },
+      {
+        "id": "memory-chatbot",
+        "title": "Memory Management Chatbot",
+        "category": "ai",
+        "tags": [
+          "NLP",
+          "Chatbot",
+          "C++"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/p13.gif",
+        "shortDescription": "Chatbot implementation with memory management concepts in C++",
+        "description": "A chatbot implementation that demonstrates memory management concepts in C++, part of the Udacity C++ Nanodegree program.",
+        "technologies": [
+          "C++",
+          "Memory Management",
+          "Chatbot"
+        ],
+        "links": {},
+        "year": 2020,
+        "detailsPage": "projects/portfolio-details-13.html"
+      },
+      {
+        "id": "arsl-deep-learning",
+        "title": "Arabic Sign Language Recognition using Deep Learning",
+        "category": "ai",
+        "tags": [
+          "Computer Vision",
+          "Deep Learning",
+          "Sign Language"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/p14.gif",
+        "shortDescription": "Deep learning models for Arabic Sign Language recognition",
+        "description": "Implementation of deep learning models for recognizing Arabic Sign Language gestures from images and video.",
+        "technologies": [
+          "TensorFlow",
+          "Computer Vision",
+          "Deep Learning"
+        ],
+        "links": {},
+        "year": 2022,
+        "detailsPage": "projects/portfolio-details-14.html"
+      },
+      {
+        "id": "pwm-motor-control",
+        "title": "DC Motor Control using PWM",
+        "category": "embedded",
+        "tags": [
+          "Embedded Systems",
+          "Microcontroller",
+          "PWM"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/pwm_project/PWM.png",
+        "shortDescription": "Controlling DC motor using PWM with PIC16F778 microcontroller",
+        "description": "Implementation of DC motor speed control using Pulse Width Modulation (PWM) on a PIC16F778 microcontroller.",
+        "technologies": [
+          "PIC Microcontroller",
+          "C",
+          "PWM",
+          "Embedded Systems"
+        ],
+        "links": {},
+        "year": 2019,
+        "detailsPage": "projects/portfolio-details-16.html"
+      },
+      {
+        "id": "fpga-projects",
+        "title": "FPGA Architecture Projects",
+        "category": "embedded",
+        "tags": [
+          "FPGA",
+          "Digital Design",
+          "VHDL"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/fpga/images.jpeg",
+        "shortDescription": "Field-Programmable Gate Array architecture projects",
+        "description": "Various projects implemented on FPGA including digital design exercises and embedded systems applications.",
+        "technologies": [
+          "FPGA",
+          "VHDL",
+          "Verilog",
+          "Digital Design"
+        ],
+        "links": {},
+        "year": 2019,
+        "detailsPage": "projects/portfolio-details-19.html"
+      },
+      {
+        "id": "cnc-projects",
+        "title": "CNC Machine Projects",
+        "category": "mechatronics",
+        "tags": [
+          "CNC",
+          "Manufacturing",
+          "Automation"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/cnc/download.jpeg",
+        "shortDescription": "Computer numerical control machine projects",
+        "description": "Projects involving CNC (Computer Numerical Control) machines for automated manufacturing and precision machining.",
+        "technologies": [
+          "CNC",
+          "G-code",
+          "CAD/CAM"
+        ],
+        "links": {},
+        "year": 2019,
+        "detailsPage": "projects/portfolio-details-20.html"
+      },
+      {
+        "id": "automation-projects",
+        "title": "Industrial Automation Projects",
+        "category": "mechatronics",
+        "tags": [
+          "Automation",
+          "PLC",
+          "Industrial Systems"
+        ],
+        "featured": false,
+        "image": "assets/img/portfolio/automation/automation.jpg",
+        "shortDescription": "Industrial automation systems and control projects",
+        "description": "Various industrial automation projects involving PLCs, sensors, and automated control systems.",
+        "technologies": [
+          "PLC",
+          "Automation",
+          "Control Systems"
+        ],
+        "links": {},
+        "year": 2019,
+        "detailsPage": "projects/portfolio-details-21.html"
+      }
+    ],
+    "publications": [
+      {
+        "id": "araclip-eaai-2025",
+        "title": "Unlocking language boundaries: AraCLIP - transforming Arabic language and image understanding through cross-lingual models",
+        "authors": [
+          {
+            "name": "Muhammad Al-Barham",
+            "isMe": true
+          },
+          {
+            "name": "Imad Afyouni",
+            "isMe": false
+          },
+          {
+            "name": "Khalid Almubarak",
+            "isMe": false
+          },
+          {
+            "name": "Ayad Turky",
+            "isMe": false
+          },
+          {
+            "name": "Ibrahim Abaker Targio Hashem",
+            "isMe": false
+          },
+          {
+            "name": "Ali Bou Nassif",
+            "isMe": false
+          },
+          {
+            "name": "Ismail Shahin",
+            "isMe": false
+          },
+          {
+            "name": "Ashraf Elnagar",
+            "isMe": false
+          }
+        ],
+        "venue": "Engineering Applications of Artificial Intelligence",
+        "venueShort": "EAAI",
+        "type": "journal",
+        "year": 2025,
+        "volume": "151",
+        "pages": "110577",
+        "doi": "https://doi.org/10.1016/j.engappai.2025.110577",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0952197625005779",
+        "pdfUrl": "https://www.sciencedirect.com/science/article/pii/S0952197625005779/pdfft?md5=5c933a86797fb64ce73806d542b7a33e&pid=1-s2.0-S0952197625005779-main.pdf",
+        "huggingface": "https://huggingface.co/Arabic-Clip",
+        "abstract": "In the domain of image retrieval, the integration of text and images has been transformative, facilitating models that transcend language barriers. This paper introduces Arabic Contrastive Language-Image Pre-training (AraCLIP), an extension of the CLIP model tailored for Arabic image retrieval. AraCLIP leverages the CLIP architecture, introducing Knowledge Distillation to transfer cross-modal knowledge from a pre-trained English model to an Arabic counterpart.",
+        "keywords": [
+          "Arabic multimodal",
+          "Text-to-image retrieval",
+          "Knowledge distillation",
+          "Deep learning"
+        ],
+        "bibtex": "@article{ALBARHAM2025110577,\n  title = {Unlocking language boundaries: AraCLIP - transforming Arabic language and image understanding through cross-lingual models},\n  journal = {Engineering Applications of Artificial Intelligence},\n  volume = {151},\n  pages = {110577},\n  year = {2025},\n  issn = {0952-1976},\n  doi = {https://doi.org/10.1016/j.engappai.2025.110577},\n  url = {https://www.sciencedirect.com/science/article/pii/S0952197625005779},\n  author = {Muhammad Al-Barham and Imad Afyouni and Khalid Almubarak and Ayad Turky and Ibrahim Abaker Targio Hashem and Ali Bou Nassif and Ismail Shahin and Ashraf Elnagar}\n}",
+        "featured": true
+      },
+      {
+        "id": "araclip-acl-2024",
+        "title": "AraCLIP: Cross-Lingual Learning for Effective Arabic Image Retrieval",
+        "authors": [
+          {
+            "name": "Muhammad Al-Barham",
+            "isMe": true
+          },
+          {
+            "name": "Imad Afyouni",
+            "isMe": false
+          },
+          {
+            "name": "Khalid Almubarak",
+            "isMe": false
+          },
+          {
+            "name": "Ashraf Elnagar",
+            "isMe": false
+          },
+          {
+            "name": "Ayad Turky",
+            "isMe": false
+          },
+          {
+            "name": "Ibrahim Hashem",
+            "isMe": false
+          }
+        ],
+        "venue": "Proceedings of The Second Arabic Natural Language Processing Conference",
+        "venueShort": "ArabicNLP @ ACL",
+        "type": "conference",
+        "year": 2024,
+        "pages": "102-110",
+        "doi": null,
+        "url": "https://aclanthology.org/2024.arabicnlp-1.9/",
+        "pdfUrl": "https://aclanthology.org/2024.arabicnlp-1.9.pdf",
+        "huggingface": "https://huggingface.co/Arabic-Clip",
+        "abstract": "This paper introduces Arabic Contrastive Language-Image Pre-training (AraCLIP), a model designed for Arabic image retrieval tasks, building upon the Contrastive Language-Image Pre-training (CLIP) architecture. AraCLIP leverages Knowledge Distillation to transfer cross-modal knowledge from English to Arabic, enhancing its ability to understand Arabic text and retrieve relevant images.",
+        "keywords": [
+          "Arabic multimodal",
+          "CLIP",
+          "Image retrieval",
+          "Cross-lingual"
+        ],
+        "bibtex": "@inproceedings{al-barham-etal-2024-araclip,\n  title = \"{A}ra{CLIP}: Cross-Lingual Learning for Effective {A}rabic Image Retrieval\",\n  author = \"Al-Barham, Muhammad and Afyouni, Imad and Almubarak, Khalid and Elnagar, Ashraf and Turky, Ayad and Hashem, Ibrahim\",\n  booktitle = \"Proceedings of The Second Arabic Natural Language Processing Conference\",\n  month = aug,\n  year = \"2024\",\n  address = \"Bangkok, Thailand\",\n  publisher = \"Association for Computational Linguistics\",\n  url = \"https://aclanthology.org/2024.arabicnlp-1.9\",\n  pages = \"102--110\"\n}",
+        "featured": true
+      },
+      {
+        "id": "arsl-transfer-2023",
+        "title": "Arabic Sign Language Alphabet Classification via Transfer Learning",
+        "authors": [
+          {
+            "name": "Muhammad Al-Barham",
+            "isMe": true
+          },
+          {
+            "name": "Osama Ahmad Alomari",
+            "isMe": false
+          },
+          {
+            "name": "Ashraf Elnagar",
+            "isMe": false
+          }
+        ],
+        "venue": "International Conference on Emerging Trends and Applications in Artificial Intelligence",
+        "venueShort": "ICETAI",
+        "type": "conference",
+        "year": 2023,
+        "pages": "226-237",
+        "doi": "https://doi.org/10.1007/978-3-031-56728-5_20",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-031-56728-5_20",
+        "pdfUrl": null,
+        "abstract": "This paper presents a transfer learning approach for Arabic Sign Language alphabet classification.",
+        "keywords": [
+          "Arabic Sign Language",
+          "Transfer Learning",
+          "Image Classification"
+        ],
+        "bibtex": "@inproceedings{al2023arabic,\n  title={Arabic Sign Language Alphabet Classification via Transfer Learning},\n  author={Al-Barham, Muhammad and Alomari, Osama Ahmad and Elnagar, Ashraf},\n  booktitle={International Conference on Emerging Trends and Applications in Artificial Intelligence},\n  pages={226--237},\n  year={2023},\n  organization={Springer}\n}",
+        "featured": false
+      },
+      {
+        "id": "arabic-news-2023",
+        "title": "Arabic News Articles Classification Using Different Word Embeddings",
+        "authors": [
+          {
+            "name": "M Moneb Khaled",
+            "isMe": false
+          },
+          {
+            "name": "Muhammad Al-Barham",
+            "isMe": true
+          },
+          {
+            "name": "Osama Ahmad Alomari",
+            "isMe": false
+          },
+          {
+            "name": "Ashraf Elnagar",
+            "isMe": false
+          }
+        ],
+        "venue": "International Conference on Emerging Trends and Applications in Artificial Intelligence",
+        "venueShort": "ICETAI",
+        "type": "conference",
+        "year": 2023,
+        "pages": "125-136",
+        "doi": "https://doi.org/10.1007/978-3-031-56728-5_11",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-031-56728-5_11",
+        "pdfUrl": null,
+        "abstract": "This paper investigates different word embedding techniques for Arabic news article classification.",
+        "keywords": [
+          "Arabic NLP",
+          "Text Classification",
+          "Word Embeddings"
+        ],
+        "bibtex": "@inproceedings{khaled2023arabic,\n  title={Arabic News Articles Classification Using Different Word Embeddings},\n  author={Khaled, M Moneb and Al-Barham, Muhammad and Alomari, Osama Ahmad and Elnagar, Ashraf},\n  booktitle={International Conference on Emerging Trends and Applications in Artificial Intelligence},\n  pages={125--136},\n  year={2023},\n  organization={Springer}\n}",
+        "featured": false
+      },
+      {
+        "id": "mpa-ser-2023",
+        "title": "Marine Predatory Algorithm for Feature Selection in Speech Emotion Recognition",
+        "authors": [
+          {
+            "name": "Osama Ahmad Alomari",
+            "isMe": false
+          },
+          {
+            "name": "Muhammad Al-Barham",
+            "isMe": true
+          },
+          {
+            "name": "Ashraf Elnagar",
+            "isMe": false
+          }
+        ],
+        "venue": "International Conference on Emerging Trends and Applications in Artificial Intelligence",
+        "venueShort": "ICETAI",
+        "type": "conference",
+        "year": 2023,
+        "pages": "279-291",
+        "doi": "https://doi.org/10.1007/978-3-031-56728-5_24",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-031-56728-5_24",
+        "pdfUrl": null,
+        "abstract": "This paper proposes using Marine Predatory Algorithm for feature selection in speech emotion recognition tasks.",
+        "keywords": [
+          "Speech Emotion Recognition",
+          "Feature Selection",
+          "Optimization"
+        ],
+        "bibtex": "@inproceedings{alomari2023marine,\n  title={Marine Predatory Algorithm for Feature Selection in Speech Emotion Recognition},\n  author={Alomari, Osama Ahmad and Al-Barham, Muhammad and Elnagar, Ashraf},\n  booktitle={International Conference on Emerging Trends and Applications in Artificial Intelligence},\n  pages={279--291},\n  year={2023},\n  organization={Springer}\n}",
+        "featured": false
+      },
+      {
+        "id": "rgb-arsl-2023",
+        "title": "RGB Arabic Alphabets Sign Language Dataset",
+        "authors": [
+          {
+            "name": "Muhammad Al-Barham",
+            "isMe": true
+          },
+          {
+            "name": "Adham Alsharkawi",
+            "isMe": false
+          },
+          {
+            "name": "Musa Al-Yaman",
+            "isMe": false
+          },
+          {
+            "name": "Mohammad Al-Fetyani",
+            "isMe": false
+          },
+          {
+            "name": "Ashraf Elnagar",
+            "isMe": false
+          },
+          {
+            "name": "Ahmad Abu SaAleek",
+            "isMe": false
+          },
+          {
+            "name": "Mohammad Al-Odat",
+            "isMe": false
+          }
+        ],
+        "venue": "arXiv preprint",
+        "venueShort": "arXiv",
+        "type": "preprint",
+        "year": 2023,
+        "doi": null,
+        "url": "https://arxiv.org/abs/2301.11932",
+        "pdfUrl": "https://arxiv.org/pdf/2301.11932.pdf",
+        "kaggle": "https://www.kaggle.com/datasets/59761a7132888de252ded8443ced1c7fb21ad28be5598f1f6ca4btn3c663c32b40b",
+        "huggingface": "https://huggingface.co/datasets/pain/AASL",
+        "roboflow": "https://universe.roboflow.com/rgb-arsl/rgb-arabic-alphabet-sign-language-aasl-dataset",
+        "abstract": "This paper presents a comprehensive RGB dataset for Arabic Alphabets Sign Language recognition.",
+        "keywords": [
+          "Arabic Sign Language",
+          "Dataset",
+          "Computer Vision"
+        ],
+        "bibtex": "@article{al2023rgb,\n  title={RGB Arabic Alphabets Sign Language Dataset},\n  author={Al-Barham, Muhammad and Alsharkawi, Adham and Al-Yaman, Musa and Al-Fetyani, Mohammad and Elnagar, Ashraf and SaAleek, Ahmad Abu and Al-Odat, Mohammad},\n  journal={arXiv preprint arXiv:2301.11932},\n  year={2023}\n}",
+        "featured": true
+      },
+      {
+        "id": "masc-2023",
+        "title": "MASC: Massive Arabic Speech Corpus",
+        "authors": [
+          {
+            "name": "Mohammad Al-Fetyani",
+            "isMe": false
+          },
+          {
+            "name": "Muhammad Al-Barham",
+            "isMe": true
+          },
+          {
+            "name": "Gheith Abandah",
+            "isMe": false
+          },
+          {
+            "name": "Adham Alsharkawi",
+            "isMe": false
+          },
+          {
+            "name": "Maha Dawas",
+            "isMe": false
+          }
+        ],
+        "venue": "IEEE Spoken Language Technology Workshop (SLT)",
+        "venueShort": "IEEE SLT",
+        "type": "conference",
+        "year": 2023,
+        "pages": "1006-1013",
+        "doi": "https://doi.org/10.1109/SLT54892.2023.10022652",
+        "url": "https://ieeexplore.ieee.org/abstract/document/10022652/",
+        "pdfUrl": null,
+        "ieeeDataport": "https://ieee-dataport.org/open-access/massive-arabic-speech-corpus-masc",
+        "huggingface": "https://huggingface.co/datasets/pain/MASC",
+        "github": "https://github.com/TRoboto/MASC/tree/main",
+        "languageModel": "https://huggingface.co/TRoboto/masc_kenlm_3grams_lm",
+        "asrModel": "https://huggingface.co/TRoboto/masc_deepspeech_asr_model_v0",
+        "twitterDataset": "https://huggingface.co/datasets/pain/Arabic-Tweets",
+        "abstract": "This paper presents MASC, a Massive Arabic Speech Corpus for automatic speech recognition research.",
+        "keywords": [
+          "Arabic Speech",
+          "ASR",
+          "Dataset",
+          "Speech Recognition"
+        ],
+        "bibtex": "@inproceedings{al2023masc,\n  title={MASC: Massive Arabic Speech Corpus},\n  author={Al-Fetyani, Mohammad and Al-Barham, Muhammad and Abandah, Gheith and Alsharkawi, Adham and Dawas, Maha},\n  booktitle={2022 IEEE Spoken Language Technology Workshop (SLT)},\n  pages={1006--1013},\n  year={2023},\n  organization={IEEE}\n}",
+        "featured": true
+      },
+      {
+        "id": "arsl-deep-2022",
+        "title": "Arabic Sign Language Recognition Using Deep Learning Models",
+        "authors": [
+          {
+            "name": "Muhammad Al-Barham",
+            "isMe": true
+          },
+          {
+            "name": "Ahmad Abu Sa'Aleek",
+            "isMe": false
+          },
+          {
+            "name": "Mohammad Al-Odat",
+            "isMe": false
+          },
+          {
+            "name": "Ghada Hamad",
+            "isMe": false
+          },
+          {
+            "name": "Musa Al-Yaman",
+            "isMe": false
+          },
+          {
+            "name": "Ashraf Elnagar",
+            "isMe": false
+          }
+        ],
+        "venue": "13th International Conference on Information and Communication Systems (ICICS)",
+        "venueShort": "IEEE ICICS",
+        "type": "conference",
+        "year": 2022,
+        "pages": "226-231",
+        "doi": "https://doi.org/10.1109/ICICS55353.2022.9811162",
+        "url": "https://ieeexplore.ieee.org/abstract/document/9811162/",
+        "pdfUrl": null,
+        "abstract": "This paper presents deep learning approaches for Arabic Sign Language recognition.",
+        "keywords": [
+          "Arabic Sign Language",
+          "Deep Learning",
+          "Computer Vision"
+        ],
+        "bibtex": "@inproceedings{al2022arabic,\n  title={Arabic Sign Language Recognition Using Deep Learning Models},\n  author={Al-Barham, Muhammad and Sa'Aleek, Ahmad Abu and Al-Odat, Mohammad and Hamad, Ghada and Al-Yaman, Musa and Elnagar, Ashraf},\n  booktitle={2022 13th International Conference on Information and Communication Systems (ICICS)},\n  pages={226--231},\n  year={2022},\n  organization={IEEE}\n}",
+        "featured": false
+      }
+    ],
+    "travel": {
+      "visited": {
+        "Africa": [
+          "TN"
+        ],
+        "Asia": [
+          "JO",
+          "PS",
+          "SA",
+          "AE",
+          "TR",
+          "OM"
+        ],
+        "Europe": [
+          "NO",
+          "PL",
+          "CH",
+          "AT",
+          "DE",
+          "MK",
+          "SE",
+          "TR",
+          "HU",
+          "DK",
+          "BA",
+          "LT",
+          "FI",
+          "AL",
+          "HR",
+          "ME",
+          "XK"
+        ],
+        "North America": [
+          "CA"
+        ]
+      },
+      "continentColors": {
+        "Europe": "#c10000",
+        "North America": "#00cc00",
+        "South America": "#008000",
+        "Asia": "#f33e01",
+        "Africa": "#fed52e",
+        "Antarctica": "#0040ff",
+        "Oceania": "#c04080"
+      },
+      "countryNames": {
+        "TN": "Tunisia",
+        "JO": "Jordan",
+        "PS": "Palestine",
+        "SA": "Saudi Arabia",
+        "AE": "United Arab Emirates",
+        "TR": "Turkey",
+        "OM": "Oman",
+        "PL": "Poland",
+        "CH": "Switzerland",
+        "AT": "Austria",
+        "DE": "Germany",
+        "MK": "North Macedonia",
+        "SE": "Sweden",
+        "HU": "Hungary",
+        "DK": "Denmark",
+        "BA": "Bosnia and Herzegovina",
+        "LT": "Lithuania",
+        "FI": "Finland",
+        "CA": "Canada",
+        "XK": "Kosovo"
+      }
+    },
+    "volunteering": [
+      {
+        "id": "ieee-sweden-sac",
+        "organization": "IEEE Sweden Section",
+        "position": "Student Activities Coordinator (SAC)",
+        "startDate": "2025-04",
+        "endDate": null,
+        "current": true,
+        "logo": "assets/img/IEEE-Region-8-Logo-1024x401.png",
+        "url": "https://r8.ieee.org/sweden/",
+        "description": "",
+        "category": "ieee",
+        "level": "section"
+      },
+      {
+        "id": "ieee-r8-chapters",
+        "organization": "IEEE R8 Chapters Coordination Committee",
+        "position": "Full Member",
+        "startDate": "2023-01",
+        "endDate": null,
+        "current": true,
+        "logo": "assets/img/IEEE-Region-8-Logo-1024x401.png",
+        "url": "https://ieeer8.org/category/technical-activities/chapter-coordination/",
+        "description": "Full member of the IEEE Region 8 Chapters Coordination Committee.",
+        "category": "ieee",
+        "level": "region"
+      },
+      {
+        "id": "ieee-uae-mdc",
+        "organization": "IEEE United Arab Emirates (UAE) Section",
+        "position": "Membership Development Coordinator",
+        "startDate": "2023-03",
+        "endDate": "2024-08",
+        "current": false,
+        "logo": "assets/img/ieee-logo.webp",
+        "url": "https://ieee.ae/en/",
+        "description": "Volunteered to show clearly the value of IEEE to the IEEE United Arab Emirates members. Encouraged students and professionals to engage in IEEE activities that offer a variety of opportunities to them in the UAE and around the world.",
+        "category": "ieee",
+        "level": "section"
+      },
+      {
+        "id": "ieee-r8-sbc",
+        "organization": "IEEE Region 8 \u2013 Student Activities",
+        "position": "Student Branch Chapters Coordinator",
+        "startDate": "2022-02",
+        "endDate": "2023-01",
+        "current": false,
+        "logo": "assets/img/IEEE-Region-8-Logo-1024x401.png",
+        "url": "https://r8.ieee.org/sac/",
+        "description": "Volunteered as Student Branch Chapters Coordinator and SAC Liaison to Technical Activities Chapters Coordination Subcommittee.",
+        "category": "ieee",
+        "level": "region"
+      },
+      {
+        "id": "ieee-jordan-ssr",
+        "organization": "IEEE Jordan Section",
+        "position": "Jordan Section Student Representative",
+        "startDate": "2020-03",
+        "endDate": "2022-02",
+        "current": false,
+        "logo": "assets/img/ieee-logo.webp",
+        "url": "https://jordan.ieee.org/",
+        "description": "As Jordan Section Student Representative (SSR), represented all the Student Branches, supported all IEEE student members in the Jordan Section, and was responsible for coordinating and encouraging activities of interest to all IEEE student organizations that report to the Jordan Section. Kept students connected with the Section and its organizational units while providing networking and learning opportunities in technical, professional leadership, and teamwork skills areas.",
+        "category": "ieee",
+        "level": "section"
+      },
+      {
+        "id": "ieee-uj-president",
+        "organization": "IEEE University of Jordan Student Branch",
+        "position": "President",
+        "startDate": "2019-08",
+        "endDate": "2021-09",
+        "current": false,
+        "logo": "assets/img/ieee-logo.webp",
+        "url": null,
+        "description": "Elected to lead and drive an Executive Committee of 10 officers, approximately 20 volunteers and 180 members, as well as work with 4 different sub-committees and Affinity Group at the IEEE University of Jordan Student Branch. The branch aims to serve students and improve their technical and non-technical skills through organizing diverse activities, conferences and workshops.",
+        "category": "ieee",
+        "level": "student-branch"
+      },
+      {
+        "id": "ieee-uj-pes",
+        "organization": "IEEE University of Jordan Student Branch - Power and Energy Society",
+        "position": "Volunteer - PV Charity Project",
+        "startDate": "2018-02",
+        "endDate": "2018-10",
+        "current": false,
+        "logo": "assets/img/IEEE-pes-logo.gif",
+        "url": null,
+        "description": "Volunteered in the implementation of PV cells on 'Shabab Al Wadi charity' by IEEE University of Jordan PES Chapter. Installed a Photovoltaic system for a charity in Jordan valley \u2013 one of the remote areas in Jordan \u2013 that subsidizes poor families, orphans, refugees and college students, and provides literacy lessons and courses for the unemployed. It supports more than 600 persons in different fields.",
+        "category": "ieee",
+        "level": "student-branch"
+      }
+    ]
+  },
+  "project_detail_pages": {
+    "projects/araclip.html": {
+      "title": "AraCLIP: Arabic Image Retrieval | Mohammad Albarham",
+      "headings": [
+        "AraCLIP: Arabic Image Retrieval",
+        "Overview",
+        "Key Features",
+        "Knowledge Distillation",
+        "Arabic-First Design",
+        "Superior Performance",
+        "Open Source",
+        "Technical Approach",
+        "Architecture",
+        "Training Strategy",
+        "Results",
+        "Citation"
+      ],
+      "gallery_images": [
+        {
+          "src": "/assets/img/portfolio/lp_photo_1.png",
+          "filename": "lp_photo_1.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://aclanthology.org/2024.arabicnlp-1.9/",
+        "https://github.com/mohammad-albarham/AraCLIP",
+        "https://huggingface.co/Arabic-Clip"
+      ],
+      "paragraphs": [
+        "Cross-lingual learning model for effective Arabic text-to-image retrieval using knowledge distillation from CLIP",
+        "AraCLIP extends the CLIP architecture for Arabic image retrieval tasks. It leverages Knowledge Distillation to transfer cross-modal knowledge from English to Arabic, enhancing its ability to understand Arabic text and retrieve relevant images.",
+        "The model outperforms state-of-the-art multilingual models by approximately 10% across various evaluation metrics including recall@1, recall@5, and mean reciprocal rank.",
+        "Transfers cross-modal knowledge from English CLIP to Arabic, preserving semantic relationships.",
+        "Specifically optimized for Arabic text understanding, not just multilingual adaptation.",
+        "10% improvement over state-of-the-art multilingual vision-language models.",
+        "Model weights and training code available on HuggingFace and GitHub.",
+        "AraCLIP uses a dual-encoder architecture with:",
+        "Text Encoder: AraBERT-based model fine-tuned for Arabic text understanding",
+        "Image Encoder: Vision Transformer (ViT) pre-trained on ImageNet",
+        "Projection Heads: Linear layers mapping both encoders to shared embedding space",
+        "The model is trained using a two-stage approach:",
+        "Stage 1: Knowledge distillation from English CLIP using parallel Arabic-English datasets",
+        "Stage 2: Fine-tuning on Arabic-specific image-caption pairs with contrastive learning",
+        "AraCLIP was evaluated on multiple Arabic image-text retrieval benchmarks:",
+        "If you use AraCLIP in your research, please cite:"
+      ],
+      "word_count": 185,
+      "has_directory_img_bug": false
+    },
+    "projects/latest-projects-1.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/",
+          "filename": "portfolio",
+          "is_directory": true
+        }
+      ],
+      "external_links": [
+        "https://arabic-clip.github.io/Arabic-CLIP/",
+        "https://github.com/Arabic-Clip",
+        "https://huggingface.co/Arabic-Clip",
+        "https://huggingface.co/spaces/Arabic-Clip/AraCLIP"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Project Page",
+        "Github organization: Training and evaluation codes.",
+        "Huggingface: Datasets and checkpoints",
+        "Huggingface: Demo for retrieval system case"
+      ],
+      "word_count": 24,
+      "has_directory_img_bug": true
+    },
+    "projects/latest-projects-2.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project Related Links",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/",
+          "filename": "portfolio",
+          "is_directory": true
+        },
+        {
+          "src": "../assets/img/portfolio/lp_photo_2_1.png",
+          "filename": "lp_photo_2_1.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://se.mathworks.com/matlabcentral/fileexchange/179169-structure-from-motion-algorithm",
+        "https://www.chalmers.se/en/",
+        "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/EEN020/?acYear=2024%2F2025"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project Code in Github : Project Code - Github",
+        "Project Code in Mathworks : Project Code - Mathworks",
+        "This project is a MATLAB implementation of the Structure from Motion (SfM) algorithm. The SfM algorithm is a photogrammetric range imaging technique for estimating three-dimensional structures from two-dimensional image sequences that may be coupled with local motion signals. It is studied in the fields of computer vision and visual perception. The project is implemented using MATLAB and the code is available on both Github and Mathworks. The project was a final project for Computer Vision Course at Chalmers University of Technology ."
+      ],
+      "word_count": 103,
+      "has_directory_img_bug": true
+    },
+    "projects/latest-projects-3.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Poetry Reader's Details",
+        "Main Uses:"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/",
+          "filename": "portfolio",
+          "is_directory": true
+        }
+      ],
+      "external_links": [],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "The Poetry Reader is a tool that brings Arabic poetry to life by turning written verses into natural, expressive audio. Since Arabic poetry has a unique rhythm and deep emotions, regular text-to-speech systems often sound flat and robotic. This tool solves that problem by making sure the recitation feels more human and engaging.",
+        "Making Poetry More Accessible \u2013 Helps more people enjoy and understand Arabic poetry by providing high-quality audio versions.",
+        "Preserving Cultural Heritage \u2013 Ensures the beauty and rhythm of Arabic poetry are kept alive in digital form.",
+        "Natural-Sounding Recitation \u2013 Uses smart processing to add pauses, rhythm, and tone changes, making the reading feel more like a human reciter.",
+        "Scalable and Expandable \u2013 Can grow into an educational tool for students and poetry lovers worldwide.",
+        "By carefully structuring the text before converting it into speech, the Poetry Reader creates an authentic and engaging listening experience."
+      ],
+      "word_count": 150,
+      "has_directory_img_bug": true
+    },
+    "projects/latest-projects-4.html": {
+      "title": "Portfolio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfolio Details",
+        "Project information",
+        "Project overview",
+        "Features",
+        "Getting started",
+        "Expected outputs",
+        "Future work"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/lp_photo_4.jpg",
+          "filename": "lp_photo_4.jpg",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/mohammad-albarham/mapillary_dataset_visualizer_InsSeg",
+        "https://marimo.io/",
+        "https://rerun.io/"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfolio Details",
+        "Project name : Mapillary Dataset Visualizer for Instance Segmentation",
+        "GitHub : Source code",
+        "This project delivers advanced, interactive visualization for the Mapillary Vistas Dataset by combining marimo and Rerun . It merges the clarity of static Matplotlib outputs with powerful, real-time 2D/3D exploratory views in Rerun, enabling seamless inspection of instance-level annotations.",
+        "marimo acts as a reactive notebook environment and lightweight app framework, so code and outputs stay in sync while you experiment, debug, and explore complex urban scenes from Mapillary Vistas.",
+        "Dynamic visualization of Mapillary Vistas images and instance annotations.",
+        "Dual-output workflow: static Matplotlib figures plus interactive Rerun views.",
+        "Reproducible, Python-first workflow with marimo notebooks stored as plain .py files.",
+        "Fast, isolated virtual environments and dependency management via uv .",
+        "Install and extract the Mapillary Vistas Dataset locally, then point the project configuration to your dataset path.",
+        "Create a virtual environment with uv venv .venv and install dependencies via uv sync .",
+        "Launch the app with uv run marimo edit main_marimo.py to open the interactive notebook interface.",
+        "Static Matplotlib overlays with colored instance masks for quick qualitative inspection.",
+        "Interactive Rerun windows with camera controls, timelines, and rich 2D/3D primitives for exploring scenes.",
+        "Add semantic and panoptic segmentation visualizations.",
+        "Extend configuration to support multiple datasets and custom class mappings.",
+        "Provide additional example notebooks for analysis and error diagnosis workflows."
+      ],
+      "word_count": 222,
+      "has_directory_img_bug": false
+    },
+    "projects/latest-projects-5.html": {
+      "title": "DINOv3-Mask2Former Urban Instance Segmentation - Mohammad Al-Barham",
+      "headings": [
+        "Portfolio Details",
+        "Project information",
+        "Project overview",
+        "Abstract",
+        "Architecture",
+        "Dataset",
+        "Key highlights",
+        "Technologies"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/dinov3_segmentation_result.jpg",
+          "filename": "dinov3_segmentation_result.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/portfolio/dinov3_architecture.png",
+          "filename": "dinov3_architecture.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/mohammad-albarham/DINOv3-and-Mask2Former-for-Urban-Streetscapes-Instance-Segmentation",
+        "https://www.chalmers.se/",
+        "https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/SSY340/?acYear=2025%2F2026"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfolio Details",
+        "Project name : Combining DINOv3 and Mask2Former for Urban Streetscapes Instance Segmentation",
+        "Course : SSY340 \u2013 Deep Machine Learning (Chalmers University) View course details",
+        "GitHub : Source code",
+        "Authors : Yinghao Chen, Mohammad Albarham",
+        "Year : 2025",
+        "Report : Project Report (PDF)",
+        "Poster : Project Poster (PDF)",
+        "This project presents a unified instance segmentation framework ( DINOv3-Mask2Former ) for urban streetscapes, developed as part of the SSY340 \u2013 Deep Machine Learning course at Chalmers University of Technology . The model integrates a self-supervised Vision Transformer ( DINOv3 ) backbone with a Mask2Former head via an enhanced ViT Adapter , forming a cohesive architecture that captures both global context and local details for robust segmentation of complex urban scenes.",
+        "Experiments on the Mapillary Vistas dataset validate the feasibility of this approach, showing that DINOv3's transferable features can be adapted for structured urban scene understanding. The model achieves strong instance segmentation performance on large objects while identifying key challenges in small and occluded instance recognition, underscoring the potential of self-supervised transformers for scalable urban perception.",
+        "Figure 1: Proposed instance segmentation architecture.",
+        "Backbone : Frozen DINOv3 pre-trained ViT-S16 extracts rich, transferable visual features.",
+        "Neck (ViT Adapter) : Custom multi-scale adapter with Conv blocks, Squeeze & Excitation modules, and cross-scale feature fusion to produce pyramid features at 1/8, 1/16, and 1/32 scales.",
+        "Head (Mask2Former) : Trainable pixel decoder and mask/class heads for generating instance masks and class logits.",
+        "Trained and evaluated on the Mapillary Vistas dataset \u2014 a large-scale benchmark with 25,000 high-resolution street-level images collected worldwide. The project focused on 12 instance-level classes including Person, Car, Truck, Bus, Bicycle, Motorcycle, Traffic Sign, Street Light, Pole, Crosswalk, Driveway, and Bicyclist.",
+        "Novel integration of a frozen DINOv3-ViT backbone with a trainable Mask2Former head.",
+        "Custom multi-scale ViT Adapter with Squeeze & Excitation for cross-scale feature fusion.",
+        "Strong performance on large urban objects (vehicles, buildings).",
+        "Identified key challenges in small and occluded instance recognition.",
+        "Demonstrates the potential of self-supervised transformers for scalable urban perception tasks.",
+        "PyTorch",
+        "DINOv3 (Self-supervised Vision Transformer)",
+        "Mask2Former",
+        "ViT Adapter",
+        "HuggingFace Transformers",
+        "Mapillary Vistas Dataset"
+      ],
+      "word_count": 344,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-1.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/porject_1/SecShot.png",
+          "filename": "SecShot.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/ML-ALP-Research-Group/Rasa_chatbot_with_chatgpt",
+        "https://github.com/RasaHQ/rasa",
+        "https://openai.com/blog/chatgpt/"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Github Link",
+        "The purpose of this repository is to give an example of integrating Rasa with chatGPT . The chatbot was acting as Therapist and that was the purpose of this project but in general this project handles any kind of conversation."
+      ],
+      "word_count": 48,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-10.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/arsl_rasperrypi/ArSL_project.jpg",
+          "filename": "ArSL_project.jpg",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/mohammad-albarham/Arabic-Sign-Language-RaspberryPi"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Github Link",
+        "Arabic-Sign-Language-RaspberryPi"
+      ],
+      "word_count": 9,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-11.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/GANs-MNSIT/gan_pipeline.png",
+          "filename": "gan_pipeline.png",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/portfolio/GANs-MNSIT/gan_network.png",
+          "filename": "gan_network.png",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/portfolio/GANs-MNSIT/G_output.png",
+          "filename": "G_output.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/mohammad-albarham/GANs-MNSIT"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Github Link",
+        "GANs-MNSIT",
+        "In this project, we'll be building a generative adversarial network (GAN) trained on the MNIST dataset. From this, we'll be able to generate new handwritten digits!"
+      ],
+      "word_count": 35,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-12.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/bikesharing/neural_network.png",
+          "filename": "neural_network.png",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/portfolio/bikesharing/Training_and_Validation_Dataset.png",
+          "filename": "Training_and_Validation_Dataset.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/mohammad-albarham/project-bikesharing"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Github Link",
+        "Bike Sharing",
+        "The main goal is to find the count of total daily rental bikes including both casual and registered. Original features and target numbers in dataset is 17 (16 features and 1 target)."
+      ],
+      "word_count": 42,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-13.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/CPPND/chatbot_demo.gif",
+          "filename": "chatbot_demo.gif",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/mohammad-albarham/CppND-Memory-Management-Chatbot"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Github Link",
+        "CPPND: Memory Management Chatbot",
+        "The ChatBot code creates a dialogue where users can ask questions about some aspects of memory management in C++. After the knowledge base of the chatbot has been loaded from a text file, a knowledge graph representation is created in computer memory, where chatbot answers represent the graph nodes and user queries represent the graph edges. After a user query has been sent to the chatbot, the Levenshtein distance is used to identify the most probable answer. The code is fully functional as-is and uses raw pointers to represent the knowledge graph and interconnections between objects throughout the project."
+      ],
+      "word_count": 111,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-14.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/ArSL_project/al6-p6-al-large.gif",
+          "filename": "al6-p6-al-large.gif",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://ieeexplore.ieee.org/abstract/document/9811162"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Github Link",
+        "Arabic Sign Language Recognition Using Deep Learning Models",
+        "Arabic Sign Language (ArSL) is a family of sign languages that are spread throughout the Arab world. This paper focuses on developing a robust deep learning model that is trained on the ArSL2018 dataset to convert images of the ArSL alphabets into Arabic alphabets. The ArSL2018 dataset consists of 54,049 images of 32 alphabets collected from 40 signers. We have implemented and validated several deep learning models, including Convolutional Neural Network (CNN), VGG-16, and ResNet-18. The best result is attained by the modified ResNet-18 model which achieved an average test accuracy of 99.47%."
+      ],
+      "word_count": 109,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-15.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/rgb_paper/dataset-cover.jpg",
+          "filename": "dataset-cover.jpg",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://arxiv.org/abs/2301.11932",
+        "https://lnkd.in/dErXdPQG",
+        "https://lnkd.in/dU-WbSJZ",
+        "https://www.kaggle.com/datasets/59761a7132888de252ded8443ced1c7fb21ad28be5598f1f6ca43c663c32b40b"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Paper Link",
+        "Paper",
+        "Kaggle",
+        "Paper",
+        "Object Detection, whole Dataset",
+        "Stratified dataset for train/valid/testing splits"
+      ],
+      "word_count": 20,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-16.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/pwm_project/PWM.png",
+          "filename": "PWM.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/mohammad-albarham/pic16f778_projects#additional-bounce-exercise"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Paper Link",
+        "Controlling DC motor using PWM with pic16f778"
+      ],
+      "word_count": 15,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-19.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/fpga/images.jpeg",
+          "filename": "images.jpeg",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/mohammad-albarham/fpga"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Dataset Link",
+        "FPGA : Field-Programmable Gate Array Architectures Projects."
+      ],
+      "word_count": 15,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-2.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/project_2/ss1.gif",
+          "filename": "ss1.gif",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/portfolio/project_2/ss2.gif",
+          "filename": "ss2.gif",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/TRoboto/MASC/tree/main",
+        "https://huggingface.co/TRoboto/masc_deepspeech_asr_model_v0",
+        "https://huggingface.co/TRoboto/masc_kenlm_3grams_lm",
+        "https://huggingface.co/datasets/pain/Arabic-Tweets",
+        "https://huggingface.co/datasets/pain/MASC",
+        "https://ieee-dataport.org/open-access/massive-arabic-speech-corpus-masc",
+        "https://ieeexplore.ieee.org/document/10022652",
+        "https://slt2022.org/"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Paper link",
+        "Paper",
+        "Dataset on IEEE Dataport",
+        "Code of processing, downloading the dataset",
+        "Dataset on huggingface",
+        "language model",
+        "ASR MODEL",
+        "Twitter Dataset"
+      ],
+      "word_count": 28,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-20.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/cnc/download.jpeg",
+          "filename": "download.jpeg",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/mohammad-albarham/CNC",
+        "https://www.youtube.com/playlist?list=PLR7GqPO_6lTiSDCSYFWXj8JvYrMdA805v"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Dataset Link",
+        "CNC :Computer numerical control Projects"
+      ],
+      "word_count": 13,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-21.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project's Details"
+      ],
+      "gallery_images": [],
+      "external_links": [
+        "https://www.youtube.com/playlist?list=PLR7GqPO_6lTgoqBkRVdcAt3OrpF7vdkGS"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "This repository has files for the Automation Course that were implemented by myself during the second semester in 2020 at the University of Jordan. Videos"
+      ],
+      "word_count": 28,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-3.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/maha_project/logo.png",
+          "filename": "logo.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/TRoboto/Maha"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : GITHUB",
+        "Maha is a text processing library specially developed to deal with Arabic text. The beta version can be used to clean and parse text, files, and folders with or without streaming capability."
+      ],
+      "word_count": 39,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-4.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/dawaie/Selection_115.png",
+          "filename": "Selection_115.png",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/portfolio/dawaie/Image.png",
+          "filename": "Image.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://cpgovappaward.jo/en"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Official Website for the award.",
+        "Dwai application. We won the 3rd place in The Crown Prince Award for Best Government Service Application."
+      ],
+      "word_count": 28,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-6.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/word2vec-embeddings/skip_gram_arch.png",
+          "filename": "skip_gram_arch.png",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/portfolio/word2vec-embeddings/SG_img.png",
+          "filename": "SG_img.png",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/portfolio/word2vec-embeddings/NS_img.png",
+          "filename": "NS_img.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/mohammad-albarham/word2vec-embeddings"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Github Link",
+        "word2vec algorithm using skip-gram architecture Implementation for word2vec using skip-gram architecture and negative sampling."
+      ],
+      "word_count": 22,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-7.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/mnist-prediction-using-Neural-Network/image.png",
+          "filename": "image.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/mohammad-albarham/mnist-prediction-using-Neural-Network"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Github Link",
+        "MNIST-prediction-using-Neural-Network The aim of this project is to predict the number from the images."
+      ],
+      "word_count": 22,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-8.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/TV Script Generation/Selection_116.png",
+          "filename": "Selection_116.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/mohammad-albarham/project-tv-script-generation"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Github Link",
+        "TV Script Generation In this project, I generated my own Seinfeld TV scripts using RNNs. I used part of the Seinfeld dataset of scripts from 9 seasons. The Neural Network I built generates a new ,\"fake\" TV script, based on patterns it recognizes in this training data."
+      ],
+      "word_count": 55,
+      "has_directory_img_bug": false
+    },
+    "projects/portfolio-details-9.html": {
+      "title": "Portfoio Details - Mohammad Al-Barham",
+      "headings": [
+        "Portfoio Details",
+        "Project information",
+        "Project's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/portfolio/sentiment-rnn/reviews_ex.png",
+          "filename": "reviews_ex.png",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/portfolio/sentiment-rnn/network_diagram.png",
+          "filename": "network_diagram.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://github.com/mohammad-albarham/sentiment-rnn"
+      ],
+      "paragraphs": [
+        "Home",
+        "Portfoio Details",
+        "Project URL : Github Link",
+        "Sentiment-rnn",
+        "Predicte the sentiment analysis of movie reviews. Here we'll use a dataset of movie reviews, accompanied by sentiment labels: positive or negative."
+      ],
+      "word_count": 31,
+      "has_directory_img_bug": false
+    }
+  },
+  "other_detail_pages": {
+    "experience/phi-pair.html": {
+      "title": "PAIR Program at Phi Science Institute | Mohammad Albarham",
+      "headings": [
+        "PAIR \u2014 Phi's Applied and Innovative Research Program",
+        "Program Information",
+        "Links",
+        "About This Program",
+        "The Four Phases",
+        "Outcomes"
+      ],
+      "gallery_images": [
+        {
+          "src": "/assets/img_webp/experience/phi-science-2019/pair-prototype-flex-mattress.webp",
+          "filename": "pair-prototype-flex-mattress.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/experience/phi-science-2019/pair-prototype-flex-mattress.jpg",
+          "filename": "pair-prototype-flex-mattress.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/experience/phi-science-2019/pair-cohort.webp",
+          "filename": "pair-cohort.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/experience/phi-science-2019/pair-cohort.jpg",
+          "filename": "pair-cohort.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/experience/phi-science-2019/pair-digital-fabrication.webp",
+          "filename": "pair-digital-fabrication.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/experience/phi-science-2019/pair-digital-fabrication.jpg",
+          "filename": "pair-digital-fabrication.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/experience/phi-science-2019/pair-certificate.webp",
+          "filename": "pair-certificate.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/experience/phi-science-2019/pair-certificate.png",
+          "filename": "pair-certificate.png",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://www.phi.science/"
+      ],
+      "paragraphs": [
+        "Home",
+        "Resume",
+        "PAIR Program",
+        "Role Applied Researcher",
+        "Institute Phi Science Institute",
+        "Training Period February \u2013 November 2019",
+        "Location Amman, Jordan",
+        "Supported by Embassy of the Kingdom of the Netherlands in Jordan",
+        "Selection Top 10% of applicants",
+        "Skills Applied Research Product Design Delft Design Approach Market Research Go-To-Market Strategy Digital Fabrication 3D Printing CNC and Laser Cutting",
+        "PAIR \u2014 Phi's Applied and Innovative Research program \u2014 integrates applied scientific research with innovation and entrepreneurship. I was selected as one of the top 10% of innovators among all candidates, and worked in a multidisciplinary team alongside business, engineering and medical students on applied projects aimed at a real market need.",
+        "The program runs over two years. Its first year is structured as four phases \u2014 problem definition, ideation and evaluation, business and marketing, and prototyping \u2014 each ending in a deliverable defended in front of a scientific committee or a panel of industry professionals. The training was held in Amman, Jordan, from February to November 2019, and was supported and funded by the Embassy of the Kingdom of the Netherlands in Jordan.",
+        "My team's outcome was Flex-mattress , a segmented hospital mattress and frame taken from problem statement through to a functional physical prototype, a CAD model and a full commercial strategy.",
+        "Scientific problem definition. Conducted qualitative market research to define a scientific problem, then wrote a research proposal and presented it to an experienced scientific committee.",
+        "Ideation and evaluation. Applied the Delft industrial design approach to move from candidate ideas to an evaluated product concept.",
+        "Business and marketing. Developed a go-to-market strategy for a hardware product \u2014 new product launch, competitive analysis, positioning, messaging and pricing \u2014 built around a unique value proposition.",
+        "Prototyping and digital fabrication. Fabricated a functional hardware prototype using 3D printing, CNC, laser cutting and moulding, and presented it with the accompanying business strategy to an array of experts and industry professionals.",
+        "Selected as one of the top 10% of innovators among all program candidates.",
+        "Defined a scientific problem from qualitative market research and defended the resulting research proposal before a scientific committee.",
+        "Applied the Delft industrial design approach to prototype a functional hardware-based product.",
+        "Formulated a comprehensive product marketing strategy introducing a unique value proposition for a hardware product in the market.",
+        "Fabricated the prototype using 3D printers, CNC, laser cutting and moulding, and presented it alongside a detailed business strategy.",
+        "Awarded a Certificate of Participation on 26 January 2020 for the nine-month Innovative Applied Research Training, covering scientific problem definition, product design, business commercialization and digital fabrication."
+      ],
+      "word_count": 422
+    },
+    "volunteering/volunteering_ieee.html": {
+      "title": "IEEE Volunteering - Mohammad Albarham - AI & Computer Vision Engineer",
+      "headings": [
+        "IEEE Volunteering",
+        "Useful links",
+        "Event's Details",
+        "Useful links",
+        "Event's Details",
+        "Event/Activity Details",
+        "Event's Details",
+        "Event/Activity Details",
+        "Event's Details",
+        "Event/Activity Details",
+        "Event's Details"
+      ],
+      "gallery_images": [
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_VLT_2025/1.jpg",
+          "filename": "1.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_VLT_2025/2.jpg",
+          "filename": "2.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_VLT_2025/3.jpg",
+          "filename": "3.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_VLT_2025/4.jpg",
+          "filename": "4.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_VLT_2025/5.jpg",
+          "filename": "5.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_section_congress_2023/img_0.jpg",
+          "filename": "img_0.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_section_congress_2023/img_1.jpg",
+          "filename": "img_1.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_section_congress_2023/img_2.jpg",
+          "filename": "img_2.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_section_congress_2023/img_3.jpg",
+          "filename": "img_3.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_section_congress_2023/img_4.jpg",
+          "filename": "img_4.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_section_congress_2023/img_5.jpg",
+          "filename": "img_5.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_section_congress_2023/img_6.jpg",
+          "filename": "img_6.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 Strategy Retreat 2022 meeting/img_0.jpeg",
+          "filename": "img_0.jpeg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 Strategy Retreat 2022 meeting/img_1.jpeg",
+          "filename": "img_1.jpeg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 Strategy Retreat 2022 meeting/img_2.jpeg",
+          "filename": "img_2.jpeg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 Strategy Retreat 2022 meeting/img_3.jpeg",
+          "filename": "img_3.jpeg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 Strategy Retreat 2022 meeting/img_4.jpeg",
+          "filename": "img_4.jpeg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 Strategy Retreat 2022 meeting/img_5.jpeg",
+          "filename": "img_5.jpeg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 Strategy Retreat 2022 meeting/img_6.jpeg",
+          "filename": "img_6.jpeg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_0.jpg",
+          "filename": "img_0.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_1.jpg",
+          "filename": "img_1.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_2.jpg",
+          "filename": "img_2.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_3.jpg",
+          "filename": "img_3.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_4.jpg",
+          "filename": "img_4.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_5.jpg",
+          "filename": "img_5.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_6.jpg",
+          "filename": "img_6.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_7.jpg",
+          "filename": "img_7.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_8.jpg",
+          "filename": "img_8.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_9.jpg",
+          "filename": "img_9.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_10.jpg",
+          "filename": "img_10.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_11.jpg",
+          "filename": "img_11.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_12.jpg",
+          "filename": "img_12.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_13.jpg",
+          "filename": "img_13.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE R8 SYP CONGRESS 2022/img_14.jpg",
+          "filename": "img_14.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_JS_meeting_2/img_0.JPG",
+          "filename": "img_0.JPG",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_JS_meeting_2/img_1.jpg",
+          "filename": "img_1.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "../assets/img/Volunteering/IEEE/IEEE_JS_meeting_2/img_2.JPG",
+          "filename": "img_2.JPG",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://ieeer8.org/news/ieee-r8-volunteer-training-series-workshop-18-19-july-tunisia-call-for-participation//",
+        "https://r8syp.ieee.tn/",
+        "https://sections-congress.ieee.org/"
+      ],
+      "paragraphs": [
+        "Home",
+        "IEEE Volunteering",
+        "Congress Website : https://ieeer8.org/news/ieee-r8-volunteer-training-series-workshop-18-19-july-tunisia-call-for-participation/",
+        "IEEE R8 Volunteer Training Series Workshop 2025",
+        "IEEE Region 8 Volunteer Training Series \u2018VTS\u2019 workshop, taking place on 18 \u2013 19 July 2025 in Verdi Tunis Beach Resort, Gammarth \u2013 Tunis, Tunisia. This workshop brings together current and future IEEE leaders from across Region 8 to collaborate, share best practices, learn skills and grow as effective leaders in our global community.",
+        "I have attended the congress as a speaker representing IEEE Chapters Coordination Committee of R8.",
+        "Congress Website : https://sections-congress.ieee.org/",
+        "IEEE Sections Congress 2023",
+        "IEEE Sections Congress, the triennial flagship event hosted by MGA, brings together volunteer leaders from every member country to share ideas and solutions.",
+        "I have attended the congress as a member of Chapters Coordination Committee of R8. It was a great experience and it was the first time I had been in a congress of this scale; IEEE global event. In addition, it was the first time for me in Canada and the longest flight trip I have ever had in my life",
+        "The congress was amazing, its theme was about \"Enabling Leaders to Build a sustainable Future.\"",
+        "Name: : IEEE R8 Strategy Retreat 2022 meeting",
+        "Date: : 10-11/09/2022",
+        "Place: Geneva, Switzerland",
+        "IEEE R8 Strategy Retreat 2022 meeting, it was an intensive and useful meeting that discussing the future of IEEE in R8 and how to improve the services and the benefits for the members. It had many topics such as: Volunteer Pipeline and Students Retention in IEEE. We have discussed the challenges and provided many suggested solutions.",
+        "I have attended the congress as a member of Chapters Coordination Committee and SAC member of R8. I have learned a lot of details about IEEE and I was with great leaders and volunteers over R8.",
+        "Name: : IEEE R8 SYP CONGRESS 2022",
+        "Date: : 03-07/08/2022",
+        "Place: Tunis, Tunisia",
+        "Congress Link: https://r8syp.ieee.tn/",
+        "The IEEE R8 Student and Young Professional Congress is the largest event in all Region 8. It occurs every two years and gathers both students and young professionals members from all Sections in this Region. SYP's main goal is to enhance and foster the engineering sense and capabilities through different activities both technically and culturally. It also provides an opportunity to network.",
+        "I have attended the congress as a SAC member of R8 and a member of Chapters Coordination Committee. From over 40 countries, we met all of those people on one land as a part of our Region, R8 ( Europe, Africa and Middle East ).",
+        "I have received two certificates: IEEE R8 Regional Exemplary Student Branch Award for 2020 and IEEE R8 Regional Exemplary Student Branch Counselor Award for 2021 as the past chairperson of IEEE University of Jordan Student Branch. It was a team effort from the branch members and the executive committee over two years.",
+        "Name: : IEEE Annual Meeting - 2022",
+        "Date: : 13-07-2022",
+        "Place: Amman, Jordan",
+        "IEEE Annual meeting is conducted every year on Jordan to recognize efforts of IEEE Jordan section committee, notable Student Branches in Jordan and any other contribution individually or as a group through the past year. Through this meeting I have got an award to appreciate my efforts as Section Student Representative of Jordan on the past two years (2020-2022). Also, we got other awards on our student branch (University of Jordan SB)."
+      ],
+      "word_count": 555
+    },
+    "volunteering/visited_countries.html": {
+      "title": "Travel Map | Mohammad Albarham",
+      "headings": [
+        "travel"
+      ],
+      "gallery_images": [],
+      "external_links": [
+        "https://github.com/bjornd/jvectormap"
+      ],
+      "paragraphs": [
+        "Here is a visualization for the countries I have visited so far.",
+        "I've visited X countries on X continents:",
+        "Made with jVectorMap ."
+      ],
+      "word_count": 23
+    },
+    "competitions/competition-details-1.html": {
+      "title": "Asyad Global Logistics Challenge - Kaggle Competition | Mohammad Albarham",
+      "headings": [
+        "Asyad Global Logistics Challenge - Kaggle Competition",
+        "Competition Information",
+        "Links",
+        "About This Competition",
+        "Highlights"
+      ],
+      "gallery_images": [
+        {
+          "src": "/assets/img_webp/competitions/competition-1/1635950081679.webp",
+          "filename": "1635950081679.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/1635950081679.jpeg",
+          "filename": "1635950081679.jpeg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/252169070_1239676323167401_2116295815816253876_n%20copy.webp",
+          "filename": "252169070_1239676323167401_2116295815816253876_n%20copy.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/252169070_1239676323167401_2116295815816253876_n%20copy.jpg",
+          "filename": "252169070_1239676323167401_2116295815816253876_n%20copy.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/249340873_1237290123406021_8060094637034926188_n.webp",
+          "filename": "249340873_1237290123406021_8060094637034926188_n.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/249340873_1237290123406021_8060094637034926188_n.jpg",
+          "filename": "249340873_1237290123406021_8060094637034926188_n.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/250670445_1237859416682425_4471218178086061639_n.webp",
+          "filename": "250670445_1237859416682425_4471218178086061639_n.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/250670445_1237859416682425_4471218178086061639_n.jpg",
+          "filename": "250670445_1237859416682425_4471218178086061639_n.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/2.webp",
+          "filename": "2.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/2.jpg",
+          "filename": "2.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/20211102_115321.webp",
+          "filename": "20211102_115321.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/20211102_115321.jpg",
+          "filename": "20211102_115321.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/20211102_191118.webp",
+          "filename": "20211102_191118.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/20211102_191118.jpg",
+          "filename": "20211102_191118.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/20211102_192716.webp",
+          "filename": "20211102_192716.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/20211102_192716.jpg",
+          "filename": "20211102_192716.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/20211102_192805.webp",
+          "filename": "20211102_192805.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/20211102_192805.jpg",
+          "filename": "20211102_192805.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/20211102_192856.webp",
+          "filename": "20211102_192856.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/20211102_192856.jpg",
+          "filename": "20211102_192856.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/20211102_193214.webp",
+          "filename": "20211102_193214.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/20211102_193214.jpg",
+          "filename": "20211102_193214.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/20211103_183313.webp",
+          "filename": "20211103_183313.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/20211103_183313.jpg",
+          "filename": "20211103_183313.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/image.webp",
+          "filename": "image.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/image.png",
+          "filename": "image.png",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/Screenshot_20211102-200409_Messenger.webp",
+          "filename": "Screenshot_20211102-200409_Messenger.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/Screenshot_20211102-200409_Messenger.jpg",
+          "filename": "Screenshot_20211102-200409_Messenger.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/Screenshot_20211102-200438_Chrome.webp",
+          "filename": "Screenshot_20211102-200438_Chrome.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/Screenshot_20211102-200438_Chrome.jpg",
+          "filename": "Screenshot_20211102-200438_Chrome.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/Screenshot_20211102-200951_Chrome.webp",
+          "filename": "Screenshot_20211102-200951_Chrome.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/Screenshot_20211102-200951_Chrome.jpg",
+          "filename": "Screenshot_20211102-200951_Chrome.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-1/Screenshot_20211104-012355_Instagram.webp",
+          "filename": "Screenshot_20211104-012355_Instagram.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-1/Screenshot_20211104-012355_Instagram.jpg",
+          "filename": "Screenshot_20211104-012355_Instagram.jpg",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://www.kaggle.com/competitions/kaggle-days-meetup-dubai-competition/overview"
+      ],
+      "paragraphs": [
+        "Home",
+        "Competitions",
+        "Asyad Global Logistics Challenge - Kaggl",
+        "Date Nov 2021",
+        "Organizer Asyad Group (Kaggle Days Meetup Dubai)",
+        "Location Dubai, UAE",
+        "Technologies Python AI Kaggle-Competitions Data Science",
+        "A live, in-person Kaggle competition held at the Kaggle Days Meetup in Dubai, sponsored by Asyad Group, a major logistics and maritime services provider in Oman. Teams competed to build a regression model estimating future ship prices from historical maritime and shipping data. Our team placed 2nd overall.",
+        "Finished 2nd on the final leaderboard as team \"ninja\" with a score of 0.06930, between the winning team at 0.06221 and third place at 0.07393.",
+        "Awarded a USD $1,500 gift certificate at the prize ceremony on 3 November 2021.",
+        "Built a regression model estimating future ship prices from historical maritime and shipping data, the challenge set by Asyad Group.",
+        "Competed live and on-site over the two-day event rather than as a remote, long-running Kaggle competition.",
+        "Held at the Dubai Exhibition Centre, Expo 2020 Dubai, on 2\u20133 November 2021.",
+        "Part of Kaggle Days Meetup Dubai, powered by Asyad Group together with Kaggle, LogicAI, and Hypermotion Dubai."
+      ],
+      "word_count": 180
+    },
+    "competitions/competition-details-2.html": {
+      "title": "Crown Prince Award for Best Government Service Application | Mohammad Albarham",
+      "headings": [
+        "Crown Prince Award for Best Government Service Application",
+        "Competition Information",
+        "Links",
+        "About This Competition",
+        "Highlights"
+      ],
+      "gallery_images": [
+        {
+          "src": "/assets/img_webp/competitions/competition-2/award-announcement.webp",
+          "filename": "award-announcement.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-2/award-announcement.png",
+          "filename": "award-announcement.png",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-2/award-ceremony-livestream.webp",
+          "filename": "award-ceremony-livestream.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-2/award-ceremony-livestream.jpg",
+          "filename": "award-ceremony-livestream.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-2/app-screenshot.webp",
+          "filename": "app-screenshot.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-2/app-screenshot.png",
+          "filename": "app-screenshot.png",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-2/crown-prince-award-site.webp",
+          "filename": "crown-prince-award-site.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-2/crown-prince-award-site.png",
+          "filename": "crown-prince-award-site.png",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-2/tv-interview.webp",
+          "filename": "tv-interview.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-2/tv-interview.jpg",
+          "filename": "tv-interview.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-2/certificate.webp",
+          "filename": "certificate.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-2/certificate.jpg",
+          "filename": "certificate.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-2/certificate-and-shield.webp",
+          "filename": "certificate-and-shield.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-2/certificate-and-shield.jpg",
+          "filename": "certificate-and-shield.jpg",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://cpgovappaward.jo/en",
+        "https://www.youtube.com/watch?v=mVs_xDY97-w"
+      ],
+      "paragraphs": [
+        "Home",
+        "Competitions",
+        "Crown Prince Award for Best Government S",
+        "Date Sep 2021",
+        "Organizer Crown Prince Foundation & Ministry of Digital Economy and Entrepreneurship",
+        "Location Amman, Jordan",
+        "Technologies Mobile Development Healthcare",
+        "The Crown Prince Award for Best Government Service Application is an annual award designed to stimulate and encourage university students to provide creative solutions via smartphone applications. The aim is to improve government services and provide simple around the clock government services that are easy, efficient, and transparent to exceed customer expectations. Our team entered Dawaie, a medical application making government health services easier to reach, into the 2nd edition of the award and placed 3rd.",
+        "Placed 3rd in the 2nd edition of the Crown Prince Award for Best Government Service Application with the Dawaie app.",
+        "The team was awarded a 20,000 JOD (about $28,200) prize.",
+        "Competed against about 122 projects submitted by 25 universities across Jordan.",
+        "Led the four-student team from the University of Jordan as team leader: Mohammad Albarham, Mohammad Khaleel Al-Khawaldeh, Zaid Sameer Al-Khateeb, and Zuhair Raed Mahmoud.",
+        "Recognised by the University of Jordan's Innovation and Entrepreneurship Centre with a certificate of appreciation and a university shield on 1 September 2021.",
+        "Represented the team on Jordanian television to present the application after the award."
+      ],
+      "word_count": 207
+    },
+    "competitions/competition-details-3.html": {
+      "title": "ICPC \u2014 JU Competitive Programming Contest (JUCPC) | Mohammad Albarham",
+      "headings": [
+        "ICPC \u2014 JU Competitive Programming Contest (JUCPC)",
+        "Competition Information",
+        "Links",
+        "About This Competition",
+        "Highlights"
+      ],
+      "gallery_images": [
+        {
+          "src": "/assets/img_webp/competitions/competition-3/jucpc-2019-group-photo.webp",
+          "filename": "jucpc-2019-group-photo.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/jucpc-2019-group-photo.jpg",
+          "filename": "jucpc-2019-group-photo.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/certificate-extreme-programmers.webp",
+          "filename": "certificate-extreme-programmers.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/certificate-extreme-programmers.jpg",
+          "filename": "certificate-extreme-programmers.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/certificate-first-to-solve-problem-a.webp",
+          "filename": "certificate-first-to-solve-problem-a.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/certificate-first-to-solve-problem-a.jpg",
+          "filename": "certificate-first-to-solve-problem-a.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/jucpc-2019-team.webp",
+          "filename": "jucpc-2019-team.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/jucpc-2019-team.jpg",
+          "filename": "jucpc-2019-team.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/jucpc-2019-contestants.webp",
+          "filename": "jucpc-2019-contestants.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/jucpc-2019-contestants.jpg",
+          "filename": "jucpc-2019-contestants.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/jucpc-2019-contest-hall.webp",
+          "filename": "jucpc-2019-contest-hall.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/jucpc-2019-contest-hall.jpg",
+          "filename": "jucpc-2019-contest-hall.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/jucpc-2019-opening-ceremony.webp",
+          "filename": "jucpc-2019-opening-ceremony.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/jucpc-2019-opening-ceremony.jpg",
+          "filename": "jucpc-2019-opening-ceremony.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/jucpc-2019-closing-ceremony.webp",
+          "filename": "jucpc-2019-closing-ceremony.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/jucpc-2019-closing-ceremony.jpg",
+          "filename": "jucpc-2019-closing-ceremony.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/jucpc-2018-group-photo.webp",
+          "filename": "jucpc-2018-group-photo.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/jucpc-2018-group-photo.jpg",
+          "filename": "jucpc-2018-group-photo.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/jucpc-2018-team.webp",
+          "filename": "jucpc-2018-team.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/jucpc-2018-team.jpg",
+          "filename": "jucpc-2018-team.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/jucpc-2018-team-selfie.webp",
+          "filename": "jucpc-2018-team-selfie.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/jucpc-2018-team-selfie.jpg",
+          "filename": "jucpc-2018-team-selfie.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/jucpc-2018-certificate.webp",
+          "filename": "jucpc-2018-certificate.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/jucpc-2018-certificate.jpg",
+          "filename": "jucpc-2018-certificate.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/jucpc-2018-campus-banner.webp",
+          "filename": "jucpc-2018-campus-banner.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/jucpc-2018-campus-banner.jpg",
+          "filename": "jucpc-2018-campus-banner.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/jucpc-2018-balloons.webp",
+          "filename": "jucpc-2018-balloons.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/jucpc-2018-balloons.jpg",
+          "filename": "jucpc-2018-balloons.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-3/icpc-logo.webp",
+          "filename": "icpc-logo.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-3/icpc-logo.jpg",
+          "filename": "icpc-logo.jpg",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://icpc.global/"
+      ],
+      "paragraphs": [
+        "Home",
+        "Competitions",
+        "ICPC \u2014 JU Competitive Programming Contes",
+        "Date Jun 2019",
+        "Organizer ICPC \u2014 International Competitive Programming Contest & the University of Jordan",
+        "Location Amman, Jordan",
+        "Technologies C++ Algorithms Data Structures Problem Solving",
+        "The JU Competitive Programming Contest (JUCPC) is the University of Jordan's qualifier within the ICPC, the International Competitive Programming Contest. Teams of three share a single machine and race to solve as many algorithmic problems as they can within a five-hour window, with a balloon delivered to the desk for every problem accepted. I competed in the 2018 edition on 6 April 2018 and again in the 2019 edition on 22 June 2019, where the contest was run under the ACPC, the Africa and Arab Collegiate Programming Championship, and I received two Certificates of Achievement.",
+        "Awarded the Extreme Programmers Certificate of Achievement at the 2019 JU Competitive Programming Contest on 22 June 2019.",
+        "Awarded a First to Solve Problem A Certificate of Achievement at the same contest, for being first in the field to get problem A accepted.",
+        "Both certificates were signed by William B. Poucher, ICPC Executive Director, and Ossama M. Ismail, ACPC Championship Director.",
+        "Also competed in JUCPC 2018 on 6 April 2018, receiving a Certificate of Participation signed by the Dean of the King Abdullah II School for Information Technology and the President of the Jordan Programmers Association.",
+        "Solved algorithmic problems in C++ under ICPC rules: three contestants to a team, one shared computer, five hours, penalty time for wrong submissions.",
+        "Organised by the University of Jordan with the Jordanian Programmers Association, the Students' Union, the Innovation and Entrepreneurship Center, and the ICPC Foundation."
+      ],
+      "word_count": 270
+    },
+    "competitions/competition-details-4.html": {
+      "title": "IEEE RAS Portal: FireFighting I | Mohammad Albarham",
+      "headings": [
+        "IEEE RAS Portal: FireFighting I",
+        "Competition Information",
+        "Links",
+        "About This Competition",
+        "Highlights"
+      ],
+      "gallery_images": [
+        {
+          "src": "/assets/img_webp/competitions/competition-4/portal-2019-team-with-robots.webp",
+          "filename": "portal-2019-team-with-robots.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-4/portal-2019-team-with-robots.jpg",
+          "filename": "portal-2019-team-with-robots.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-4/portal-2019-robot-setup.webp",
+          "filename": "portal-2019-robot-setup.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-4/portal-2019-robot-setup.jpg",
+          "filename": "portal-2019-robot-setup.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-4/portal-2019-event-banners.webp",
+          "filename": "portal-2019-event-banners.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-4/portal-2019-event-banners.jpg",
+          "filename": "portal-2019-event-banners.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-4/portal-2019-robot-prototype.webp",
+          "filename": "portal-2019-robot-prototype.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-4/portal-2019-robot-prototype.jpg",
+          "filename": "portal-2019-robot-prototype.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-4/portal-2019-robot-chassis.webp",
+          "filename": "portal-2019-robot-chassis.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-4/portal-2019-robot-chassis.jpg",
+          "filename": "portal-2019-robot-chassis.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-4/certificate-best-design.webp",
+          "filename": "certificate-best-design.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-4/certificate-best-design.jpg",
+          "filename": "certificate-best-design.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-4/certificate-clean-sheet.webp",
+          "filename": "certificate-clean-sheet.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-4/certificate-clean-sheet.jpg",
+          "filename": "certificate-clean-sheet.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-4/certificate-participation.webp",
+          "filename": "certificate-participation.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-4/certificate-participation.jpg",
+          "filename": "certificate-participation.jpg",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://web.facebook.com/events/384083625504106/"
+      ],
+      "paragraphs": [
+        "Home",
+        "Competitions",
+        "IEEE RAS Portal: FireFighting I",
+        "Date Jun 2019",
+        "Organizer IEEE RAS - University of Jordan Student Branch",
+        "Location Amman, Jordan",
+        "Technologies Robotics Embedded Systems Mechanical Design 3D Printing",
+        "Portal: FireFighting is the annual IEEE RAS robotics competition run by the IEEE RAS chapter at the University of Jordan Student Branch, giving Jordanian youth a local arena to design and build their own firefighting robot prototypes. Competing as team Electrone X with my colleague Abdullah Abu Dabaseh, we built our robots from scratch and finished 4th overall, and were also awarded the Best Design Award for the mechanical design and the Clean Sheet Award for faultless runs.",
+        "Finished 4th overall in the IEEE RAS Portal: FireFighting competition, held on 29 June 2019 at the University of Jordan.",
+        "Won the Best Design Award for the mechanical design of the robot, and the Clean Sheet Award for completing the runs without faults.",
+        "Competed as team Electrone X with my colleague Abdullah Abu Dabaseh, each of us building and running a robot of our own design.",
+        "Built the robots from scratch on a custom four-wheel chassis, with microcontroller-driven motors and a servo, a motor-driven fan to put out the flame, and laser-cut acrylic and 3D-printed parts.",
+        "Certificates signed by Prof. Lutfi Al-Sharif, IEEE RAS Jordan Chapter Chairman, and Omar Turkmani, IEEE JU RAS Chairman.",
+        "Placed 3rd with the same colleague in the previous Portal: Firefighting competition, held in October 2018."
+      ],
+      "word_count": 238
+    },
+    "competitions/competition-details-5.html": {
+      "title": "Portal: Firefighting Competition | Mohammad Albarham",
+      "headings": [
+        "Portal: Firefighting Competition",
+        "Competition Information",
+        "Links",
+        "About This Competition",
+        "Highlights"
+      ],
+      "gallery_images": [
+        {
+          "src": "/assets/img_webp/competitions/competition-5/portal-2018-arena-run.webp",
+          "filename": "portal-2018-arena-run.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-5/portal-2018-arena-run.jpg",
+          "filename": "portal-2018-arena-run.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-5/portal-2018-opening-remarks.webp",
+          "filename": "portal-2018-opening-remarks.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-5/portal-2018-opening-remarks.jpg",
+          "filename": "portal-2018-opening-remarks.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-5/portal-2018-judging-run.webp",
+          "filename": "portal-2018-judging-run.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-5/portal-2018-judging-run.jpg",
+          "filename": "portal-2018-judging-run.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-5/portal-2018-robot-in-maze.webp",
+          "filename": "portal-2018-robot-in-maze.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-5/portal-2018-robot-in-maze.jpg",
+          "filename": "portal-2018-robot-in-maze.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-5/portal-2018-teams-preparing.webp",
+          "filename": "portal-2018-teams-preparing.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-5/portal-2018-teams-preparing.jpg",
+          "filename": "portal-2018-teams-preparing.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-5/portal-2018-team-table.webp",
+          "filename": "portal-2018-team-table.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-5/portal-2018-team-table.jpg",
+          "filename": "portal-2018-team-table.jpg",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img_webp/competitions/competition-5/portal-2018-group-photo.webp",
+          "filename": "portal-2018-group-photo.webp",
+          "is_directory": false
+        },
+        {
+          "src": "/assets/img/competitions/competition-5/portal-2018-group-photo.jpg",
+          "filename": "portal-2018-group-photo.jpg",
+          "is_directory": false
+        }
+      ],
+      "external_links": [
+        "https://web.facebook.com/events/960500750804137/"
+      ],
+      "paragraphs": [
+        "Home",
+        "Competitions",
+        "Portal: Firefighting Competition",
+        "Date Oct 2018",
+        "Organizer IEEE RAS - University of Jordan Student Branch",
+        "Location Amman, Jordan",
+        "Technologies Robotics Embedded Systems Mechanical Design",
+        "Portal: Firefighting is the IEEE RAS robotics competition run by the IEEE RAS chapter at the University of Jordan Student Branch, where teams build their own robots and send them through a maze arena to find and put out a flame. Competing with my colleague Abdullah Abu Dabaseh, we placed 3rd in this edition, held on 6 October 2018. We entered again the following year, in IEEE RAS Portal: FireFighting I in June 2019, and finished 4th while taking the Best Design and Clean Sheet awards.",
+        "Placed 3rd with my colleague Abdullah Abu Dabaseh, competing on 6 October 2018 at the University of Jordan.",
+        "Teams sent self-built robots through a plywood maze arena to reach a flame and extinguish it, with judges following each run around the arena.",
+        "Organised by the IEEE RAS chapter of the University of Jordan Student Branch, with the event carrying IEEE Day branding.",
+        "Returned the following year for IEEE RAS Portal: FireFighting I in June 2019, where we finished 4th and won the Best Design and Clean Sheet awards."
+      ],
+      "word_count": 200
+    }
+  },
+  "pre_existing_issues": [
+    {
+      "category": "directory_image_source",
+      "files": [
+        "projects/latest-projects-1.html",
+        "projects/latest-projects-2.html",
+        "projects/latest-projects-3.html"
+      ],
+      "reference": "../assets/img/portfolio/",
+      "issue": "Tag <img src=\"../assets/img/portfolio/\"> points to directory instead of image file"
+    },
+    {
+      "category": "root_directory_anchors",
+      "files": [
+        "competitions/competition-details-1.html",
+        "competitions/competition-details-2.html",
+        "competitions/competition-details-3.html",
+        "competitions/competition-details-4.html",
+        "competitions/competition-details-5.html",
+        "experience/phi-pair.html",
+        "projects/araclip.html"
+      ],
+      "reference": "/#section (e.g. /#hero, /#about, /#resume, /#projects, etc.)",
+      "issue": "Links use root-relative directory anchors (/#section) rather than file-relative anchors (../index.html#section)"
+    },
+    {
+      "category": "commented_missing_files",
+      "files": [
+        "projects/portfolio-details-1.html",
+        "volunteering/visited_countries.html"
+      ],
+      "reference": "portfolio-details-2.jpg, portfolio-details-3.jpg, /js/jquery.js",
+      "issue": "Commented-out HTML code references non-existent files"
+    }
+  ]
+}
